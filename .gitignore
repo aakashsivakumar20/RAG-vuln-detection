@@ -1,0 +1,5 @@
+node_modules/
+*.pdf
+!reference/*.pdf
+.DS_Store
+*.tmp.md
