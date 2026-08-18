@@ -1,0 +1,61 @@
+digraph Architecture {
+    rankdir=TB;
+    fontname="Helvetica";
+    node [fontname="Helvetica", fontsize=11, style=filled, shape=box, margin="0.18,0.1"];
+    edge [fontname="Helvetica", fontsize=9, color="#5b6472"];
+    bgcolor="white";
+
+    subgraph cluster_input {
+        label="Input";
+        style=rounded; color="#c9d2de"; fontsize=12; fontcolor="#33414f";
+        URL [label="GitHub Repository URL\n(User Submission)", fillcolor="#e8edf5", color="#8ea3bd"];
+    }
+
+    subgraph cluster_ingest {
+        label="Processing Layer";
+        style=rounded; color="#c9d2de"; fontsize=12; fontcolor="#33414f";
+        CLONE [label="Repository Ingestion\n(Clone + Filter)", fillcolor="#dfeaf7", color="#6f93bb"];
+        PARSE [label="Parsing & Chunking\n(Tree-sitter, function/class-level)", fillcolor="#dfeaf7", color="#6f93bb"];
+        EMBED [label="Embedding Service\n(Code-specialised model)", fillcolor="#dfeaf7", color="#6f93bb"];
+    }
+
+    subgraph cluster_ai {
+        label="AI / Retrieval Layer";
+        style=rounded; color="#c9d2de"; fontsize=12; fontcolor="#33414f";
+        VDBREPO [label="Vector DB\nRepository Code Index", shape=cylinder, fillcolor="#fbe8d6", color="#c98a45"];
+        KB [label="OWASP Top 10 + CWE\nDocumentation", fillcolor="#f3ecd8", color="#b39a4f"];
+        VDBKB [label="Vector DB\nSecurity Knowledge Base", shape=cylinder, fillcolor="#fbe8d6", color="#c98a45"];
+        RAG [label="RAG Retrieval Orchestrator\n(dual-context: repo + KB)", fillcolor="#e3ddf3", color="#8a72c2"];
+        LLM [label="LLM Security Analysis\n(CWE-aware structured prompt)", fillcolor="#e3ddf3", color="#8a72c2"];
+    }
+
+    subgraph cluster_score {
+        label="Scoring & Remediation";
+        style=rounded; color="#c9d2de"; fontsize=12; fontcolor="#33414f";
+        SEV [label="Severity Scoring Module\n(CVSS-inspired, rule-based)", fillcolor="#dfeee0", color="#5a9e60"];
+        FIX [label="Remediation Generation\n(before/after diff)", fillcolor="#dfeee0", color="#5a9e60"];
+    }
+
+    subgraph cluster_store {
+        label="Persistence";
+        style=rounded; color="#c9d2de"; fontsize=12; fontcolor="#33414f";
+        MONGO [label="MongoDB\nFindings / Scan Metadata", shape=cylinder, fillcolor="#fbe8d6", color="#c98a45"];
+    }
+
+    subgraph cluster_ui {
+        label="Presentation Layer";
+        style=rounded; color="#c9d2de"; fontsize=12; fontcolor="#33414f";
+        DASH [label="Interactive Dashboard\n(React.js — search / filter / drill-down)", fillcolor="#e8edf5", color="#8ea3bd"];
+    }
+
+    URL -> CLONE -> PARSE -> EMBED -> VDBREPO;
+    KB -> VDBKB;
+    VDBREPO -> RAG;
+    VDBKB -> RAG;
+    RAG -> LLM;
+    LLM -> SEV;
+    LLM -> FIX;
+    SEV -> MONGO;
+    FIX -> MONGO;
+    MONGO -> DASH;
+}
