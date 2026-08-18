@@ -69,15 +69,16 @@ function titleBar(slide, kicker, title, dark) {
   s.addShape("rect", { x: 0.7, y: 4.95, w: 8.6, h: 0.02, fill: { color: "3A5A8C" }, line: { type: "none" } });
 
   s.addText([
-    { text: "Presented by: ", options: { bold: true, color: "8FD3E8" } },
-    { text: "[Student Name(s)] — [Registration Number(s)]", options: { color: WHITE } },
-  ], { x: 0.7, y: 5.15, w: 9.6, h: 0.4, fontSize: 14, fontFace: FONT });
+    { text: "Presented by: ", options: { bold: true, color: "8FD3E8", breakLine: true } },
+    { text: "Aakash Sivakumar — 23BCE5119", options: { color: WHITE, breakLine: true } },
+    { text: "Udhay Anand Pandiyan — 23BCE1793", options: { color: WHITE } },
+  ], { x: 0.7, y: 5.1, w: 9.6, h: 0.85, fontSize: 14, fontFace: FONT, lineSpacingMultiple: 1.25 });
   s.addText([
     { text: "Guide: ", options: { bold: true, color: "8FD3E8" } },
-    { text: "[Project Guide Name]", options: { color: WHITE } },
-  ], { x: 0.7, y: 5.6, w: 9.6, h: 0.4, fontSize: 14, fontFace: FONT });
+    { text: "Jenila Livingston L M", options: { color: WHITE } },
+  ], { x: 0.7, y: 6.0, w: 9.6, h: 0.4, fontSize: 14, fontFace: FONT });
   s.addText("Programme: B.Tech. Computer Science and Engineering", {
-    x: 0.7, y: 6.05, w: 9.6, h: 0.4, fontSize: 12, color: "9FB2CC", fontFace: FONT, italic: true
+    x: 0.7, y: 6.45, w: 9.6, h: 0.4, fontSize: 12, color: "9FB2CC", fontFace: FONT, italic: true
   });
 }
 

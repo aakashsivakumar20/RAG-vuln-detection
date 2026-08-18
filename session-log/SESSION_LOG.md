@@ -4,6 +4,11 @@ This file is the running memory for this project across chat sessions. At the st
 
 ---
 
+## 2026-08-18 (later) — Filled in team details
+
+- Report and PPT title slides updated with real names: **Aakash Sivakumar (23BCE5119)** and **Udhay Anand Pandiyan (23BCE1793)**, guide **Jenila Livingston L M**. Both files regenerated and re-verified visually.
+- Remaining open item from below: get the PPT approved by the guide before the panel review.
+
 ## 2026-08-18 — Review 2 prep sprint
 
 **Context:** Panel Review 2 (20 marks) was scheduled for 19 Aug 2026, 11:45 AM–1:00 PM, offline, VIT Chennai. Rubric: domain/problem (3), literature review of 15+ recent papers (3), objectives/scope (2), methodology (3), architecture/module design (3), feasibility/risks/ethics/planning (3), report quality/presentation (3).
@@ -26,10 +31,10 @@ This file is the running memory for this project across chat sessions. At the st
 - Tech stack: React.js + Node/Express + MongoDB + FAISS/ChromaDB/Pinecone (undecided which vector DB yet — to benchmark during implementation).
 
 **Open items / things the user still needs to fill in:**
-- [ ] Team member name(s) and registration number(s) — currently `[Student Name(s)]` placeholders in both the report and PPT.
-- [ ] Project guide's name — currently `[Project Guide Name]` placeholder.
+- [x] Team member name(s) and registration number(s) — Aakash Sivakumar (23BCE5119), Udhay Anand Pandiyan (23BCE1793).
+- [x] Project guide's name — Jenila Livingston L M.
 - [ ] Get the PPT approved by the guide before the panel review (per HoD's email — mark entry only opens after guide approval in the portal).
-- [ ] Confirm team size (solo or up to 3) — affects "Submitted by" section and individual-contribution statements later.
+- [ ] Team is confirmed at 2 members — leaves room for 1 more per the course's max-3 rule if needed later.
 - [ ] Decide which vector DB (FAISS vs. ChromaDB vs. Pinecone) to actually implement first, ahead of Review 3.
 - [ ] Push this repo to the user's own GitHub account (not yet done — see README "One-time GitHub setup").
 
