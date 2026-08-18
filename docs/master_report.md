@@ -22,19 +22,15 @@ title: "AI-Powered Secure Code Analysis and Vulnerability Detection using Retrie
 
 **Submitted by:**
 
-[Student Name — Registration Number]
+Aakash Sivakumar — 23BCE5119
 
-[Student Name — Registration Number] *(if team project)*
-
-[Student Name — Registration Number] *(if team project)*
+Udhay Anand Pandiyan — 23BCE1793
 
 **Programme:** B.Tech. Computer Science and Engineering
 
-**Guide:** [Project Guide Name]
+**Guide:** Jenila Livingston L M
 
 **Review Date:** 19 August 2026
-
-*(Fields in brackets to be filled in before submission/printing.)*
 
 \newpage
 

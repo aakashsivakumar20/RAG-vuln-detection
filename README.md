@@ -42,11 +42,13 @@ session-log/
   SESSION_LOG.md            Running memory — read this first in any new session
 ```
 
-## Still to fill in
+## Team
 
-- Team member name(s) + registration number(s) (placeholders: `[Student Name(s)]`)
-- Project guide's name (placeholder: `[Project Guide Name]`)
-- See `session-log/SESSION_LOG.md` → "Open items" for the full list.
+- Aakash Sivakumar — 23BCE5119
+- Udhay Anand Pandiyan — 23BCE1793
+- Guide: Jenila Livingston L M
+
+See `session-log/SESSION_LOG.md` → "Open items" for what's still outstanding (e.g. guide sign-off on the PPT before the panel review).
 
 ## One-time GitHub setup
 
