@@ -1,0 +1,125 @@
+{
+  "repo_url": "https://github.com/OWASP/NodeGoat.git",
+  "timing": {
+    "embed_seconds": 0.02,
+    "total_seconds": 35.99
+  },
+  "counts": {
+    "files_kept": 40,
+    "chunks_produced": 45,
+    "chunks_scanned_this_run": 8,
+    "findings_stored": 8
+  },
+  "severity_breakdown": {
+    "High": 4,
+    "Low": 1,
+    "Medium": 3
+  },
+  "sample_candidate_findings": [
+    {
+      "finding_id": 1,
+      "file_path": "test/security/profile-test.js",
+      "chunk_name": "<anonymous>",
+      "lines": "82-89",
+      "nearest_kb_match": "CWE-306",
+      "severity_band": "High",
+      "severity_score": 7.1,
+      "margin": 0.0053,
+      "low_confidence": true,
+      "has_remediation_template": false,
+      "remediation_title": null
+    },
+    {
+      "finding_id": 2,
+      "file_path": "app/data/memos-dao.js",
+      "chunk_name": "MemosDAO",
+      "lines": "2-37",
+      "nearest_kb_match": "CWE-476",
+      "severity_band": "Low",
+      "severity_score": 3.5,
+      "margin": 0.0072,
+      "low_confidence": true,
+      "has_remediation_template": false,
+      "remediation_title": null
+    },
+    {
+      "finding_id": 3,
+      "file_path": "server.js",
+      "chunk_name": "<anonymous>",
+      "lines": "30-157",
+      "nearest_kb_match": "A01:2025",
+      "severity_band": "Medium",
+      "severity_score": 5.5,
+      "margin": 0.0081,
+      "low_confidence": true,
+      "has_remediation_template": false,
+      "remediation_title": null
+    },
+    {
+      "finding_id": 4,
+      "file_path": "app/routes/allocations.js",
+      "chunk_name": "AllocationsHandler",
+      "lines": "6-32",
+      "nearest_kb_match": "CWE-862",
+      "severity_band": "High",
+      "severity_score": 7.5,
+      "margin": 0.0225,
+      "low_confidence": false,
+      "has_remediation_template": false,
+      "remediation_title": null
+    },
+    {
+      "finding_id": 5,
+      "file_path": "app/routes/research.js",
+      "chunk_name": "ResearchHandler",
+      "lines": "7-36",
+      "nearest_kb_match": "CWE-434",
+      "severity_band": "Medium",
+      "severity_score": 6.1,
+      "margin": 0.0004,
+      "low_confidence": true,
+      "has_remediation_template": true,
+      "remediation_title": "Validate file type/extension and store outside the web root"
+    },
+    {
+      "finding_id": 6,
+      "file_path": "app/routes/tutorial.js",
+      "chunk_name": "<anonymous>",
+      "lines": "31-36",
+      "nearest_kb_match": "CWE-434",
+      "severity_band": "High",
+      "severity_score": 8.1,
+      "margin": 0.0251,
+      "low_confidence": false,
+      "has_remediation_template": true,
+      "remediation_title": "Validate file type/extension and store outside the web root"
+    },
+    {
+      "finding_id": 7,
+      "file_path": "app/data/allocations-dao.js",
+      "chunk_name": "<anonymous>",
+      "lines": "4-112",
+      "nearest_kb_match": "CWE-862",
+      "severity_band": "High",
+      "severity_score": 7.5,
+      "margin": 0.0164,
+      "low_confidence": false,
+      "has_remediation_template": false,
+      "remediation_title": null
+    },
+    {
+      "finding_id": 8,
+      "file_path": "app/data/benefits-dao.js",
+      "chunk_name": "BenefitsDAO",
+      "lines": "2-41",
+      "nearest_kb_match": "CWE-862",
+      "severity_band": "Medium",
+      "severity_score": 5.5,
+      "margin": 0.0009,
+      "low_confidence": true,
+      "has_remediation_template": false,
+      "remediation_title": null
+    }
+  ],
+  "note": "Every row above is a CANDIDATE finding (nearest Security KB match for a code chunk, scored by rule-based severity) -- not a confirmed vulnerability. Confirmation requires the LLM Security Analysis module, which is Review 4/5 scope. See docs/chapter4_implementation.md for the full framing."
+}

@@ -21,3 +21,9 @@ pytest==9.1.1
 # embedding backbone uses instead (gensim/GloVe). Swap embedder.py's
 # implementation for a sentence-transformers or API-based call once a
 # code-specialised model is reachable; every other module is unaffected.
+
+# NOTE: the Findings Store module (src/rag_vuln_detect/findings_store/) uses
+# Python's stdlib sqlite3 as a documented substitute for MongoDB (no
+# installable MongoDB server package in the build sandbox) — no extra
+# package needed. Severity Scoring (severity/scorer.py) and Remediation
+# Generation (remediation/generator.py) are pure stdlib, no new dependency.

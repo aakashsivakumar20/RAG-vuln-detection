@@ -64,9 +64,9 @@ function titleBar(slide, kicker, title, dark) {
   s.addText("BCSE497J — Project I   |   Review 3 (Panel Review)   |   16 September 2026", {
     x: 0.7, y: 4.15, w: 9.6, h: 0.4, fontSize: 15, color: "CADCFC", fontFace: FONT
   });
-  s.addShape("roundRect", { x: 0.7, y: 4.65, w: 4.5, h: 0.4, rectRadius: 0.06, fill: { color: TEAL }, line: { type: "none" } });
-  s.addText("5 / 10 modules implemented · running end-to-end", {
-    x: 0.7, y: 4.65, w: 4.5, h: 0.4, fontSize: 11.5, bold: true, color: WHITE, align: "center", valign: "middle", fontFace: FONT
+  s.addShape("roundRect", { x: 0.7, y: 4.65, w: 4.7, h: 0.4, rectRadius: 0.06, fill: { color: TEAL }, line: { type: "none" } });
+  s.addText("8 / 10 modules implemented · running end-to-end", {
+    x: 0.7, y: 4.65, w: 4.7, h: 0.4, fontSize: 11.5, bold: true, color: WHITE, align: "center", valign: "middle", fontFace: FONT
   });
 
   s.addShape("rect", { x: 0.7, y: 5.25, w: 8.6, h: 0.02, fill: { color: "3A5A8C" }, line: { type: "none" } });
@@ -130,7 +130,7 @@ function titleBar(slide, kicker, title, dark) {
 {
   const s = pres.addSlide();
   s.background = { color: WHITE };
-  titleBar(s, "2 · Review 3 Scope", "5 of 10 Modules — Implemented and Running");
+  titleBar(s, "2 · Review 3 Scope", "8 of 10 Modules — Implemented and Running");
 
   const rows = [
     [{ text: "Module", options: { bold: true, fill: { color: DEEP_BLUE }, color: WHITE } },
@@ -141,10 +141,10 @@ function titleBar(slide, kicker, title, dark) {
     [{ text: "Embedding Service", options: {} }, { text: "✓ Done", options: { color: GREEN, bold: true } }, { text: "Documented model substitution + measured fix (§4.2)", options: {} }],
     [{ text: "Security Knowledge Base", options: {} }, { text: "✓ Done", options: { color: GREEN, bold: true } }, { text: "35 entries: OWASP Top 10:2025 + CWE Top 25:2025", options: {} }],
     [{ text: "RAG Retrieval Orchestrator", options: {} }, { text: "✓ Done", options: { color: GREEN, bold: true } }, { text: "Dual-context retrieval demoed & benchmarked (§4.4)", options: {} }],
+    [{ text: "Severity Scoring", options: {} }, { text: "✓ Done", options: { color: GREEN, bold: true } }, { text: "Rule-based/CVSS-inspired, margin-calibrated confidence (§4.8)", options: {} }],
+    [{ text: "Findings Store", options: {} }, { text: "✓ Done", options: { color: GREEN, bold: true } }, { text: "SQLite — documented substitute for MongoDB (§4.8)", options: {} }],
+    [{ text: "Remediation Generation", options: {} }, { text: "✓ Done", options: { color: GREEN, bold: true } }, { text: "Template-based, CWE-keyed, 7/25 categories (§4.8)", options: {} }],
     [{ text: "LLM Security Analysis", options: {} }, { text: "Review 4", options: { color: AMBER, bold: true } }, { text: "Requires LLM API provisioning — planned next", options: { color: GRAY } }],
-    [{ text: "Severity Scoring", options: {} }, { text: "Review 4", options: { color: AMBER, bold: true } }, { text: "Rule-based module — designed, not yet coded", options: { color: GRAY } }],
-    [{ text: "Remediation Generation", options: {} }, { text: "Review 5", options: { color: GRAY, bold: true } }, { text: "Depends on LLM analysis stage", options: { color: GRAY } }],
-    [{ text: "Findings Store (MongoDB)", options: {} }, { text: "Review 4", options: { color: AMBER, bold: true } }, { text: "Persistence layer for findings", options: { color: GRAY } }],
     [{ text: "Dashboard", options: {} }, { text: "Review 5", options: { color: GRAY, bold: true } }, { text: "React.js UI — final-review scope", options: { color: GRAY } }],
   ];
   s.addTable(rows, {
@@ -260,7 +260,51 @@ function titleBar(slide, kicker, title, dark) {
   addFooter(s, 7);
 }
 
-// ================= SLIDE 8: RESULTS - REAL REPOSITORY RUN =================
+// ================= SLIDE 8: EXTENDING THE PIPELINE (severity/store/remediation) =================
+{
+  const s = pres.addSlide();
+  s.background = { color: WHITE };
+  titleBar(s, "3 · Implementation", "Extending the Pipeline: Severity, Storage, Remediation");
+
+  const stages = [
+    ["6", "Score", "Rule-based/CVSS-inspired band + score, downgraded when retrieval margin is below a calibrated threshold (0.015)", "icon_FaExclamationTriangle.png"],
+    ["7", "Store", "SQLite findings store (documented substitute for MongoDB — no server package installable in the build sandbox)", "icon_FaDatabase.png"],
+    ["8", "Remediate", "Template-based, CWE-keyed before/after fix — 7 of 25 categories covered; developer-reviewed, never auto-applied", "icon_FaCheckCircle.png"],
+  ];
+  const n = stages.length, gap = 0.3;
+  const cw = (12.15 - gap * (n - 1)) / n;
+  const y = 1.7, h = 2.55;
+  stages.forEach((st, i) => {
+    const x = 0.6 + i * (cw + gap);
+    s.addShape("roundRect", { x, y, w: cw, h, rectRadius: 0.1, fill: { color: DEEP_BLUE }, line: { type: "none" } });
+    s.addImage({ path: st[3], x: x + cw/2 - 0.26, y: y + 0.22, w: 0.52, h: 0.52 });
+    s.addText(st[0], { x: x + 0.15, y: y + 0.78, w: cw - 0.3, h: 0.35, fontSize: 12, bold: true, color: "8FD3E8", fontFace: FONT_HEAD, align: "center" });
+    s.addText(st[1], { x: x + 0.15, y: y + 1.08, w: cw - 0.3, h: 0.4, fontSize: 15, bold: true, color: WHITE, fontFace: FONT, align: "center" });
+    s.addText(st[2], { x: x + 0.2, y: y + 1.52, w: cw - 0.4, h: h - 1.65, fontSize: 9.6, color: "DCE8F5", fontFace: FONT, lineSpacingMultiple: 1.2, valign: "top", align: "center" });
+    if (i < n - 1) {
+      s.addText("→", { x: x + cw, y: y + h/2 - 0.22, w: gap, h: 0.44, fontSize: 15, bold: true, color: TEAL, align: "center" });
+    }
+  });
+
+  s.addText("Two of three are honest, documented substitutions — same discipline as the embedding-model decision (slide 6):", {
+    x: 0.6, y: 4.5, w: 12.1, h: 0.35, fontSize: 12, bold: true, color: NAVY, fontFace: FONT
+  });
+  const subs = [
+    "Findings Store: MongoDB has no installable server package in this build sandbox → SQLite, document-shaped schema, same functional role.",
+    "Remediation Generation: full LLM-generated fixes need an LLM API this sandbox can't reach this sprint → template-based generator for 7 CWE categories with a mechanical fix pattern; the other 18 explicitly return \"no template\" rather than a guess.",
+  ];
+  s.addText(subs.map((t,i)=>({text:t, options:{bullet:{code:"2022"}, breakLine: i<subs.length-1}})), {
+    x: 0.6, y: 4.9, w: 12.1, h: 1.1, fontSize: 11, color: "333F4E", fontFace: FONT, lineSpacingMultiple: 1.25, paraSpaceAfter: 6, valign: "top"
+  });
+  s.addShape("roundRect", { x: 0.6, y: 6.15, w: 12.15, h: 0.62, rectRadius: 0.07, fill: { color: ICE }, line: { type: "none" } });
+  s.addText([
+    { text: "Candidate findings, not verified vulnerabilities: ", options: { bold: true, color: TEAL } },
+    { text: "every score/store/remediation above treats the nearest KB match as if it were a true positive — confirmation is the LLM Security Analysis module (Review 4).", options: { color: "333F4E" } },
+  ], { x: 0.85, y: 6.15, w: 11.6, h: 0.62, fontSize: 10.8, fontFace: FONT, valign: "middle", lineSpacingMultiple: 1.15 });
+  addFooter(s, 8);
+}
+
+// ================= SLIDE 9: RESULTS - REAL REPOSITORY RUN =================
 {
   const s = pres.addSlide();
   s.background = { color: WHITE };
@@ -271,10 +315,10 @@ function titleBar(slide, kicker, title, dark) {
   });
   s.addImage({ path: "../results/ingestion_funnel.png", x: 0.5, y: 2.15, w: 6.1, h: 4.6 });
   s.addImage({ path: "../results/chunking_timing.png", x: 6.75, y: 2.15, w: 6.1, h: 4.6 });
-  addFooter(s, 8);
+  addFooter(s, 9);
 }
 
-// ================= SLIDE 9: RESULTS - BENCHMARK ACCURACY =================
+// ================= SLIDE 10: RESULTS - BENCHMARK ACCURACY =================
 {
   const s = pres.addSlide();
   s.background = { color: WHITE };
@@ -290,38 +334,36 @@ function titleBar(slide, kicker, title, dark) {
 
   s.addShape("roundRect", { x: 7.4, y: 3.85, w: 5.35, h: 2.2, rectRadius: 0.08, fill: { color: "FBEDE8" }, line: { type: "none" } });
   s.addText("Where it still struggles", { x: 7.65, y: 4.0, w: 4.9, h: 0.35, fontSize: 12.5, bold: true, color: RED, fontFace: FONT });
-  s.addText("Closely related access-control weaknesses (Missing/Incorrect Authorization, IDOR, Broken Access Control) — these differ on facts a word-frequency model can't see (is a check present at all, or present but wrong?). This is the specific, motivated target for the Review 4 LLM reasoning step.", {
-    x: 7.65, y: 4.4, w: 4.9, h: 1.55, fontSize: 10.8, color: "333F4E", fontFace: FONT, lineSpacingMultiple: 1.22
+  s.addText("Closely related access-control weaknesses (Missing/Incorrect Authorization, IDOR, Broken Access Control) — these differ on facts a word-frequency model can't see (is a check present at all, or present but wrong?). This is the specific, motivated target for the Review 4 LLM reasoning step, and the same family drives most of this sprint's low_confidence severity flags (slide 8).", {
+    x: 7.65, y: 4.4, w: 4.9, h: 1.55, fontSize: 10.5, color: "333F4E", fontFace: FONT, lineSpacingMultiple: 1.2
   });
-  addFooter(s, 9);
+  addFooter(s, 10);
 }
 
-// ================= SLIDE 10: RESULTS - TESTING =================
+// ================= SLIDE 11: RESULTS - TESTING =================
 {
   const s = pres.addSlide();
   s.background = { color: NAVY };
   titleBar(s, "5 · Results So Far", "Automated Testing", true);
 
   s.addShape("roundRect", { x: 0.7, y: 1.9, w: 3.6, h: 3.6, rectRadius: 0.1, fill: { color: "1A2147" }, line: { type: "none" } });
-  s.addText("7 / 7", { x: 0.7, y: 2.6, w: 3.6, h: 1.1, fontSize: 46, bold: true, color: "8FD3E8", align: "center", fontFace: FONT_HEAD });
+  s.addText("32 / 32", { x: 0.7, y: 2.6, w: 3.6, h: 1.1, fontSize: 42, bold: true, color: "8FD3E8", align: "center", fontFace: FONT_HEAD });
   s.addText("automated tests passing", { x: 0.9, y: 3.7, w: 3.2, h: 0.6, fontSize: 13, color: "DCE8F5", align: "center", fontFace: FONT });
-  s.addText("pytest · src/tests/test_pipeline.py", { x: 0.9, y: 4.3, w: 3.2, h: 0.5, fontSize: 10.5, italic: true, color: "9FB2CC", align: "center", fontFace: FONT });
+  s.addText("pytest · src/tests/ (4 files, 1 per module group)", { x: 0.9, y: 4.3, w: 3.2, h: 0.5, fontSize: 10.5, italic: true, color: "9FB2CC", align: "center", fontFace: FONT });
 
   const tests = [
-    "Python & JavaScript chunkers correctly identify function/class boundaries and names",
-    "Identifier tokenizer correctly splits camelCase and snake_case",
-    "Embeddings are unit-normalised (L2 norm = 1)",
-    "FAISS vector store save/load round-trip preserves vectors and metadata",
-    "Knowledge base loads all 35 entries correctly",
-    "SQL-injection sanity check retrieves CWE-89 at rank 1",
+    "Chunkers, tokenizer, embeddings, FAISS round-trip, KB load & SQLi retrieval (7 tests, unchanged)",
+    "Severity: band/score lookup, margin-threshold downgrade, confidence flagging (10 tests, new)",
+    "Findings Store: schema, insert/query, filtering, per-severity counts, per-repo delete (7 tests, new)",
+    "Remediation: 7 templated CWEs produce real before/after diffs; unknown/no-template CWEs return None (8 tests, new)",
   ];
   s.addText(tests.map((t,i)=>({text:t, options:{bullet:{code:"2713"}, color:"E4ECF7", breakLine: i<tests.length-1}})), {
-    x: 4.75, y: 2.0, w: 7.9, h: 4.1, fontSize: 13, fontFace: FONT, lineSpacingMultiple: 1.35, paraSpaceAfter: 10, valign: "top"
+    x: 4.75, y: 2.0, w: 7.9, h: 4.1, fontSize: 12.5, fontFace: FONT, lineSpacingMultiple: 1.35, paraSpaceAfter: 12, valign: "top"
   });
-  addFooter(s, 10, true);
+  addFooter(s, 11, true);
 }
 
-// ================= SLIDE 11: LIMITATIONS & NEXT STEPS =================
+// ================= SLIDE 12: LIMITATIONS & NEXT STEPS =================
 {
   const s = pres.addSlide();
   s.background = { color: WHITE };
@@ -331,33 +373,33 @@ function titleBar(slide, kicker, title, dark) {
     [{ text: "Limitation (today)", options: { bold: true, fill: { color: DEEP_BLUE }, color: WHITE } },
      { text: "Planned Review 4 Action", options: { bold: true, fill: { color: DEEP_BLUE }, color: WHITE } }],
     ["GloVe embedding is a documented substitute for a code-specialised transformer", "Swap in once model hosting/API access is available; re-run the same benchmark to measure the gain"],
-    ["module.exports = function(){...} wrapper chunks as one large unit", "Split on inner method definitions for older CommonJS-style code"],
-    ["Access-control CWE family (Authorization/IDOR/Access-Control) is hard to separate by retrieval alone", "Add the LLM reasoning step specifically for this weakness family"],
-    ["Only Python/JS/TS processed; other languages retained, not analysed", "Extend chunking/embedding to further languages per §3.8 future scope"],
+    ["Access-control CWE family is hard to separate by retrieval alone, and drives most low-confidence severity flags", "Add the LLM reasoning step specifically for this weakness family"],
+    ["Remediation templates cover 7 of 25 CWE categories", "Remaining categories mostly need LLM reasoning, not more templates"],
+    ["All findings are candidates (nearest KB match), not yet LLM-confirmed vulnerabilities", "Build LLM Security Analysis as the confirmation step — top Review 4 priority"],
   ];
   s.addTable(rows, {
     x: 0.6, y: 1.7, w: 12.15, h: 4.6,
-    fontSize: 11.5, fontFace: FONT, color: "333F4E",
+    fontSize: 11, fontFace: FONT, color: "333F4E",
     border: { type: "solid", color: "D8E2EC", pt: 0.75 },
     autoPage: false,
     colW: [6.0, 6.15],
     rowH: [0.4, 0.95, 0.95, 0.95, 0.95],
     valign: "middle"
   });
-  s.addText("Review 4 (12–16 Oct 2026): integrate LLM security analysis + rule-based severity scoring end-to-end; initial dashboard.", {
+  s.addText("Review 4 (12–16 Oct 2026): LLM Security Analysis (top priority) → embedding-model swap → minimal dashboard over the Findings Store.", {
     x: 0.6, y: 6.55, w: 12.1, h: 0.4, fontSize: 11, italic: true, color: GRAY, fontFace: FONT
   });
-  addFooter(s, 11);
+  addFooter(s, 12);
 }
 
-// ================= SLIDE 12: CLOSING =================
+// ================= SLIDE 13: CLOSING =================
 {
   const s = pres.addSlide();
   s.background = { color: NAVY };
   s.addImage({ path: "icon_FaShieldAlt_white.png", x: PAGE_W/2 - 0.5, y: 1.4, w: 1.0, h: 1.0 });
   s.addText("Thank You", { x: 0, y: 2.7, w: PAGE_W, h: 0.9, fontSize: 34, bold: true, color: WHITE, align: "center", fontFace: FONT_HEAD });
   s.addText("Questions & Discussion", { x: 0, y: 3.5, w: PAGE_W, h: 0.5, fontSize: 16, color: "8FD3E8", align: "center", fontFace: FONT });
-  s.addText("5 of 10 modules implemented · 63.6% / 72.7% retrieval accuracy · 7 / 7 tests passing", {
+  s.addText("8 of 10 modules implemented · 63.6% / 72.7% retrieval accuracy · 32 / 32 tests passing", {
     x: 0, y: 4.1, w: PAGE_W, h: 0.4, fontSize: 12.5, color: "C7D6E8", align: "center", fontFace: FONT
   });
   s.addText("AI-Powered Secure Code Analysis and Vulnerability Detection using RAG  ·  BCSE497J Project I  ·  VIT Chennai", {
