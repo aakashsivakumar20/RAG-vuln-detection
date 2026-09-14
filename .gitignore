@@ -3,3 +3,7 @@ node_modules/
 !reference/*.pdf
 .DS_Store
 *.tmp.md
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/

@@ -4,6 +4,38 @@ This file is the running memory for this project across chat sessions. At the st
 
 ---
 
+## 2026-09-14 — Review 3 implementation sprint ("at least 50% implementation")
+
+**Context:** Panel Review 3 (20 marks) is scheduled for 16 Sep 2026. Rubric: Implementation (5), Technical Accuracy (5), Results Obtained So Far (5), Presentation and Clarity (5). Full rubric captured in `reference/review3_rubric.md`. The user explicitly asked for "at least 50 percent implementation of the project" — this meant writing real, running code, not just more documentation.
+
+**What was built (5 of the 10 designed modules, chosen to match the exact Work Plan commitment in `docs/chapter3_methodology.md` §3.6):**
+- **Repository Ingestion** (`src/rag_vuln_detect/ingestion/clone.py`) — clones a public GitHub repo, filters vendored/binary/oversized/unsupported-language files. Verified against a real repo, OWASP/NodeGoat: 90 files seen, 40 kept.
+- **Parsing & Chunking** (`src/rag_vuln_detect/chunking/chunker.py`) — tree-sitter AST parsing, function/class-level chunks for Python/JS/TS, with a whole-file fallback. 40 files → 45 chunks on NodeGoat.
+- **Embedding Service** (`src/rag_vuln_detect/embeddings/embedder.py`, `embeddings/idf.py`) — see the network-constraint story below.
+- **Security Knowledge Base** (`src/rag_vuln_detect/knowledge_base/`) — 35 entries: OWASP Top 10:2025 + CWE Top 25:2025, fetched live from `top10.owasp.org` and `cwe.mitre.org`, each with rank/CWE-ID/description/example pattern. CWE→OWASP category mapping is documented as this project's own judgment, not an official crosswalk.
+- **RAG Retrieval Orchestrator** (`src/rag_vuln_detect/pipeline/run_pipeline.py`) — wires ingestion → chunking → embedding → KB load → dual-context retrieval (repo code index + security KB index) end-to-end. Does **not** call an LLM — that's Review 4/5 scope.
+
+**Key technical decision — implementation language:** the AI/RAG pipeline was implemented in **Python** (not the proposal's Node/Express), on the user's explicit go-ahead, framed as a microservice the eventual Node/Express API layer would call. Documented in `src/README.md`.
+
+**Key technical decision — the embedding model, and a real debugged failure:** the sandbox's network policy blocks Hugging Face Hub and Stanford NLP's file host (confirmed via direct connection tests, not assumed) — where a code-specialised transformer (CodeBERT/UniXcoder/sentence-transformers) would normally be downloaded from. GitHub-hosted distribution was reachable, so the embedding service uses **IDF-weighted averaged GloVe word vectors** (`glove-wiki-gigaword-100` via `gensim`'s `gensim-data`), with camelCase/snake_case identifier splitting. This is a documented, swappable substitution confined to one module — not a workaround of the policy (huggingface.co was never touched again once the 403 was confirmed).
+  - A first sanity check with plain averaging retrieved the wrong CWE (Path Traversal instead of SQL Injection) for a classic SQLi snippet. Root-caused to generic shared tokens diluting the average; fixed with IDF weighting. Measured the fix properly on a 22-snippet hand-labeled benchmark (`evaluation/`) rather than just asserting it worked: **top-1 accuracy rose from 54.5% to 63.6%** (top-3 unchanged at 72.7%). The remaining weak spot (access-control CWE family) is documented as the specific target for the Review 4 LLM reasoning step.
+- 7 automated tests (`src/tests/test_pipeline.py`, pytest) all pass — chunker correctness, tokenizer, embedding normalisation, FAISS save/load round-trip, KB loading, SQLi retrieval.
+
+**Deliverables produced this session:**
+- `docs/chapter4_implementation.md` — new report chapter (Implementation Overview, the embedding-model decision, the real-repo run, the benchmark, testing, Review 2 feedback placeholder, limitations/next steps).
+- `docs/master_report.md`, `docs/build_report.sh` updated to Review 3 / Chapters 1–4; rebuilt `docs/Report_Ch1-4_RAG_VulnDetection.docx` (24 pages) and **visually verified** page-by-page via LibreOffice→PDF→image conversion — all three new charts and the architecture diagram render correctly, no formatting regressions.
+- `ppt/Review3_Panel_Presentation.pptx` — new 12-slide deck (`ppt/build_deck_review3.js`) matching the 4-part Review 3 rubric exactly (recap → scope → implementation walkthrough → technical-accuracy before/after story → results charts → testing → limitations/Review 4 plan). Visually verified slide-by-slide.
+- `requirements.txt`, `src/README.md` documenting the real dependency set and the embedding-model substitution.
+- All new code, docs, results, and the PPT committed and pushed to `github.com/aakashsivakumar20/RAG-vuln-detection`.
+
+**Open items carried forward:**
+- [ ] **Still need the actual Review 2 panel written feedback** — user said they'd paste it but hasn't yet. `docs/chapter4_implementation.md` §4.6 has a placeholder; fill this in and rebuild the docx (+ optionally add a PPT slide) as soon as it's provided.
+- [ ] Decide which vector DB to use going forward — Review 3 code uses **FAISS** (`IndexFlatIP`), which effectively answers this for the prototype; update Chapter 3 §3.4 tech stack language if this is meant to be the final answer rather than one of three options.
+- [ ] Review 4 (12–16 Oct 2026) scope: LLM Security Analysis + rule-based Severity Scoring integrated end-to-end, initial dashboard, Findings Store (MongoDB). The embedding-model swap (GloVe → code-specialised transformer, once reachable) should also be attempted then and re-benchmarked against this session's 63.6%/72.7% baseline.
+- [ ] Chunking refinement noted but deferred: split `module.exports = function(){...}` CommonJS wrappers on inner method definitions (currently one large chunk).
+
+**Next planned milestone:** Review 4 (Guide, 25 marks) + Draft Report Review (5 marks), 12–16 Oct 2026.
+
 ## 2026-08-18 (later) — Filled in team details
 
 - Report and PPT title slides updated with real names: **Aakash Sivakumar (23BCE5119)** and **Udhay Anand Pandiyan (23BCE1793)**, guide **Jenila Livingston L M**. Both files regenerated and re-verified visually.

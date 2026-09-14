@@ -1,0 +1,357 @@
+{
+  "repo_url": "https://github.com/OWASP/NodeGoat.git",
+  "timing": {
+    "clone_seconds": 1.02,
+    "chunk_seconds": 0.01,
+    "embed_seconds": 0.03,
+    "total_seconds": 35.54
+  },
+  "counts": {
+    "files_seen": 90,
+    "files_kept": 40,
+    "files_skipped_vendored": 0,
+    "files_skipped_binary_or_nonsource": 3,
+    "files_skipped_too_large": 1,
+    "files_skipped_unsupported_language": 46,
+    "chunks_produced": 45,
+    "kb_entries": 35
+  },
+  "sample_dual_context_retrievals": [
+    {
+      "query_chunk": {
+        "repo_rel_path": "test/security/profile-test.js",
+        "name": "<anonymous>",
+        "kind": "function",
+        "lines": "82-89"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "test/security/profile-test.js",
+          "name": "<anonymous>",
+          "similarity": 0.938
+        },
+        {
+          "path": "app/data/profile-dao.js",
+          "name": "ProfileDAO",
+          "similarity": 0.919
+        },
+        {
+          "path": "app/routes/profile.js",
+          "name": "ProfileHandler",
+          "similarity": 0.914
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-306",
+          "name": "Missing Authentication for Critical Function",
+          "similarity": 0.911
+        },
+        {
+          "id": "CWE-200",
+          "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+          "similarity": 0.906
+        },
+        {
+          "id": "CWE-79",
+          "name": "Improper Neutralization of Input During Web Page Generation (Cross-Site Scripting)",
+          "similarity": 0.901
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "app/data/memos-dao.js",
+        "name": "MemosDAO",
+        "kind": "function",
+        "lines": "2-37"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/data/benefits-dao.js",
+          "name": "BenefitsDAO",
+          "similarity": 0.943
+        },
+        {
+          "path": "app/data/user-dao.js",
+          "name": "UserDAO",
+          "similarity": 0.937
+        },
+        {
+          "path": "app/data/allocations-dao.js",
+          "name": "<anonymous>",
+          "similarity": 0.935
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-476",
+          "name": "NULL Pointer Dereference",
+          "similarity": 0.914
+        },
+        {
+          "id": "CWE-863",
+          "name": "Incorrect Authorization",
+          "similarity": 0.907
+        },
+        {
+          "id": "CWE-862",
+          "name": "Missing Authorization",
+          "similarity": 0.902
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "server.js",
+        "name": "<anonymous>",
+        "kind": "function",
+        "lines": "30-157"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/routes/profile.js",
+          "name": "ProfileHandler",
+          "similarity": 0.964
+        },
+        {
+          "path": "test/security/profile-test.js",
+          "name": "<anonymous>",
+          "similarity": 0.958
+        },
+        {
+          "path": "app/data/profile-dao.js",
+          "name": "ProfileDAO",
+          "similarity": 0.957
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "A01:2025",
+          "name": "Broken Access Control",
+          "similarity": 0.952
+        },
+        {
+          "id": "CWE-306",
+          "name": "Missing Authentication for Critical Function",
+          "similarity": 0.944
+        },
+        {
+          "id": "CWE-639",
+          "name": "Authorization Bypass Through User-Controlled Key",
+          "similarity": 0.944
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "app/routes/allocations.js",
+        "name": "AllocationsHandler",
+        "kind": "function",
+        "lines": "6-32"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/data/allocations-dao.js",
+          "name": "<anonymous>",
+          "similarity": 0.968
+        },
+        {
+          "path": "app/data/contributions-dao.js",
+          "name": "ContributionsDAO",
+          "similarity": 0.961
+        },
+        {
+          "path": "app/routes/session.js",
+          "name": "SessionHandler",
+          "similarity": 0.949
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-862",
+          "name": "Missing Authorization",
+          "similarity": 0.93
+        },
+        {
+          "id": "CWE-639",
+          "name": "Authorization Bypass Through User-Controlled Key",
+          "similarity": 0.908
+        },
+        {
+          "id": "CWE-306",
+          "name": "Missing Authentication for Critical Function",
+          "similarity": 0.901
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "app/routes/research.js",
+        "name": "ResearchHandler",
+        "kind": "function",
+        "lines": "7-36"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/routes/contributions.js",
+          "name": "ContributionsHandler",
+          "similarity": 0.935
+        },
+        {
+          "path": "Gruntfile.js",
+          "name": "<anonymous>",
+          "similarity": 0.914
+        },
+        {
+          "path": "test/security/profile-test.js",
+          "name": "<anonymous>",
+          "similarity": 0.91
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-434",
+          "name": "Unrestricted Upload of File with Dangerous Type",
+          "similarity": 0.884
+        },
+        {
+          "id": "CWE-200",
+          "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+          "similarity": 0.883
+        },
+        {
+          "id": "CWE-22",
+          "name": "Path Traversal",
+          "similarity": 0.882
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "app/routes/tutorial.js",
+        "name": "<anonymous>",
+        "kind": "function",
+        "lines": "31-36"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/routes/tutorial.js",
+          "name": "<anonymous>",
+          "similarity": 0.966
+        },
+        {
+          "path": "app/routes/research.js",
+          "name": "ResearchHandler",
+          "similarity": 0.861
+        },
+        {
+          "path": "app/routes/memos.js",
+          "name": "MemosHandler",
+          "similarity": 0.829
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-434",
+          "name": "Unrestricted Upload of File with Dangerous Type",
+          "similarity": 0.766
+        },
+        {
+          "id": "CWE-79",
+          "name": "Improper Neutralization of Input During Web Page Generation (Cross-Site Scripting)",
+          "similarity": 0.741
+        },
+        {
+          "id": "CWE-862",
+          "name": "Missing Authorization",
+          "similarity": 0.728
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "app/data/allocations-dao.js",
+        "name": "<anonymous>",
+        "kind": "function",
+        "lines": "4-112"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/data/contributions-dao.js",
+          "name": "ContributionsDAO",
+          "similarity": 0.991
+        },
+        {
+          "path": "app/data/user-dao.js",
+          "name": "UserDAO",
+          "similarity": 0.987
+        },
+        {
+          "path": "app/data/profile-dao.js",
+          "name": "ProfileDAO",
+          "similarity": 0.983
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-862",
+          "name": "Missing Authorization",
+          "similarity": 0.958
+        },
+        {
+          "id": "CWE-639",
+          "name": "Authorization Bypass Through User-Controlled Key",
+          "similarity": 0.941
+        },
+        {
+          "id": "CWE-306",
+          "name": "Missing Authentication for Critical Function",
+          "similarity": 0.935
+        }
+      ]
+    },
+    {
+      "query_chunk": {
+        "repo_rel_path": "app/data/benefits-dao.js",
+        "name": "BenefitsDAO",
+        "kind": "function",
+        "lines": "2-41"
+      },
+      "retrieved_repo_context": [
+        {
+          "path": "app/data/profile-dao.js",
+          "name": "ProfileDAO",
+          "similarity": 0.976
+        },
+        {
+          "path": "app/data/user-dao.js",
+          "name": "UserDAO",
+          "similarity": 0.974
+        },
+        {
+          "path": "app/data/allocations-dao.js",
+          "name": "<anonymous>",
+          "similarity": 0.972
+        }
+      ],
+      "retrieved_kb_context": [
+        {
+          "id": "CWE-862",
+          "name": "Missing Authorization",
+          "similarity": 0.941
+        },
+        {
+          "id": "A01:2025",
+          "name": "Broken Access Control",
+          "similarity": 0.94
+        },
+        {
+          "id": "CWE-639",
+          "name": "Authorization Bypass Through User-Controlled Key",
+          "similarity": 0.929
+        }
+      ]
+    }
+  ]
+}
