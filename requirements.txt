@@ -1,0 +1,23 @@
+# Core pipeline dependencies (Review 3 scope: ingestion, chunking, embedding, KB, retrieval)
+gitpython==3.1.62
+tree-sitter==0.26.0
+tree-sitter-python==0.25.0
+tree-sitter-javascript==0.25.0
+tree-sitter-typescript==0.23.2
+gensim==4.4.0
+faiss-cpu==1.15.0
+numpy>=2.0
+
+# Evaluation / benchmark / charts
+pandas==3.0.2
+matplotlib==3.10.9
+
+# Tests
+pytest==9.1.1
+
+# NOTE: sentence-transformers is NOT required — see
+# src/rag_vuln_detect/embeddings/embedder.py for why (huggingface.co is
+# unreachable from the environment this was built in) and what the
+# embedding backbone uses instead (gensim/GloVe). Swap embedder.py's
+# implementation for a sentence-transformers or API-based call once a
+# code-specialised model is reachable; every other module is unaffected.

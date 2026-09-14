@@ -1,0 +1,27 @@
+{
+  "_note": "Hand-written illustrative snippets (not sourced from any real project) spanning 20 of the 25 CWE Top 25 (2025) categories, used only to measure this prototype's KB retrieval accuracy for Review 3. Ground truth is the CWE this snippet was written to demonstrate.",
+  "snippets": [
+    {"id": "s01", "language": "python", "expected_cwe": "CWE-89", "code": "def get_user(name):\n    query = \"SELECT * FROM users WHERE username = '\" + name + \"'\"\n    return db.execute(query)"},
+    {"id": "s02", "language": "javascript", "expected_cwe": "CWE-89", "code": "function findUser(name) {\n  const sql = \"SELECT * FROM users WHERE name = '\" + name + \"'\";\n  return db.query(sql);\n}"},
+    {"id": "s03", "language": "javascript", "expected_cwe": "CWE-79", "code": "function renderComment(comment) {\n  document.getElementById('box').innerHTML = comment.text;\n}"},
+    {"id": "s04", "language": "python", "expected_cwe": "CWE-79", "code": "def render_profile(bio):\n    return \"<div class='bio'>\" + bio + \"</div>\""},
+    {"id": "s05", "language": "python", "expected_cwe": "CWE-78", "code": "def ping_host(host):\n    os.system(\"ping -c 1 \" + host)"},
+    {"id": "s06", "language": "javascript", "expected_cwe": "CWE-78", "code": "function convertImage(filename) {\n  child_process.exec('convert ' + filename + ' out.png');\n}"},
+    {"id": "s07", "language": "python", "expected_cwe": "CWE-22", "code": "def read_report(filename):\n    path = os.path.join('/var/reports', filename)\n    return open(path).read()"},
+    {"id": "s08", "language": "javascript", "expected_cwe": "CWE-22", "code": "app.get('/download', (req, res) => {\n  const filePath = uploadsDir + '/' + req.query.file;\n  res.sendFile(filePath);\n});"},
+    {"id": "s09", "language": "python", "expected_cwe": "CWE-502", "code": "def load_session(data):\n    return pickle.loads(data)"},
+    {"id": "s10", "language": "javascript", "expected_cwe": "CWE-502", "code": "function loadConfig(raw) {\n  return yaml.load(raw);\n}"},
+    {"id": "s11", "language": "javascript", "expected_cwe": "CWE-306", "code": "router.post('/admin/reset-password', (req, res) => {\n  resetPassword(req.body.userId, req.body.newPassword);\n  res.send('ok');\n});"},
+    {"id": "s12", "language": "python", "expected_cwe": "CWE-862", "code": "@app.route('/orders/<order_id>/cancel', methods=['POST'])\ndef cancel_order(order_id):\n    orders.cancel(order_id)\n    return 'cancelled'"},
+    {"id": "s13", "language": "javascript", "expected_cwe": "CWE-352", "code": "app.post('/transfer-funds', (req, res) => {\n  transfer(req.body.to, req.body.amount);\n  res.send('done');\n});"},
+    {"id": "s14", "language": "javascript", "expected_cwe": "CWE-434", "code": "app.post('/upload', (req, res) => {\n  const dest = path.join(publicDir, req.file.originalname);\n  fs.writeFileSync(dest, req.file.buffer);\n  res.send('uploaded');\n});"},
+    {"id": "s15", "language": "python", "expected_cwe": "CWE-918", "code": "def fetch_preview(url):\n    return requests.get(url).text"},
+    {"id": "s16", "language": "python", "expected_cwe": "CWE-94", "code": "def run_expression(expr):\n    return eval(expr)"},
+    {"id": "s17", "language": "javascript", "expected_cwe": "CWE-94", "code": "function runUserScript(code) {\n  return new Function(code)();\n}"},
+    {"id": "s18", "language": "python", "expected_cwe": "CWE-77", "code": "def compress(files):\n    subprocess.run('zip out.zip ' + files, shell=True)"},
+    {"id": "s19", "language": "javascript", "expected_cwe": "CWE-200", "code": "app.use((err, req, res, next) => {\n  res.status(500).json({ error: err.stack });\n});"},
+    {"id": "s20", "language": "python", "expected_cwe": "CWE-639", "code": "@app.route('/invoices/<invoice_id>')\ndef get_invoice(invoice_id):\n    return db.invoices.find_one({'_id': invoice_id})"},
+    {"id": "s21", "language": "javascript", "expected_cwe": "CWE-863", "code": "function canEdit(user, doc) {\n  if (user.role != 'admin') {\n    return true;\n  }\n  return false;\n}"},
+    {"id": "s22", "language": "python", "expected_cwe": "CWE-20", "code": "def set_discount(percent):\n    discounts.append(int(percent))\n    apply_to_cart(percent)"}
+  ]
+}
