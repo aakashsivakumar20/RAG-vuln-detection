@@ -69,7 +69,6 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
       <a href="#how">How it works</a>
       <a href="#results">Results</a>
       <a href="#screens">Screens</a>
-      <a href="#limits">Limits</a>
       <a class="keep" href="https://github.com/aakashsivakumar20/RAG-vuln-detection">GitHub</a>
     </nav>
   </div>
@@ -80,8 +79,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-si
   <h1>Find the weakness. Check it. See why.</h1>
   <p class="lead">A scanner that retrieves OWASP and CWE evidence for every function in a repository, has a language model check each match, and shows every score behind the result. It reads Python, JavaScript/TypeScript, Java, Kotlin, PHP, Go, C#, Ruby, C/C++ and Rust, and it runs on plain Python.</p>
   <div class="btns">
-    <a class="btn primary" href="https://github.com/aakashsivakumar20/RAG-vuln-detection#run-it-yourself">Run it yourself</a>
-    <a class="btn" href="https://github.com/aakashsivakumar20/RAG-vuln-detection">View the code</a>
+    <a class="btn primary" href="https://github.com/aakashsivakumar20/RAG-vuln-detection">View on GitHub</a>
   </div>
 </div>
 
@@ -150,19 +148,8 @@ cd RAG-vuln-detection
 ./run.sh        # Windows: run.bat</code></pre>
 </div></section>
 
-<section id="limits"><div class="wrap">
-  <h2>Limits</h2>
-  <ul class="plain">
-    <li>The team wrote every benchmark snippet and every rule, so accuracy on unfamiliar code will be lower.</li>
-    <li>Retrieval does not see a patch. For 42% of patched snippets the top-1 is still the CWE of the vulnerable version, which is why a verdict step follows retrieval.</li>
-    <li>The comparison of an LLM with and without retrieval has not been run, so no such numbers are claimed here.</li>
-    <li>Analysis is per function; weaknesses that span files are caught only when visible in the unit.</li>
-  </ul>
-</div></section>
 </main>
 
-<footer><div class="wrap">
-  Aakash Sivakumar and Udhay Anand Pandiyan, with guide Jenila Livingston L M. School of Computer Science and Engineering, Vellore Institute of Technology, Chennai. Scan only code you own or have permission to test.
-</div></footer>
+<footer><div class="wrap">Scan only code you own or have permission to test.</div></footer>
 </body>
 </html>

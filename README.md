@@ -4,10 +4,6 @@
 
 A scanner for Python, JavaScript/TypeScript, Java, Kotlin, PHP, Go, C#, Ruby, C/C++ and Rust. It splits a repository into functions, retrieves the most relevant entries from an OWASP + CWE knowledge base, asks an LLM to judge each function against that evidence, then scores severity with fixed rules and proposes a fix. Everything is stored in a local database and shown in a web dashboard.
 
-BCSE497J Project-I, VIT Chennai. Aakash Sivakumar (23BCE5119) and Udhay Anand Pandiyan (23BCE1793). Guide: Jenila Livingston L M.
-
-[Project page](https://aakashsivakumar20.github.io/RAG-vuln-detection/) · [Run it yourself](#run-it-yourself) · [Report an issue](https://github.com/aakashsivakumar20/RAG-vuln-detection/issues)
-
 ---
 
 ## Why it is different
@@ -150,14 +146,6 @@ results/               saved measurements and charts
 site/                  static project page published with GitHub Pages
 docs/                  report chapters and demo guide
 ```
-
-## Limits you should know about
-
-- All benchmark snippets and rules were written by the same team, so accuracy on unfamiliar code will be lower. The 128 snippets written after rule freezing are the fair figure.
-- Retrieval does not see a patch. For 42 % of patched snippets the top-1 is still the CWE of the vulnerable version. The LLM verdict step exists for that reason.
-- The LLM-with-retrieval versus LLM-alone comparison (`evaluation/run_llm_benchmark.py`) has not been run, so the repository ships no such numbers.
-- Analysis is per function. Weaknesses that span files are caught only when visible in the unit.
-- Free API tiers are rate limited; a 40-unit scan took 13 to 23 minutes in our runs.
 
 ## Responsible use
 
