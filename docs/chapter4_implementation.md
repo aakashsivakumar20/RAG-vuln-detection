@@ -9,7 +9,7 @@ Following the work plan in §3.6, Review 3 targets eight of the ten modules from
 | Repository Ingestion | `ingestion/clone.py` | Implemented, run against a real repository (§4.3) |
 | Parsing & Chunking | `chunking/chunker.py` | Implemented (tree-sitter, Python/JS/TS), tested |
 | Embedding Service | `embeddings/embedder.py`, `embeddings/idf.py` | Implemented, with a documented model substitution (§4.2) |
-| Security Knowledge Base | `knowledge_base/kb_entries.json`, `knowledge_base/build_kb.py` | Implemented — OWASP Top 10:2025 + CWE Top 25:2025, 35 entries |
+| Security Knowledge Base | `knowledge_base/kb_entries.json`, `knowledge_base/build_kb.py` | Implemented — OWASP Top 10:2025 + CWE Top 25:2025 (35 entries in Review 3), extended to 269 entries (234 further CWEs) in the final sprint |
 | RAG Retrieval Orchestrator | `pipeline/run_pipeline.py` | Implemented — dual-context retrieval demonstrated and benchmarked (§4.3–4.4) |
 | Severity Scoring | `severity/scorer.py` | Implemented — rule-based/CVSS-inspired, confidence-calibrated (§4.8) |
 | Findings Store | `findings_store/store.py` | Implemented — SQLite, a documented substitute for MongoDB (§4.8) |
@@ -67,7 +67,7 @@ To get a defensible number rather than an anecdote, 22 short code snippets were 
 
 32 automated tests (`src/tests/`, run with `pytest`) cover every implemented module, one file per module:
 
-- `test_pipeline.py` (7 tests, unchanged from the prior sprint): the Python and JavaScript chunkers correctly identifying function/class boundaries and names, the identifier tokenizer correctly splitting camelCase/snake_case, embeddings being unit-normalised, the FAISS vector store's save/load round-trip preserving both vectors and metadata, the knowledge base loading all 35 entries, and the SQL-injection sanity check retrieving `CWE-89` at rank 1.
+- `test_pipeline.py` (7 tests, unchanged from the prior sprint): the Python and JavaScript chunkers correctly identifying function/class boundaries and names, the identifier tokenizer correctly splitting camelCase/snake_case, embeddings being unit-normalised, the FAISS vector store's save/load round-trip preserving both vectors and metadata, the knowledge base loading all entries, and the SQL-injection sanity check retrieving `CWE-89` at rank 1.
 - `test_severity.py` (10 tests, new): correct band/score lookup for both CWE and OWASP-category matches, the margin-based confidence downgrade triggering below threshold and not above it, the "Low" band correctly flooring rather than going negative, the single-hit (no top-2) case defaulting to full confidence, and every entry in both severity tables having a valid CVSS-range score and band.
 - `test_findings_store.py` (7 tests, new): schema creation, insert/query round-trip (including the JSON-encoded retrieved-context field), filtering by repo/severity, per-severity aggregate counts, and per-repo deletion (used to avoid duplicate rows on re-scan) — all against a temporary on-disk SQLite file per test, not a shared database.
 - `test_remediation.py` (8 tests, new): each of the 7 templated CWE categories produces a non-empty, genuinely different before/after pair, an unknown or `None` CWE ID returns `None` rather than guessing, and every CWE explicitly documented as "no template available" (§4.8) does in fact return `None`.

@@ -1,0 +1,939 @@
+{
+ "_note": "Reference severity per extended CWE (typical weakness-class severity, CVSS v3.1 band thresholds); project-authored, see generate_extended.py.",
+ "CWE-74": [
+  "High",
+  8.1
+ ],
+ "CWE-88": [
+  "High",
+  8.8
+ ],
+ "CWE-90": [
+  "High",
+  8.1
+ ],
+ "CWE-91": [
+  "Medium",
+  6.5
+ ],
+ "CWE-93": [
+  "Medium",
+  6.1
+ ],
+ "CWE-95": [
+  "Critical",
+  9.8
+ ],
+ "CWE-96": [
+  "High",
+  8.8
+ ],
+ "CWE-99": [
+  "Medium",
+  6.5
+ ],
+ "CWE-113": [
+  "Medium",
+  6.1
+ ],
+ "CWE-116": [
+  "Medium",
+  6.5
+ ],
+ "CWE-117": [
+  "Medium",
+  5.3
+ ],
+ "CWE-134": [
+  "High",
+  7.5
+ ],
+ "CWE-138": [
+  "Medium",
+  6.5
+ ],
+ "CWE-470": [
+  "Critical",
+  9.8
+ ],
+ "CWE-643": [
+  "High",
+  7.5
+ ],
+ "CWE-917": [
+  "Critical",
+  9.8
+ ],
+ "CWE-943": [
+  "High",
+  8.1
+ ],
+ "CWE-1236": [
+  "Medium",
+  6.5
+ ],
+ "CWE-1321": [
+  "High",
+  8.2
+ ],
+ "CWE-1336": [
+  "Critical",
+  9.8
+ ],
+ "CWE-611": [
+  "High",
+  8.2
+ ],
+ "CWE-776": [
+  "High",
+  7.5
+ ],
+ "CWE-601": [
+  "Medium",
+  6.1
+ ],
+ "CWE-1333": [
+  "High",
+  7.5
+ ],
+ "CWE-625": [
+  "Medium",
+  5.3
+ ],
+ "CWE-1427": [
+  "High",
+  7.5
+ ],
+ "CWE-1426": [
+  "High",
+  7.5
+ ],
+ "CWE-23": [
+  "High",
+  7.5
+ ],
+ "CWE-36": [
+  "High",
+  7.5
+ ],
+ "CWE-59": [
+  "Medium",
+  6.3
+ ],
+ "CWE-73": [
+  "High",
+  7.5
+ ],
+ "CWE-377": [
+  "Medium",
+  5.5
+ ],
+ "CWE-379": [
+  "Medium",
+  5.5
+ ],
+ "CWE-425": [
+  "Medium",
+  6.5
+ ],
+ "CWE-441": [
+  "High",
+  7.5
+ ],
+ "CWE-497": [
+  "Medium",
+  5.3
+ ],
+ "CWE-538": [
+  "Medium",
+  6.5
+ ],
+ "CWE-548": [
+  "Medium",
+  5.3
+ ],
+ "CWE-552": [
+  "High",
+  7.5
+ ],
+ "CWE-566": [
+  "High",
+  8.1
+ ],
+ "CWE-598": [
+  "Medium",
+  4.3
+ ],
+ "CWE-668": [
+  "Medium",
+  6.5
+ ],
+ "CWE-732": [
+  "High",
+  7.8
+ ],
+ "CWE-749": [
+  "High",
+  8.1
+ ],
+ "CWE-922": [
+  "Medium",
+  6.5
+ ],
+ "CWE-1275": [
+  "Medium",
+  4.3
+ ],
+ "CWE-1004": [
+  "Medium",
+  5.0
+ ],
+ "CWE-614": [
+  "Medium",
+  5.0
+ ],
+ "CWE-346": [
+  "Medium",
+  6.5
+ ],
+ "CWE-942": [
+  "Medium",
+  6.5
+ ],
+ "CWE-915": [
+  "High",
+  8.1
+ ],
+ "CWE-1021": [
+  "Medium",
+  4.3
+ ],
+ "CWE-1022": [
+  "Low",
+  3.5
+ ],
+ "CWE-269": [
+  "High",
+  8.8
+ ],
+ "CWE-250": [
+  "Medium",
+  6.5
+ ],
+ "CWE-276": [
+  "Medium",
+  6.5
+ ],
+ "CWE-285": [
+  "High",
+  8.1
+ ],
+ "CWE-798": [
+  "Critical",
+  9.8
+ ],
+ "CWE-259": [
+  "Critical",
+  9.8
+ ],
+ "CWE-321": [
+  "Critical",
+  9.8
+ ],
+ "CWE-256": [
+  "High",
+  7.5
+ ],
+ "CWE-257": [
+  "High",
+  7.5
+ ],
+ "CWE-522": [
+  "High",
+  7.5
+ ],
+ "CWE-326": [
+  "High",
+  7.5
+ ],
+ "CWE-327": [
+  "High",
+  7.5
+ ],
+ "CWE-328": [
+  "High",
+  7.5
+ ],
+ "CWE-916": [
+  "High",
+  7.5
+ ],
+ "CWE-759": [
+  "Medium",
+  6.5
+ ],
+ "CWE-760": [
+  "Medium",
+  6.5
+ ],
+ "CWE-330": [
+  "High",
+  7.5
+ ],
+ "CWE-338": [
+  "High",
+  7.5
+ ],
+ "CWE-331": [
+  "Medium",
+  6.5
+ ],
+ "CWE-335": [
+  "Medium",
+  6.5
+ ],
+ "CWE-329": [
+  "Medium",
+  6.5
+ ],
+ "CWE-323": [
+  "High",
+  7.5
+ ],
+ "CWE-325": [
+  "Medium",
+  6.5
+ ],
+ "CWE-347": [
+  "High",
+  8.1
+ ],
+ "CWE-295": [
+  "High",
+  7.4
+ ],
+ "CWE-297": [
+  "High",
+  7.4
+ ],
+ "CWE-296": [
+  "High",
+  7.4
+ ],
+ "CWE-319": [
+  "High",
+  7.5
+ ],
+ "CWE-311": [
+  "High",
+  7.5
+ ],
+ "CWE-312": [
+  "High",
+  7.5
+ ],
+ "CWE-313": [
+  "Medium",
+  6.5
+ ],
+ "CWE-315": [
+  "Medium",
+  6.5
+ ],
+ "CWE-532": [
+  "Medium",
+  5.5
+ ],
+ "CWE-209": [
+  "Medium",
+  5.3
+ ],
+ "CWE-215": [
+  "Medium",
+  5.3
+ ],
+ "CWE-489": [
+  "Medium",
+  6.5
+ ],
+ "CWE-287": [
+  "Critical",
+  9.8
+ ],
+ "CWE-288": [
+  "Critical",
+  9.8
+ ],
+ "CWE-290": [
+  "High",
+  8.1
+ ],
+ "CWE-294": [
+  "High",
+  7.5
+ ],
+ "CWE-300": [
+  "High",
+  7.4
+ ],
+ "CWE-302": [
+  "High",
+  8.1
+ ],
+ "CWE-303": [
+  "High",
+  7.5
+ ],
+ "CWE-304": [
+  "High",
+  8.1
+ ],
+ "CWE-307": [
+  "High",
+  7.5
+ ],
+ "CWE-308": [
+  "Medium",
+  6.5
+ ],
+ "CWE-309": [
+  "Medium",
+  5.3
+ ],
+ "CWE-521": [
+  "Medium",
+  6.5
+ ],
+ "CWE-620": [
+  "High",
+  7.1
+ ],
+ "CWE-640": [
+  "High",
+  8.1
+ ],
+ "CWE-613": [
+  "Medium",
+  6.5
+ ],
+ "CWE-384": [
+  "High",
+  7.5
+ ],
+ "CWE-488": [
+  "High",
+  7.5
+ ],
+ "CWE-565": [
+  "High",
+  7.5
+ ],
+ "CWE-472": [
+  "High",
+  7.5
+ ],
+ "CWE-266": [
+  "High",
+  8.8
+ ],
+ "CWE-267": [
+  "Medium",
+  6.5
+ ],
+ "CWE-268": [
+  "Medium",
+  6.5
+ ],
+ "CWE-270": [
+  "High",
+  7.8
+ ],
+ "CWE-271": [
+  "High",
+  7.8
+ ],
+ "CWE-272": [
+  "Medium",
+  6.5
+ ],
+ "CWE-274": [
+  "Medium",
+  5.3
+ ],
+ "CWE-280": [
+  "Medium",
+  5.3
+ ],
+ "CWE-348": [
+  "High",
+  7.5
+ ],
+ "CWE-350": [
+  "Medium",
+  6.5
+ ],
+ "CWE-358": [
+  "Medium",
+  6.5
+ ],
+ "CWE-359": [
+  "Medium",
+  6.5
+ ],
+ "CWE-213": [
+  "Medium",
+  5.3
+ ],
+ "CWE-201": [
+  "Medium",
+  5.3
+ ],
+ "CWE-204": [
+  "Medium",
+  5.3
+ ],
+ "CWE-208": [
+  "Medium",
+  5.9
+ ],
+ "CWE-203": [
+  "Medium",
+  5.3
+ ],
+ "CWE-523": [
+  "High",
+  7.5
+ ],
+ "CWE-549": [
+  "Low",
+  3.5
+ ],
+ "CWE-836": [
+  "High",
+  7.5
+ ],
+ "CWE-1390": [
+  "High",
+  7.5
+ ],
+ "CWE-1391": [
+  "High",
+  7.5
+ ],
+ "CWE-80": [
+  "Medium",
+  6.1
+ ],
+ "CWE-83": [
+  "Medium",
+  6.1
+ ],
+ "CWE-84": [
+  "Medium",
+  6.1
+ ],
+ "CWE-85": [
+  "Medium",
+  5.4
+ ],
+ "CWE-87": [
+  "Medium",
+  5.4
+ ],
+ "CWE-81": [
+  "Medium",
+  6.1
+ ],
+ "CWE-82": [
+  "Medium",
+  5.4
+ ],
+ "CWE-86": [
+  "Medium",
+  5.4
+ ],
+ "CWE-564": [
+  "Critical",
+  9.8
+ ],
+ "CWE-190": [
+  "High",
+  7.5
+ ],
+ "CWE-191": [
+  "High",
+  7.5
+ ],
+ "CWE-129": [
+  "High",
+  7.5
+ ],
+ "CWE-130": [
+  "High",
+  7.5
+ ],
+ "CWE-131": [
+  "High",
+  7.5
+ ],
+ "CWE-193": [
+  "Medium",
+  6.5
+ ],
+ "CWE-197": [
+  "Medium",
+  5.5
+ ],
+ "CWE-681": [
+  "Medium",
+  5.5
+ ],
+ "CWE-1339": [
+  "Medium",
+  5.3
+ ],
+ "CWE-369": [
+  "Medium",
+  5.3
+ ],
+ "CWE-754": [
+  "Medium",
+  5.3
+ ],
+ "CWE-755": [
+  "Medium",
+  5.3
+ ],
+ "CWE-703": [
+  "Medium",
+  5.3
+ ],
+ "CWE-248": [
+  "Medium",
+  5.9
+ ],
+ "CWE-252": [
+  "Medium",
+  5.3
+ ],
+ "CWE-253": [
+  "Medium",
+  5.3
+ ],
+ "CWE-391": [
+  "Medium",
+  5.3
+ ],
+ "CWE-392": [
+  "Medium",
+  4.3
+ ],
+ "CWE-393": [
+  "Medium",
+  4.3
+ ],
+ "CWE-396": [
+  "Low",
+  3.5
+ ],
+ "CWE-397": [
+  "Low",
+  3.1
+ ],
+ "CWE-460": [
+  "Medium",
+  5.3
+ ],
+ "CWE-544": [
+  "Low",
+  3.5
+ ],
+ "CWE-636": [
+  "High",
+  7.5
+ ],
+ "CWE-756": [
+  "Low",
+  3.7
+ ],
+ "CWE-362": [
+  "High",
+  7.0
+ ],
+ "CWE-367": [
+  "High",
+  7.0
+ ],
+ "CWE-364": [
+  "Medium",
+  5.9
+ ],
+ "CWE-366": [
+  "Medium",
+  5.9
+ ],
+ "CWE-368": [
+  "Medium",
+  5.9
+ ],
+ "CWE-413": [
+  "Medium",
+  5.5
+ ],
+ "CWE-414": [
+  "Medium",
+  5.5
+ ],
+ "CWE-567": [
+  "Medium",
+  5.9
+ ],
+ "CWE-662": [
+  "Medium",
+  5.9
+ ],
+ "CWE-667": [
+  "Medium",
+  5.9
+ ],
+ "CWE-833": [
+  "Medium",
+  5.9
+ ],
+ "CWE-820": [
+  "Medium",
+  5.5
+ ],
+ "CWE-821": [
+  "Medium",
+  5.5
+ ],
+ "CWE-400": [
+  "High",
+  7.5
+ ],
+ "CWE-405": [
+  "Medium",
+  6.5
+ ],
+ "CWE-409": [
+  "High",
+  7.5
+ ],
+ "CWE-407": [
+  "Medium",
+  5.9
+ ],
+ "CWE-674": [
+  "Medium",
+  5.9
+ ],
+ "CWE-835": [
+  "Medium",
+  5.9
+ ],
+ "CWE-606": [
+  "Medium",
+  5.9
+ ],
+ "CWE-789": [
+  "High",
+  7.5
+ ],
+ "CWE-774": [
+  "Medium",
+  5.9
+ ],
+ "CWE-772": [
+  "Medium",
+  5.3
+ ],
+ "CWE-401": [
+  "Medium",
+  5.9
+ ],
+ "CWE-404": [
+  "Medium",
+  5.3
+ ],
+ "CWE-410": [
+  "Medium",
+  5.9
+ ],
+ "CWE-799": [
+  "Medium",
+  6.5
+ ],
+ "CWE-837": [
+  "Medium",
+  6.5
+ ],
+ "CWE-841": [
+  "Medium",
+  6.5
+ ],
+ "CWE-840": [
+  "Medium",
+  6.5
+ ],
+ "CWE-1173": [
+  "Medium",
+  5.3
+ ],
+ "CWE-602": [
+  "High",
+  7.5
+ ],
+ "CWE-807": [
+  "High",
+  7.5
+ ],
+ "CWE-642": [
+  "High",
+  7.5
+ ],
+ "CWE-829": [
+  "High",
+  8.8
+ ],
+ "CWE-830": [
+  "Medium",
+  6.5
+ ],
+ "CWE-494": [
+  "High",
+  8.8
+ ],
+ "CWE-353": [
+  "Medium",
+  6.5
+ ],
+ "CWE-354": [
+  "High",
+  7.5
+ ],
+ "CWE-345": [
+  "High",
+  7.5
+ ],
+ "CWE-349": [
+  "Medium",
+  6.5
+ ],
+ "CWE-426": [
+  "High",
+  7.8
+ ],
+ "CWE-427": [
+  "High",
+  7.8
+ ],
+ "CWE-428": [
+  "Medium",
+  6.5
+ ],
+ "CWE-114": [
+  "High",
+  7.8
+ ],
+ "CWE-1104": [
+  "Medium",
+  6.5
+ ],
+ "CWE-1395": [
+  "High",
+  7.5
+ ],
+ "CWE-937": [
+  "High",
+  7.5
+ ],
+ "CWE-1357": [
+  "Medium",
+  6.5
+ ],
+ "CWE-1329": [
+  "Medium",
+  5.3
+ ],
+ "CWE-1188": [
+  "Medium",
+  6.5
+ ],
+ "CWE-16": [
+  "Medium",
+  5.3
+ ],
+ "CWE-15": [
+  "High",
+  7.5
+ ],
+ "CWE-260": [
+  "High",
+  7.5
+ ],
+ "CWE-526": [
+  "Medium",
+  5.5
+ ],
+ "CWE-547": [
+  "Medium",
+  5.3
+ ],
+ "CWE-1393": [
+  "High",
+  8.6
+ ],
+ "CWE-453": [
+  "Medium",
+  5.5
+ ],
+ "CWE-1327": [
+  "Medium",
+  6.5
+ ],
+ "CWE-1385": [
+  "High",
+  8.8
+ ],
+ "CWE-1392": [
+  "High",
+  8.6
+ ],
+ "CWE-1394": [
+  "High",
+  8.6
+ ],
+ "CWE-1230": [
+  "Medium",
+  5.3
+ ],
+ "CWE-693": [
+  "High",
+  7.5
+ ],
+ "CWE-657": [
+  "Medium",
+  5.3
+ ],
+ "CWE-653": [
+  "Medium",
+  6.5
+ ],
+ "CWE-501": [
+  "Medium",
+  6.5
+ ],
+ "CWE-940": [
+  "High",
+  7.5
+ ],
+ "CWE-212": [
+  "Medium",
+  6.5
+ ],
+ "CWE-214": [
+  "Medium",
+  5.5
+ ]
+}

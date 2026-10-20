@@ -1,0 +1,209 @@
+# Sink rules (see retrieval/patterns.py). Fields are TAB separated:
+# id	cwe	langs	weight	requires	unless	regex	note
+py-sql-fstring	CWE-89	py	0.85	-	-	(?i)f"[^"\n]*\b(select|insert\s+into|update|delete\s+from)\b[^"\n]*\{|f'[^'\n]*\b(select|insert\s+into|update|delete\s+from)\b[^'\n]*\{	SQL text built with an f-string
+py-sql-concat	CWE-89	py	0.85	-	-	(?i)"[^"\n]*\b(select|insert\s+into|update|delete\s+from)\b[^"\n]*"\s*(\+|%\s*[\w(])|'[^'\n]*\b(select|insert\s+into|update|delete\s+from)\b[^'\n]*'\s*(\+|%\s*[\w(])	SQL text concatenated or %-formatted
+py-sql-format	CWE-89	py	0.85	-	-	(?i)"[^"\n]*\b(select|insert\s+into|update|delete\s+from)\b[^"\n]*"\s*\.format\(|'[^'\n]*\b(select|insert\s+into|update|delete\s+from)\b[^'\n]*'\s*\.format\(	SQL text built with str.format
+py-sql-exec-var	CWE-89	py	0.4	-	\.(execute|executemany)\([^)]*,\s*[\[(\w]	\.(execute|executemany|executescript|raw)\(\s*(query|sql|stmt|statement|q)\s*\)	execute() of a pre-built SQL variable
+py-sql-raw-orm	CWE-89	py	0.6	-	-	\.(raw|extra)\(\s*f?["'][^"'\n]*(\{|%s?|\+)|text\(\s*f["']	ORM raw query with interpolation
+js-sql-template	CWE-89	js	0.85	-	-	(?i)`[^`]*\b(select|insert\s+into|update|delete\s+from)\b[^`]*\$\{	SQL text built in a template literal
+js-sql-concat	CWE-89	js	0.85	-	-	(?i)"[^"\n]*\b(select|insert\s+into|update|delete\s+from)\b[^"\n]*"\s*\+|'[^'\n]*\b(select|insert\s+into|update|delete\s+from)\b[^'\n]*'\s*\+	SQL text concatenated
+js-sql-exec-var	CWE-89	js	0.4	-	\.(query|execute|run|all|get)\([^)]*,\s*[\[\w]	\.(query|execute|run|all|get)\(\s*(sql|query|stmt|q)\s*\)	query() of a pre-built SQL variable
+js-sql-orm-raw	CWE-89	js	0.6	-	-	(sequelize\.query|knex\.raw|\.\$queryRawUnsafe|\.raw)\(\s*[`"'][^`"']*(\$\{|["']\s*\+)	ORM raw query with interpolation
+any-sqlerr-keyword	CWE-89	*	0.2	-	\?|%s|:\w+|\$\d	(?i)\b(select\s+.+\s+from|insert\s+into|delete\s+from|update\s+\w+\s+set)\b	SQL keywords without bind placeholders
+py-os-system	CWE-78	py	0.8	-	-	\bos\.(system|popen)\s*\(	os.system / os.popen run a shell command
+py-shell-true	CWE-78	py	0.9	-	-	subprocess\.\w+\([^)]*shell\s*=\s*True	subprocess with shell=True
+py-commands	CWE-78	py	0.8	-	-	\b(commands\.getoutput|os\.spawn\w+|popen2\.\w+)\(	legacy shell helpers
+js-exec	CWE-78	js	0.85	-	-	\b(exec|execSync)\s*\(\s*([`]|["'][^"'\n]*["']\s*\+|[A-Za-z_]\w*\s*\+|[A-Za-z_]\w*\s*\))	child_process.exec with a built string
+js-exec-call	CWE-78	js	0.6	-	-	child_process\.(exec|execSync)\(|require\(['"]child_process['"]\)\.(exec|execSync)	child_process.exec runs a shell
+js-spawn-shell	CWE-78	js	0.85	-	-	(spawn|execFile)(Sync)?\([^)]*shell\s*:\s*true	spawn with shell:true
+any-cmd-77	CWE-77	py,js	0.35	-	-	(os\.system|child_process\.exec|execSync|subprocess\.\w+)\s*\(	command execution (generic command injection)
+py-arg-injection	CWE-88	py	0.45	-	-	subprocess\.\w+\(\s*\[\s*["'](git|curl|wget|tar|rsync|convert|ffmpeg|zip|unzip|ssh|scp|7z|mysql|psql)["']\s*,[^\]]*[a-z_]	external tool called with a user-derived argument
+js-arg-injection	CWE-88	js	0.45	-	-	(execFile|spawn)(Sync)?\(\s*["'](git|curl|wget|tar|rsync|convert|ffmpeg|zip|unzip|ssh|scp)["']\s*,\s*\[[^\]]*[a-z_]	external tool called with a user-derived argument
+py-eval	CWE-94	py	0.8	-	-	(?<![\w.])eval\s*\(\s*(?!["'][^"']*["']\s*\))	eval of a non-literal
+py-exec	CWE-94	py	0.75	-	-	(?<![\w.])exec\s*\(\s*(?!["'][^"']*["']\s*\))	exec of a non-literal
+py-eval-95	CWE-95	py	0.55	-	-	(?<![\w.])eval\s*\(	eval injection
+py-compile	CWE-94	py	0.45	-	-	(?<![\w.])compile\(\s*\w+\s*,\s*["'][^"']*["']\s*,\s*["'](exec|eval)["']	compile of dynamic code
+js-eval	CWE-94	js	0.8	-	-	(?<![\w.])eval\s*\(	eval
+js-new-function	CWE-94	js	0.85	-	-	new\s+Function\s*\(	new Function builds code from a string
+js-eval-95	CWE-95	js	0.55	-	-	(?<![\w.])eval\s*\(|new\s+Function\s*\(	eval injection
+js-vm	CWE-94	js	0.7	-	-	\bvm\.(runIn(New|This)?Context|Script)\(	node vm executes code strings
+js-settimeout-str	CWE-94	js	0.5	-	-	(setTimeout|setInterval)\(\s*(["'`]|\w+\s*\+)	timer with a string argument evaluates code
+py-ssti	CWE-1336	py	0.85	-	render_template_string\(\s*["'][^"']*["']\s*,	render_template_string\s*\(|Template\(\s*(request|[A-Za-z_]\w*\s*\+|["'][^"']*["']\s*\+|f["'])|from_string\(	template compiled from a string
+js-ssti	CWE-1336	js	0.7	-	-	(ejs|pug|jade|handlebars|nunjucks|mustache|lodash|_)\.(render|compile|template)\(\s*(req\.|[A-Za-z_]\w*\s*\+|`)	template engine given a built string
+py-xpath	CWE-643	py	0.8	-	-	\.xpath\(\s*(f["']|["'][^"'\n]*["']\s*(\+|%)|[A-Za-z_]\w*\s*\+)	XPath built by concatenation
+js-xpath	CWE-643	js	0.8	-	-	(xpath\.(select|evaluate)|selectNodes|\.evaluate)\(\s*(`|["'][^"'\n]*["']\s*\+)	XPath built by concatenation
+py-ldap	CWE-90	py	0.85	-	-	\.(search|search_s|search_ext_s|search_st)\([^)\n]*(\+|%\s*[\w(]|f["']|\.format\()|["']\(\&?\(?(uid|cn|sAMAccountName|mail)=["']\s*\+|f["']\(\&?\(?(uid|cn|sAMAccountName|mail)=\{	LDAP filter built by concatenation
+js-ldap	CWE-90	js	0.8	(?i)ldap	-	\.search\([^)\n]*(\+|`[^`]*\$\{)|["']\(\&?\(?(uid|cn|sAMAccountName|mail)=["']\s*\+	LDAP filter built by concatenation
+js-nosql-body	CWE-943	js	0.75	-	-	\.(find|findOne|findOneAndUpdate|updateOne|updateMany|deleteOne|deleteMany|count|countDocuments|aggregate)\(\s*(req\.(body|query|params)\b|\{[^}]*:\s*req\.(body|query|params)\b)	request object passed straight into a Mongo query
+js-nosql-where	CWE-943	js	0.8	-	-	\$where\b	$where evaluates JavaScript
+py-nosql-body	CWE-943	py	0.65	-	-	\.(find|find_one|update_one|delete_one|delete_many|aggregate)\(\s*(request\.(json|args|form|get_json\(\))|json\.loads\()	request data passed straight into a Mongo query
+py-prompt-inject	CWE-1427	py,js	0.5	(f["'][^"'\n]*\{|["']\s*\+\s*(user|request|req|input|query|prompt|message)|`[^`]*\$\{)	-	(chat\.completions|messages\.create|generate_content|\.complete\(|ChatCompletion|openai\.|anthropic\.)	LLM prompt built from user text
+py-log-injection	CWE-117	py	0.5	-	-	(log|logger|logging|app\.logger)\.\w+\(\s*(f["'][^"']*\{[^}]*(request|input|user|name|query)|["'][^"']*["']\s*\+\s*[\w.]*(request|input|user|name|query|q)\b)	user text concatenated into a log line
+js-log-injection	CWE-117	js	0.45	-	-	(console\.(log|info|warn)|logger\.\w+)\(\s*(`[^`]*\$\{[^}]*(req\.|input|user|query)|["'][^"']*["']\s*\+\s*[\w.]*(req\.|input|user|query))	user text concatenated into a log line
+any-crlf-header	CWE-113	py,js	0.55	-	-	(set_header|setHeader|add_header|\.headers\[[^\]]+\]\s*=|writeHead)\s*\(?[^;\n]*(request\.|req\.|\+\s*[a-z_]|\{[a-z_.]+\})	header value built from user text
+js-header-inject	CWE-113	js	0.6	-	-	(setHeader|header)\(\s*["'][^"']+["']\s*,\s*[^)]*(req\.(query|body|params)|["']\s*\+)	header value built from user text
+js-innerhtml	CWE-79	js	0.75	-	-	\.(innerHTML|outerHTML)\s*(\+?=)	HTML sink
+js-docwrite	CWE-79	js	0.75	-	-	document\.write(ln)?\s*\(|\.insertAdjacentHTML\s*\(	HTML sink
+js-dangerously	CWE-79	js	0.75	-	-	dangerouslySetInnerHTML|v-html\b|bypassSecurityTrust(Html|Script|Url)	framework escape hatch
+js-jquery-html	CWE-79	js	0.55	-	-	\$\([^)]*\)\.(html|append|prepend|after|before)\(\s*(?!["'`][^"'`]*["'`]\s*\))	jQuery HTML insertion
+js-res-send-html	CWE-79	js	0.7	-	-	res\.(send|write|end)\(\s*(`[^`]*<[^`]*\$\{|["'][^"'\n]*<[^"'\n]*["']\s*\+)	HTML response built by concatenation
+py-html-concat	CWE-79	py	0.7	-	-	(["'])\s*<\w[^"'\n]*\1\s*\+|\+\s*["']\s*</\w|f["'][^"'\n]*<\w[^"'\n]*\{	HTML text built by concatenation or f-string
+py-markup	CWE-79	py	0.65	-	-	\b(Markup|mark_safe|SafeString|format_html_join)\(|\|\s*safe\b|autoescape\s*=\s*False|{%\s*autoescape\s+off	escaping disabled
+py-httpresponse-html	CWE-79	py	0.5	-	-	(HttpResponse|make_response|Response)\(\s*(f["']|["'][^"'\n]*["']\s*(\+|%|\.format))	response body built from text
+py-err-echo	CWE-81	py	0.45	-	-	(abort|return)\s*\(?\s*(f["'](Invalid|Bad|Unknown|No such|Not found|Error)[^"'\n]*\{|["'](Invalid|Bad|Unknown|Not found|Error)[^"'\n]*["']\s*\+)	error page echoes user input
+js-err-echo	CWE-81	js	0.45	-	-	res\.status\(\s*(400|404|500)\s*\)\.(send|end)\(\s*(`[^`]*\$\{|["'][^"'\n]*["']\s*\+)	error page echoes user input
+js-redirect	CWE-601	js	0.75	-	startsWith\(\s*['"]/['"]\s*\)|new URL\(|allowedHosts|whitelist|allowlist|\.includes\(	res\.redirect\(\s*(\d+\s*,\s*)?(req\.(query|body|params)|[A-Za-z_]*(url|next|target|redirect|returnTo|return_to|dest)\w*)	redirect target from the request
+js-location	CWE-601	js	0.65	-	-	(window\.)?location(\.href)?\s*=\s*[^;]*(location\.(hash|search)|params?\b|query|URLSearchParams|document\.referrer)	client-side redirect from user data
+py-redirect	CWE-601	py	0.75	-	startswith\(\s*["']/["']\s*\)|url_has_allowed_host_and_scheme|is_safe_url|urlparse\([^)]*\)\.netloc|ALLOWED|allowed_hosts	\bredirect\(\s*(request\.(args|form|values|GET|POST|json)|(next|url|target|return_to|redirect_to|dest|goto)\w*\b|[^)\n]*request\.(args|form|values|GET))	redirect target from the request
+py-pickle	CWE-502	py	0.9	-	-	\b(pickle|cPickle|dill|shelve|marshal|jsonpickle)\.(loads?|Unpickler|open|decode)\(	unsafe deserialiser
+py-yaml	CWE-502	py	0.85	-	-	yaml\.(load|load_all|unsafe_load|full_load)\s*\((?![^)]*(SafeLoader|safe_load))	yaml.load without a safe loader
+js-yaml-unsafe	CWE-502	js	0.7	-	safeLoad|JSON_SCHEMA|schema\s*:	\byaml\.(load|loadAll)\s*\(|YAML\.parse\(.*unsafe|js-yaml.*unsafe	yaml.load can build objects
+js-unserialize	CWE-502	js	0.9	-	-	node-serialize|serialize\.unserialize\(|\bunserialize\(|v8\.deserialize\(|funcster	unsafe deserialiser
+py-xml-xxe	CWE-611	py	0.7	-	-	resolve_entities\s*=\s*True|load_dtd\s*=\s*True|etree\.XMLParser\(\s*\)|XMLParser\([^)]*no_network\s*=\s*False	XML parser resolves entities
+py-xml-parse	CWE-611	py	0.4	-	defusedxml|resolve_entities\s*=\s*False	\b(minidom|xml\.sax|etree|ElementTree|pulldom|lxml)\b[^\n]*\.(parse|fromstring|parseString|XML)\(	XML parsing of untrusted data
+js-xml-xxe	CWE-611	js	0.85	noent\s*:\s*true|libxmljs|parseXml	-	noent\s*:\s*true|parseXml\([^)]*noent|DOMParser|xml2js|libxmljs|sax\.parser	XML parser resolves entities
+py-open-user	CWE-22	py	0.55	-	secure_filename|realpath|commonpath|resolve\(\)|is_relative_to|startswith\(\s*(base|root|safe|BASE|ROOT)	\bopen\(\s*(os\.path\.join\([^)]*|[^)]*\+\s*)(filename|file_name|fname|path|name|request\.|user|f\b)	file opened from a user-derived path
+py-path-join	CWE-22	py	0.45	-	secure_filename|realpath|commonpath|resolve\(\)|is_relative_to	os\.path\.join\([^)]*\b(filename|file_name|fname|request\.|user_?input|rel_?path|path_param)\b	path joined with user input
+py-send-file	CWE-22	py	0.55	-	safe_join|secure_filename|realpath|commonpath	\bsend_file\(|FileResponse\(\s*[^)]*(path|name)	serving a file by user-controlled name
+js-fs-user	CWE-22	js	0.7	-	path\.resolve\([^)]*\)[\s\S]{0,200}startsWith|path\.basename|realpath|\.startsWith\(\s*(base|root|safe|BASE|ROOT)	\b(readFile|readFileSync|createReadStream|sendFile|download|writeFile|writeFileSync|unlink|unlinkSync|readdir|createWriteStream)\s*\(\s*[^)]*(req\.(query|params|body)|\+\s*[a-zA-Z_]*(file|path|name)|[a-zA-Z_]*(dir|Dir)\s*\+)	file API called with request-derived path
+js-path-join	CWE-22	js	0.55	-	path\.basename|startsWith\(\s*(base|root)	path\.(join|resolve)\([^)]*req\.(query|params|body)	path joined with request input
+any-dotdot	CWE-23	py,js	0.35	-	-	\.\.[/\\]	relative path sequence
+py-upload-save	CWE-434	py	0.7	\.save\(	secure_filename|uuid|ALLOWED_EXTENSIONS|allowed_file|splitext\([^)]*\)\[1\][^\n]*in\s|\.endswith\(|mimetype\s*in|content_type\s*in	request\.files|\.save\(\s*[^)]*(filename|\.name)	uploaded file saved under its own name without validation
+js-upload-save	CWE-434	js	0.7	-	allowedTypes|ALLOWED|mimetype\s*(===|==|in)|\.test\(\s*[^)]*mimetype|path\.extname\([^)]*\)\s*(===|in)|uuid|crypto\.random|\.includes\(\s*[^)]*(ext|mimetype)	(req\.file|req\.files)[^;\n]*(originalname|\.name|\.mv\()|\.mv\(\s*[^)]*(name|originalname)|writeFile(Sync)?\([^)]*originalname	uploaded file saved under its own name without validation
+py-zip-extract	CWE-409	py	0.55	-	file_size|getmembers|infolist\(\)[^\n]*(sum|>)|MAX_	(zipfile\.ZipFile|tarfile\.open)\([^)]*\)[\s\S]{0,120}\.extractall\(|\.extractall\(	archive extracted without size limit
+py-zip-slip	CWE-22	py	0.4	-	realpath|commonpath|is_relative_to|startswith\(\s*(dest|base|target)	\.extractall\(|\.extract\(	archive extraction path traversal (zip slip)
+js-zip-extract	CWE-409	js	0.55	-	-	(unzipper|adm-zip|AdmZip|decompress|tar)\b[\s\S]{0,200}(extract|Extract|extractAllTo)	archive extracted without size limit
+py-tempfile	CWE-377	py	0.9	-	-	tempfile\.mktemp\(|os\.tmpnam\(|os\.tempnam\(	predictable temp file name
+any-tmp-literal	CWE-377	py,js	0.4	-	mkdtemp|mkstemp|NamedTemporaryFile|TemporaryDirectory	["'`]/tmp/[\w.${}-]*	fixed path in /tmp
+py-chmod	CWE-732	py	0.85	-	0o?[0-7]00\b|0o?[0-7]00\)	\b(os\.chmod|os\.fchmod|os\.makedirs|os\.mkdir)\([^)]*(0o?7[0-7][0-7]|0o?6[0-7][0-7]|0o?[0-7]*[2367]\b)	permissive file mode
+py-chmod-777	CWE-732	py	0.85	-	-	0o?777|0o?666|stat\.S_IRWXO|S_IWOTH	world-writable mode
+js-chmod	CWE-732	js	0.85	-	-	(chmod|chmodSync|mkdir|mkdirSync|writeFile|writeFileSync)\([^)]*(0o?777|0o?666|mode\s*:\s*0o?7)	permissive file mode
+py-umask	CWE-276	py	0.6	-	-	os\.umask\(\s*0(o?0+)?\s*\)	umask 0 makes new files world-writable
+py-ssrf	CWE-918	py	0.6	-	ALLOWED_HOSTS|allowlist|whitelist|ipaddress\.|is_private|netloc\s*in	\b(requests|httpx|session|client)\.(get|post|put|delete|head|request|patch)\(\s*(url|target|uri|link|endpoint|request\.|f["']|[A-Za-z_]\w*\s*\+|[a-z_]*url\w*|[a-z_]*host\w*)	HTTP request to a caller-supplied URL
+py-urlopen	CWE-918	py	0.55	-	ALLOWED|allowlist|whitelist	urllib\.request\.urlopen\(|urlopen\(\s*[a-z_]|urlretrieve\(	URL fetched from a variable
+js-ssrf	CWE-918	js	0.65	-	ALLOWED|allowlist|whitelist|ALLOWED_HOSTS|\.has\(\s*[^)]*hostname	\b(fetch|axios(\.(get|post|request))?|got|request|needle|superagent\.get|http\.get|https\.get)\s*\(\s*(req\.(query|body|params)|`[^`]*\$\{|[a-zA-Z_]*(url|Url|URL|target|link|endpoint)\w*|[a-zA-Z_]+\s*\+)	HTTP request to a caller-supplied URL
+any-http-literal	CWE-319	py,js	0.4	-	-	["'`]http://(?!localhost|127\.|0\.0\.0\.0|\[::1\]|example\.(com|org)/?["'`]|schemas|www\.w3\.org)[^"'`\s]*	cleartext http:// URL
+any-http-login	CWE-319	py,js	0.6	-	-	http://[^"'`\s]*(login|signin|auth|password|token|api|account)	credentials sent over http
+py-cleartext-proto	CWE-319	py	0.6	-	starttls|SMTP_SSL	\b(ftplib|telnetlib)\b|smtplib\.SMTP\(	cleartext protocol
+py-tls-off	CWE-295	py	0.9	-	-	verify\s*=\s*False|_create_unverified_context|CERT_NONE|check_hostname\s*=\s*False|ssl\._create_default_https_context\s*=	TLS verification disabled
+js-tls-off	CWE-295	js	0.9	-	-	rejectUnauthorized\s*:\s*false|NODE_TLS_REJECT_UNAUTHORIZED|strictSSL\s*:\s*false|checkServerIdentity\s*:\s*\(\s*\)\s*=>	TLS verification disabled
+any-bind-all	CWE-1327	py,js	0.55	-	-	["']0\.0\.0\.0["']|host\s*=\s*["']::["']	service bound to all interfaces
+py-debug	CWE-489	py	0.85	-	-	\.run\([^)]*debug\s*=\s*True|^\s*DEBUG\s*=\s*True|app\.debug\s*=\s*True	debug mode enabled
+py-debug-215	CWE-215	py	0.5	-	-	\.run\([^)]*debug\s*=\s*True|^\s*DEBUG\s*=\s*True	debug mode enabled
+js-debug	CWE-489	js	0.6	-	-	NODE_ENV\s*(=|!==?|===?)\s*['"]development['"]|app\.use\(\s*errorhandler\(\s*\)\s*\)|\.listen\([^)]*\)[\s\S]{0,40}debug	debug configuration
+py-allowed-hosts	CWE-16	py	0.7	-	-	ALLOWED_HOSTS\s*=\s*\[\s*["']\*["']\s*\]	any Host header accepted
+any-secret-literal	CWE-798	*	0.7	-	(?i)os\.environ|getenv|process\.env|config\[|settings\.|input\(|getpass|placeholder|example|changeme|your[_-]|<[a-z_ ]+>	(?i)\b\w*(password|passwd|pwd|secret|api_?key|apikey|auth_?token|access_?token|private_?key|client_?secret|credentials?)\w*\s*[:=]\s*["'][^"'\s${}]{6,}["']	credential assigned a literal
+any-secret-prefix	CWE-798	*	0.9	-	-	AKIA[0-9A-Z]{16}|sk_live_[0-9a-zA-Z]{8,}|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|xox[bp]-[0-9A-Za-z-]{10,}|-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----|AIza[0-9A-Za-z_-]{30,}	well-known key format
+any-compare-literal-pw	CWE-798	*	0.8	-	-	(?i)\b(password|passwd|pwd|pass|secret|token)\w*\s*(==|===|!=|!==)\s*["'][^"']{3,}["']|["'][^"']{3,}["']\s*(==|===)\s*\w*(password|passwd|pwd|secret)	password compared with a literal
+any-secret-key-321	CWE-321	*	0.7	-	-	(?i)(jwt\.(encode|sign|verify)\([^)]*,\s*["'][^"']{4,}["']|SECRET_KEY\s*=\s*["'][^"']+["']|createCipheriv\([^)]*,\s*["'][^"']+["']|\bKEY\s*=\s*b?["'][^"']{8,}["']|Fernet\(\s*b?["'])	key material in source
+py-md5-sha1	CWE-327	py	0.75	-	-	hashlib\.(md5|sha1)\(|hashlib\.new\(\s*["'](md5|sha1)|\bMD5\.new|\bSHA\.new|\bmd5\(	weak hash
+js-md5-sha1	CWE-327	js	0.75	-	-	createHash\(\s*["'](md5|sha1)["']|require\(['"]md5['"]\)|\bmd5\(|crypto-js.*MD5|CryptoJS\.(MD5|SHA1)	weak hash
+py-md5-328	CWE-328	py	0.6	-	-	hashlib\.(md5|sha1)\(|\bmd5\(	weak hash
+js-md5-328	CWE-328	js	0.6	-	-	createHash\(\s*["'](md5|sha1)["']|\bmd5\(	weak hash
+any-weak-cipher	CWE-327	py,js	0.85	-	-	MODE_ECB|aes-\d+-ecb|\bDES\.new|\bDES3|createCipher\(|algorithms\.(ARC4|TripleDES|Blowfish)|ARC4\.new|\bBlowfish\.new|des-(ede|cbc)|rc4	weak cipher or mode
+any-pw-fasthash	CWE-916	py,js	0.7	-	bcrypt|argon|scrypt|pbkdf2	(?i)(sha(1|224|256|384|512)|md5|sha3_\d+)\s*\([^)\n]*(password|passwd|pwd|pass)\b|createHash\([^)]*\)\.update\(\s*[^)]*(password|passwd|pwd)	password hashed with a fast hash
+py-pbkdf-low	CWE-916	py	0.7	-	-	pbkdf2_hmac\([^)]*,\s*\d{1,4}\s*\)	PBKDF2 with a low iteration count
+any-unsalted	CWE-759	py,js	0.45	-	(?i)salt	(?i)(sha\d+|md5)\s*\(\s*(password|passwd|pwd|pw)\b	password hashed without a salt
+py-random	CWE-330	py	0.6	(?i)token|password|passwd|secret|session|otp|reset|key|nonce|salt|code|csrf|verification|api_?key	secrets\.|SystemRandom|os\.urandom	\brandom\.(random|randint|choice|choices|randrange|getrandbits|sample|shuffle|uniform)\(	non-cryptographic PRNG for a secret
+js-random	CWE-330	js	0.6	(?i)token|password|passwd|secret|session|otp|reset|key|nonce|salt|code|csrf|verification|apikey|id\b	crypto\.(randomBytes|randomUUID|getRandomValues|randomInt)	Math\.random\(\)	non-cryptographic PRNG for a secret
+py-random-338	CWE-338	py	0.5	(?i)token|password|secret|session|otp|reset|key|nonce|salt|csrf	secrets\.|SystemRandom|os\.urandom	\brandom\.(random|randint|choice|choices|randrange|getrandbits)\(	weak PRNG
+js-random-338	CWE-338	js	0.5	(?i)token|password|secret|session|otp|reset|key|nonce|salt|csrf	-	Math\.random\(\)	weak PRNG
+any-seed	CWE-335	py,js	0.55	-	-	random\.seed\(\s*(\d+|time|int\(\s*time|os\.getpid)|srand\(\s*(\d+|time)	fixed or predictable seed
+any-static-iv	CWE-329	py,js	0.75	-	-	(?i)\biv\s*=\s*(b?["'][^"']*["']|bytes\(\s*16\s*\)|Buffer\.alloc\(\s*16\s*\)|b["']\\x00)|createCipheriv\([^)]*,\s*(Buffer\.alloc|["'])	constant IV
+py-jwt-noverify	CWE-347	py	0.9	-	-	jwt\.decode\([^)]*(verify_signature["']?\s*:\s*False|verify\s*=\s*False)|options\s*=\s*\{[^}]*verify_signature[^}]*False	JWT decoded without signature verification
+js-jwt-noverify	CWE-347	js	0.75	-	jwt\.verify\(	jwt\.decode\(|algorithms\s*:\s*\[[^\]]*none|ignoreExpiration\s*:\s*true	JWT decoded without verification
+any-jwt-noexp	CWE-613	py,js	0.5	-	\bexp\b|expiresIn|expires_in	jwt\.(encode|sign)\(	token issued without an expiry
+any-storage-token	CWE-922	js	0.7	-	-	(localStorage|sessionStorage)\.setItem\(\s*["'`][^"'`]*(token|password|secret|jwt|auth|credential|session)	secret kept in browser storage
+any-storage-312	CWE-312	js	0.55	-	-	(localStorage|sessionStorage)\.setItem\([^)]*(token|password|secret|jwt|auth|credential)|document\.cookie\s*=\s*[^;]*(token|password|secret)	cleartext secret in browser storage
+py-plaintext-pw	CWE-256	py	0.55	(?i)(insert|update|execute|save|commit|add\(|create\()	(?i)hash|bcrypt|argon|scrypt|pbkdf2|encrypt|generate_password_hash|make_password|set_password	(?i)(password|passwd|pwd)\w*\s*[:=]\s*(request\.(form|json|args|values)|form\[|data\[)[^\n]*	password stored without hashing
+js-plaintext-pw	CWE-256	js	0.55	(?i)(insert|create|save|update|users\.(push|add))	(?i)hash|bcrypt|argon|scrypt|pbkdf2|crypto	(?i)password\s*:\s*req\.body\.password	password stored without hashing
+any-timing-cmp	CWE-208	py,js	0.55	-	compare_digest|timingSafeEqual|constant_time|hmac\.compare	(?i)\b\w*(token|secret|signature|digest|hmac|mac|api_?key|apikey|csrf)\w*\s*(==|===|!=|!==)\s*[\w.\[\]()'"]+|[\w.\[\]()'"]+\s*(==|===|!=|!==)\s*\w*(token|secret|signature|digest|hmac|api_?key)\b	secret compared with ==
+any-user-enum	CWE-204	py,js	0.6	-	-	(?i)(user|account|email|username)\s+(not\s+found|does\s+not\s+exist|doesn't\s+exist|not\s+registered|unknown)|no\s+(such\s+)?(user|account)|(wrong|incorrect|invalid)\s+password|invalid\s+(username|user\s?name)	login errors reveal whether the account exists
+any-log-secret	CWE-532	py,js	0.75	-	-	(?i)\b(log|logger|logging|console|print|app\.logger)\.?\w*\([^)\n]*\b(password|passwd|pwd|token|secret|authorization|api_?key|apikey|credit_?card|ssn|cookie)\b	secret written to a log
+any-print-secret	CWE-532	py	0.6	-	-	(?i)\bprint\([^)\n]*\b(password|passwd|token|secret|authorization|api_?key)\b	secret printed
+py-trace-resp	CWE-209	py	0.7	return|jsonify|Response|response|abort	logger\.\w+\(\s*str\(e\)\s*\)\s*\n\s*return\s+["']	traceback\.(format_exc|print_exc|format_exception)|str\(\s*e\s*\)|repr\(\s*e\s*\)|str\(\s*exc\w*\s*\)	exception text returned to the client
+js-err-stack	CWE-209	js	0.7	res\.(status\([^)]*\)\.)?(send|json|end)|response\.	-	\b(err|error|e|ex)\.(stack|message)\b	exception text returned to the client
+js-err-stack-200	CWE-200	js	0.55	-	-	res\.(status\([^)]*\)\.)?(send|json|end)\(\s*(\{[^}]*)?(err|error|e|ex)(\.stack|\.message|\))	exception details returned
+py-env-expose	CWE-200	py	0.8	-	-	(return|jsonify|Response|render|make_response)\s*\(?\s*(dict\()?\s*(os\.environ|dict\(os\.environ\)|app\.config\b|settings\.__dict__|vars\(settings)	environment or config returned
+js-env-expose	CWE-200	js	0.8	-	-	res\.(send|json)\(\s*(\{[^}]*)?process\.env\b|JSON\.stringify\(\s*process\.env	environment returned
+any-env-497	CWE-497	py,js	0.55	return|res\.(send|json)|jsonify|Response	os\.environ(\.get|\[)\s*\(?["'][A-Z_]+["']	(os\.environ|process\.env)\b	system information exposed
+py-serialize-all	CWE-201	py	0.5	return|jsonify|Response	-	jsonify\(\s*[a-z_]+\.__dict__|\bto_dict\(\)|fields\s*=\s*["']__all__["']|\.__dict__\b	whole object serialised into the response
+js-serialize-all	CWE-201	js	0.5	-	-	res\.(json|send)\(\s*(user|account|customer|profile|doc|record|row)\s*\)	whole object returned
+py-except-pass	CWE-755	py	0.65	-	-	except\b[^\n:]*:\s*\n\s*(pass|continue)\b|except\b[^\n:]*:\s*(pass|continue)\b	exception swallowed
+js-catch-empty	CWE-755	js	0.65	-	-	catch\s*(\([^)]*\))?\s*\{\s*(//[^\n]*)?\s*\}|\.catch\(\s*\(\s*\)\s*=>\s*\{\s*\}\s*\)	exception swallowed
+py-fail-open	CWE-636	py	0.8	-	-	except\b[^\n:]*:\s*\n\s*(return\s+True|allowed\s*=\s*True|authorized\s*=\s*True|return\s+\{?\s*["']?ok)|except\b[^\n:]*:\s*return\s+True	failure grants access
+js-fail-open	CWE-636	js	0.8	-	-	catch\s*(\([^)]*\))?\s*\{\s*(return\s+true|allowed\s*=\s*true|next\(\s*\))	failure grants access
+any-uncaught-json	CWE-248	py,js	0.35	-	\btry\b|except|catch	JSON\.parse\(\s*(req\.|body|data|input|message)|json\.loads\(\s*(request|data|body|input)	parsing untrusted data without error handling
+py-csrf-exempt	CWE-352	py	0.85	-	-	@csrf_exempt|WTF_CSRF_ENABLED["']?\]?\s*=\s*False|csrf\.exempt|CSRFProtect\b[\s\S]{0,40}exempt	CSRF protection disabled
+js-csrf-off	CWE-352	js	0.8	-	-	csrf\s*:\s*false|csurf[\s\S]{0,60}ignoreMethods|disable\(\s*['"]csrf	CSRF protection disabled
+py-state-route	CWE-352	py	0.4	-	csrf|CSRF|X-CSRF|token\s*=\s*request|validate_csrf|csrf_token	methods\s*=\s*\[[^\]]*["'](POST|PUT|DELETE|PATCH)["']	state-changing route without a CSRF token
+js-state-route	CWE-352	js	0.4	-	csrf|CSRF|csurf|X-CSRF|_csrf|sameSite	\b(app|router)\.(post|put|delete|patch)\s*\(	state-changing route without a CSRF token
+py-no-auth-sensitive	CWE-306	py	0.55	-	login_required|@admin_required|@auth|current_user|session\[|session\.get|g\.user|Depends\(|authenticate|require_\w+|@jwt_required|verify_token|is_admin|is_authenticated|abort\(\s*40[13]	@\w+\.(route|get|post|put|delete)\(\s*["'][^"']*(admin|reset|delete|export|internal|debug|config|users?/\w*|dump|backup)	sensitive route without an authentication check
+js-no-auth-sensitive	CWE-306	js	0.6	-	isAuthenticated|ensureAuth|requireAuth|authenticate|passport\.authenticate|verifyToken|req\.(user|session)|authMiddleware|isAdmin|jwt|protect\b|checkAuth|requireRole|requireLogin	\b(app|router)\.(get|post|put|delete|patch|all)\(\s*["'`][^"'`]*(admin|reset|delete|export|internal|debug|config|dump|backup)	sensitive route without an authentication check
+py-no-authz	CWE-862	py	0.5	-	login_required|permission|current_user|has_role|is_admin|abort\(\s*40[13]|owner|user_id\s*==|== *session|can_\w+\(|authorize|@admin_required|g\.user	@\w+\.route\([^)]*(cancel|delete|update|edit|remove|approve|transfer|refund|role|promote|ban)[^)]*\)	state-changing route without an authorisation check
+js-no-authz	CWE-862	js	0.5	-	isAdmin|hasRole|requireRole|can\(|permission|req\.user\b[\s\S]{0,80}(===|==)|owner|authorize|status\(\s*40[13]\s*\)|ensureAuth|checkPermission	\b(app|router)\.(post|put|delete|patch)\(\s*["'`][^"'`]*(cancel|delete|update|edit|remove|approve|transfer|refund|role|promote|ban)	state-changing route without an authorisation check
+py-idor	CWE-639	py	0.6	-	owner|user_id\s*=|user\s*=\s*(request\.user|current_user|g\.user|session)|current_user|request\.user|g\.user\.|session\[|user=|created_by|tenant|org(anization)?_id	\.(get|get_or_404|find_one|find_by_id|first_or_404|retrieve|filter_by)\(\s*(pk\s*=\s*|id\s*=\s*|\{?\s*["']_?id["']\s*:\s*)?[a-z_]*(_id|\bid)\b|\.query\.get\(\s*[a-z_]*id\)|objects\.get\(\s*(pk|id)\s*=	object fetched by a request id without an ownership check
+js-idor	CWE-639	js	0.6	-	owner|userId\s*[:=]|req\.user|req\.session|currentUser|createdBy|tenant|org(anization)?Id|user\s*:	\.(findById|findOne|findByPk|findUnique|get|findOneAndUpdate|findByIdAndUpdate|findByIdAndDelete)\(\s*(\{?\s*(_?id|where)\s*[:=]\s*)?(req\.(params|query|body)\.\w+|\w*[iI]d\b)	object fetched by a request id without an ownership check
+any-role-check	CWE-863	py,js	0.55	-	-	(?i)(role|is_?admin|isAdmin|is_?staff|level)\s*(!=|!==)\s*["']?(admin|root|superuser|true|1)["']?[\s\S]{0,60}return\s+(True|true)|if\s*\(?\s*!?\s*(user|current_user|req\.user)\.(role|isAdmin|is_admin)\s*(!=|!==)[^)\n]*\)?\s*\{?\s*\n?\s*return\s+(true|True)	authorisation condition looks inverted
+any-client-role	CWE-807	py,js	0.8	-	-	(request\.cookies\.get\(\s*["'](role|admin|is_?admin|isAdmin|user_?id|userId|level|privilege)|req\.cookies\.(role|isAdmin|admin|userId|level)|req\.headers\[?\.?["']?x-(role|user|admin)|request\.headers\.get\(\s*["']X-(Role|User|Admin)|request\.(args|form|json)\.get\(\s*["'](is_?admin|admin|role)["']|req\.(query|body)\.(isAdmin|admin|role)\b)	privilege taken from a client-controlled value
+any-client-role-565	CWE-565	py,js	0.7	-	-	(request\.cookies\.get\(\s*["'](role|admin|is_?admin|isAdmin|user_?id|userId|price|amount)|req\.cookies\.(role|isAdmin|admin|userId|price|amount)\b)	cookie value trusted without integrity check
+any-client-price	CWE-472	py,js	0.5	-	-	(request\.(form|json|args)(\.get)?[\[(]\s*["'](price|amount|total|discount|cost|is_?admin|role)["']|req\.body\.(price|amount|total|discount|cost))	price or flag trusted from the client
+any-webhook-noverify	CWE-345	py,js	0.65	-	(?i)signature|hmac|verify|compare_digest|constructEvent|timingSafeEqual|X-Hub|secret	(?i)(route|post|get)\(\s*["'`][^"'`]*webhook	webhook handler without signature verification
+any-spoof-ip	CWE-290	py,js	0.65	-	-	(remote_addr|req\.ip|request\.ip|req\.connection\.remoteAddress)\s*(==|===|in)\s*["'\[(]?(127\.|localhost|10\.|192\.168)|x-forwarded-for[\s\S]{0,80}(==|===|allow|admin)	identity decided by IP address or forwarded header
+any-xff	CWE-348	py,js	0.55	-	-	(?i)x-forwarded-for|x-real-ip|trust\s+proxy\s*['"]?,?\s*true	client address taken from a forgeable header
+any-login-nolimit	CWE-307	py,js	0.5	-	(?i)limiter|rate[-_ ]?limit|throttl|attempt|lockout|locked|captcha|failed|slow_down|express-brute|too many	(?i)(route|post|get)\(\s*["'`][^"'`]*(login|signin|sign-in|authenticate|verify[-_]?otp|otp|verify[-_]?code|2fa|mfa|reset[-_]?password|forgot)	login or OTP route without attempt limiting
+py-login-nolimit-def	CWE-307	py	0.45	-	(?i)limiter|rate[-_ ]?limit|throttl|attempt|lockout|locked|captcha|failed|too many	def\s+(login|signin|sign_in|verify_otp|verify_code|authenticate)\s*\(	login function without attempt limiting
+js-session-fixation	CWE-384	js	0.55	-	regenerate|req\.session\.destroy|session\.id\s*=|saveUninitialized	req\.session\.(userId|user|uid|authenticated|loggedIn|isAdmin)\s*=	session identity set without regenerating the session id
+py-session-fixation	CWE-384	py	0.45	-	session\.clear\(\)|session\.regenerate|cycle_key|session\.pop|session\.modified\s*=|new_session	session\[\s*["'](user_?id|user|uid|logged_in|authenticated|is_admin)["']\s*\]\s*=	session identity set without rotating the session
+any-cookie-secure	CWE-614	py	0.6	-	secure\s*=\s*True	set_cookie\(	cookie without Secure flag
+any-cookie-httponly	CWE-1004	py	0.55	-	httponly\s*=\s*True	set_cookie\(	cookie without HttpOnly flag
+js-cookie-secure	CWE-614	js	0.6	-	secure\s*:\s*true	res\.cookie\(|cookie\s*:\s*\{|cookies\.set\(	cookie without Secure flag
+js-cookie-httponly	CWE-1004	js	0.6	-	httpOnly\s*:\s*true	httpOnly\s*:\s*false|res\.cookie\(|document\.cookie\s*=	cookie without HttpOnly flag
+py-cookie-cfg	CWE-614	py	0.85	-	-	SESSION_COOKIE_SECURE\s*=\s*False|CSRF_COOKIE_SECURE\s*=\s*False	Secure flag disabled
+py-cookie-cfg2	CWE-1004	py	0.85	-	-	SESSION_COOKIE_HTTPONLY\s*=\s*False|CSRF_COOKIE_HTTPONLY\s*=\s*False	HttpOnly flag disabled
+any-cookie-samesite	CWE-1275	py,js	0.55	-	(?i)samesite\s*[:=]\s*['"](lax|strict)['"]	set_cookie\(|res\.cookie\(|sameSite\s*:\s*['"]none['"]|samesite\s*=\s*['"]None['"]	cookie without SameSite
+any-cors-any	CWE-942	py,js	0.8	-	-	(?i)access-control-allow-origin['"]?\s*[,:]\s*['"]\*['"]|origins?\s*=\s*['"]\*['"]|allow_origins\s*=\s*\[\s*['"]\*['"]|cors\(\s*\)|origin\s*:\s*(true|['"]\*['"])|CORS_ORIGIN_ALLOW_ALL\s*=\s*True|CORS\(\s*\w+\s*\)	CORS allows any origin
+any-cors-reflect	CWE-346	py,js	0.7	-	(?i)allowed|whitelist|allowlist|\.has\(|\.includes\(|\bin\s+ORIGINS	(?i)access-control-allow-origin['"]?\s*[,:]\s*(req(uest)?\.headers|request\.origin|origin\b)|supports_credentials\s*=\s*True[\s\S]{0,80}\*	Origin header reflected
+js-ws-origin	CWE-1385	js	0.65	-	(?i)verifyClient|origin|allowedOrigins|cors	new\s+(WebSocket\.)?Server\(|io\(\s*\w*server|socketio\.|require\(['"]ws['"]\)	WebSocket server without an origin check
+js-postmessage	CWE-940	js	0.7	-	event\.origin|e\.origin|ev\.origin|\.origin\s*(===|!==|==|!=)|origin\s+(===|!==)	addEventListener\(\s*['"]message['"]|onmessage\s*=|postMessage\([^)]*['"]\*['"]\s*\)	message handler without origin check
+py-privilege	CWE-269	py	0.5	(?i)(register|signup|sign_up|create_user|new_user|profile)	-	(is_(admin|superuser|staff)|role)\s*=\s*(True|["']admin["']|["']superuser["'])	privilege assigned during registration/profile update
+any-setuid	CWE-250	py,js	0.5	-	-	os\.setuid\(\s*0\s*\)|os\.seteuid\(\s*0|process\.setuid\(\s*['"]?root|sudo\s+	runs with elevated privilege
+py-weakpw-policy	CWE-521	py,js	0.6	-	-	(len\(\s*(new_)?password\s*\)|(new)?[Pp]assword\.length)\s*(>=|>|<|<=)\s*[1-6]\b	very short minimum password length
+py-pw-unverified-change	CWE-620	py,js	0.5	(?i)new[_-]?password	(?i)old[_-]?password|current[_-]?password|check_password|compare\(|verify|bcrypt\.compare|token	(?i)(change|update|reset)[-_ ]?password	password changed without proof of the old one
+py-reset-token	CWE-640	py,js	0.6	-	-	(?i)reset[_-]?token\s*=\s*(str\(|\w+\.id|hashlib\.\w+\(\s*(str\()?\s*(user|email)|Date\.now|time\.time|int\(\s*time|random\.|Math\.random|base64)	predictable reset token
+py-mass-assign	CWE-915	py	0.7	-	ALLOWED|allowed_fields|whitelist|fields\s*=\s*\[	\*\*\s*request\.(json|form|args|get_json\(\)|values|data)|setattr\([^)]*\)[\s\S]{0,80}request\.(json|form)|for\s+\w+\s*,\s*\w+\s+in\s+request\.(json|form)[\w.()]*items\(\)[\s\S]{0,80}setattr|\.__dict__\.update\(\s*request|Model\(\s*\*\*	request fields assigned straight onto a model
+js-mass-assign	CWE-915	js	0.7	-	pick\(|allowed|whitelist|ALLOWED	Object\.assign\(\s*\w+\s*,\s*req\.body|\.(create|update|updateOne|findByIdAndUpdate|findOneAndUpdate|insertOne|save)\(\s*(\w+\s*,\s*)?(\{\s*\$set\s*:\s*)?req\.body\b|\.\.\.req\.body	request body assigned straight onto a record
+js-proto	CWE-1321	js	0.8	-	-	__proto__|\bconstructor\s*\.\s*prototype\s*\[|\[\s*['"]constructor['"]\s*\]	prototype access
+js-merge-proto	CWE-1321	js	0.65	-	hasOwnProperty\(\s*\w+\s*\)\s*&&|Object\.create\(\s*null|__proto__['"]?\s*(===|!==|==|!=)|constructor['"]?\s*(===|!==)	for\s*\(\s*(const|let|var)\s+\w+\s+in\s+\w+\s*\)[\s\S]{0,160}\[\s*\w+\s*\]\s*=|(_|lodash)\.(merge|defaultsDeep|set|setWith|zipObjectDeep)\(\s*[^)]*req\.|\b(deepMerge|merge|extend|deepExtend|mergeDeep)\(\s*[^)]*(req\.|body|JSON\.parse)	recursive merge of user-controlled keys
+any-redos	CWE-1333	py,js	0.65	re\.(compile|match|search|fullmatch|findall|sub)|RegExp|\.test\(|\.match\(|/[^/\n]+/[gimuy]*\.test	-	\((?:[^()\n]|\([^()\n]*\))*[+*]\)\s*[+*]|\([^()\n]*[+*][^()\n]*\)\{\d+,\}|\([^()\n|]*\|[^()\n]*\)[+*]\s*[$]?	nested quantifier (catastrophic backtracking)
+any-regex-user	CWE-1333	py,js	0.5	-	-	(re\.(compile|match|search|fullmatch|findall|sub)|new\s+RegExp)\(\s*(request\.|req\.|user|input|query|pattern|f["']|[A-Za-z_]+\s*\+)	regular expression built from user input
+any-regex-625	CWE-625	py,js	0.4	(?i)allow|valid|url|host|domain|origin	\$["']|fullmatch	re\.(match|search)\(\s*r?["'][^"']*["']\s*,	unanchored validation pattern
+py-int-request	CWE-20	py	0.45	-	\btry\b|min\(|max\(|<=|>=|\bif\b[^\n]*<|range|clamp|ge=|le=|Field\(	\b(int|float)\(\s*request\.(args|form|json|values|GET|POST)[^)]*\)|\b(int|float)\(\s*[a-z_]*(percent|amount|qty|quantity|count|limit|size|page|age|price|discount)\w*\s*\)	numeric input used without a range check
+js-int-request	CWE-20	js	0.45	-	Math\.(min|max)|isNaN|Number\.isInteger|<=|>=|\bif\b[^\n]*<|joi|zod|yup|validator	\b(parseInt|parseFloat|Number)\(\s*req\.(query|body|params)\.\w+|\b(parseInt|Number)\(\s*[a-z]*(percent|amount|qty|quantity|count|limit|size|page|age|price|discount)\w*\s*\)	numeric input used without a range check
+py-limit-770	CWE-770	py	0.55	-	min\(|max\(|MAX_|<=|if\s+\w+\s*>	(limit|page_size|per_page|size|count|n|take|max_results)\s*=\s*(int|float)\(\s*request\.(args|form|json)|(limit|per_page|page_size)\s*=\s*request\.(args|form|json)	client-chosen page size or count with no upper bound
+js-limit-770	CWE-770	js	0.55	-	Math\.min|MAX_|<=|if\s*\(\s*\w+\s*>	(limit|pageSize|perPage|size|count|take|maxResults)\s*[:=]\s*(parseInt|Number|\+)?\(?\s*req\.(query|body|params)	client-chosen page size or count with no upper bound
+py-unbounded-read	CWE-400	py	0.55	(?i)request|upload|stream	MAX_|\.read\(\s*[A-Za-z_0-9]+|content_length|MAX_CONTENT_LENGTH|413	request\.(get_data|data|stream)\b[\s\S]{0,30}\.read\(\)|request\.get_data\(\)|\.read\(\)\s*$|await\s+request\.body\(\)	whole request body read with no size cap
+js-unbounded-body	CWE-400	js	0.45	-	limit|MAX_|length\s*>|413	req\.on\(\s*['"]data['"]|bodyParser\.(json|raw|text)\(\s*\)|express\.json\(\s*\)	request body read with no size cap
+py-loop-user	CWE-606	py	0.7	(?i)request|input|query|args|form|argv	min\(|MAX_	range\(\s*(int\(\s*)?request\.|for\s+\w+\s+in\s+range\(\s*(int\(\s*)?(n|count|times|iterations|num|rounds)\w*\s*\)	loop count from untrusted input
+js-loop-user	CWE-606	js	0.7	req\.|parseInt|Number\(	Math\.min|MAX_	for\s*\(\s*(let|var|const)\s+\w+\s*=\s*0\s*;\s*\w+\s*<=?\s*(req\.(query|body|params)\.\w+|\w*(count|times|n|num|iterations)\w*)\s*;	loop count from untrusted input
+any-alloc-user	CWE-789	py,js	0.65	(?i)request|req\.|input|param|query|body	MAX_|Math\.min|min\(	(bytearray|Buffer\.alloc|Buffer\.allocUnsafe|new\s+Array|\[\s*0\s*\]\s*\*|np\.zeros|new\s+ArrayBuffer)\(?\s*(int\(\s*)?(request\.|req\.|size|length|n\b|count)	allocation sized by untrusted input
+py-race-balance	CWE-362	py	0.55	-	with_for_update|select_for_update|atomic|\block\b|Lock\(|F\(|transaction|BEGIN|UPDATE[^\n]*WHERE[^\n]*>=|\$inc|compare_and_swap	(balance|stock|quantity|inventory|credits|points|remaining|count)\b[^\n]*(>=|>|<=|<|==)[^\n]*\n[\s\S]{0,160}(balance|stock|quantity|inventory|credits|points|remaining|count)\b[^\n]*(-=|\+=|=\s*\w+\.\w+\s*[-+])	check-then-update without locking
+js-race-balance	CWE-362	js	0.55	-	transaction|\block\b|mutex|\$inc|FOR UPDATE|atomic|findOneAndUpdate	(balance|stock|quantity|inventory|credits|points|remaining)\b[^\n]*(>=|>|<=|<)[^\n]*\n[\s\S]{0,160}(balance|stock|quantity|inventory|credits|points|remaining)\b[^\n]*(-=|\+=|=\s*\w+\.\w+\s*[-+])	check-then-update without locking
+py-toctou	CWE-367	py	0.7	-	-	os\.path\.(exists|isfile|isdir|islink)\([^)]*\)[\s\S]{0,160}\b(open|remove|unlink|rename|chmod|rmtree|makedirs)\(|os\.access\([^)]*\)[\s\S]{0,160}\bopen\(	file checked then used
+js-toctou	CWE-367	js	0.7	-	-	fs\.(existsSync|exists|accessSync|access|statSync|stat)\([^)]*\)[\s\S]{0,160}fs\.(readFile|readFileSync|writeFile|writeFileSync|unlink|unlinkSync|open|openSync|rename)	file checked then used
+any-race-global	CWE-362	py,js	0.35	(?i)thread|async|await|request|route	-	^\s*global\s+\w+|^\s*(let|var)\s+\w+\s*=\s*(0|\[\]|\{\})\s*;?\s*$	shared mutable state
+py-sms-nolimit	CWE-799	py,js	0.55	-	(?i)limiter|rate[-_ ]?limit|throttl|too many|attempts|cooldown|captcha|allow\(	(?i)(send_?(sms|otp|mail|email|code|message)|sms\.(send|create)|twilio|sendMail|sendgrid|mailer\.send|messages\.create)\s*\(	abusable action without rate limiting
+py-dyn-import	CWE-829	py	0.7	-	-	__import__\(\s*[^"')]|importlib\.import_module\(\s*(request|f["']|[A-Za-z_]\w*\s*\+|[a-z_]*name|[a-z_]*module|user)|imp\.load_source|spec_from_file_location\(\s*[^)]*(request|user)	module imported by a computed name
+js-dyn-require	CWE-829	js	0.8	-	-	require\(\s*(req\.|[^"'`)\s][^)]*\+|`[^`]*\$\{|[a-z_]*(name|path|module|plugin)\w*\s*\))|import\(\s*(req\.|\w+\s*\+|`[^`]*\$\{)	module loaded by a computed name
+any-dl-exec	CWE-494	py,js	0.75	-	(?i)sha256|checksum|hashlib\.(sha256|sha512)|verify_signature|gpg	(?i)(urlretrieve|urlopen\([^)]*\)\.read\(\)|requests\.get\([^)]*\)\.(text|content)|fetch\([^)]*\)[\s\S]{0,40}\.text\(\)|https?\.get\()[\s\S]{0,220}(\bexec\(|\beval\(|os\.system|subprocess|chmod|child_process|spawn|require\(|\bimportlib)|curl[^\n"']*\|\s*(sudo\s+)?(sh|bash)|wget[^\n"']*\|\s*(sh|bash)	downloaded code executed without an integrity check
+any-subresource	CWE-830	js,py	0.45	-	integrity=	<script[^>]+src=["']https?://[^"']+["'][^>]*>	third-party script without integrity
+any-xml-bomb	CWE-776	py,js	0.55	-	-	(?i)entity\s*expansion|<!ENTITY|forbid_entities\s*=\s*False|resolve_entities	entity expansion
+any-reflection	CWE-470	py,js	0.6	-	-	getattr\(\s*[\w.]+\s*,\s*(request\.|user|input|name|action|method|cmd)\w*|globals\(\)\[\s*(request\.|\w+)\s*\]|\w+\[\s*req\.(query|body|params)\.\w+\s*\]\s*\(|\[\s*(req|request)\.(query|body|params|args|form)[^\]]*\]\s*\(	class, function or attribute chosen by user input
+any-sensitive-file	CWE-538	py,js	0.35	-	-	(?i)(static|public|www|uploads|wwwroot)[\\/][^"'\n]*\.(env|bak|sql|log|pem|key|config|ini|git)	sensitive file in a web-served path
+js-static-root	CWE-552	js	0.5	-	-	express\.static\(\s*(__dirname|["'`]\.["'`]|["'`]/["'`]|process\.cwd\(\))	whole directory served as static files
+any-iframe-sandbox	CWE-1021	js,py	0.4	-	-	X-Frame-Options['"]?\s*[,:]\s*['"]?(ALLOWALL|ALLOW-FROM)|frameguard\s*:\s*false|X_FRAME_OPTIONS\s*=\s*['"]ALLOW	framing allowed
+any-sensitive-in-url	CWE-598	py,js	0.55	-	-	(?i)(requests|axios|fetch|http|urlopen)[^\n]{0,60}[?&](password|passwd|token|secret|api_?key|apikey|auth)=\s*["'`+{$]|["'`][^"'`\n]*[?&](password|passwd|secret|api_?key)=["'`]?\s*[+{$%]|get\([^)\n]*\+\s*password	secret placed in a URL query string
+any-xss-reflect-py	CWE-79	py	0.5	-	-	return\s+f?["'][^"'\n]*<[^"'\n]*["']?\s*(%|\+|\.format)|return\s+f["'][^"'\n]*<[^"'\n]*\{	HTML response built from variables
+py-ssrf-redirect	CWE-918	py	0.3	-	-	allow_redirects\s*=\s*True	follows redirects
+any-ldap-bind-anon	CWE-287	py,js	0.35	-	-	(?i)(bind|authenticate)\([^)]*(password|pw)\s*=\s*(None|["']{2}|null)	empty password accepted
+any-auth-skip	CWE-287	py,js	0.6	-	-	(?i)if\s+(request\.(headers|args|form)\.get\(\s*["']?(x-)?(user|username|uid|email|id)["']?\)|req\.(headers|query|body)\.(user|username|uid|email|id))\s*:?\s*\)?\s*(\{|\n)\s*(session|req\.session|login_user|authenticated)	identity accepted from a request value

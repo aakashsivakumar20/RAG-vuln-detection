@@ -1,0 +1,5 @@
+# Evaluation charts and the test suite (not needed to run scans or the dashboard).
+-r requirements.txt
+pandas>=2.2
+matplotlib>=3.9
+pytest>=8.0

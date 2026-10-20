@@ -1,0 +1,1141 @@
+set,config,id,expected,top5,rank
+dev,"Dense, plain average",s01,CWE-89,CWE-89 CWE-943 CWE-732 CWE-434 CWE-566,1
+dev,"Dense, plain average",s02,CWE-89,CWE-89 CWE-943 CWE-643 CWE-829 CWE-732,1
+dev,"Dense, plain average",s03,CWE-79,CWE-209 CWE-81 CWE-346 CWE-79 CWE-1427,4
+dev,"Dense, plain average",s04,CWE-79,CWE-79 CWE-329 CWE-201 CWE-1327 CWE-1395,1
+dev,"Dense, plain average",s05,CWE-78,CWE-1327 CWE-1395 CWE-329 CWE-290 CWE-668,6
+dev,"Dense, plain average",s06,CWE-78,CWE-78 CWE-73 CWE-434 CWE-611 CWE-88,1
+dev,"Dense, plain average",s07,CWE-22,CWE-23 CWE-22 CWE-73 CWE-428 CWE-36,2
+dev,"Dense, plain average",s08,CWE-22,CWE-434 CWE-22 CWE-532 CWE-494 CWE-732,2
+dev,"Dense, plain average",s09,CWE-502,CWE-502 CWE-313 CWE-312 CWE-488 CWE-400,1
+dev,"Dense, plain average",s10,CWE-502,CWE-502 CWE-400 CWE-789 CWE-409 CWE-916,1
+dev,"Dense, plain average",s11,CWE-306,CWE-256 CWE-532 CWE-862 CWE-259 CWE-306,5
+dev,"Dense, plain average",s12,CWE-862,CWE-841 CWE-639 CWE-566 CWE-862 CWE-285,4
+dev,"Dense, plain average",s13,CWE-352,CWE-73 CWE-200 A01:2025 CWE-566 CWE-472,
+dev,"Dense, plain average",s14,CWE-434,CWE-434 CWE-22 CWE-494 CWE-732 CWE-532,1
+dev,"Dense, plain average",s15,CWE-918,CWE-494 CWE-601 CWE-732 CWE-598 CWE-434,7
+dev,"Dense, plain average",s16,CWE-94,CWE-36 CWE-393 CWE-290 CWE-416 CWE-636,
+dev,"Dense, plain average",s17,CWE-94,CWE-95 CWE-94 CWE-829 CWE-96 CWE-79,2
+dev,"Dense, plain average",s18,CWE-77,CWE-313 CWE-552 CWE-312 CWE-732 CWE-532,
+dev,"Dense, plain average",s19,CWE-200,CWE-209 CWE-1004 CWE-732 CWE-756 CWE-81,
+dev,"Dense, plain average",s20,CWE-639,CWE-347 CWE-494 CWE-862 CWE-297 CWE-566,
+dev,"Dense, plain average",s21,CWE-863,CWE-862 CWE-287 CWE-497 CWE-434 CWE-88,
+dev,"Dense, plain average",s22,CWE-20,CWE-1395 CWE-191 CWE-197 CWE-367 CWE-271,
+dev,"Dense, IDF-weighted (Review 3)",s01,CWE-89,CWE-89 CWE-943 CWE-732 CWE-434 CWE-566,1
+dev,"Dense, IDF-weighted (Review 3)",s02,CWE-89,CWE-89 CWE-943 CWE-732 CWE-643 CWE-552,1
+dev,"Dense, IDF-weighted (Review 3)",s03,CWE-79,CWE-346 CWE-209 CWE-81 CWE-1427 CWE-79,5
+dev,"Dense, IDF-weighted (Review 3)",s04,CWE-79,CWE-1327 CWE-1395 CWE-79 CWE-329 CWE-350,3
+dev,"Dense, IDF-weighted (Review 3)",s05,CWE-78,CWE-1327 CWE-1395 CWE-329 CWE-290 CWE-668,6
+dev,"Dense, IDF-weighted (Review 3)",s06,CWE-78,CWE-78 CWE-434 CWE-73 CWE-611 CWE-91,1
+dev,"Dense, IDF-weighted (Review 3)",s07,CWE-22,CWE-23 CWE-22 CWE-73 CWE-36 CWE-426,2
+dev,"Dense, IDF-weighted (Review 3)",s08,CWE-22,CWE-434 CWE-494 CWE-22 CWE-532 CWE-732,3
+dev,"Dense, IDF-weighted (Review 3)",s09,CWE-502,CWE-502 CWE-313 CWE-400 CWE-312 CWE-197,1
+dev,"Dense, IDF-weighted (Review 3)",s10,CWE-502,CWE-502 CWE-409 CWE-400 CWE-789 CWE-916,1
+dev,"Dense, IDF-weighted (Review 3)",s11,CWE-306,CWE-256 CWE-532 CWE-862 CWE-306 CWE-259,4
+dev,"Dense, IDF-weighted (Review 3)",s12,CWE-862,CWE-841 CWE-639 CWE-566 CWE-36 A01:2025,
+dev,"Dense, IDF-weighted (Review 3)",s13,CWE-352,CWE-73 CWE-200 CWE-212 CWE-201 CWE-36,
+dev,"Dense, IDF-weighted (Review 3)",s14,CWE-434,CWE-434 CWE-22 CWE-494 CWE-732 CWE-532,1
+dev,"Dense, IDF-weighted (Review 3)",s15,CWE-918,CWE-494 CWE-732 CWE-601 CWE-598 CWE-918,5
+dev,"Dense, IDF-weighted (Review 3)",s16,CWE-94,CWE-1327 CWE-1395 CWE-36 CWE-290 CWE-393,
+dev,"Dense, IDF-weighted (Review 3)",s17,CWE-94,CWE-95 CWE-94 CWE-829 CWE-96 CWE-15,2
+dev,"Dense, IDF-weighted (Review 3)",s18,CWE-77,CWE-313 CWE-552 CWE-732 CWE-312 CWE-311,
+dev,"Dense, IDF-weighted (Review 3)",s19,CWE-200,CWE-209 CWE-1004 CWE-328 CWE-732 CWE-756,
+dev,"Dense, IDF-weighted (Review 3)",s20,CWE-639,CWE-566 CWE-862 CWE-494 CWE-639 CWE-732,4
+dev,"Dense, IDF-weighted (Review 3)",s21,CWE-863,CWE-287 CWE-862 CWE-497 CWE-268 CWE-434,
+dev,"Dense, IDF-weighted (Review 3)",s22,CWE-20,CWE-1395 CWE-197 CWE-1327 CWE-191 CWE-681,
+dev,"Hybrid, KB text only",s01,CWE-89,CWE-89 CWE-943 CWE-564 CWE-566 CWE-598,1
+dev,"Hybrid, KB text only",s02,CWE-89,CWE-89 CWE-943 CWE-564 CWE-566 CWE-643,1
+dev,"Hybrid, KB text only",s03,CWE-79,CWE-79 CWE-1426 CWE-1427 CWE-1336 CWE-80,1
+dev,"Hybrid, KB text only",s04,CWE-79,CWE-79 CWE-1336 CWE-476 CWE-268 CWE-359,1
+dev,"Hybrid, KB text only",s05,CWE-78,CWE-78 CWE-1327 CWE-15 CWE-290 CWE-668,1
+dev,"Hybrid, KB text only",s06,CWE-78,CWE-78 CWE-114 CWE-22 CWE-88 CWE-214,1
+dev,"Hybrid, KB text only",s07,CWE-22,CWE-23 CWE-22 CWE-73 CWE-36 CWE-732,2
+dev,"Hybrid, KB text only",s08,CWE-22,CWE-22 CWE-23 CWE-434 CWE-494 CWE-732,1
+dev,"Hybrid, KB text only",s09,CWE-502,CWE-502 CWE-313 CWE-114 CWE-488 CWE-614,1
+dev,"Hybrid, KB text only",s10,CWE-502,CWE-502 CWE-564 CWE-138 CWE-114 CWE-15,1
+dev,"Hybrid, KB text only",s11,CWE-306,CWE-306 CWE-862 CWE-256 CWE-640 CWE-532,1
+dev,"Hybrid, KB text only",s12,CWE-862,CWE-841 CWE-307 CWE-639 CWE-566 CWE-288,10
+dev,"Hybrid, KB text only",s13,CWE-352,CWE-352 CWE-434 CWE-915 CWE-501 CWE-73,1
+dev,"Hybrid, KB text only",s14,CWE-434,CWE-434 CWE-22 CWE-23 CWE-313 CWE-732,1
+dev,"Hybrid, KB text only",s15,CWE-918,CWE-598 CWE-494 CWE-918 CWE-522 CWE-523,3
+dev,"Hybrid, KB text only",s16,CWE-94,CWE-1333 CWE-95 CWE-625 CWE-917 CWE-1327,6
+dev,"Hybrid, KB text only",s17,CWE-94,CWE-95 CWE-94 CWE-829 CWE-470 CWE-270,2
+dev,"Hybrid, KB text only",s18,CWE-77,CWE-428 CWE-77 CWE-409 CWE-1426 CWE-214,2
+dev,"Hybrid, KB text only",s19,CWE-200,CWE-209 CWE-200 CWE-81 CWE-601 CWE-497,2
+dev,"Hybrid, KB text only",s20,CWE-639,CWE-639 CWE-566 CWE-943 CWE-489 CWE-862,1
+dev,"Hybrid, KB text only",s21,CWE-863,CWE-565 CWE-268 CWE-266 CWE-863 CWE-807,4
+dev,"Hybrid, KB text only",s22,CWE-20,CWE-840 CWE-820 CWE-290 CWE-1275 CWE-1395,
+dev,Hybrid + signals (v1 retriever),s01,CWE-89,CWE-89 CWE-943 CWE-566 CWE-564 CWE-598,1
+dev,Hybrid + signals (v1 retriever),s02,CWE-89,CWE-89 CWE-943 CWE-564 CWE-566 CWE-643,1
+dev,Hybrid + signals (v1 retriever),s03,CWE-79,CWE-79 CWE-1426 CWE-1427 CWE-1336 CWE-639,1
+dev,Hybrid + signals (v1 retriever),s04,CWE-79,CWE-79 CWE-1336 CWE-359 CWE-1327 CWE-268,1
+dev,Hybrid + signals (v1 retriever),s05,CWE-78,CWE-78 CWE-1327 CWE-15 CWE-290 CWE-497,1
+dev,Hybrid + signals (v1 retriever),s06,CWE-78,CWE-78 CWE-114 CWE-434 CWE-73 CWE-22,1
+dev,Hybrid + signals (v1 retriever),s07,CWE-22,CWE-23 CWE-22 CWE-36 CWE-73 CWE-367,2
+dev,Hybrid + signals (v1 retriever),s08,CWE-22,CWE-22 CWE-23 CWE-434 CWE-494 CWE-36,1
+dev,Hybrid + signals (v1 retriever),s09,CWE-502,CWE-502 CWE-313 CWE-114 CWE-488 CWE-614,1
+dev,Hybrid + signals (v1 retriever),s10,CWE-502,CWE-502 CWE-564 CWE-260 CWE-114 CWE-138,1
+dev,Hybrid + signals (v1 retriever),s11,CWE-306,CWE-306 CWE-862 CWE-256 CWE-640 CWE-532,1
+dev,Hybrid + signals (v1 retriever),s12,CWE-862,CWE-841 CWE-307 CWE-639 CWE-566 CWE-288,
+dev,Hybrid + signals (v1 retriever),s13,CWE-352,CWE-352 CWE-915 CWE-212 CWE-434 CWE-81,1
+dev,Hybrid + signals (v1 retriever),s14,CWE-434,CWE-22 CWE-434 CWE-23 CWE-313 CWE-732,2
+dev,Hybrid + signals (v1 retriever),s15,CWE-918,CWE-918 CWE-598 CWE-494 CWE-522 CWE-601,1
+dev,Hybrid + signals (v1 retriever),s16,CWE-94,CWE-95 CWE-94 CWE-1333 CWE-1327 CWE-625,2
+dev,Hybrid + signals (v1 retriever),s17,CWE-94,CWE-94 CWE-95 CWE-829 CWE-470 CWE-270,1
+dev,Hybrid + signals (v1 retriever),s18,CWE-77,CWE-77 CWE-428 CWE-78 CWE-552 CWE-214,1
+dev,Hybrid + signals (v1 retriever),s19,CWE-200,CWE-209 CWE-200 CWE-81 CWE-601 CWE-497,2
+dev,Hybrid + signals (v1 retriever),s20,CWE-639,CWE-639 CWE-566 CWE-943 CWE-862 CWE-489,1
+dev,Hybrid + signals (v1 retriever),s21,CWE-863,CWE-863 CWE-565 CWE-268 CWE-807 CWE-266,1
+dev,Hybrid + signals (v1 retriever),s22,CWE-20,CWE-840 CWE-1395 CWE-820 CWE-290 CWE-614,8
+dev,Hybrid + signals + sink rules (final),s01,CWE-89,CWE-89 CWE-943 CWE-566 CWE-564 CWE-598,1
+dev,Hybrid + signals + sink rules (final),s02,CWE-89,CWE-89 CWE-943 CWE-564 CWE-566 CWE-643,1
+dev,Hybrid + signals + sink rules (final),s03,CWE-79,CWE-79 CWE-1426 CWE-639 CWE-1427 CWE-1336,1
+dev,Hybrid + signals + sink rules (final),s04,CWE-79,CWE-79 CWE-1336 CWE-476 CWE-359 CWE-1327,1
+dev,Hybrid + signals + sink rules (final),s05,CWE-78,CWE-78 CWE-1327 CWE-77 CWE-15 CWE-290,1
+dev,Hybrid + signals + sink rules (final),s06,CWE-78,CWE-78 CWE-77 CWE-434 CWE-22 CWE-114,1
+dev,Hybrid + signals + sink rules (final),s07,CWE-22,CWE-22 CWE-23 CWE-36 CWE-73 CWE-367,1
+dev,Hybrid + signals + sink rules (final),s08,CWE-22,CWE-22 CWE-23 CWE-434 CWE-494 CWE-36,1
+dev,Hybrid + signals + sink rules (final),s09,CWE-502,CWE-502 CWE-313 CWE-114 CWE-488 CWE-614,1
+dev,Hybrid + signals + sink rules (final),s10,CWE-502,CWE-502 CWE-564 CWE-260 CWE-114 CWE-138,1
+dev,Hybrid + signals + sink rules (final),s11,CWE-306,CWE-306 CWE-620 CWE-307 CWE-352 CWE-862,1
+dev,Hybrid + signals + sink rules (final),s12,CWE-862,CWE-862 CWE-352 CWE-841 CWE-639 CWE-307,1
+dev,Hybrid + signals + sink rules (final),s13,CWE-352,CWE-352 CWE-472 CWE-862 CWE-434 CWE-915,1
+dev,Hybrid + signals + sink rules (final),s14,CWE-434,CWE-434 CWE-22 CWE-352 CWE-23 CWE-313,1
+dev,Hybrid + signals + sink rules (final),s15,CWE-918,CWE-918 CWE-598 CWE-494 CWE-522 CWE-601,1
+dev,Hybrid + signals + sink rules (final),s16,CWE-94,CWE-94 CWE-95 CWE-1333 CWE-1327 CWE-625,1
+dev,Hybrid + signals + sink rules (final),s17,CWE-94,CWE-94 CWE-95 CWE-829 CWE-79 CWE-470,1
+dev,Hybrid + signals + sink rules (final),s18,CWE-77,CWE-78 CWE-77 CWE-428 CWE-552 CWE-214,2
+dev,Hybrid + signals + sink rules (final),s19,CWE-200,CWE-209 CWE-200 CWE-81 CWE-601 CWE-497,2
+dev,Hybrid + signals + sink rules (final),s20,CWE-639,CWE-639 CWE-566 CWE-943 CWE-862 CWE-89,1
+dev,Hybrid + signals + sink rules (final),s21,CWE-863,CWE-863 CWE-565 CWE-268 CWE-807 CWE-266,1
+dev,Hybrid + signals + sink rules (final),s22,CWE-20,CWE-20 CWE-840 CWE-1395 CWE-820 CWE-290,1
+heldout,"Dense, plain average",h01,CWE-89,CWE-566 CWE-639 CWE-73 CWE-625 CWE-367,
+heldout,"Dense, plain average",h02,CWE-89,CWE-639 CWE-566 CWE-348 CWE-367 CWE-625,
+heldout,"Dense, plain average",h03,CWE-79,CWE-80 CWE-564 CWE-209 CWE-81 CWE-89,10
+heldout,"Dense, plain average",h04,CWE-79,CWE-566 CWE-73 CWE-1275 CWE-940 CWE-367,
+heldout,"Dense, plain average",h05,CWE-78,CWE-23 CWE-36 CWE-197 CWE-73 CWE-367,
+heldout,"Dense, plain average",h06,CWE-78,CWE-83 CWE-95 CWE-94 CWE-82 CWE-1336,
+heldout,"Dense, plain average",h07,CWE-22,CWE-434 CWE-73 CWE-22 CWE-494 CWE-23,3
+heldout,"Dense, plain average",h08,CWE-22,CWE-22 CWE-732 CWE-73 CWE-23 CWE-434,1
+heldout,"Dense, plain average",h09,CWE-502,CWE-502 CWE-79 CWE-532 CWE-732 CWE-494,1
+heldout,"Dense, plain average",h10,CWE-502,CWE-36 CWE-73 CWE-426 CWE-552 CWE-501,
+heldout,"Dense, plain average",h11,CWE-306,CWE-349 CWE-566 CWE-639 CWE-625 CWE-359,
+heldout,"Dense, plain average",h12,CWE-306,CWE-350 CWE-36 CWE-426 CWE-732 CWE-668,
+heldout,"Dense, plain average",h13,CWE-862,CWE-566 A01:2025 CWE-209 CWE-73 CWE-639,
+heldout,"Dense, plain average",h14,CWE-862,CWE-379 CWE-434 CWE-732 CWE-862 CWE-494,4
+heldout,"Dense, plain average",h15,CWE-352,CWE-799 CWE-940 CWE-209 CWE-601 CWE-434,
+heldout,"Dense, plain average",h16,CWE-352,CWE-532 CWE-256 CWE-315 CWE-117 CWE-522,
+heldout,"Dense, plain average",h17,CWE-434,CWE-434 CWE-494 CWE-732 CWE-22 CWE-379,1
+heldout,"Dense, plain average",h18,CWE-434,CWE-434 CWE-494 CWE-532 CWE-319 CWE-1230,1
+heldout,"Dense, plain average",h19,CWE-918,CWE-601 CWE-918 CWE-209 CWE-502 CWE-434,2
+heldout,"Dense, plain average",h20,CWE-918,CWE-601 CWE-494 CWE-434 CWE-732 CWE-81,10
+heldout,"Dense, plain average",h21,CWE-94,CWE-611 CWE-1385 CWE-552 CWE-99 CWE-829,
+heldout,"Dense, plain average",h22,CWE-94,CWE-917 CWE-80 CWE-564 CWE-83 CWE-209,
+heldout,"Dense, plain average",h23,CWE-77,CWE-80 CWE-1327 CWE-532 CWE-93 CWE-564,
+heldout,"Dense, plain average",h24,CWE-77,CWE-79 CWE-532 CWE-494 CWE-313 CWE-83,
+heldout,"Dense, plain average",h25,CWE-200,CWE-209 CWE-756 CWE-494 CWE-732 CWE-81,
+heldout,"Dense, plain average",h26,CWE-200,CWE-494 CWE-209 CWE-214 CWE-862 CWE-830,
+heldout,"Dense, plain average",h27,CWE-639,CWE-732 CWE-494 CWE-862 CWE-532 CWE-434,
+heldout,"Dense, plain average",h28,CWE-639,CWE-209 CWE-940 CWE-494 CWE-732 CWE-862,
+heldout,"Dense, plain average",h29,CWE-863,CWE-497 CWE-213 CWE-200 CWE-472 A01:2025,
+heldout,"Dense, plain average",h30,CWE-863,CWE-73 CWE-862 CWE-566 CWE-434 CWE-639,
+heldout,"Dense, plain average",h31,CWE-20,CWE-789 CWE-190 CWE-606 CWE-566 CWE-639,
+heldout,"Dense, plain average",h32,CWE-20,CWE-209 CWE-73 CWE-434 CWE-497 CWE-379,
+heldout,"Dense, plain average",h33,CWE-770,CWE-209 CWE-497 CWE-200 CWE-311 A01:2025,
+heldout,"Dense, plain average",h34,CWE-770,CWE-312 CWE-379 CWE-552 CWE-548 CWE-209,
+heldout,"Dense, plain average",h35,CWE-284,CWE-348 CWE-290 CWE-285 CWE-566 CWE-807,
+heldout,"Dense, plain average",h36,CWE-284,CWE-209 CWE-81 CWE-377 CWE-73 CWE-348,
+heldout,"Dense, plain average",h37,CWE-476,CWE-434 CWE-79 CWE-89 CWE-732 CWE-494,
+heldout,"Dense, plain average",h38,CWE-476,CWE-393 CWE-367 CWE-193 CWE-1333 CWE-125,
+heldout,"Dense, IDF-weighted (Review 3)",h01,CWE-89,CWE-639 CWE-566 CWE-73 A01:2025 CWE-367,
+heldout,"Dense, IDF-weighted (Review 3)",h02,CWE-89,CWE-639 CWE-23 CWE-566 CWE-732 CWE-367,
+heldout,"Dense, IDF-weighted (Review 3)",h03,CWE-79,CWE-80 CWE-564 CWE-81 CWE-209 CWE-89,9
+heldout,"Dense, IDF-weighted (Review 3)",h04,CWE-79,CWE-367 CWE-73 CWE-566 CWE-80 CWE-290,
+heldout,"Dense, IDF-weighted (Review 3)",h05,CWE-78,CWE-36 CWE-23 CWE-73 CWE-197 CWE-367,
+heldout,"Dense, IDF-weighted (Review 3)",h06,CWE-78,CWE-83 CWE-82 CWE-95 CWE-94 CWE-564,
+heldout,"Dense, IDF-weighted (Review 3)",h07,CWE-22,CWE-434 CWE-73 CWE-494 CWE-23 CWE-732,6
+heldout,"Dense, IDF-weighted (Review 3)",h08,CWE-22,CWE-22 CWE-23 CWE-732 CWE-73 CWE-434,1
+heldout,"Dense, IDF-weighted (Review 3)",h09,CWE-502,CWE-732 CWE-502 CWE-79 CWE-494 CWE-1236,2
+heldout,"Dense, IDF-weighted (Review 3)",h10,CWE-502,CWE-73 CWE-552 CWE-426 CWE-36 CWE-214,
+heldout,"Dense, IDF-weighted (Review 3)",h11,CWE-306,CWE-349 CWE-367 CWE-73 CWE-625 CWE-833,
+heldout,"Dense, IDF-weighted (Review 3)",h12,CWE-306,CWE-350 CWE-36 CWE-426 CWE-379 CWE-732,
+heldout,"Dense, IDF-weighted (Review 3)",h13,CWE-862,CWE-209 CWE-566 CWE-426 CWE-732 A01:2025,
+heldout,"Dense, IDF-weighted (Review 3)",h14,CWE-862,CWE-379 CWE-732 CWE-434 CWE-494 CWE-862,5
+heldout,"Dense, IDF-weighted (Review 3)",h15,CWE-352,CWE-799 CWE-940 CWE-209 CWE-319 CWE-601,
+heldout,"Dense, IDF-weighted (Review 3)",h16,CWE-352,CWE-532 CWE-315 CWE-117 CWE-522 CWE-256,
+heldout,"Dense, IDF-weighted (Review 3)",h17,CWE-434,CWE-434 CWE-494 CWE-732 CWE-22 CWE-23,1
+heldout,"Dense, IDF-weighted (Review 3)",h18,CWE-434,CWE-434 CWE-494 CWE-532 CWE-319 CWE-1230,1
+heldout,"Dense, IDF-weighted (Review 3)",h19,CWE-918,CWE-209 CWE-614 CWE-601 CWE-732 CWE-413,6
+heldout,"Dense, IDF-weighted (Review 3)",h20,CWE-918,CWE-494 CWE-601 CWE-1395 CWE-290 CWE-1327,
+heldout,"Dense, IDF-weighted (Review 3)",h21,CWE-94,CWE-611 CWE-1385 CWE-552 CWE-99 CWE-776,
+heldout,"Dense, IDF-weighted (Review 3)",h22,CWE-94,CWE-917 CWE-80 CWE-81 CWE-564 CWE-209,
+heldout,"Dense, IDF-weighted (Review 3)",h23,CWE-77,CWE-1327 CWE-93 CWE-1395 CWE-80 CWE-290,
+heldout,"Dense, IDF-weighted (Review 3)",h24,CWE-77,CWE-79 CWE-83 CWE-532 CWE-80 CWE-1004,
+heldout,"Dense, IDF-weighted (Review 3)",h25,CWE-200,CWE-494 CWE-756 CWE-209 CWE-732 CWE-313,
+heldout,"Dense, IDF-weighted (Review 3)",h26,CWE-200,CWE-426 CWE-830 CWE-214 CWE-209 CWE-201,
+heldout,"Dense, IDF-weighted (Review 3)",h27,CWE-639,CWE-732 CWE-532 CWE-862 CWE-209 CWE-494,
+heldout,"Dense, IDF-weighted (Review 3)",h28,CWE-639,CWE-209 CWE-940 CWE-494 CWE-732 CWE-532,
+heldout,"Dense, IDF-weighted (Review 3)",h29,CWE-863,CWE-213 CWE-200 CWE-807 CWE-472 CWE-488,6
+heldout,"Dense, IDF-weighted (Review 3)",h30,CWE-863,CWE-377 CWE-73 CWE-940 CWE-566 CWE-862,
+heldout,"Dense, IDF-weighted (Review 3)",h31,CWE-20,CWE-789 CWE-190 CWE-197 CWE-606 CWE-129,
+heldout,"Dense, IDF-weighted (Review 3)",h32,CWE-20,CWE-209 CWE-73 CWE-497 CWE-830 CWE-348,
+heldout,"Dense, IDF-weighted (Review 3)",h33,CWE-770,CWE-209 CWE-497 CWE-200 A01:2025 CWE-311,
+heldout,"Dense, IDF-weighted (Review 3)",h34,CWE-770,CWE-312 CWE-548 CWE-379 CWE-552 CWE-732,
+heldout,"Dense, IDF-weighted (Review 3)",h35,CWE-284,CWE-348 CWE-290 CWE-1395 CWE-940 CWE-566,
+heldout,"Dense, IDF-weighted (Review 3)",h36,CWE-284,CWE-209 CWE-81 CWE-377 CWE-348 CWE-940,
+heldout,"Dense, IDF-weighted (Review 3)",h37,CWE-476,CWE-732 CWE-79 CWE-494 CWE-434 CWE-89,
+heldout,"Dense, IDF-weighted (Review 3)",h38,CWE-476,CWE-393 CWE-367 CWE-193 CWE-1333 CWE-125,
+heldout,"Hybrid, KB text only",h01,CWE-89,CWE-566 CWE-89 CWE-639 CWE-476 CWE-565,2
+heldout,"Hybrid, KB text only",h02,CWE-89,CWE-566 CWE-639 CWE-564 CWE-598 CWE-943,6
+heldout,"Hybrid, KB text only",h03,CWE-79,CWE-80 CWE-1336 CWE-81 CWE-209 CWE-799,
+heldout,"Hybrid, KB text only",h04,CWE-79,CWE-489 CWE-91 CWE-566 CWE-73 CWE-99,
+heldout,"Hybrid, KB text only",h05,CWE-78,CWE-78 CWE-428 CWE-1426 CWE-252 CWE-426,1
+heldout,"Hybrid, KB text only",h06,CWE-78,CWE-78 CWE-330 CWE-95 CWE-732 CWE-942,1
+heldout,"Hybrid, KB text only",h07,CWE-22,CWE-22 CWE-23 CWE-73 CWE-428 CWE-732,1
+heldout,"Hybrid, KB text only",h08,CWE-22,CWE-23 CWE-22 CWE-732 CWE-73 CWE-377,2
+heldout,"Hybrid, KB text only",h09,CWE-502,CWE-502 CWE-96 CWE-674 CWE-16 CWE-494,1
+heldout,"Hybrid, KB text only",h10,CWE-502,CWE-434 CWE-915 CWE-352 CWE-353 CWE-501,
+heldout,"Hybrid, KB text only",h11,CWE-306,CWE-201 CWE-668 CWE-820 CWE-497 CWE-284,
+heldout,"Hybrid, KB text only",h12,CWE-306,CWE-209 CWE-15 CWE-434 CWE-835 CWE-523,
+heldout,"Hybrid, KB text only",h13,CWE-862,CWE-566 CWE-943 CWE-307 CWE-639 CWE-352,
+heldout,"Hybrid, KB text only",h14,CWE-862,CWE-862 CWE-209 CWE-89 CWE-639 CWE-565,1
+heldout,"Hybrid, KB text only",h15,CWE-352,CWE-799 CWE-352 CWE-601 CWE-307 CWE-488,2
+heldout,"Hybrid, KB text only",h16,CWE-352,CWE-1275 CWE-1004 CWE-315 CWE-614 CWE-501,
+heldout,"Hybrid, KB text only",h17,CWE-434,CWE-23 CWE-22 CWE-434 CWE-538 CWE-732,3
+heldout,"Hybrid, KB text only",h18,CWE-434,CWE-434 CWE-22 CWE-494 CWE-532 CWE-379,1
+heldout,"Hybrid, KB text only",h19,CWE-918,CWE-598 CWE-918 CWE-81 CWE-209 CWE-23,2
+heldout,"Hybrid, KB text only",h20,CWE-918,CWE-601 CWE-829 CWE-400 CWE-918 CWE-494,4
+heldout,"Hybrid, KB text only",h21,CWE-94,CWE-653 CWE-78 CWE-1426 CWE-95 CWE-288,10
+heldout,"Hybrid, KB text only",h22,CWE-94,CWE-917 CWE-943 CWE-643 CWE-598 CWE-81,
+heldout,"Hybrid, KB text only",h23,CWE-77,CWE-117 CWE-428 CWE-532 CWE-1327 CWE-93,7
+heldout,"Hybrid, KB text only",h24,CWE-77,CWE-1357 CWE-532 CWE-117 CWE-88 CWE-552,
+heldout,"Hybrid, KB text only",h25,CWE-200,CWE-209 CWE-497 CWE-215 CWE-134 CWE-15,
+heldout,"Hybrid, KB text only",h26,CWE-200,CWE-943 CWE-526 CWE-256 CWE-15 CWE-214,
+heldout,"Hybrid, KB text only",h27,CWE-639,CWE-639 CWE-862 CWE-287 CWE-798 CWE-943,1
+heldout,"Hybrid, KB text only",h28,CWE-639,CWE-201 CWE-209 CWE-598 CWE-940 CWE-639,5
+heldout,"Hybrid, KB text only",h29,CWE-863,CWE-863 CWE-642 CWE-269 CWE-392 CWE-266,1
+heldout,"Hybrid, KB text only",h30,CWE-863,CWE-862 CWE-566 CWE-639 CWE-266 CWE-940,
+heldout,"Hybrid, KB text only",h31,CWE-20,CWE-789 CWE-522 CWE-598 CWE-81 CWE-566,
+heldout,"Hybrid, KB text only",h32,CWE-20,CWE-915 CWE-209 CWE-81 CWE-799 CWE-434,
+heldout,"Hybrid, KB text only",h33,CWE-770,CWE-434 CWE-288 CWE-307 CWE-201 CWE-312,
+heldout,"Hybrid, KB text only",h34,CWE-770,CWE-943 CWE-639 CWE-312 CWE-129 CWE-434,
+heldout,"Hybrid, KB text only",h35,CWE-284,CWE-348 CWE-290 CWE-807 CWE-598 CWE-566,
+heldout,"Hybrid, KB text only",h36,CWE-284,CWE-377 CWE-81 CWE-73 CWE-80 CWE-209,
+heldout,"Hybrid, KB text only",h37,CWE-476,CWE-90 CWE-89 CWE-566 CWE-639 CWE-598,
+heldout,"Hybrid, KB text only",h38,CWE-476,CWE-393 CWE-1333 CWE-625 CWE-197 CWE-86,
+heldout,Hybrid + signals (v1 retriever),h01,CWE-89,CWE-566 CWE-89 CWE-565 CWE-639 CWE-73,2
+heldout,Hybrid + signals (v1 retriever),h02,CWE-89,CWE-566 CWE-89 CWE-564 CWE-639 CWE-943,2
+heldout,Hybrid + signals (v1 retriever),h03,CWE-79,CWE-80 CWE-1336 CWE-81 CWE-209 CWE-598,
+heldout,Hybrid + signals (v1 retriever),h04,CWE-79,CWE-489 CWE-91 CWE-566 CWE-73 CWE-99,
+heldout,Hybrid + signals (v1 retriever),h05,CWE-78,CWE-78 CWE-428 CWE-1426 CWE-252 CWE-426,1
+heldout,Hybrid + signals (v1 retriever),h06,CWE-78,CWE-78 CWE-95 CWE-94 CWE-1336 CWE-564,1
+heldout,Hybrid + signals (v1 retriever),h07,CWE-22,CWE-22 CWE-23 CWE-73 CWE-36 CWE-552,1
+heldout,Hybrid + signals (v1 retriever),h08,CWE-22,CWE-22 CWE-23 CWE-36 CWE-73 CWE-732,1
+heldout,Hybrid + signals (v1 retriever),h09,CWE-502,CWE-502 CWE-260 CWE-96 CWE-674 CWE-16,1
+heldout,Hybrid + signals (v1 retriever),h10,CWE-502,CWE-352 CWE-915 CWE-434 CWE-201 CWE-943,
+heldout,Hybrid + signals (v1 retriever),h11,CWE-306,CWE-201 CWE-668 CWE-820 CWE-284 CWE-349,7
+heldout,Hybrid + signals (v1 retriever),h12,CWE-306,CWE-15 CWE-209 CWE-306 CWE-78 CWE-835,3
+heldout,Hybrid + signals (v1 retriever),h13,CWE-862,CWE-566 CWE-943 CWE-352 CWE-306 CWE-307,
+heldout,Hybrid + signals (v1 retriever),h14,CWE-862,CWE-862 CWE-89 CWE-565 CWE-209 CWE-81,1
+heldout,Hybrid + signals (v1 retriever),h15,CWE-352,CWE-352 CWE-799 CWE-601 CWE-620 CWE-488,1
+heldout,Hybrid + signals (v1 retriever),h16,CWE-352,CWE-1275 CWE-352 CWE-1004 CWE-315 CWE-614,2
+heldout,Hybrid + signals (v1 retriever),h17,CWE-434,CWE-434 CWE-23 CWE-22 CWE-73 CWE-552,1
+heldout,Hybrid + signals (v1 retriever),h18,CWE-434,CWE-434 CWE-22 CWE-494 CWE-319 CWE-538,1
+heldout,Hybrid + signals (v1 retriever),h19,CWE-918,CWE-918 CWE-598 CWE-441 CWE-601 CWE-81,1
+heldout,Hybrid + signals (v1 retriever),h20,CWE-918,CWE-918 CWE-400 CWE-601 CWE-829 CWE-494,1
+heldout,Hybrid + signals (v1 retriever),h21,CWE-94,CWE-653 CWE-94 CWE-829 CWE-78 CWE-611,2
+heldout,Hybrid + signals (v1 retriever),h22,CWE-94,CWE-917 CWE-643 CWE-943 CWE-95 CWE-94,5
+heldout,Hybrid + signals (v1 retriever),h23,CWE-77,CWE-77 CWE-428 CWE-117 CWE-78 CWE-532,1
+heldout,Hybrid + signals (v1 retriever),h24,CWE-77,CWE-1357 CWE-532 CWE-88 CWE-117 CWE-552,
+heldout,Hybrid + signals (v1 retriever),h25,CWE-200,CWE-209 CWE-497 CWE-756 CWE-15 CWE-215,8
+heldout,Hybrid + signals (v1 retriever),h26,CWE-200,CWE-526 CWE-497 CWE-256 CWE-598 CWE-15,
+heldout,Hybrid + signals (v1 retriever),h27,CWE-639,CWE-639 CWE-566 CWE-862 CWE-287 CWE-943,1
+heldout,Hybrid + signals (v1 retriever),h28,CWE-639,CWE-201 CWE-598 CWE-209 CWE-639 CWE-940,4
+heldout,Hybrid + signals (v1 retriever),h29,CWE-863,CWE-863 CWE-807 CWE-392 CWE-642 CWE-269,1
+heldout,Hybrid + signals (v1 retriever),h30,CWE-863,CWE-862 CWE-266 CWE-639 CWE-566 CWE-306,
+heldout,Hybrid + signals (v1 retriever),h31,CWE-20,CWE-770 CWE-789 CWE-522 CWE-400 CWE-598,
+heldout,Hybrid + signals (v1 retriever),h32,CWE-20,CWE-915 CWE-209 CWE-81 CWE-359 CWE-799,
+heldout,Hybrid + signals (v1 retriever),h33,CWE-770,CWE-288 CWE-434 CWE-201 CWE-598 CWE-248,
+heldout,Hybrid + signals (v1 retriever),h34,CWE-770,CWE-943 CWE-770 CWE-639 CWE-312 CWE-129,2
+heldout,Hybrid + signals (v1 retriever),h35,CWE-284,CWE-348 CWE-290 CWE-807 CWE-918 CWE-566,7
+heldout,Hybrid + signals (v1 retriever),h36,CWE-284,CWE-23 CWE-22 CWE-377 CWE-81 CWE-36,
+heldout,Hybrid + signals (v1 retriever),h37,CWE-476,CWE-566 CWE-90 CWE-89 CWE-639 CWE-598,7
+heldout,Hybrid + signals (v1 retriever),h38,CWE-476,CWE-476 CWE-1333 CWE-625 CWE-393 CWE-271,1
+heldout,Hybrid + signals + sink rules (final),h01,CWE-89,CWE-89 CWE-566 CWE-639 CWE-565 CWE-476,1
+heldout,Hybrid + signals + sink rules (final),h02,CWE-89,CWE-89 CWE-566 CWE-639 CWE-564 CWE-943,1
+heldout,Hybrid + signals + sink rules (final),h03,CWE-79,CWE-79 CWE-80 CWE-1336 CWE-81 CWE-22,1
+heldout,Hybrid + signals + sink rules (final),h04,CWE-79,CWE-79 CWE-489 CWE-91 CWE-566 CWE-73,1
+heldout,Hybrid + signals + sink rules (final),h05,CWE-78,CWE-78 CWE-77 CWE-428 CWE-1426 CWE-252,1
+heldout,Hybrid + signals + sink rules (final),h06,CWE-78,CWE-78 CWE-77 CWE-95 CWE-94 CWE-89,1
+heldout,Hybrid + signals + sink rules (final),h07,CWE-22,CWE-22 CWE-23 CWE-73 CWE-36 CWE-552,1
+heldout,Hybrid + signals + sink rules (final),h08,CWE-22,CWE-22 CWE-23 CWE-36 CWE-73 CWE-732,1
+heldout,Hybrid + signals + sink rules (final),h09,CWE-502,CWE-502 CWE-260 CWE-96 CWE-674 CWE-16,1
+heldout,Hybrid + signals + sink rules (final),h10,CWE-502,CWE-502 CWE-352 CWE-434 CWE-915 CWE-201,1
+heldout,Hybrid + signals + sink rules (final),h11,CWE-306,CWE-201 CWE-306 CWE-284 CWE-668 CWE-820,2
+heldout,Hybrid + signals + sink rules (final),h12,CWE-306,CWE-352 CWE-15 CWE-306 CWE-78 CWE-209,3
+heldout,Hybrid + signals + sink rules (final),h13,CWE-862,CWE-352 CWE-306 CWE-566 CWE-639 CWE-89,
+heldout,Hybrid + signals + sink rules (final),h14,CWE-862,CWE-862 CWE-352 CWE-89 CWE-565 CWE-209,1
+heldout,Hybrid + signals + sink rules (final),h15,CWE-352,CWE-352 CWE-799 CWE-601 CWE-620 CWE-488,1
+heldout,Hybrid + signals + sink rules (final),h16,CWE-352,CWE-1275 CWE-614 CWE-352 CWE-1004 CWE-315,3
+heldout,Hybrid + signals + sink rules (final),h17,CWE-434,CWE-434 CWE-22 CWE-23 CWE-352 CWE-73,1
+heldout,Hybrid + signals + sink rules (final),h18,CWE-434,CWE-434 CWE-352 CWE-22 CWE-494 CWE-319,1
+heldout,Hybrid + signals + sink rules (final),h19,CWE-918,CWE-918 CWE-598 CWE-441 CWE-601 CWE-81,1
+heldout,Hybrid + signals + sink rules (final),h20,CWE-918,CWE-918 CWE-400 CWE-601 CWE-829 CWE-494,1
+heldout,Hybrid + signals + sink rules (final),h21,CWE-94,CWE-94 CWE-653 CWE-829 CWE-78 CWE-611,1
+heldout,Hybrid + signals + sink rules (final),h22,CWE-94,CWE-94 CWE-95 CWE-917 CWE-643 CWE-943,1
+heldout,Hybrid + signals + sink rules (final),h23,CWE-77,CWE-78 CWE-77 CWE-428 CWE-117 CWE-532,2
+heldout,Hybrid + signals + sink rules (final),h24,CWE-77,CWE-78 CWE-1357 CWE-532 CWE-88 CWE-117,
+heldout,Hybrid + signals + sink rules (final),h25,CWE-200,CWE-209 CWE-497 CWE-756 CWE-15 CWE-200,5
+heldout,Hybrid + signals + sink rules (final),h26,CWE-200,CWE-497 CWE-200 CWE-526 CWE-256 CWE-598,2
+heldout,Hybrid + signals + sink rules (final),h27,CWE-639,CWE-639 CWE-201 CWE-566 CWE-862 CWE-434,1
+heldout,Hybrid + signals + sink rules (final),h28,CWE-639,CWE-639 CWE-201 CWE-598 CWE-209 CWE-306,1
+heldout,Hybrid + signals + sink rules (final),h29,CWE-863,CWE-863 A01:2025 CWE-807 CWE-392 CWE-642,1
+heldout,Hybrid + signals + sink rules (final),h30,CWE-863,CWE-862 CWE-639 CWE-266 CWE-306 CWE-89,
+heldout,Hybrid + signals + sink rules (final),h31,CWE-20,CWE-770 CWE-20 CWE-789 CWE-522 CWE-400,2
+heldout,Hybrid + signals + sink rules (final),h32,CWE-20,CWE-807 CWE-352 CWE-915 CWE-209 CWE-81,
+heldout,Hybrid + signals + sink rules (final),h33,CWE-770,CWE-352 CWE-400 CWE-248 CWE-434 CWE-288,
+heldout,Hybrid + signals + sink rules (final),h34,CWE-770,CWE-306 CWE-943 CWE-352 CWE-770 CWE-639,4
+heldout,Hybrid + signals + sink rules (final),h35,CWE-284,CWE-348 CWE-290 CWE-807 CWE-918 CWE-284,5
+heldout,Hybrid + signals + sink rules (final),h36,CWE-284,CWE-22 CWE-807 CWE-23 CWE-434 CWE-377,
+heldout,Hybrid + signals + sink rules (final),h37,CWE-476,CWE-639 CWE-566 CWE-89 CWE-90 CWE-598,6
+heldout,Hybrid + signals + sink rules (final),h38,CWE-476,CWE-476 CWE-1333 CWE-625 CWE-393 CWE-271,1
+extended,"Dense, plain average",e01,CWE-798,CWE-209 CWE-348 CWE-488 CWE-798 CWE-290,4
+extended,"Dense, plain average",e02,CWE-327,CWE-256 CWE-494 CWE-532 CWE-259 CWE-434,
+extended,"Dense, plain average",e03,CWE-330,CWE-338 CWE-331 CWE-197 CWE-190 CWE-1339,7
+extended,"Dense, plain average",e04,CWE-295,CWE-601 CWE-918 CWE-598 CWE-494 CWE-287,7
+extended,"Dense, plain average",e05,CWE-347,CWE-287 CWE-204 CWE-347 CWE-798 CWE-862,3
+extended,"Dense, plain average",e06,CWE-319,CWE-319 CWE-256 CWE-532 CWE-1392 CWE-90,1
+extended,"Dense, plain average",e07,CWE-532,CWE-434 CWE-256 CWE-90 CWE-89 CWE-862,9
+extended,"Dense, plain average",e08,CWE-209,CWE-209 CWE-81 CWE-756 CWE-313 CWE-732,1
+extended,"Dense, plain average",e09,CWE-489,CWE-1327 CWE-1395 CWE-290 CWE-668 CWE-369,
+extended,"Dense, plain average",e10,CWE-307,CWE-434 CWE-90 CWE-918 CWE-601 CWE-256,
+extended,"Dense, plain average",e11,CWE-384,CWE-434 CWE-862 CWE-532 CWE-494 CWE-256,
+extended,"Dense, plain average",e12,CWE-601,CWE-36 CWE-285 CWE-807 CWE-566 CWE-393,
+extended,"Dense, plain average",e13,CWE-611,CWE-611 CWE-776 CWE-674 CWE-91 CWE-116,1
+extended,"Dense, plain average",e14,CWE-1333,CWE-369 CWE-190 CWE-290 CWE-488 CWE-331,9
+extended,"Dense, plain average",e15,CWE-1321,CWE-74 CWE-59 CWE-15 CWE-642 CWE-300,
+extended,"Dense, plain average",e16,CWE-915,CWE-488 CWE-566 CWE-348 CWE-625 A01:2025,
+extended,"Dense, plain average",e17,CWE-732,CWE-23 CWE-367 CWE-428 CWE-36 CWE-73,
+extended,"Dense, plain average",e18,CWE-377,CWE-73 CWE-80 CWE-367 CWE-377 CWE-313,4
+extended,"Dense, plain average",e19,CWE-942,CWE-36 CWE-288 CWE-625 CWE-290 CWE-348,
+extended,"Dense, plain average",e20,CWE-614,CWE-352 CWE-441 CWE-1275 CWE-566 CWE-348,7
+extended,"Dense, plain average",e21,CWE-362,CWE-472 CWE-308 CWE-362 CWE-393 CWE-639,3
+extended,"Dense, plain average",e22,CWE-367,CWE-23 CWE-36 CWE-73 CWE-367 CWE-428,4
+extended,"Dense, plain average",e23,CWE-400,CWE-73 CWE-200 CWE-311 CWE-117 CWE-425,
+extended,"Dense, plain average",e24,CWE-409,CWE-494 CWE-22 CWE-313 CWE-732 CWE-532,
+extended,"Dense, plain average",e25,CWE-799,CWE-940 CWE-799 CWE-209 CWE-566 CWE-639,2
+extended,"Dense, plain average",e26,CWE-829,CWE-829 CWE-83 CWE-434 CWE-732 CWE-379,1
+extended,"Dense, plain average",e27,CWE-494,CWE-494 CWE-80 CWE-96 CWE-313 CWE-732,1
+extended,"Dense, plain average",e28,CWE-636,A01:2025 CWE-308 CWE-566 CWE-625 CWE-807,8
+extended,"Dense, plain average",e29,CWE-208,CWE-566 CWE-841 CWE-285 CWE-639 CWE-348,
+extended,"Dense, plain average",e30,CWE-204,CWE-304 CWE-287 CWE-209 CWE-862 CWE-306,
+extended,"Dense, plain average",e31,CWE-117,CWE-209 CWE-732 CWE-601 CWE-494 CWE-89,
+extended,"Dense, plain average",e32,CWE-113,CWE-434 CWE-532 CWE-494 CWE-732 CWE-319,
+extended,"Dense, plain average",e33,CWE-1336,CWE-566 CWE-73 CWE-23 CWE-940 CWE-377,
+extended,"Dense, plain average",e34,CWE-943,CWE-434 CWE-732 CWE-209 CWE-256 CWE-522,
+extended,"Dense, plain average",e35,CWE-90,CWE-732 CWE-943 CWE-79 CWE-80 CWE-434,
+extended,"Dense, plain average",e36,CWE-88,CWE-494 CWE-434 CWE-426 CWE-88 CWE-327,4
+extended,"Dense, plain average",e37,CWE-916,CWE-256 CWE-836 CWE-257 CWE-532 CWE-259,
+extended,"Dense, plain average",e38,CWE-1004,CWE-614 CWE-1004 CWE-315 CWE-313 CWE-348,2
+extended,"Dense, plain average",e39,CWE-807,CWE-732 CWE-552 CWE-425 A01:2025 CWE-209,
+extended,"Dense, plain average",e40,CWE-345,CWE-566 CWE-285 CWE-841 CWE-367 CWE-393,
+extended,"Dense, IDF-weighted (Review 3)",e01,CWE-798,CWE-209 CWE-488 CWE-200 CWE-348 CWE-313,6
+extended,"Dense, IDF-weighted (Review 3)",e02,CWE-327,CWE-494 CWE-256 CWE-532 CWE-259 CWE-732,
+extended,"Dense, IDF-weighted (Review 3)",e03,CWE-330,CWE-338 CWE-197 CWE-331 CWE-190 CWE-1339,8
+extended,"Dense, IDF-weighted (Review 3)",e04,CWE-295,CWE-601 CWE-918 CWE-287 CWE-494 CWE-614,9
+extended,"Dense, IDF-weighted (Review 3)",e05,CWE-347,CWE-287 CWE-204 CWE-347 CWE-302 CWE-345,3
+extended,"Dense, IDF-weighted (Review 3)",e06,CWE-319,CWE-319 CWE-256 CWE-532 CWE-1392 CWE-523,1
+extended,"Dense, IDF-weighted (Review 3)",e07,CWE-532,CWE-434 CWE-256 CWE-862 CWE-90 CWE-319,8
+extended,"Dense, IDF-weighted (Review 3)",e08,CWE-209,CWE-209 CWE-756 CWE-313 CWE-81 CWE-732,1
+extended,"Dense, IDF-weighted (Review 3)",e09,CWE-489,CWE-1327 CWE-1395 CWE-290 CWE-668 CWE-193,
+extended,"Dense, IDF-weighted (Review 3)",e10,CWE-307,CWE-90 CWE-434 CWE-601 CWE-319 CWE-732,
+extended,"Dense, IDF-weighted (Review 3)",e11,CWE-384,CWE-434 CWE-862 CWE-494 CWE-732 CWE-601,
+extended,"Dense, IDF-weighted (Review 3)",e12,CWE-601,CWE-36 CWE-285 CWE-288 CWE-393 CWE-807,10
+extended,"Dense, IDF-weighted (Review 3)",e13,CWE-611,CWE-611 CWE-776 CWE-674 CWE-502 CWE-91,1
+extended,"Dense, IDF-weighted (Review 3)",e14,CWE-1333,CWE-1395 CWE-290 CWE-1327 CWE-190 CWE-369,
+extended,"Dense, IDF-weighted (Review 3)",e15,CWE-1321,CWE-74 CWE-15 CWE-59 CWE-300 CWE-488,
+extended,"Dense, IDF-weighted (Review 3)",e16,CWE-915,CWE-488 CWE-625 CWE-348 CWE-566 CWE-209,
+extended,"Dense, IDF-weighted (Review 3)",e17,CWE-732,CWE-23 CWE-36 CWE-367 CWE-73 CWE-428,
+extended,"Dense, IDF-weighted (Review 3)",e18,CWE-377,CWE-73 CWE-367 CWE-80 CWE-23 CWE-377,5
+extended,"Dense, IDF-weighted (Review 3)",e19,CWE-942,CWE-36 CWE-625 CWE-290 CWE-288 CWE-348,
+extended,"Dense, IDF-weighted (Review 3)",e20,CWE-614,CWE-352 CWE-441 CWE-614 CWE-566 CWE-290,3
+extended,"Dense, IDF-weighted (Review 3)",e21,CWE-362,CWE-472 CWE-308 CWE-362 CWE-1339 CWE-754,3
+extended,"Dense, IDF-weighted (Review 3)",e22,CWE-367,CWE-23 CWE-36 CWE-73 CWE-367 CWE-428,4
+extended,"Dense, IDF-weighted (Review 3)",e23,CWE-400,CWE-73 CWE-212 CWE-200 CWE-23 CWE-425,7
+extended,"Dense, IDF-weighted (Review 3)",e24,CWE-409,CWE-494 CWE-532 CWE-22 CWE-313 CWE-434,9
+extended,"Dense, IDF-weighted (Review 3)",e25,CWE-799,CWE-940 CWE-799 CWE-209 CWE-359 CWE-639,2
+extended,"Dense, IDF-weighted (Review 3)",e26,CWE-829,CWE-829 CWE-732 CWE-379 CWE-434 CWE-494,1
+extended,"Dense, IDF-weighted (Review 3)",e27,CWE-494,CWE-494 CWE-80 CWE-96 CWE-313 CWE-732,1
+extended,"Dense, IDF-weighted (Review 3)",e28,CWE-636,CWE-807 CWE-636 A01:2025 CWE-213 CWE-308,2
+extended,"Dense, IDF-weighted (Review 3)",e29,CWE-208,CWE-566 CWE-285 CWE-639 CWE-841 CWE-348,
+extended,"Dense, IDF-weighted (Review 3)",e30,CWE-204,CWE-304 CWE-209 CWE-598 CWE-287 CWE-306,
+extended,"Dense, IDF-weighted (Review 3)",e31,CWE-117,CWE-601 CWE-209 CWE-732 CWE-494 CWE-434,
+extended,"Dense, IDF-weighted (Review 3)",e32,CWE-113,CWE-434 CWE-494 CWE-532 CWE-732 CWE-319,
+extended,"Dense, IDF-weighted (Review 3)",e33,CWE-1336,CWE-73 CWE-566 CWE-434 CWE-494 CWE-36,
+extended,"Dense, IDF-weighted (Review 3)",e34,CWE-943,CWE-209 CWE-732 CWE-434 CWE-522 CWE-201,
+extended,"Dense, IDF-weighted (Review 3)",e35,CWE-90,CWE-732 CWE-943 CWE-359 A01:2025 CWE-566,
+extended,"Dense, IDF-weighted (Review 3)",e36,CWE-88,CWE-494 CWE-434 CWE-327 CWE-88 CWE-426,4
+extended,"Dense, IDF-weighted (Review 3)",e37,CWE-916,CWE-836 CWE-256 CWE-257 CWE-259 CWE-532,
+extended,"Dense, IDF-weighted (Review 3)",e38,CWE-1004,CWE-614 CWE-1004 CWE-315 CWE-313 CWE-99,2
+extended,"Dense, IDF-weighted (Review 3)",e39,CWE-807,CWE-732 CWE-552 CWE-73 CWE-434 CWE-209,
+extended,"Dense, IDF-weighted (Review 3)",e40,CWE-345,CWE-566 CWE-367 CWE-285 CWE-841 CWE-393,
+extended,"Hybrid, KB text only",e01,CWE-798,CWE-798 CWE-319 CWE-312 CWE-523 CWE-639,1
+extended,"Hybrid, KB text only",e02,CWE-327,CWE-328 CWE-759 CWE-943 CWE-256 CWE-89,9
+extended,"Hybrid, KB text only",e03,CWE-330,CWE-330 CWE-338 CWE-331 CWE-335 CWE-130,1
+extended,"Hybrid, KB text only",e04,CWE-295,CWE-598 CWE-918 CWE-295 CWE-494 CWE-522,3
+extended,"Hybrid, KB text only",e05,CWE-347,CWE-347 CWE-302 CWE-287 CWE-598 CWE-566,1
+extended,"Hybrid, KB text only",e06,CWE-319,CWE-319 CWE-523 CWE-532 CWE-1392 CWE-598,1
+extended,"Hybrid, KB text only",e07,CWE-532,CWE-532 CWE-117 CWE-287 CWE-256 CWE-598,1
+extended,"Hybrid, KB text only",e08,CWE-209,CWE-209 CWE-215 CWE-134 CWE-756 CWE-81,1
+extended,"Hybrid, KB text only",e09,CWE-489,CWE-1327 CWE-668 CWE-99 CWE-215 CWE-489,5
+extended,"Hybrid, KB text only",e10,CWE-307,CWE-90 CWE-307 CWE-799 CWE-352 CWE-601,2
+extended,"Hybrid, KB text only",e11,CWE-384,CWE-601 CWE-307 CWE-384 CWE-532 CWE-204,3
+extended,"Hybrid, KB text only",e12,CWE-601,CWE-601 CWE-613 CWE-384 CWE-489 CWE-352,1
+extended,"Hybrid, KB text only",e13,CWE-611,CWE-611 CWE-776 CWE-674 CWE-502 CWE-91,1
+extended,"Hybrid, KB text only",e14,CWE-1333,CWE-204 CWE-1333 CWE-625 CWE-799 CWE-253,2
+extended,"Hybrid, KB text only",e15,CWE-1321,CWE-1321 CWE-915 CWE-15 CWE-639 CWE-16,1
+extended,"Hybrid, KB text only",e16,CWE-915,CWE-943 CWE-598 CWE-352 CWE-488 CWE-307,
+extended,"Hybrid, KB text only",e17,CWE-732,CWE-732 CWE-23 CWE-367 CWE-73 CWE-36,1
+extended,"Hybrid, KB text only",e18,CWE-377,CWE-377 CWE-73 CWE-313 CWE-311 CWE-96,1
+extended,"Hybrid, KB text only",e19,CWE-942,CWE-346 CWE-942 CWE-290 CWE-113 CWE-93,2
+extended,"Hybrid, KB text only",e20,CWE-614,CWE-352 CWE-1004 CWE-113 CWE-1275 CWE-614,5
+extended,"Hybrid, KB text only",e21,CWE-362,CWE-639 CWE-362 CWE-566 CWE-272 CWE-308,2
+extended,"Hybrid, KB text only",e22,CWE-367,CWE-23 CWE-367 CWE-73 CWE-22 CWE-36,2
+extended,"Hybrid, KB text only",e23,CWE-400,CWE-502 CWE-400 CWE-36 CWE-307 CWE-754,2
+extended,"Hybrid, KB text only",e24,CWE-409,CWE-409 CWE-434 CWE-22 CWE-23 CWE-73,1
+extended,"Hybrid, KB text only",e25,CWE-799,CWE-799 CWE-352 CWE-940 CWE-209 CWE-359,1
+extended,"Hybrid, KB text only",e26,CWE-829,CWE-829 CWE-494 CWE-73 CWE-434 CWE-80,1
+extended,"Hybrid, KB text only",e27,CWE-494,CWE-494 CWE-96 CWE-95 CWE-598 CWE-426,1
+extended,"Hybrid, KB text only",e28,CWE-636,CWE-636 CWE-285 CWE-639 CWE-566 CWE-668,1
+extended,"Hybrid, KB text only",e29,CWE-208,CWE-916 CWE-345 CWE-807 CWE-208 CWE-348,4
+extended,"Hybrid, KB text only",e30,CWE-204,CWE-799 CWE-307 CWE-352 CWE-287 CWE-598,8
+extended,"Hybrid, KB text only",e31,CWE-117,CWE-489 CWE-532 CWE-799 CWE-598 CWE-117,5
+extended,"Hybrid, KB text only",e32,CWE-113,CWE-93 CWE-23 CWE-22 CWE-113 CWE-434,4
+extended,"Hybrid, KB text only",e33,CWE-1336,CWE-1336 CWE-80 CWE-489 CWE-73 CWE-566,1
+extended,"Hybrid, KB text only",e34,CWE-943,CWE-943 CWE-256 CWE-209 CWE-799 CWE-532,1
+extended,"Hybrid, KB text only",e35,CWE-90,CWE-943 CWE-90 CWE-117 CWE-625 CWE-639,2
+extended,"Hybrid, KB text only",e36,CWE-88,CWE-88 CWE-426 CWE-494 CWE-1357 CWE-252,1
+extended,"Hybrid, KB text only",e37,CWE-916,CWE-759 CWE-916 CWE-836 CWE-328 CWE-327,2
+extended,"Hybrid, KB text only",e38,CWE-1004,CWE-1004 CWE-614 CWE-523 CWE-113 CWE-601,1
+extended,"Hybrid, KB text only",e39,CWE-807,CWE-565 CWE-359 CWE-807 CWE-266 CWE-201,3
+extended,"Hybrid, KB text only",e40,CWE-345,CWE-841 CWE-566 CWE-345 CWE-307 CWE-352,3
+extended,Hybrid + signals (v1 retriever),e01,CWE-798,CWE-798 CWE-523 CWE-319 CWE-312 CWE-639,1
+extended,Hybrid + signals (v1 retriever),e02,CWE-327,CWE-328 CWE-89 CWE-256 CWE-759 CWE-943,
+extended,Hybrid + signals (v1 retriever),e03,CWE-330,CWE-330 CWE-338 CWE-331 CWE-335 CWE-130,1
+extended,Hybrid + signals (v1 retriever),e04,CWE-295,CWE-918 CWE-598 CWE-295 CWE-494 CWE-522,3
+extended,Hybrid + signals (v1 retriever),e05,CWE-347,CWE-347 CWE-302 CWE-287 CWE-598 CWE-566,1
+extended,Hybrid + signals (v1 retriever),e06,CWE-319,CWE-319 CWE-523 CWE-306 CWE-918 CWE-1392,1
+extended,Hybrid + signals (v1 retriever),e07,CWE-532,CWE-532 CWE-117 CWE-287 CWE-256 CWE-352,1
+extended,Hybrid + signals (v1 retriever),e08,CWE-209,CWE-209 CWE-756 CWE-81 CWE-200 CWE-215,1
+extended,Hybrid + signals (v1 retriever),e09,CWE-489,CWE-1327 CWE-668 CWE-99 CWE-215 CWE-489,5
+extended,Hybrid + signals (v1 retriever),e10,CWE-307,CWE-352 CWE-90 CWE-799 CWE-307 CWE-601,4
+extended,Hybrid + signals (v1 retriever),e11,CWE-384,CWE-384 CWE-352 CWE-204 CWE-601 CWE-532,1
+extended,Hybrid + signals (v1 retriever),e12,CWE-601,CWE-601 CWE-613 CWE-384 CWE-489 CWE-352,1
+extended,Hybrid + signals (v1 retriever),e13,CWE-611,CWE-611 CWE-776 CWE-674 CWE-502 CWE-91,1
+extended,Hybrid + signals (v1 retriever),e14,CWE-1333,CWE-1333 CWE-204 CWE-625 CWE-304 CWE-799,1
+extended,Hybrid + signals (v1 retriever),e15,CWE-1321,CWE-1321 CWE-915 CWE-15 CWE-639 CWE-16,1
+extended,Hybrid + signals (v1 retriever),e16,CWE-915,CWE-352 CWE-598 CWE-943 CWE-915 CWE-129,4
+extended,Hybrid + signals (v1 retriever),e17,CWE-732,CWE-732 CWE-73 CWE-367 CWE-23 CWE-379,1
+extended,Hybrid + signals (v1 retriever),e18,CWE-377,CWE-377 CWE-73 CWE-313 CWE-311 CWE-96,1
+extended,Hybrid + signals (v1 retriever),e19,CWE-942,CWE-942 CWE-346 CWE-113 CWE-93 CWE-290,1
+extended,Hybrid + signals (v1 retriever),e20,CWE-614,CWE-352 CWE-113 CWE-1004 CWE-614 CWE-1275,4
+extended,Hybrid + signals (v1 retriever),e21,CWE-362,CWE-272 CWE-639 CWE-362 CWE-566 CWE-472,3
+extended,Hybrid + signals (v1 retriever),e22,CWE-367,CWE-367 CWE-23 CWE-73 CWE-36 CWE-22,1
+extended,Hybrid + signals (v1 retriever),e23,CWE-400,CWE-502 CWE-36 CWE-400 CWE-606 CWE-754,3
+extended,Hybrid + signals (v1 retriever),e24,CWE-409,CWE-409 CWE-22 CWE-434 CWE-23 CWE-73,1
+extended,Hybrid + signals (v1 retriever),e25,CWE-799,CWE-799 CWE-352 CWE-940 CWE-489 CWE-359,1
+extended,Hybrid + signals (v1 retriever),e26,CWE-829,CWE-829 CWE-494 CWE-470 CWE-434 CWE-73,1
+extended,Hybrid + signals (v1 retriever),e27,CWE-494,CWE-96 CWE-494 CWE-426 CWE-95 CWE-598,2
+extended,Hybrid + signals (v1 retriever),e28,CWE-636,CWE-636 CWE-285 CWE-862 CWE-639 CWE-404,1
+extended,Hybrid + signals (v1 retriever),e29,CWE-208,CWE-345 CWE-916 CWE-598 CWE-807 CWE-328,
+extended,Hybrid + signals (v1 retriever),e30,CWE-204,CWE-352 CWE-287 CWE-799 CWE-204 CWE-304,4
+extended,Hybrid + signals (v1 retriever),e31,CWE-117,CWE-532 CWE-489 CWE-117 CWE-799 CWE-598,3
+extended,Hybrid + signals (v1 retriever),e32,CWE-113,CWE-22 CWE-23 CWE-93 CWE-434 CWE-113,5
+extended,Hybrid + signals (v1 retriever),e33,CWE-1336,CWE-1336 CWE-80 CWE-79 CWE-489 CWE-566,1
+extended,Hybrid + signals (v1 retriever),e34,CWE-943,CWE-943 CWE-256 CWE-209 CWE-81 CWE-204,1
+extended,Hybrid + signals (v1 retriever),e35,CWE-90,CWE-943 CWE-90 CWE-117 CWE-639 CWE-566,2
+extended,Hybrid + signals (v1 retriever),e36,CWE-88,CWE-88 CWE-426 CWE-1357 CWE-494 CWE-252,1
+extended,Hybrid + signals (v1 retriever),e37,CWE-916,CWE-759 CWE-328 CWE-916 CWE-836 CWE-327,3
+extended,Hybrid + signals (v1 retriever),e38,CWE-1004,CWE-1004 CWE-614 CWE-113 CWE-523 CWE-918,1
+extended,Hybrid + signals (v1 retriever),e39,CWE-807,CWE-565 CWE-201 A01:2025 CWE-807 CWE-359,4
+extended,Hybrid + signals (v1 retriever),e40,CWE-345,CWE-841 CWE-566 CWE-345 CWE-346 CWE-352,3
+extended,Hybrid + signals + sink rules (final),e01,CWE-798,CWE-798 CWE-523 CWE-319 CWE-639 CWE-312,1
+extended,Hybrid + signals + sink rules (final),e02,CWE-327,CWE-328 CWE-327 CWE-916 CWE-759 CWE-89,2
+extended,Hybrid + signals + sink rules (final),e03,CWE-330,CWE-330 CWE-338 CWE-331 CWE-335 CWE-130,1
+extended,Hybrid + signals + sink rules (final),e04,CWE-295,CWE-295 CWE-918 CWE-598 CWE-494 CWE-639,1
+extended,Hybrid + signals + sink rules (final),e05,CWE-347,CWE-347 CWE-302 CWE-287 CWE-598 CWE-566,1
+extended,Hybrid + signals + sink rules (final),e06,CWE-319,CWE-319 CWE-532 CWE-307 CWE-523 CWE-306,1
+extended,Hybrid + signals + sink rules (final),e07,CWE-532,CWE-532 CWE-117 CWE-287 CWE-352 CWE-256,1
+extended,Hybrid + signals + sink rules (final),e08,CWE-209,CWE-209 CWE-756 CWE-200 CWE-81 CWE-215,1
+extended,Hybrid + signals + sink rules (final),e09,CWE-489,CWE-1327 CWE-489 CWE-215 CWE-668 CWE-99,2
+extended,Hybrid + signals + sink rules (final),e10,CWE-307,CWE-307 CWE-352 CWE-384 CWE-90 CWE-799,1
+extended,Hybrid + signals + sink rules (final),e11,CWE-384,CWE-384 CWE-352 CWE-307 CWE-204 CWE-601,1
+extended,Hybrid + signals + sink rules (final),e12,CWE-601,CWE-601 CWE-613 CWE-352 CWE-384 CWE-489,1
+extended,Hybrid + signals + sink rules (final),e13,CWE-611,CWE-611 CWE-776 CWE-502 CWE-674 CWE-91,1
+extended,Hybrid + signals + sink rules (final),e14,CWE-1333,CWE-1333 CWE-204 CWE-625 CWE-304 CWE-799,1
+extended,Hybrid + signals + sink rules (final),e15,CWE-1321,CWE-1321 CWE-352 CWE-915 CWE-639 CWE-15,1
+extended,Hybrid + signals + sink rules (final),e16,CWE-915,CWE-915 CWE-352 CWE-476 CWE-598 CWE-943,1
+extended,Hybrid + signals + sink rules (final),e17,CWE-732,CWE-732 CWE-73 CWE-367 CWE-23 CWE-379,1
+extended,Hybrid + signals + sink rules (final),e18,CWE-377,CWE-377 CWE-73 CWE-313 CWE-311 CWE-22,1
+extended,Hybrid + signals + sink rules (final),e19,CWE-942,CWE-346 CWE-113 CWE-942 CWE-93 CWE-290,3
+extended,Hybrid + signals + sink rules (final),e20,CWE-614,CWE-352 CWE-614 CWE-1004 CWE-307 CWE-1275,2
+extended,Hybrid + signals + sink rules (final),e21,CWE-362,CWE-639 CWE-362 CWE-272 CWE-566 CWE-89,2
+extended,Hybrid + signals + sink rules (final),e22,CWE-367,CWE-367 CWE-23 CWE-22 CWE-73 CWE-36,1
+extended,Hybrid + signals + sink rules (final),e23,CWE-400,CWE-400 CWE-352 CWE-502 CWE-248 CWE-36,1
+extended,Hybrid + signals + sink rules (final),e24,CWE-409,CWE-409 CWE-22 CWE-434 CWE-23 CWE-73,1
+extended,Hybrid + signals + sink rules (final),e25,CWE-799,CWE-799 CWE-352 CWE-940 CWE-306 CWE-489,1
+extended,Hybrid + signals + sink rules (final),e26,CWE-829,CWE-829 CWE-494 CWE-434 CWE-470 CWE-73,1
+extended,Hybrid + signals + sink rules (final),e27,CWE-494,CWE-494 CWE-918 CWE-96 CWE-77 CWE-426,1
+extended,Hybrid + signals + sink rules (final),e28,CWE-636,CWE-636 CWE-285 CWE-862 CWE-639 CWE-404,1
+extended,Hybrid + signals + sink rules (final),e29,CWE-208,CWE-345 CWE-916 CWE-598 CWE-807 CWE-328,
+extended,Hybrid + signals + sink rules (final),e30,CWE-204,CWE-307 CWE-352 CWE-204 CWE-287 CWE-306,3
+extended,Hybrid + signals + sink rules (final),e31,CWE-117,CWE-117 CWE-532 CWE-489 CWE-799 CWE-598,1
+extended,Hybrid + signals + sink rules (final),e32,CWE-113,CWE-113 CWE-22 CWE-434 CWE-23 CWE-93,1
+extended,Hybrid + signals + sink rules (final),e33,CWE-1336,CWE-1336 CWE-79 CWE-80 CWE-89 CWE-489,1
+extended,Hybrid + signals + sink rules (final),e34,CWE-943,CWE-943 CWE-352 CWE-307 CWE-256 CWE-209,1
+extended,Hybrid + signals + sink rules (final),e35,CWE-90,CWE-90 CWE-943 CWE-117 CWE-639 CWE-566,1
+extended,Hybrid + signals + sink rules (final),e36,CWE-88,CWE-88 CWE-77 CWE-426 CWE-1357 CWE-494,1
+extended,Hybrid + signals + sink rules (final),e37,CWE-916,CWE-916 CWE-759 CWE-328 CWE-836 CWE-327,1
+extended,Hybrid + signals + sink rules (final),e38,CWE-1004,CWE-1004 CWE-352 CWE-1275 CWE-307 CWE-614,1
+extended,Hybrid + signals + sink rules (final),e39,CWE-807,CWE-565 CWE-807 CWE-201 CWE-306 A01:2025,2
+extended,Hybrid + signals + sink rules (final),e40,CWE-345,CWE-345 CWE-352 CWE-841 CWE-566 CWE-346,1
+heldout2,"Dense, plain average",b01,CWE-89,CWE-639 CWE-566 CWE-73 CWE-88 CWE-1275,
+heldout2,"Dense, plain average",b02,CWE-89,CWE-639 CWE-566 CWE-598 CWE-548 CWE-379,
+heldout2,"Dense, plain average",b03,CWE-89,CWE-862 CWE-287 CWE-89 CWE-80 CWE-81,3
+heldout2,"Dense, plain average",b04,CWE-79,CWE-625 CWE-488 CWE-15 CWE-304 CWE-497,
+heldout2,"Dense, plain average",b05,CWE-79,CWE-73 CWE-566 CWE-80 CWE-23 CWE-377,
+heldout2,"Dense, plain average",b06,CWE-79,CWE-79 CWE-209 CWE-93 CWE-549 CWE-306,1
+heldout2,"Dense, plain average",b07,CWE-78,CWE-22 CWE-494 CWE-732 CWE-23 CWE-78,5
+heldout2,"Dense, plain average",b08,CWE-78,CWE-319 CWE-494 CWE-434 CWE-732 CWE-89,
+heldout2,"Dense, plain average",b09,CWE-78,CWE-1275 CWE-313 CWE-367 CWE-1004 CWE-73,
+heldout2,"Dense, plain average",b10,CWE-22,CWE-23 CWE-434 CWE-73 CWE-22 CWE-732,4
+heldout2,"Dense, plain average",b11,CWE-22,CWE-209 CWE-434 CWE-22 CWE-732 CWE-552,3
+heldout2,"Dense, plain average",b12,CWE-22,CWE-80 CWE-96 CWE-73 CWE-23 CWE-93,
+heldout2,"Dense, plain average",b13,CWE-502,CWE-288 CWE-642 CWE-807 CWE-566 CWE-36,
+heldout2,"Dense, plain average",b14,CWE-502,CWE-23 CWE-367 CWE-36 CWE-428 CWE-606,
+heldout2,"Dense, plain average",b15,CWE-94,CWE-393 CWE-253 CWE-252 CWE-367 CWE-841,
+heldout2,"Dense, plain average",b16,CWE-94,CWE-1333 CWE-73 CWE-214 CWE-80 CWE-426,
+heldout2,"Dense, plain average",b17,CWE-918,CWE-434 CWE-601 CWE-209 CWE-494 CWE-940,
+heldout2,"Dense, plain average",b18,CWE-918,CWE-319 CWE-502 CWE-601 CWE-552 CWE-214,
+heldout2,"Dense, plain average",b19,CWE-352,CWE-799 CWE-940 CWE-209 CWE-434 CWE-319,
+heldout2,"Dense, plain average",b20,CWE-352,CWE-434 CWE-862 CWE-532 CWE-732 CWE-494,
+heldout2,"Dense, plain average",b21,CWE-434,CWE-494 CWE-434 CWE-732 CWE-22 CWE-23,2
+heldout2,"Dense, plain average",b22,CWE-434,CWE-434 CWE-732 CWE-379 CWE-494 CWE-22,1
+heldout2,"Dense, plain average",b23,CWE-862,CWE-862 CWE-434 CWE-494 CWE-732 CWE-259,1
+heldout2,"Dense, plain average",b24,CWE-862,CWE-862 CWE-732 CWE-209 CWE-201 CWE-620,1
+heldout2,"Dense, plain average",b25,CWE-639,CWE-732 CWE-494 CWE-862 CWE-259 CWE-434,
+heldout2,"Dense, plain average",b26,CWE-639,CWE-566 CWE-532 CWE-862 CWE-732 CWE-522,10
+heldout2,"Dense, plain average",b27,CWE-306,CWE-434 CWE-209 CWE-732 CWE-79 CWE-426,
+heldout2,"Dense, plain average",b28,CWE-306,CWE-256 CWE-319 CWE-532 CWE-315 CWE-494,
+heldout2,"Dense, plain average",b29,CWE-863,CWE-862 CWE-434 CWE-918 CWE-287 CWE-90,
+heldout2,"Dense, plain average",b30,CWE-798,CWE-256 CWE-319 CWE-259 CWE-943 CWE-494,
+heldout2,"Dense, plain average",b31,CWE-798,CWE-312 CWE-548 CWE-319 CWE-321 CWE-552,
+heldout2,"Dense, plain average",b32,CWE-200,CWE-494 CWE-319 CWE-215 CWE-489 CWE-732,
+heldout2,"Dense, plain average",b33,CWE-209,CWE-209 CWE-614 CWE-1004 CWE-1275 CWE-625,1
+heldout2,"Dense, plain average",b34,CWE-476,CWE-1395 CWE-290 CWE-93 CWE-367 CWE-1327,
+heldout2,"Dense, plain average",b35,CWE-476,CWE-566 CWE-367 CWE-625 CWE-639 CWE-73,
+heldout2,"Dense, plain average",b36,CWE-770,CWE-566 CWE-367 CWE-639 CWE-348 CWE-488,
+heldout2,"Dense, plain average",b37,CWE-20,CWE-1395 CWE-566 CWE-367 CWE-639 CWE-191,
+heldout2,"Dense, plain average",b38,CWE-327,CWE-862 CWE-434 CWE-313 CWE-732 CWE-798,
+heldout2,"Dense, plain average",b39,CWE-330,CWE-338 CWE-330 CWE-488 CWE-943 CWE-331,2
+heldout2,"Dense, plain average",b40,CWE-295,CWE-384 CWE-613 CWE-488 CWE-501 CWE-304,
+heldout2,"Dense, plain average",b41,CWE-601,CWE-601 CWE-319 CWE-434 CWE-732 CWE-494,1
+heldout2,"Dense, plain average",b42,CWE-611,CWE-611 CWE-91 CWE-776 CWE-116 CWE-321,1
+heldout2,"Dense, plain average",b43,CWE-915,CWE-434 CWE-73 CWE-732 CWE-313 CWE-566,
+heldout2,"Dense, plain average",b44,CWE-1321,CWE-472 CWE-807 CWE-362 CWE-15 CWE-547,
+heldout2,"Dense, plain average",b45,CWE-1333,CWE-369 CWE-81 CWE-1333 CWE-367 CWE-488,3
+heldout2,"Dense, plain average",b46,CWE-532,CWE-566 CWE-639 CWE-311 CWE-352 CWE-488,
+heldout2,"Dense, plain average",b47,CWE-307,CWE-862 CWE-1004 CWE-434 CWE-494 CWE-313,
+heldout2,"Dense, plain average",b48,CWE-362,CWE-566 CWE-639 CWE-88 CWE-290 CWE-96,
+heldout2,"Dense, plain average",b49,CWE-367,CWE-367 CWE-23 CWE-428 CWE-36 CWE-73,1
+heldout2,"Dense, plain average",b50,CWE-943,CWE-434 CWE-99 CWE-256 CWE-918 CWE-532,7
+heldout2,"Dense, plain average",b51,CWE-1336,CWE-73 CWE-79 CWE-23 CWE-36 CWE-88,
+heldout2,"Dense, plain average",b52,CWE-117,CWE-441 CWE-601 CWE-352 CWE-940 CWE-566,
+heldout2,"Dense, plain average",b53,CWE-208,CWE-732 CWE-798 CWE-1394 CWE-209 CWE-312,
+heldout2,"Dense, plain average",b54,CWE-347,CWE-347 CWE-345 CWE-295 CWE-287 CWE-798,1
+heldout2,"Dense, plain average",b55,CWE-614,CWE-1004 CWE-614 CWE-1275 CWE-313 CWE-434,2
+heldout2,"Dense, plain average",b56,CWE-384,CWE-434 CWE-862 CWE-209 CWE-732 CWE-379,
+heldout2,"Dense, plain average",b57,CWE-400,CWE-73 CWE-566 CWE-200 CWE-639 CWE-114,
+heldout2,"Dense, plain average",b58,CWE-319,CWE-319 CWE-523 CWE-532 CWE-829 CWE-732,1
+heldout2,"Dense, plain average",b59,CWE-312,CWE-770 CWE-331 CWE-99 CWE-400 CWE-306,
+heldout2,"Dense, plain average",b60,CWE-113,CWE-290 CWE-348 CWE-285 CWE-566 CWE-367,
+heldout2,"Dense, plain average",b61,CWE-90,CWE-329 CWE-80 CWE-566 CWE-348 CWE-86,
+heldout2,"Dense, IDF-weighted (Review 3)",b01,CWE-89,CWE-639 CWE-566 CWE-862 CWE-73 CWE-565,
+heldout2,"Dense, IDF-weighted (Review 3)",b02,CWE-89,CWE-639 CWE-23 CWE-566 CWE-598 CWE-410,
+heldout2,"Dense, IDF-weighted (Review 3)",b03,CWE-89,CWE-862 CWE-287 CWE-81 CWE-80 CWE-89,5
+heldout2,"Dense, IDF-weighted (Review 3)",b04,CWE-79,CWE-625 CWE-209 CWE-497 CWE-59 CWE-15,
+heldout2,"Dense, IDF-weighted (Review 3)",b05,CWE-79,CWE-80 CWE-73 CWE-23 CWE-566 CWE-732,
+heldout2,"Dense, IDF-weighted (Review 3)",b06,CWE-79,CWE-79 CWE-80 CWE-209 CWE-93 CWE-134,1
+heldout2,"Dense, IDF-weighted (Review 3)",b07,CWE-78,CWE-732 CWE-78 CWE-290 CWE-73 CWE-23,2
+heldout2,"Dense, IDF-weighted (Review 3)",b08,CWE-78,CWE-319 CWE-494 CWE-732 CWE-434 CWE-350,
+heldout2,"Dense, IDF-weighted (Review 3)",b09,CWE-78,CWE-313 CWE-532 CWE-494 CWE-312 CWE-552,
+heldout2,"Dense, IDF-weighted (Review 3)",b10,CWE-22,CWE-23 CWE-73 CWE-22 CWE-566 CWE-290,3
+heldout2,"Dense, IDF-weighted (Review 3)",b11,CWE-22,CWE-209 CWE-434 CWE-22 CWE-552 CWE-732,3
+heldout2,"Dense, IDF-weighted (Review 3)",b12,CWE-22,CWE-80 CWE-96 CWE-23 CWE-564 CWE-73,
+heldout2,"Dense, IDF-weighted (Review 3)",b13,CWE-502,CWE-288 CWE-642 CWE-566 CWE-349 CWE-73,
+heldout2,"Dense, IDF-weighted (Review 3)",b14,CWE-502,CWE-23 CWE-190 CWE-36 CWE-606 CWE-367,
+heldout2,"Dense, IDF-weighted (Review 3)",b15,CWE-94,CWE-393 CWE-367 CWE-253 CWE-1339 CWE-252,
+heldout2,"Dense, IDF-weighted (Review 3)",b16,CWE-94,CWE-73 CWE-214 CWE-625 CWE-1021 CWE-1333,
+heldout2,"Dense, IDF-weighted (Review 3)",b17,CWE-918,CWE-434 CWE-601 CWE-1022 CWE-940 CWE-209,
+heldout2,"Dense, IDF-weighted (Review 3)",b18,CWE-918,CWE-319 CWE-732 CWE-209 CWE-315 CWE-614,
+heldout2,"Dense, IDF-weighted (Review 3)",b19,CWE-352,CWE-799 CWE-940 CWE-319 CWE-209 CWE-425,
+heldout2,"Dense, IDF-weighted (Review 3)",b20,CWE-352,CWE-434 CWE-532 CWE-862 CWE-732 CWE-494,
+heldout2,"Dense, IDF-weighted (Review 3)",b21,CWE-434,CWE-434 CWE-494 CWE-22 CWE-732 CWE-23,1
+heldout2,"Dense, IDF-weighted (Review 3)",b22,CWE-434,CWE-434 CWE-732 CWE-494 CWE-22 CWE-36,1
+heldout2,"Dense, IDF-weighted (Review 3)",b23,CWE-862,CWE-862 CWE-434 CWE-494 CWE-829 CWE-426,1
+heldout2,"Dense, IDF-weighted (Review 3)",b24,CWE-862,CWE-862 CWE-732 CWE-620 CWE-379 CWE-209,1
+heldout2,"Dense, IDF-weighted (Review 3)",b25,CWE-639,CWE-494 CWE-732 CWE-862 CWE-434 CWE-209,
+heldout2,"Dense, IDF-weighted (Review 3)",b26,CWE-639,CWE-732 CWE-862 CWE-532 CWE-379 CWE-434,
+heldout2,"Dense, IDF-weighted (Review 3)",b27,CWE-306,CWE-732 CWE-434 CWE-426 CWE-209 CWE-79,
+heldout2,"Dense, IDF-weighted (Review 3)",b28,CWE-306,CWE-256 CWE-532 CWE-494 CWE-319 CWE-312,
+heldout2,"Dense, IDF-weighted (Review 3)",b29,CWE-863,CWE-862 CWE-566 CWE-639 CWE-287 CWE-441,
+heldout2,"Dense, IDF-weighted (Review 3)",b30,CWE-798,CWE-943 CWE-259 CWE-1327 CWE-494 CWE-319,
+heldout2,"Dense, IDF-weighted (Review 3)",b31,CWE-798,CWE-312 CWE-548 CWE-319 CWE-321 CWE-552,
+heldout2,"Dense, IDF-weighted (Review 3)",b32,CWE-200,CWE-494 CWE-319 CWE-215 CWE-732 CWE-489,
+heldout2,"Dense, IDF-weighted (Review 3)",b33,CWE-209,CWE-209 CWE-614 CWE-1275 CWE-1004 CWE-625,1
+heldout2,"Dense, IDF-weighted (Review 3)",b34,CWE-476,CWE-1395 CWE-290 CWE-1327 CWE-367 CWE-1333,
+heldout2,"Dense, IDF-weighted (Review 3)",b35,CWE-476,CWE-367 CWE-566 CWE-625 CWE-639 CWE-73,
+heldout2,"Dense, IDF-weighted (Review 3)",b36,CWE-770,CWE-566 CWE-190 CWE-367 CWE-488 CWE-639,
+heldout2,"Dense, IDF-weighted (Review 3)",b37,CWE-20,CWE-1395 CWE-369 CWE-36 CWE-191 CWE-190,
+heldout2,"Dense, IDF-weighted (Review 3)",b38,CWE-327,CWE-862 CWE-321 CWE-313 CWE-798 CWE-732,
+heldout2,"Dense, IDF-weighted (Review 3)",b39,CWE-330,CWE-338 CWE-330 CWE-943 CWE-335 CWE-407,2
+heldout2,"Dense, IDF-weighted (Review 3)",b40,CWE-295,CWE-384 CWE-488 CWE-613 CWE-940 CWE-304,
+heldout2,"Dense, IDF-weighted (Review 3)",b41,CWE-601,CWE-319 CWE-601 CWE-434 CWE-494 CWE-532,2
+heldout2,"Dense, IDF-weighted (Review 3)",b42,CWE-611,CWE-611 CWE-91 CWE-776 CWE-116 CWE-674,1
+heldout2,"Dense, IDF-weighted (Review 3)",b43,CWE-915,CWE-73 CWE-566 CWE-488 CWE-15 CWE-96,
+heldout2,"Dense, IDF-weighted (Review 3)",b44,CWE-1321,CWE-472 CWE-15 CWE-840 CWE-266 CWE-362,
+heldout2,"Dense, IDF-weighted (Review 3)",b45,CWE-1333,CWE-369 CWE-1333 CWE-488 CWE-190 CWE-367,2
+heldout2,"Dense, IDF-weighted (Review 3)",b46,CWE-532,CWE-311 CWE-566 CWE-639 CWE-313 CWE-352,
+heldout2,"Dense, IDF-weighted (Review 3)",b47,CWE-307,CWE-862 CWE-1004 CWE-532 CWE-494 CWE-319,
+heldout2,"Dense, IDF-weighted (Review 3)",b48,CWE-362,CWE-290 CWE-566 CWE-639 CWE-367 CWE-348,
+heldout2,"Dense, IDF-weighted (Review 3)",b49,CWE-367,CWE-367 CWE-23 CWE-36 CWE-428 CWE-73,1
+heldout2,"Dense, IDF-weighted (Review 3)",b50,CWE-943,CWE-434 CWE-99 CWE-943 CWE-732 CWE-532,3
+heldout2,"Dense, IDF-weighted (Review 3)",b51,CWE-1336,CWE-73 CWE-79 CWE-23 CWE-36 CWE-78,
+heldout2,"Dense, IDF-weighted (Review 3)",b52,CWE-117,CWE-434 CWE-601 CWE-319 CWE-426 CWE-494,
+heldout2,"Dense, IDF-weighted (Review 3)",b53,CWE-208,CWE-732 CWE-1394 CWE-312 CWE-798 CWE-209,
+heldout2,"Dense, IDF-weighted (Review 3)",b54,CWE-347,CWE-347 CWE-345 CWE-295 CWE-287 CWE-302,1
+heldout2,"Dense, IDF-weighted (Review 3)",b55,CWE-614,CWE-1004 CWE-614 CWE-1275 CWE-313 CWE-348,2
+heldout2,"Dense, IDF-weighted (Review 3)",b56,CWE-384,CWE-209 CWE-862 CWE-434 CWE-732 CWE-201,
+heldout2,"Dense, IDF-weighted (Review 3)",b57,CWE-400,CWE-73 CWE-566 CWE-200 CWE-639 CWE-367,
+heldout2,"Dense, IDF-weighted (Review 3)",b58,CWE-319,CWE-319 CWE-523 CWE-732 CWE-312 CWE-313,1
+heldout2,"Dense, IDF-weighted (Review 3)",b59,CWE-312,CWE-770 CWE-99 CWE-400 CWE-331 CWE-306,
+heldout2,"Dense, IDF-weighted (Review 3)",b60,CWE-113,CWE-290 CWE-348 CWE-285 CWE-1395 CWE-85,
+heldout2,"Dense, IDF-weighted (Review 3)",b61,CWE-90,CWE-73 CWE-566 CWE-80 CWE-548 CWE-86,
+heldout2,"Hybrid, KB text only",b01,CWE-89,CWE-566 CWE-89 CWE-639 CWE-565 CWE-476,2
+heldout2,"Hybrid, KB text only",b02,CWE-89,CWE-566 CWE-639 CWE-89 CWE-598 CWE-943,3
+heldout2,"Hybrid, KB text only",b03,CWE-89,CWE-89 CWE-862 CWE-566 CWE-943 CWE-598,1
+heldout2,"Hybrid, KB text only",b04,CWE-79,CWE-79 CWE-1426 CWE-598 CWE-90 CWE-80,1
+heldout2,"Hybrid, KB text only",b05,CWE-79,CWE-80 CWE-73 CWE-489 CWE-566 CWE-99,9
+heldout2,"Hybrid, KB text only",b06,CWE-79,CWE-79 CWE-80 CWE-93 CWE-1426 CWE-73,1
+heldout2,"Hybrid, KB text only",b07,CWE-78,CWE-78 CWE-73 CWE-523 CWE-113 CWE-319,1
+heldout2,"Hybrid, KB text only",b08,CWE-78,CWE-350 CWE-209 CWE-80 CWE-78 CWE-494,4
+heldout2,"Hybrid, KB text only",b09,CWE-78,CWE-117 CWE-428 CWE-532 CWE-252 CWE-538,
+heldout2,"Hybrid, KB text only",b10,CWE-22,CWE-23 CWE-22 CWE-73 CWE-732 CWE-379,2
+heldout2,"Hybrid, KB text only",b11,CWE-22,CWE-23 CWE-22 CWE-73 CWE-209 CWE-732,2
+heldout2,"Hybrid, KB text only",b12,CWE-22,CWE-377 CWE-73 CWE-1336 CWE-96 CWE-134,7
+heldout2,"Hybrid, KB text only",b13,CWE-502,CWE-352 CWE-288 CWE-307 CWE-502 CWE-73,4
+heldout2,"Hybrid, KB text only",b14,CWE-502,CWE-502 CWE-23 CWE-36 CWE-22 CWE-73,1
+heldout2,"Hybrid, KB text only",b15,CWE-94,CWE-252 CWE-95 CWE-1236 CWE-1173 CWE-94,5
+heldout2,"Hybrid, KB text only",b16,CWE-94,CWE-915 CWE-917 CWE-434 CWE-943 CWE-501,
+heldout2,"Hybrid, KB text only",b17,CWE-918,CWE-1022 CWE-598 CWE-918 CWE-494 CWE-489,3
+heldout2,"Hybrid, KB text only",b18,CWE-918,CWE-598 CWE-943 CWE-441 CWE-348 CWE-862,
+heldout2,"Hybrid, KB text only",b19,CWE-352,CWE-799 CWE-307 CWE-352 CWE-601 CWE-523,3
+heldout2,"Hybrid, KB text only",b20,CWE-352,CWE-862 CWE-384 CWE-601 CWE-89 CWE-434,7
+heldout2,"Hybrid, KB text only",b21,CWE-434,CWE-23 CWE-434 CWE-22 CWE-1230 CWE-732,2
+heldout2,"Hybrid, KB text only",b22,CWE-434,CWE-434 CWE-23 CWE-22 CWE-732 CWE-73,1
+heldout2,"Hybrid, KB text only",b23,CWE-862,CWE-862 CWE-566 CWE-639 CWE-90 CWE-943,1
+heldout2,"Hybrid, KB text only",b24,CWE-862,CWE-862 CWE-306 CWE-81 CWE-209 CWE-639,1
+heldout2,"Hybrid, KB text only",b25,CWE-639,CWE-23 CWE-598 CWE-22 CWE-209 CWE-566,
+heldout2,"Hybrid, KB text only",b26,CWE-639,CWE-639 CWE-862 CWE-566 CWE-532 CWE-943,1
+heldout2,"Hybrid, KB text only",b27,CWE-306,CWE-288 CWE-943 CWE-307 CWE-489 CWE-352,
+heldout2,"Hybrid, KB text only",b28,CWE-306,CWE-862 CWE-501 CWE-434 CWE-312 CWE-306,5
+heldout2,"Hybrid, KB text only",b29,CWE-863,CWE-862 CWE-267 CWE-642 CWE-639 CWE-566,
+heldout2,"Hybrid, KB text only",b30,CWE-798,CWE-943 CWE-256 CWE-259 CWE-668 CWE-1327,
+heldout2,"Hybrid, KB text only",b31,CWE-798,CWE-1394 CWE-321 CWE-798 CWE-639 CWE-425,3
+heldout2,"Hybrid, KB text only",b32,CWE-200,CWE-497 CWE-215 CWE-489 CWE-15 CWE-526,
+heldout2,"Hybrid, KB text only",b33,CWE-209,CWE-209 CWE-200 CWE-81 CWE-601 CWE-328,1
+heldout2,"Hybrid, KB text only",b34,CWE-476,CWE-625 CWE-1333 CWE-1395 CWE-393 CWE-1327,
+heldout2,"Hybrid, KB text only",b35,CWE-476,CWE-86 CWE-80 CWE-309 CWE-566 CWE-639,
+heldout2,"Hybrid, KB text only",b36,CWE-770,CWE-566 CWE-497 CWE-201 CWE-799 CWE-359,
+heldout2,"Hybrid, KB text only",b37,CWE-20,CWE-472 CWE-369 CWE-837 CWE-352 CWE-1339,8
+heldout2,"Hybrid, KB text only",b38,CWE-327,CWE-916 CWE-321 CWE-759 CWE-798 CWE-862,6
+heldout2,"Hybrid, KB text only",b39,CWE-330,CWE-338 CWE-330 CWE-331 CWE-335 CWE-326,2
+heldout2,"Hybrid, KB text only",b40,CWE-295,CWE-319 CWE-614 CWE-384 CWE-1275 CWE-625,
+heldout2,"Hybrid, KB text only",b41,CWE-601,CWE-601 CWE-598 CWE-918 CWE-287 CWE-113,1
+heldout2,"Hybrid, KB text only",b42,CWE-611,CWE-611 CWE-776 CWE-91 CWE-674 CWE-405,1
+heldout2,"Hybrid, KB text only",b43,CWE-915,CWE-352 CWE-307 CWE-799 CWE-943 CWE-488,
+heldout2,"Hybrid, KB text only",b44,CWE-1321,CWE-15 CWE-639 CWE-1394 CWE-798 CWE-915,6
+heldout2,"Hybrid, KB text only",b45,CWE-1333,CWE-1333 CWE-625 CWE-81 CWE-197 CWE-253,1
+heldout2,"Hybrid, KB text only",b46,CWE-532,CWE-311 CWE-117 CWE-532 CWE-472 CWE-681,3
+heldout2,"Hybrid, KB text only",b47,CWE-307,CWE-307 CWE-862 CWE-501 CWE-384 CWE-352,1
+heldout2,"Hybrid, KB text only",b48,CWE-362,CWE-943 CWE-90 CWE-348 CWE-414 CWE-272,
+heldout2,"Hybrid, KB text only",b49,CWE-367,CWE-367 CWE-23 CWE-73 CWE-377 CWE-22,1
+heldout2,"Hybrid, KB text only",b50,CWE-943,CWE-943 CWE-256 CWE-434 CWE-117 CWE-639,1
+heldout2,"Hybrid, KB text only",b51,CWE-1336,CWE-1336 CWE-79 CWE-489 CWE-73 CWE-74,1
+heldout2,"Hybrid, KB text only",b52,CWE-117,CWE-307 CWE-117 CWE-352 CWE-523 CWE-434,2
+heldout2,"Hybrid, KB text only",b53,CWE-208,CWE-1394 CWE-639 CWE-287 CWE-16 CWE-566,
+heldout2,"Hybrid, KB text only",b54,CWE-347,CWE-347 CWE-302 CWE-345 CWE-253 CWE-295,1
+heldout2,"Hybrid, KB text only",b55,CWE-614,CWE-1004 CWE-614 CWE-1275 CWE-315 CWE-113,2
+heldout2,"Hybrid, KB text only",b56,CWE-384,CWE-799 CWE-204 CWE-501 CWE-614 CWE-209,10
+heldout2,"Hybrid, KB text only",b57,CWE-400,CWE-915 CWE-288 CWE-606 CWE-307 CWE-201,
+heldout2,"Hybrid, KB text only",b58,CWE-319,CWE-319 CWE-523 CWE-522 CWE-350 CWE-918,1
+heldout2,"Hybrid, KB text only",b59,CWE-312,CWE-922 CWE-312 CWE-522 CWE-313 CWE-501,2
+heldout2,"Hybrid, KB text only",b60,CWE-113,CWE-113 CWE-290 CWE-93 CWE-348 CWE-346,1
+heldout2,"Hybrid, KB text only",b61,CWE-90,CWE-625 CWE-90 CWE-99 CWE-427 CWE-73,2
+heldout2,Hybrid + signals (v1 retriever),b01,CWE-89,CWE-89 CWE-566 CWE-565 CWE-639 CWE-598,1
+heldout2,Hybrid + signals (v1 retriever),b02,CWE-89,CWE-566 CWE-639 CWE-89 CWE-943 CWE-598,3
+heldout2,Hybrid + signals (v1 retriever),b03,CWE-89,CWE-89 CWE-862 CWE-566 CWE-943 CWE-80,1
+heldout2,Hybrid + signals (v1 retriever),b04,CWE-79,CWE-79 CWE-1426 CWE-943 CWE-598 CWE-74,1
+heldout2,Hybrid + signals (v1 retriever),b05,CWE-79,CWE-80 CWE-73 CWE-489 CWE-566 CWE-99,7
+heldout2,Hybrid + signals (v1 retriever),b06,CWE-79,CWE-79 CWE-80 CWE-93 CWE-1426 CWE-81,1
+heldout2,Hybrid + signals (v1 retriever),b07,CWE-78,CWE-78 CWE-113 CWE-73 CWE-319 CWE-523,1
+heldout2,Hybrid + signals (v1 retriever),b08,CWE-78,CWE-350 CWE-78 CWE-209 CWE-80 CWE-81,2
+heldout2,Hybrid + signals (v1 retriever),b09,CWE-78,CWE-117 CWE-428 CWE-532 CWE-77 CWE-78,5
+heldout2,Hybrid + signals (v1 retriever),b10,CWE-22,CWE-23 CWE-22 CWE-73 CWE-36 CWE-732,2
+heldout2,Hybrid + signals (v1 retriever),b11,CWE-22,CWE-23 CWE-22 CWE-36 CWE-209 CWE-73,2
+heldout2,Hybrid + signals (v1 retriever),b12,CWE-22,CWE-377 CWE-36 CWE-73 CWE-96 CWE-134,8
+heldout2,Hybrid + signals (v1 retriever),b13,CWE-502,CWE-352 CWE-288 CWE-502 CWE-642 CWE-307,3
+heldout2,Hybrid + signals (v1 retriever),b14,CWE-502,CWE-502 CWE-23 CWE-36 CWE-22 CWE-367,1
+heldout2,Hybrid + signals (v1 retriever),b15,CWE-94,CWE-252 CWE-1236 CWE-95 CWE-201 CWE-754,8
+heldout2,Hybrid + signals (v1 retriever),b16,CWE-94,CWE-915 CWE-943 CWE-917 CWE-434 CWE-1333,
+heldout2,Hybrid + signals (v1 retriever),b17,CWE-918,CWE-918 CWE-1022 CWE-601 CWE-425 CWE-598,1
+heldout2,Hybrid + signals (v1 retriever),b18,CWE-918,CWE-441 CWE-918 CWE-598 CWE-943 CWE-348,2
+heldout2,Hybrid + signals (v1 retriever),b19,CWE-352,CWE-352 CWE-799 CWE-307 CWE-523 CWE-601,1
+heldout2,Hybrid + signals (v1 retriever),b20,CWE-352,CWE-862 CWE-384 CWE-89 CWE-601 CWE-434,6
+heldout2,Hybrid + signals (v1 retriever),b21,CWE-434,CWE-434 CWE-22 CWE-23 CWE-73 CWE-732,1
+heldout2,Hybrid + signals (v1 retriever),b22,CWE-434,CWE-434 CWE-22 CWE-23 CWE-36 CWE-73,1
+heldout2,Hybrid + signals (v1 retriever),b23,CWE-862,CWE-862 CWE-566 CWE-89 CWE-639 CWE-90,1
+heldout2,Hybrid + signals (v1 retriever),b24,CWE-862,CWE-862 CWE-81 CWE-306 CWE-639 CWE-384,1
+heldout2,Hybrid + signals (v1 retriever),b25,CWE-639,CWE-23 CWE-22 CWE-598 CWE-566 CWE-639,5
+heldout2,Hybrid + signals (v1 retriever),b26,CWE-639,CWE-639 CWE-566 CWE-862 CWE-598 CWE-943,1
+heldout2,Hybrid + signals (v1 retriever),b27,CWE-306,CWE-288 CWE-943 CWE-89 CWE-489 CWE-306,5
+heldout2,Hybrid + signals (v1 retriever),b28,CWE-306,CWE-306 CWE-862 CWE-915 CWE-501 CWE-434,1
+heldout2,Hybrid + signals (v1 retriever),b29,CWE-863,CWE-639 CWE-862 CWE-267 CWE-863 CWE-565,4
+heldout2,Hybrid + signals (v1 retriever),b30,CWE-798,CWE-259 CWE-943 CWE-1327 CWE-256 CWE-668,
+heldout2,Hybrid + signals (v1 retriever),b31,CWE-798,CWE-1394 CWE-798 CWE-321 CWE-312 CWE-639,2
+heldout2,Hybrid + signals (v1 retriever),b32,CWE-200,CWE-497 CWE-215 CWE-489 CWE-15 CWE-552,
+heldout2,Hybrid + signals (v1 retriever),b33,CWE-209,CWE-209 CWE-81 CWE-200 CWE-601 CWE-497,1
+heldout2,Hybrid + signals (v1 retriever),b34,CWE-476,CWE-625 CWE-1333 CWE-1395 CWE-1327 CWE-393,
+heldout2,Hybrid + signals (v1 retriever),b35,CWE-476,CWE-566 CWE-80 CWE-86 CWE-639 CWE-309,6
+heldout2,Hybrid + signals (v1 retriever),b36,CWE-770,CWE-201 CWE-566 CWE-770 CWE-497 CWE-81,3
+heldout2,Hybrid + signals (v1 retriever),b37,CWE-20,CWE-840 CWE-472 CWE-369 CWE-20 CWE-352,4
+heldout2,Hybrid + signals (v1 retriever),b38,CWE-327,CWE-328 CWE-916 CWE-327 CWE-321 CWE-798,3
+heldout2,Hybrid + signals (v1 retriever),b39,CWE-330,CWE-330 CWE-338 CWE-331 CWE-335 CWE-326,1
+heldout2,Hybrid + signals (v1 retriever),b40,CWE-295,CWE-614 CWE-319 CWE-523 CWE-384 CWE-940,
+heldout2,Hybrid + signals (v1 retriever),b41,CWE-601,CWE-601 CWE-918 CWE-598 CWE-287 CWE-113,1
+heldout2,Hybrid + signals (v1 retriever),b42,CWE-611,CWE-611 CWE-776 CWE-91 CWE-116 CWE-674,1
+heldout2,Hybrid + signals (v1 retriever),b43,CWE-915,CWE-352 CWE-799 CWE-307 CWE-488 CWE-940,
+heldout2,Hybrid + signals (v1 retriever),b44,CWE-1321,CWE-15 CWE-639 CWE-16 CWE-1394 CWE-798,6
+heldout2,Hybrid + signals (v1 retriever),b45,CWE-1333,CWE-1333 CWE-625 CWE-253 CWE-81 CWE-197,1
+heldout2,Hybrid + signals (v1 retriever),b46,CWE-532,CWE-311 CWE-117 CWE-532 CWE-472 CWE-681,3
+heldout2,Hybrid + signals (v1 retriever),b47,CWE-307,CWE-307 CWE-862 CWE-384 CWE-352 CWE-501,1
+heldout2,Hybrid + signals (v1 retriever),b48,CWE-362,CWE-943 CWE-90 CWE-89 CWE-272 CWE-837,
+heldout2,Hybrid + signals (v1 retriever),b49,CWE-367,CWE-367 CWE-73 CWE-23 CWE-36 CWE-22,1
+heldout2,Hybrid + signals (v1 retriever),b50,CWE-943,CWE-943 CWE-256 CWE-434 CWE-117 CWE-532,1
+heldout2,Hybrid + signals (v1 retriever),b51,CWE-1336,CWE-79 CWE-1336 CWE-489 CWE-74 CWE-134,2
+heldout2,Hybrid + signals (v1 retriever),b52,CWE-117,CWE-307 CWE-117 CWE-352 CWE-523 CWE-532,2
+heldout2,Hybrid + signals (v1 retriever),b53,CWE-208,CWE-16 CWE-598 CWE-566 CWE-918 CWE-287,
+heldout2,Hybrid + signals (v1 retriever),b54,CWE-347,CWE-347 CWE-302 CWE-345 CWE-287 CWE-620,1
+heldout2,Hybrid + signals (v1 retriever),b55,CWE-614,CWE-1004 CWE-614 CWE-1275 CWE-315 CWE-113,2
+heldout2,Hybrid + signals (v1 retriever),b56,CWE-384,CWE-352 CWE-81 CWE-799 CWE-204 CWE-384,5
+heldout2,Hybrid + signals (v1 retriever),b57,CWE-400,CWE-248 CWE-915 CWE-288 CWE-201 CWE-606,
+heldout2,Hybrid + signals (v1 retriever),b58,CWE-319,CWE-319 CWE-523 CWE-918 CWE-312 CWE-522,1
+heldout2,Hybrid + signals (v1 retriever),b59,CWE-312,CWE-922 CWE-312 CWE-522 CWE-313 CWE-331,2
+heldout2,Hybrid + signals (v1 retriever),b60,CWE-113,CWE-113 CWE-290 CWE-393 CWE-93 CWE-348,1
+heldout2,Hybrid + signals (v1 retriever),b61,CWE-90,CWE-90 CWE-625 CWE-639 CWE-350 CWE-73,1
+heldout2,Hybrid + signals + sink rules (final),b01,CWE-89,CWE-89 CWE-566 CWE-639 CWE-565 CWE-476,1
+heldout2,Hybrid + signals + sink rules (final),b02,CWE-89,CWE-89 CWE-566 CWE-639 CWE-943 CWE-598,1
+heldout2,Hybrid + signals + sink rules (final),b03,CWE-89,CWE-89 CWE-862 CWE-566 CWE-434 CWE-639,1
+heldout2,Hybrid + signals + sink rules (final),b04,CWE-79,CWE-79 CWE-1426 CWE-943 CWE-598 CWE-74,1
+heldout2,Hybrid + signals + sink rules (final),b05,CWE-79,CWE-79 CWE-80 CWE-73 CWE-489 CWE-566,1
+heldout2,Hybrid + signals + sink rules (final),b06,CWE-79,CWE-79 CWE-80 CWE-93 CWE-1426 CWE-81,1
+heldout2,Hybrid + signals + sink rules (final),b07,CWE-78,CWE-78 CWE-77 CWE-434 CWE-113 CWE-73,1
+heldout2,Hybrid + signals + sink rules (final),b08,CWE-78,CWE-78 CWE-350 CWE-209 CWE-80 CWE-918,1
+heldout2,Hybrid + signals + sink rules (final),b09,CWE-78,CWE-78 CWE-77 CWE-117 CWE-428 CWE-532,1
+heldout2,Hybrid + signals + sink rules (final),b10,CWE-22,CWE-22 CWE-23 CWE-73 CWE-36 CWE-78,1
+heldout2,Hybrid + signals + sink rules (final),b11,CWE-22,CWE-22 CWE-23 CWE-36 CWE-209 CWE-434,1
+heldout2,Hybrid + signals + sink rules (final),b12,CWE-22,CWE-377 CWE-36 CWE-73 CWE-22 CWE-96,4
+heldout2,Hybrid + signals + sink rules (final),b13,CWE-502,CWE-502 CWE-352 CWE-288 CWE-642 CWE-307,1
+heldout2,Hybrid + signals + sink rules (final),b14,CWE-502,CWE-502 CWE-23 CWE-36 CWE-22 CWE-367,1
+heldout2,Hybrid + signals + sink rules (final),b15,CWE-94,CWE-94 CWE-95 CWE-252 CWE-1236 CWE-201,1
+heldout2,Hybrid + signals + sink rules (final),b16,CWE-94,CWE-94 CWE-95 CWE-352 CWE-915 CWE-434,1
+heldout2,Hybrid + signals + sink rules (final),b17,CWE-918,CWE-918 CWE-1022 CWE-601 CWE-425 CWE-598,1
+heldout2,Hybrid + signals + sink rules (final),b18,CWE-918,CWE-918 CWE-639 CWE-441 CWE-598 CWE-943,1
+heldout2,Hybrid + signals + sink rules (final),b19,CWE-352,CWE-352 CWE-799 CWE-307 CWE-306 CWE-523,1
+heldout2,Hybrid + signals + sink rules (final),b20,CWE-352,CWE-862 CWE-352 CWE-384 CWE-89 CWE-434,2
+heldout2,Hybrid + signals + sink rules (final),b21,CWE-434,CWE-434 CWE-22 CWE-352 CWE-23 CWE-73,1
+heldout2,Hybrid + signals + sink rules (final),b22,CWE-434,CWE-434 CWE-22 CWE-352 CWE-23 CWE-36,1
+heldout2,Hybrid + signals + sink rules (final),b23,CWE-862,CWE-862 CWE-566 CWE-89 CWE-639 CWE-90,1
+heldout2,Hybrid + signals + sink rules (final),b24,CWE-862,CWE-943 CWE-862 CWE-352 CWE-306 CWE-81,2
+heldout2,Hybrid + signals + sink rules (final),b25,CWE-639,CWE-22 CWE-639 CWE-23 CWE-598 CWE-306,2
+heldout2,Hybrid + signals + sink rules (final),b26,CWE-639,CWE-639 CWE-566 CWE-862 CWE-434 CWE-598,1
+heldout2,Hybrid + signals + sink rules (final),b27,CWE-306,CWE-639 CWE-352 CWE-288 CWE-89 CWE-306,5
+heldout2,Hybrid + signals + sink rules (final),b28,CWE-306,CWE-306 CWE-352 CWE-862 CWE-434 CWE-915,1
+heldout2,Hybrid + signals + sink rules (final),b29,CWE-863,CWE-639 CWE-862 CWE-863 CWE-267 A01:2025,3
+heldout2,Hybrid + signals + sink rules (final),b30,CWE-798,CWE-798 CWE-259 CWE-943 CWE-1327 CWE-256,1
+heldout2,Hybrid + signals + sink rules (final),b31,CWE-798,CWE-798 CWE-1394 CWE-321 CWE-639 CWE-312,1
+heldout2,Hybrid + signals + sink rules (final),b32,CWE-200,CWE-497 CWE-306 CWE-215 CWE-489 CWE-15,
+heldout2,Hybrid + signals + sink rules (final),b33,CWE-209,CWE-209 CWE-81 CWE-200 CWE-601 CWE-497,1
+heldout2,Hybrid + signals + sink rules (final),b34,CWE-476,CWE-90 CWE-625 CWE-1333 CWE-1395 CWE-1327,
+heldout2,Hybrid + signals + sink rules (final),b35,CWE-476,CWE-566 CWE-80 CWE-639 CWE-86 CWE-476,5
+heldout2,Hybrid + signals + sink rules (final),b36,CWE-770,CWE-770 CWE-201 CWE-306 CWE-20 CWE-566,1
+heldout2,Hybrid + signals + sink rules (final),b37,CWE-20,CWE-20 CWE-840 CWE-472 CWE-369 CWE-352,1
+heldout2,Hybrid + signals + sink rules (final),b38,CWE-327,CWE-327 CWE-328 CWE-916 CWE-321 CWE-798,1
+heldout2,Hybrid + signals + sink rules (final),b39,CWE-330,CWE-330 CWE-338 CWE-331 CWE-335 CWE-326,1
+heldout2,Hybrid + signals + sink rules (final),b40,CWE-295,CWE-295 CWE-614 CWE-319 CWE-523 CWE-352,1
+heldout2,Hybrid + signals + sink rules (final),b41,CWE-601,CWE-601 CWE-307 CWE-918 CWE-598 CWE-287,1
+heldout2,Hybrid + signals + sink rules (final),b42,CWE-611,CWE-611 CWE-776 CWE-91 CWE-116 CWE-674,1
+heldout2,Hybrid + signals + sink rules (final),b43,CWE-915,CWE-352 CWE-915 CWE-799 CWE-307 CWE-488,2
+heldout2,Hybrid + signals + sink rules (final),b44,CWE-1321,CWE-1321 CWE-15 CWE-639 CWE-16 CWE-1394,1
+heldout2,Hybrid + signals + sink rules (final),b45,CWE-1333,CWE-1333 CWE-625 CWE-253 CWE-81 CWE-197,1
+heldout2,Hybrid + signals + sink rules (final),b46,CWE-532,CWE-311 CWE-117 CWE-532 CWE-472 CWE-681,3
+heldout2,Hybrid + signals + sink rules (final),b47,CWE-307,CWE-307 CWE-352 CWE-862 CWE-384 CWE-639,1
+heldout2,Hybrid + signals + sink rules (final),b48,CWE-362,CWE-943 CWE-89 CWE-90 CWE-272 CWE-837,
+heldout2,Hybrid + signals + sink rules (final),b49,CWE-367,CWE-367 CWE-73 CWE-23 CWE-22 CWE-36,1
+heldout2,Hybrid + signals + sink rules (final),b50,CWE-943,CWE-943 CWE-201 CWE-352 CWE-434 CWE-256,1
+heldout2,Hybrid + signals + sink rules (final),b51,CWE-1336,CWE-1336 CWE-79 CWE-489 CWE-918 CWE-74,1
+heldout2,Hybrid + signals + sink rules (final),b52,CWE-117,CWE-117 CWE-352 CWE-307 CWE-523 CWE-434,1
+heldout2,Hybrid + signals + sink rules (final),b53,CWE-208,CWE-16 CWE-598 CWE-918 CWE-639 CWE-566,
+heldout2,Hybrid + signals + sink rules (final),b54,CWE-347,CWE-347 CWE-302 CWE-345 CWE-287 CWE-620,1
+heldout2,Hybrid + signals + sink rules (final),b55,CWE-614,CWE-1004 CWE-614 CWE-1275 CWE-315 CWE-113,2
+heldout2,Hybrid + signals + sink rules (final),b56,CWE-384,CWE-352 CWE-384 CWE-307 CWE-81 CWE-799,2
+heldout2,Hybrid + signals + sink rules (final),b57,CWE-400,CWE-352 CWE-248 CWE-400 CWE-915 CWE-288,3
+heldout2,Hybrid + signals + sink rules (final),b58,CWE-319,CWE-319 CWE-523 CWE-918 CWE-312 CWE-522,1
+heldout2,Hybrid + signals + sink rules (final),b59,CWE-312,CWE-922 CWE-312 CWE-522 CWE-313 CWE-352,2
+heldout2,Hybrid + signals + sink rules (final),b60,CWE-113,CWE-113 CWE-290 CWE-393 CWE-93 CWE-348,1
+heldout2,Hybrid + signals + sink rules (final),b61,CWE-90,CWE-90 CWE-639 CWE-625 CWE-350 CWE-73,1
+langs,"Dense, plain average",l01,CWE-89,CWE-566 CWE-639 CWE-348 CWE-367 CWE-349,
+langs,"Dense, plain average",l02,CWE-78,CWE-488 CWE-367 CWE-348 CWE-93 CWE-81,
+langs,"Dense, plain average",l03,CWE-79,CWE-80 CWE-79 CWE-73 CWE-829 CWE-96,2
+langs,"Dense, plain average",l04,CWE-22,CWE-434 CWE-313 CWE-73 CWE-22 CWE-732,4
+langs,"Dense, plain average",l05,CWE-502,CWE-488 CWE-88 CWE-74 CWE-501 CWE-138,8
+langs,"Dense, plain average",l06,CWE-611,CWE-611 CWE-91 CWE-1426 CWE-1427 CWE-74,1
+langs,"Dense, plain average",l07,CWE-916,CWE-134 CWE-313 CWE-259 CWE-494 CWE-1004,
+langs,"Dense, plain average",l08,CWE-601,CWE-304 CWE-441 CWE-352 CWE-601 CWE-614,4
+langs,"Dense, plain average",l09,CWE-327,CWE-321 CWE-326 CWE-323 CWE-313 CWE-306,9
+langs,"Dense, plain average",l10,CWE-798,CWE-348 CWE-74 CWE-441 CWE-602 CWE-940,10
+langs,"Dense, plain average",l11,CWE-89,CWE-862 CWE-566 CWE-639 CWE-598 CWE-297,10
+langs,"Dense, plain average",l12,CWE-78,CWE-488 CWE-668 CWE-329 CWE-940 CWE-15,
+langs,"Dense, plain average",l13,CWE-79,CWE-80 CWE-81 CWE-564 CWE-209 CWE-943,
+langs,"Dense, plain average",l14,CWE-22,CWE-434 CWE-79 CWE-494 CWE-732 CWE-532,9
+langs,"Dense, plain average",l15,CWE-434,CWE-434 CWE-22 CWE-209 CWE-73 CWE-532,1
+langs,"Dense, plain average",l16,CWE-502,CWE-502 CWE-836 CWE-315 CWE-565 CWE-353,1
+langs,"Dense, plain average",l17,CWE-601,CWE-1022 CWE-304 CWE-1275 CWE-367 CWE-772,
+langs,"Dense, plain average",l18,CWE-916,CWE-256 CWE-836 CWE-532 CWE-259 CWE-315,
+langs,"Dense, plain average",l19,CWE-829,CWE-80 CWE-79 CWE-756 CWE-83 CWE-494,7
+langs,"Dense, plain average",l20,CWE-89,CWE-80 CWE-89 CWE-81 CWE-943 CWE-209,2
+langs,"Dense, plain average",l21,CWE-78,CWE-81 CWE-369 CWE-290 CWE-93 CWE-306,
+langs,"Dense, plain average",l22,CWE-22,CWE-80 CWE-732 CWE-313 CWE-209 CWE-22,5
+langs,"Dense, plain average",l23,CWE-79,CWE-80 CWE-83 CWE-79 CWE-564 CWE-93,3
+langs,"Dense, plain average",l24,CWE-295,CWE-319 CWE-348 CWE-523 CWE-306 CWE-425,
+langs,"Dense, plain average",l25,CWE-918,CWE-81 CWE-80 CWE-306 CWE-601 CWE-1004,
+langs,"Dense, plain average",l26,CWE-601,CWE-319 CWE-80 CWE-306 CWE-1004 CWE-79,10
+langs,"Dense, plain average",l27,CWE-338,CWE-193 CWE-190 CWE-367 CWE-323 CWE-606,8
+langs,"Dense, plain average",l28,CWE-89,CWE-89 CWE-566 CWE-96 CWE-73 CWE-943,1
+langs,"Dense, plain average",l29,CWE-78,CWE-73 CWE-367 CWE-488 CWE-625 CWE-36,
+langs,"Dense, plain average",l30,CWE-79,CWE-80 CWE-79 CWE-830 CWE-91 CWE-73,2
+langs,"Dense, plain average",l31,CWE-502,CWE-502 CWE-15 CWE-567 CWE-428 CWE-488,1
+langs,"Dense, plain average",l32,CWE-22,CWE-434 CWE-73 CWE-22 CWE-23 CWE-426,3
+langs,"Dense, plain average",l33,CWE-611,CWE-91 CWE-611 CWE-116 CWE-83 CWE-84,2
+langs,"Dense, plain average",l34,CWE-916,CWE-256 CWE-836 CWE-257 CWE-502 CWE-259,
+langs,"Dense, plain average",l35,CWE-798,CWE-306 CWE-348 CWE-209 CWE-940 CWE-89,9
+langs,"Dense, plain average",l36,CWE-89,CWE-73 CWE-625 CWE-566 CWE-497 CWE-639,
+langs,"Dense, plain average",l37,CWE-78,CWE-1395 CWE-1327 CWE-668 CWE-190 CWE-329,
+langs,"Dense, plain average",l38,CWE-79,CWE-79 CWE-209 CWE-940 CWE-732 CWE-80,1
+langs,"Dense, plain average",l39,CWE-502,CWE-400 CWE-497 CWE-311 CWE-362 CWE-15,
+langs,"Dense, plain average",l40,CWE-22,CWE-23 CWE-22 CWE-434 CWE-73 CWE-732,2
+langs,"Dense, plain average",l41,CWE-601,CWE-441 A01:2025 CWE-308 CWE-640 CWE-807,
+langs,"Dense, plain average",l42,CWE-915,CWE-434 CWE-732 CWE-601 CWE-79 CWE-494,
+langs,"Dense, plain average",l43,CWE-352,CWE-285 CWE-807 CWE-566 CWE-393 CWE-639,
+langs,"Dense, plain average",l44,CWE-120,CWE-121 CWE-93 CWE-73 CWE-80 CWE-122,
+langs,"Dense, plain average",l45,CWE-134,CWE-79 CWE-117 CWE-502 CWE-532 CWE-93,
+langs,"Dense, plain average",l46,CWE-78,CWE-78 CWE-121 CWE-22 CWE-313 CWE-732,1
+langs,"Dense, plain average",l47,CWE-416,CWE-488 CWE-367 CWE-36 CWE-772 CWE-613,
+langs,"Dense, plain average",l48,CWE-190,CWE-80 CWE-190 CWE-1333 CWE-93 CWE-1022,2
+langs,"Dense, plain average",l49,CWE-367,CWE-1327 CWE-369 CWE-367 CWE-1395 CWE-23,3
+langs,"Dense, plain average",l50,CWE-125,CWE-1327 CWE-369 CWE-190 CWE-193 CWE-606,
+langs,"Dense, plain average",l51,CWE-377,CWE-476 CWE-377 CWE-73 CWE-81 CWE-732,2
+langs,"Dense, plain average",l52,CWE-78,CWE-367 CWE-190 CWE-93 CWE-348 CWE-488,
+langs,"Dense, plain average",l53,CWE-89,CWE-89 CWE-943 CWE-732 CWE-209 CWE-434,1
+langs,"Dense, plain average",l54,CWE-22,CWE-73 CWE-23 CWE-426 CWE-428 CWE-288,10
+langs,"Dense, plain average",l55,CWE-295,A01:2025 CWE-308 CWE-620 CWE-348 CWE-367,
+langs,"Dense, plain average",l56,CWE-125,CWE-328 CWE-271 CWE-125 CWE-606 CWE-787,3
+langs,"Dense, plain average",l57,CWE-79,CWE-80 CWE-83 CWE-79 CWE-91 CWE-89,3
+langs,"Dense, plain average",l58,CWE-338,CWE-331 CWE-367 CWE-1333 CWE-787 CWE-833,
+langs,"Dense, plain average",l59,CWE-327,CWE-494 CWE-256 CWE-83 CWE-80 CWE-315,
+langs,"Dense, plain average",l60,CWE-89,CWE-639 CWE-566 CWE-308 CWE-272 CWE-250,
+langs,"Dense, plain average",l61,CWE-78,CWE-79 CWE-83 CWE-80 CWE-89 CWE-564,
+langs,"Dense, plain average",l62,CWE-79,CWE-80 CWE-79 CWE-89 CWE-209 CWE-434,2
+langs,"Dense, plain average",l63,CWE-22,CWE-313 CWE-502 CWE-311 CWE-22 CWE-80,4
+langs,"Dense, plain average",l64,CWE-502,CWE-502 CWE-79 CWE-99 CWE-88 CWE-400,1
+langs,"Dense, plain average",l65,CWE-601,CWE-601 CWE-799 CWE-1427 CWE-113 CWE-918,1
+langs,"Dense, plain average",l66,CWE-327,CWE-259 CWE-313 CWE-625 CWE-566 CWE-209,
+langs,"Dense, plain average",l67,CWE-798,CWE-1394 CWE-300 CWE-348 CWE-359 CWE-311,
+langs,"Dense, IDF-weighted (Review 3)",l01,CWE-89,CWE-639 CWE-566 CWE-625 CWE-349 CWE-348,
+langs,"Dense, IDF-weighted (Review 3)",l02,CWE-78,CWE-197 CWE-488 CWE-367 CWE-190 CWE-348,
+langs,"Dense, IDF-weighted (Review 3)",l03,CWE-79,CWE-79 CWE-80 CWE-73 CWE-829 CWE-83,1
+langs,"Dense, IDF-weighted (Review 3)",l04,CWE-22,CWE-434 CWE-313 CWE-732 CWE-22 CWE-494,4
+langs,"Dense, IDF-weighted (Review 3)",l05,CWE-502,CWE-502 CWE-488 CWE-88 CWE-313 CWE-74,1
+langs,"Dense, IDF-weighted (Review 3)",l06,CWE-611,CWE-611 CWE-91 CWE-379 CWE-1426 CWE-1427,1
+langs,"Dense, IDF-weighted (Review 3)",l07,CWE-916,CWE-134 CWE-313 CWE-256 CWE-1004 CWE-502,
+langs,"Dense, IDF-weighted (Review 3)",l08,CWE-601,CWE-304 CWE-352 CWE-613 CWE-441 CWE-308,6
+langs,"Dense, IDF-weighted (Review 3)",l09,CWE-327,CWE-326 CWE-321 CWE-327 CWE-323 CWE-313,3
+langs,"Dense, IDF-weighted (Review 3)",l10,CWE-798,CWE-348 CWE-441 CWE-602 CWE-523 CWE-74,6
+langs,"Dense, IDF-weighted (Review 3)",l11,CWE-89,CWE-639 CWE-566 CWE-862 CWE-598 CWE-297,
+langs,"Dense, IDF-weighted (Review 3)",l12,CWE-78,CWE-488 CWE-668 CWE-940 CWE-329 CWE-190,
+langs,"Dense, IDF-weighted (Review 3)",l13,CWE-79,CWE-81 CWE-80 CWE-625 CWE-209 CWE-36,
+langs,"Dense, IDF-weighted (Review 3)",l14,CWE-22,CWE-434 CWE-79 CWE-732 CWE-494 CWE-209,8
+langs,"Dense, IDF-weighted (Review 3)",l15,CWE-434,CWE-434 CWE-22 CWE-73 CWE-23 CWE-601,1
+langs,"Dense, IDF-weighted (Review 3)",l16,CWE-502,CWE-502 CWE-315 CWE-836 CWE-565 CWE-598,1
+langs,"Dense, IDF-weighted (Review 3)",l17,CWE-601,CWE-1022 CWE-304 CWE-367 CWE-772 CWE-1275,
+langs,"Dense, IDF-weighted (Review 3)",l18,CWE-916,CWE-256 CWE-836 CWE-532 CWE-319 CWE-259,
+langs,"Dense, IDF-weighted (Review 3)",l19,CWE-829,CWE-80 CWE-79 CWE-209 CWE-756 CWE-548,
+langs,"Dense, IDF-weighted (Review 3)",l20,CWE-89,CWE-80 CWE-81 CWE-93 CWE-89 CWE-313,4
+langs,"Dense, IDF-weighted (Review 3)",l21,CWE-78,CWE-81 CWE-80 CWE-369 CWE-93 CWE-290,
+langs,"Dense, IDF-weighted (Review 3)",l22,CWE-22,CWE-80 CWE-313 CWE-732 CWE-22 CWE-81,4
+langs,"Dense, IDF-weighted (Review 3)",l23,CWE-79,CWE-80 CWE-83 CWE-79 CWE-564 CWE-93,3
+langs,"Dense, IDF-weighted (Review 3)",l24,CWE-295,CWE-319 CWE-348 CWE-306 CWE-288 CWE-523,
+langs,"Dense, IDF-weighted (Review 3)",l25,CWE-918,CWE-80 CWE-81 CWE-306 CWE-1004 CWE-93,
+langs,"Dense, IDF-weighted (Review 3)",l26,CWE-601,CWE-80 CWE-306 CWE-1004 CWE-319 CWE-79,
+langs,"Dense, IDF-weighted (Review 3)",l27,CWE-338,CWE-193 CWE-190 CWE-367 CWE-606 CWE-833,9
+langs,"Dense, IDF-weighted (Review 3)",l28,CWE-89,CWE-566 CWE-73 CWE-377 CWE-89 CWE-96,4
+langs,"Dense, IDF-weighted (Review 3)",l29,CWE-78,CWE-367 CWE-73 CWE-488 CWE-36 CWE-625,
+langs,"Dense, IDF-weighted (Review 3)",l30,CWE-79,CWE-80 CWE-79 CWE-83 CWE-91 CWE-116,2
+langs,"Dense, IDF-weighted (Review 3)",l31,CWE-502,CWE-502 CWE-470 CWE-15 CWE-74 CWE-488,1
+langs,"Dense, IDF-weighted (Review 3)",l32,CWE-22,CWE-434 CWE-494 CWE-73 CWE-22 CWE-23,4
+langs,"Dense, IDF-weighted (Review 3)",l33,CWE-611,CWE-91 CWE-611 CWE-776 CWE-116 CWE-83,2
+langs,"Dense, IDF-weighted (Review 3)",l34,CWE-916,CWE-256 CWE-257 CWE-836 CWE-502 CWE-598,
+langs,"Dense, IDF-weighted (Review 3)",l35,CWE-798,CWE-348 CWE-940 CWE-359 CWE-639 CWE-488,
+langs,"Dense, IDF-weighted (Review 3)",l36,CWE-89,CWE-73 CWE-639 CWE-311 CWE-625 CWE-732,
+langs,"Dense, IDF-weighted (Review 3)",l37,CWE-78,CWE-1395 CWE-1327 CWE-668 CWE-190 CWE-369,
+langs,"Dense, IDF-weighted (Review 3)",l38,CWE-79,CWE-79 CWE-732 CWE-940 CWE-80 CWE-209,1
+langs,"Dense, IDF-weighted (Review 3)",l39,CWE-502,CWE-400 CWE-502 CWE-15 CWE-922 CWE-312,2
+langs,"Dense, IDF-weighted (Review 3)",l40,CWE-22,CWE-434 CWE-23 CWE-22 CWE-73 CWE-494,3
+langs,"Dense, IDF-weighted (Review 3)",l41,CWE-601,CWE-441 A01:2025 CWE-732 CWE-640 CWE-614,6
+langs,"Dense, IDF-weighted (Review 3)",l42,CWE-915,CWE-434 CWE-732 CWE-601 CWE-209 CWE-494,
+langs,"Dense, IDF-weighted (Review 3)",l43,CWE-352,CWE-393 CWE-285 CWE-841 CWE-807 CWE-566,
+langs,"Dense, IDF-weighted (Review 3)",l44,CWE-120,CWE-121 CWE-122 CWE-1395 CWE-80 CWE-564,
+langs,"Dense, IDF-weighted (Review 3)",l45,CWE-134,CWE-117 CWE-532 CWE-93 CWE-79 CWE-494,
+langs,"Dense, IDF-weighted (Review 3)",l46,CWE-78,CWE-78 CWE-22 CWE-121 CWE-313 CWE-494,1
+langs,"Dense, IDF-weighted (Review 3)",l47,CWE-416,CWE-488 CWE-367 CWE-772 CWE-36 CWE-613,
+langs,"Dense, IDF-weighted (Review 3)",l48,CWE-190,CWE-190 CWE-1333 CWE-80 CWE-1022 CWE-93,1
+langs,"Dense, IDF-weighted (Review 3)",l49,CWE-367,CWE-1327 CWE-369 CWE-1395 CWE-367 CWE-23,4
+langs,"Dense, IDF-weighted (Review 3)",l50,CWE-125,CWE-1327 CWE-369 CWE-190 CWE-606 CWE-193,
+langs,"Dense, IDF-weighted (Review 3)",l51,CWE-377,CWE-476 CWE-73 CWE-377 CWE-80 CWE-81,3
+langs,"Dense, IDF-weighted (Review 3)",l52,CWE-78,CWE-190 CWE-367 CWE-93 CWE-323 CWE-78,5
+langs,"Dense, IDF-weighted (Review 3)",l53,CWE-89,CWE-89 CWE-943 CWE-209 CWE-732 CWE-99,1
+langs,"Dense, IDF-weighted (Review 3)",l54,CWE-22,CWE-73 CWE-23 CWE-36 CWE-288 CWE-426,10
+langs,"Dense, IDF-weighted (Review 3)",l55,CWE-295,CWE-296 A01:2025 CWE-639 CWE-377 CWE-441,
+langs,"Dense, IDF-weighted (Review 3)",l56,CWE-125,CWE-271 CWE-252 CWE-121 CWE-787 CWE-1339,6
+langs,"Dense, IDF-weighted (Review 3)",l57,CWE-79,CWE-80 CWE-83 CWE-91 CWE-79 CWE-116,4
+langs,"Dense, IDF-weighted (Review 3)",l58,CWE-338,CWE-1395 CWE-331 CWE-193 CWE-833 CWE-367,
+langs,"Dense, IDF-weighted (Review 3)",l59,CWE-327,CWE-494 CWE-256 CWE-83 CWE-134 CWE-80,
+langs,"Dense, IDF-weighted (Review 3)",l60,CWE-89,CWE-639 CWE-566 CWE-393 CWE-272 CWE-308,
+langs,"Dense, IDF-weighted (Review 3)",l61,CWE-78,CWE-83 CWE-80 CWE-564 CWE-79 CWE-89,
+langs,"Dense, IDF-weighted (Review 3)",l62,CWE-79,CWE-80 CWE-79 CWE-83 CWE-89 CWE-91,2
+langs,"Dense, IDF-weighted (Review 3)",l63,CWE-22,CWE-502 CWE-313 CWE-197 CWE-564 CWE-311,
+langs,"Dense, IDF-weighted (Review 3)",l64,CWE-502,CWE-502 CWE-400 CWE-79 CWE-99 CWE-89,1
+langs,"Dense, IDF-weighted (Review 3)",l65,CWE-601,CWE-601 CWE-799 CWE-918 CWE-319 CWE-113,1
+langs,"Dense, IDF-weighted (Review 3)",l66,CWE-327,CWE-313 CWE-134 CWE-1004 CWE-259 CWE-209,
+langs,"Dense, IDF-weighted (Review 3)",l67,CWE-798,CWE-1394 CWE-300 CWE-348 CWE-311 CWE-377,
+langs,"Hybrid, KB text only",l01,CWE-89,CWE-89 CWE-566 CWE-129 CWE-639 CWE-598,1
+langs,"Hybrid, KB text only",l02,CWE-78,CWE-78 CWE-668 CWE-502 CWE-15 CWE-36,1
+langs,"Hybrid, KB text only",l03,CWE-79,CWE-80 CWE-113 CWE-91 CWE-73 CWE-564,
+langs,"Hybrid, KB text only",l04,CWE-22,CWE-22 CWE-23 CWE-73 CWE-434 CWE-732,1
+langs,"Hybrid, KB text only",l05,CWE-502,CWE-502 CWE-564 CWE-668 CWE-488 CWE-129,1
+langs,"Hybrid, KB text only",l06,CWE-611,CWE-611 CWE-91 CWE-776 CWE-1427 CWE-79,1
+langs,"Hybrid, KB text only",l07,CWE-916,CWE-328 CWE-134 CWE-327 CWE-208 CWE-836,
+langs,"Hybrid, KB text only",l08,CWE-601,CWE-601 CWE-113 CWE-598 CWE-523 CWE-614,1
+langs,"Hybrid, KB text only",l09,CWE-327,CWE-327 CWE-323 CWE-326 CWE-321 CWE-325,1
+langs,"Hybrid, KB text only",l10,CWE-798,CWE-798 CWE-319 CWE-523 CWE-113 CWE-1394,1
+langs,"Hybrid, KB text only",l11,CWE-89,CWE-89 CWE-566 CWE-598 CWE-639 CWE-943,1
+langs,"Hybrid, KB text only",l12,CWE-78,CWE-78 CWE-1426 CWE-74 CWE-940 CWE-88,1
+langs,"Hybrid, KB text only",l13,CWE-79,CWE-80 CWE-1336 CWE-81 CWE-1339 CWE-427,
+langs,"Hybrid, KB text only",l14,CWE-22,CWE-434 CWE-494 CWE-22 CWE-377 CWE-23,3
+langs,"Hybrid, KB text only",l15,CWE-434,CWE-22 CWE-23 CWE-434 CWE-59 CWE-538,3
+langs,"Hybrid, KB text only",l16,CWE-502,CWE-302 CWE-502 CWE-315 CWE-347 CWE-1004,2
+langs,"Hybrid, KB text only",l17,CWE-601,CWE-601 CWE-384 CWE-835 CWE-290 CWE-113,1
+langs,"Hybrid, KB text only",l18,CWE-916,CWE-256 CWE-259 CWE-836 CWE-943 CWE-328,
+langs,"Hybrid, KB text only",l19,CWE-829,CWE-756 CWE-209 CWE-81 CWE-79 CWE-201,
+langs,"Hybrid, KB text only",l20,CWE-89,CWE-89 CWE-943 CWE-566 CWE-598 CWE-564,1
+langs,"Hybrid, KB text only",l21,CWE-78,CWE-78 CWE-200 CWE-1426 CWE-1004 CWE-113,1
+langs,"Hybrid, KB text only",l22,CWE-22,CWE-23 CWE-22 CWE-73 CWE-377 CWE-80,2
+langs,"Hybrid, KB text only",l23,CWE-79,CWE-80 CWE-113 CWE-93 CWE-564 CWE-91,
+langs,"Hybrid, KB text only",l24,CWE-295,CWE-523 CWE-295 CWE-1188 CWE-319 CWE-1385,2
+langs,"Hybrid, KB text only",l25,CWE-918,CWE-598 CWE-113 CWE-918 CWE-200 CWE-209,3
+langs,"Hybrid, KB text only",l26,CWE-601,CWE-601 CWE-113 CWE-598 CWE-523 CWE-319,1
+langs,"Hybrid, KB text only",l27,CWE-338,CWE-338 CWE-330 CWE-335 CWE-640 CWE-331,1
+langs,"Hybrid, KB text only",l28,CWE-89,CWE-89 CWE-566 CWE-564 CWE-377 CWE-943,1
+langs,"Hybrid, KB text only",l29,CWE-78,CWE-78 CWE-125 CWE-787 CWE-252 CWE-73,1
+langs,"Hybrid, KB text only",l30,CWE-79,CWE-80 CWE-91 CWE-116 CWE-564 CWE-73,6
+langs,"Hybrid, KB text only",l31,CWE-502,CWE-502 CWE-841 CWE-668 CWE-208 CWE-789,1
+langs,"Hybrid, KB text only",l32,CWE-22,CWE-73 CWE-36 CWE-22 CWE-552 CWE-427,3
+langs,"Hybrid, KB text only",l33,CWE-611,CWE-91 CWE-611 CWE-776 CWE-116 CWE-502,2
+langs,"Hybrid, KB text only",l34,CWE-916,CWE-328 CWE-836 CWE-256 CWE-327 CWE-598,8
+langs,"Hybrid, KB text only",l35,CWE-798,CWE-522 CWE-287 CWE-523 CWE-538 CWE-441,
+langs,"Hybrid, KB text only",l36,CWE-89,CWE-89 CWE-427 CWE-359 CWE-73 CWE-129,1
+langs,"Hybrid, KB text only",l37,CWE-78,CWE-78 CWE-1327 CWE-193 CWE-1336 CWE-1426,1
+langs,"Hybrid, KB text only",l38,CWE-79,CWE-79 CWE-639 CWE-943 CWE-268 CWE-80,1
+langs,"Hybrid, KB text only",l39,CWE-502,CWE-502 CWE-16 CWE-302 CWE-787 CWE-114,1
+langs,"Hybrid, KB text only",l40,CWE-22,CWE-23 CWE-22 CWE-73 CWE-494 CWE-36,2
+langs,"Hybrid, KB text only",l41,CWE-601,CWE-304 CWE-601 CWE-799 CWE-308 CWE-204,2
+langs,"Hybrid, KB text only",l42,CWE-915,CWE-426 CWE-601 CWE-566 CWE-639 CWE-620,
+langs,"Hybrid, KB text only",l43,CWE-352,CWE-308 CWE-212 CWE-345 CWE-352 CWE-125,4
+langs,"Hybrid, KB text only",l44,CWE-120,CWE-121 CWE-787 CWE-125 CWE-122 CWE-80,
+langs,"Hybrid, KB text only",l45,CWE-134,CWE-117 CWE-532 CWE-93 CWE-121 CWE-79,
+langs,"Hybrid, KB text only",l46,CWE-78,CWE-78 CWE-121 CWE-22 CWE-252 CWE-426,1
+langs,"Hybrid, KB text only",l47,CWE-416,CWE-772 CWE-416 CWE-352 CWE-384 CWE-404,2
+langs,"Hybrid, KB text only",l48,CWE-190,CWE-789 CWE-190 CWE-122 CWE-754 CWE-1236,2
+langs,"Hybrid, KB text only",l49,CWE-367,CWE-532 CWE-23 CWE-73 CWE-367 CWE-59,4
+langs,"Hybrid, KB text only",l50,CWE-125,CWE-789 CWE-125 CWE-130 CWE-190 CWE-787,2
+langs,"Hybrid, KB text only",l51,CWE-377,CWE-73 CWE-377 CWE-99 CWE-732 CWE-23,2
+langs,"Hybrid, KB text only",l52,CWE-78,CWE-78 CWE-74 CWE-134 CWE-89 CWE-787,1
+langs,"Hybrid, KB text only",l53,CWE-89,CWE-89 CWE-943 CWE-564 CWE-566 CWE-209,1
+langs,"Hybrid, KB text only",l54,CWE-22,CWE-23 CWE-22 CWE-73 CWE-252 CWE-36,2
+langs,"Hybrid, KB text only",l55,CWE-295,CWE-296 CWE-636 CWE-602 CWE-770 CWE-754,
+langs,"Hybrid, KB text only",l56,CWE-125,CWE-125 CWE-121 CWE-787 CWE-271 CWE-191,1
+langs,"Hybrid, KB text only",l57,CWE-79,CWE-80 CWE-134 CWE-89 CWE-91 CWE-564,9
+langs,"Hybrid, KB text only",l58,CWE-338,CWE-331 CWE-335 CWE-338 CWE-134 CWE-367,3
+langs,"Hybrid, KB text only",l59,CWE-327,CWE-328 CWE-134 CWE-522 CWE-759 CWE-354,10
+langs,"Hybrid, KB text only",l60,CWE-89,CWE-566 CWE-639 CWE-89 CWE-841 CWE-598,3
+langs,"Hybrid, KB text only",l61,CWE-78,CWE-502 CWE-134 CWE-829 CWE-598 CWE-494,8
+langs,"Hybrid, KB text only",l62,CWE-79,CWE-80 CWE-91 CWE-549 CWE-564 CWE-89,9
+langs,"Hybrid, KB text only",l63,CWE-22,CWE-22 CWE-502 CWE-129 CWE-23 CWE-598,1
+langs,"Hybrid, KB text only",l64,CWE-502,CWE-502 CWE-114 CWE-668 CWE-99 CWE-36,1
+langs,"Hybrid, KB text only",l65,CWE-601,CWE-113 CWE-601 CWE-523 CWE-918 CWE-598,2
+langs,"Hybrid, KB text only",l66,CWE-327,CWE-134 CWE-328 CWE-208 CWE-598 CWE-209,
+langs,"Hybrid, KB text only",l67,CWE-798,CWE-1394 CWE-798 CWE-321 CWE-602 CWE-16,2
+langs,Hybrid + signals (v1 retriever),l01,CWE-89,CWE-566 CWE-89 CWE-639 CWE-129 CWE-125,2
+langs,Hybrid + signals (v1 retriever),l02,CWE-78,CWE-78 CWE-668 CWE-502 CWE-15 CWE-36,1
+langs,Hybrid + signals (v1 retriever),l03,CWE-79,CWE-80 CWE-79 CWE-113 CWE-91 CWE-598,2
+langs,Hybrid + signals (v1 retriever),l04,CWE-22,CWE-22 CWE-434 CWE-23 CWE-73 CWE-36,1
+langs,Hybrid + signals (v1 retriever),l05,CWE-502,CWE-502 CWE-36 CWE-488 CWE-501 CWE-668,1
+langs,Hybrid + signals (v1 retriever),l06,CWE-611,CWE-611 CWE-91 CWE-776 CWE-79 CWE-1427,1
+langs,Hybrid + signals (v1 retriever),l07,CWE-916,CWE-328 CWE-134 CWE-327 CWE-759 CWE-208,
+langs,Hybrid + signals (v1 retriever),l08,CWE-601,CWE-601 CWE-113 CWE-598 CWE-918 CWE-614,1
+langs,Hybrid + signals (v1 retriever),l09,CWE-327,CWE-327 CWE-326 CWE-323 CWE-321 CWE-325,1
+langs,Hybrid + signals (v1 retriever),l10,CWE-798,CWE-798 CWE-523 CWE-319 CWE-113 CWE-601,1
+langs,Hybrid + signals (v1 retriever),l11,CWE-89,CWE-89 CWE-566 CWE-598 CWE-639 CWE-943,1
+langs,Hybrid + signals (v1 retriever),l12,CWE-78,CWE-78 CWE-1426 CWE-940 CWE-74 CWE-88,1
+langs,Hybrid + signals (v1 retriever),l13,CWE-79,CWE-80 CWE-1336 CWE-81 CWE-625 CWE-427,10
+langs,Hybrid + signals (v1 retriever),l14,CWE-22,CWE-434 CWE-22 CWE-494 CWE-1236 CWE-23,2
+langs,Hybrid + signals (v1 retriever),l15,CWE-434,CWE-434 CWE-538 CWE-22 CWE-23 CWE-73,1
+langs,Hybrid + signals (v1 retriever),l16,CWE-502,CWE-502 CWE-302 CWE-315 CWE-347 CWE-922,1
+langs,Hybrid + signals (v1 retriever),l17,CWE-601,CWE-601 CWE-384 CWE-835 CWE-113 CWE-93,1
+langs,Hybrid + signals (v1 retriever),l18,CWE-916,CWE-256 CWE-89 CWE-836 CWE-259 CWE-328,
+langs,Hybrid + signals (v1 retriever),l19,CWE-829,CWE-756 CWE-81 CWE-598 CWE-209 CWE-79,
+langs,Hybrid + signals (v1 retriever),l20,CWE-89,CWE-89 CWE-943 CWE-566 CWE-209 CWE-598,1
+langs,Hybrid + signals (v1 retriever),l21,CWE-78,CWE-78 CWE-1426 CWE-209 CWE-200 CWE-113,1
+langs,Hybrid + signals (v1 retriever),l22,CWE-22,CWE-23 CWE-22 CWE-73 CWE-80 CWE-598,2
+langs,Hybrid + signals (v1 retriever),l23,CWE-79,CWE-80 CWE-113 CWE-93 CWE-601 CWE-564,7
+langs,Hybrid + signals (v1 retriever),l24,CWE-295,CWE-523 CWE-319 CWE-295 CWE-304 CWE-1385,3
+langs,Hybrid + signals (v1 retriever),l25,CWE-918,CWE-918 CWE-601 CWE-598 CWE-113 CWE-209,1
+langs,Hybrid + signals (v1 retriever),l26,CWE-601,CWE-601 CWE-113 CWE-81 CWE-319 CWE-598,1
+langs,Hybrid + signals (v1 retriever),l27,CWE-338,CWE-338 CWE-330 CWE-335 CWE-193 CWE-640,1
+langs,Hybrid + signals (v1 retriever),l28,CWE-89,CWE-89 CWE-566 CWE-564 CWE-377 CWE-668,1
+langs,Hybrid + signals (v1 retriever),l29,CWE-78,CWE-78 CWE-125 CWE-787 CWE-434 CWE-252,1
+langs,Hybrid + signals (v1 retriever),l30,CWE-79,CWE-80 CWE-91 CWE-79 CWE-564 CWE-116,3
+langs,Hybrid + signals (v1 retriever),l31,CWE-502,CWE-502 CWE-114 CWE-841 CWE-400 CWE-789,1
+langs,Hybrid + signals (v1 retriever),l32,CWE-22,CWE-36 CWE-434 CWE-538 CWE-22 CWE-552,4
+langs,Hybrid + signals (v1 retriever),l33,CWE-611,CWE-91 CWE-611 CWE-776 CWE-116 CWE-79,2
+langs,Hybrid + signals (v1 retriever),l34,CWE-916,CWE-328 CWE-327 CWE-836 CWE-598 CWE-256,8
+langs,Hybrid + signals (v1 retriever),l35,CWE-798,CWE-798 CWE-522 CWE-287 CWE-538 CWE-319,1
+langs,Hybrid + signals (v1 retriever),l36,CWE-89,CWE-359 CWE-89 CWE-125 CWE-427 CWE-787,2
+langs,Hybrid + signals (v1 retriever),l37,CWE-78,CWE-78 CWE-1327 CWE-290 CWE-1336 CWE-1426,1
+langs,Hybrid + signals (v1 retriever),l38,CWE-79,CWE-79 CWE-639 CWE-566 CWE-943 CWE-80,1
+langs,Hybrid + signals (v1 retriever),l39,CWE-502,CWE-502 CWE-16 CWE-302 CWE-114 CWE-215,1
+langs,Hybrid + signals (v1 retriever),l40,CWE-22,CWE-22 CWE-23 CWE-36 CWE-73 CWE-434,1
+langs,Hybrid + signals (v1 retriever),l41,CWE-601,CWE-304 CWE-601 CWE-204 CWE-640 CWE-799,2
+langs,Hybrid + signals (v1 retriever),l42,CWE-915,CWE-566 CWE-639 CWE-426 CWE-601 CWE-620,
+langs,Hybrid + signals (v1 retriever),l43,CWE-352,CWE-345 CWE-212 CWE-841 CWE-352 CWE-308,4
+langs,Hybrid + signals (v1 retriever),l44,CWE-120,CWE-121 CWE-787 CWE-125 CWE-122 CWE-80,8
+langs,Hybrid + signals (v1 retriever),l45,CWE-134,CWE-117 CWE-93 CWE-532 CWE-214 CWE-79,
+langs,Hybrid + signals (v1 retriever),l46,CWE-78,CWE-78 CWE-121 CWE-22 CWE-426 CWE-252,1
+langs,Hybrid + signals (v1 retriever),l47,CWE-416,CWE-416 CWE-772 CWE-613 CWE-352 CWE-384,1
+langs,Hybrid + signals (v1 retriever),l48,CWE-190,CWE-190 CWE-789 CWE-122 CWE-99 CWE-131,1
+langs,Hybrid + signals (v1 retriever),l49,CWE-367,CWE-367 CWE-23 CWE-532 CWE-36 CWE-73,1
+langs,Hybrid + signals (v1 retriever),l50,CWE-125,CWE-125 CWE-789 CWE-130 CWE-787 CWE-190,1
+langs,Hybrid + signals (v1 retriever),l51,CWE-377,CWE-73 CWE-377 CWE-36 CWE-23 CWE-99,2
+langs,Hybrid + signals (v1 retriever),l52,CWE-78,CWE-78 CWE-74 CWE-89 CWE-134 CWE-564,1
+langs,Hybrid + signals (v1 retriever),l53,CWE-89,CWE-89 CWE-943 CWE-566 CWE-564 CWE-209,1
+langs,Hybrid + signals (v1 retriever),l54,CWE-22,CWE-23 CWE-22 CWE-36 CWE-73 CWE-252,2
+langs,Hybrid + signals (v1 retriever),l55,CWE-295,CWE-296 CWE-636 CWE-81 CWE-602 CWE-348,
+langs,Hybrid + signals (v1 retriever),l56,CWE-125,CWE-125 CWE-191 CWE-121 CWE-787 CWE-252,1
+langs,Hybrid + signals (v1 retriever),l57,CWE-79,CWE-80 CWE-89 CWE-564 CWE-79 CWE-134,4
+langs,Hybrid + signals (v1 retriever),l58,CWE-338,CWE-331 CWE-335 CWE-134 CWE-338 CWE-330,4
+langs,Hybrid + signals (v1 retriever),l59,CWE-327,CWE-328 CWE-134 CWE-759 CWE-354 CWE-522,9
+langs,Hybrid + signals (v1 retriever),l60,CWE-89,CWE-566 CWE-639 CWE-89 CWE-1339 CWE-841,3
+langs,Hybrid + signals (v1 retriever),l61,CWE-78,CWE-502 CWE-78 CWE-134 CWE-564 CWE-598,2
+langs,Hybrid + signals (v1 retriever),l62,CWE-79,CWE-80 CWE-549 CWE-564 CWE-91 CWE-434,9
+langs,Hybrid + signals (v1 retriever),l63,CWE-22,CWE-22 CWE-502 CWE-23 CWE-598 CWE-789,1
+langs,Hybrid + signals (v1 retriever),l64,CWE-502,CWE-502 CWE-114 CWE-36 CWE-668 CWE-99,1
+langs,Hybrid + signals (v1 retriever),l65,CWE-601,CWE-601 CWE-918 CWE-113 CWE-523 CWE-598,1
+langs,Hybrid + signals (v1 retriever),l66,CWE-327,CWE-328 CWE-134 CWE-598 CWE-208 CWE-209,
+langs,Hybrid + signals (v1 retriever),l67,CWE-798,CWE-1394 CWE-798 CWE-321 CWE-312 CWE-602,2
+langs,Hybrid + signals + sink rules (final),l01,CWE-89,CWE-89 CWE-566 CWE-639 CWE-125 CWE-129,1
+langs,Hybrid + signals + sink rules (final),l02,CWE-78,CWE-78 CWE-400 CWE-352 CWE-502 CWE-668,1
+langs,Hybrid + signals + sink rules (final),l03,CWE-79,CWE-79 CWE-80 CWE-113 CWE-434 CWE-918,1
+langs,Hybrid + signals + sink rules (final),l04,CWE-22,CWE-22 CWE-434 CWE-23 CWE-862 CWE-73,1
+langs,Hybrid + signals + sink rules (final),l05,CWE-502,CWE-502 CWE-36 CWE-639 CWE-488 CWE-501,1
+langs,Hybrid + signals + sink rules (final),l06,CWE-611,CWE-611 CWE-91 CWE-776 CWE-79 CWE-502,1
+langs,Hybrid + signals + sink rules (final),l07,CWE-916,CWE-327 CWE-328 CWE-916 CWE-759 CWE-134,3
+langs,Hybrid + signals + sink rules (final),l08,CWE-601,CWE-601 CWE-862 CWE-113 CWE-918 CWE-598,1
+langs,Hybrid + signals + sink rules (final),l09,CWE-327,CWE-327 CWE-326 CWE-323 CWE-321 CWE-325,1
+langs,Hybrid + signals + sink rules (final),l10,CWE-798,CWE-798 CWE-523 CWE-319 CWE-113 CWE-601,1
+langs,Hybrid + signals + sink rules (final),l11,CWE-89,CWE-89 CWE-639 CWE-566 CWE-20 CWE-598,1
+langs,Hybrid + signals + sink rules (final),l12,CWE-78,CWE-78 CWE-79 CWE-20 CWE-1426 CWE-77,1
+langs,Hybrid + signals + sink rules (final),l13,CWE-79,CWE-79 CWE-80 CWE-20 CWE-1336 CWE-81,1
+langs,Hybrid + signals + sink rules (final),l14,CWE-22,CWE-22 CWE-434 CWE-20 CWE-494 CWE-1236,1
+langs,Hybrid + signals + sink rules (final),l15,CWE-434,CWE-434 CWE-538 CWE-22 CWE-23 CWE-73,1
+langs,Hybrid + signals + sink rules (final),l16,CWE-502,CWE-502 CWE-302 CWE-315 CWE-347 CWE-922,1
+langs,Hybrid + signals + sink rules (final),l17,CWE-601,CWE-601 CWE-20 CWE-384 CWE-835 CWE-113,1
+langs,Hybrid + signals + sink rules (final),l18,CWE-916,CWE-327 CWE-328 CWE-916 CWE-256 CWE-89,3
+langs,Hybrid + signals + sink rules (final),l19,CWE-829,CWE-829 CWE-756 CWE-22 CWE-81 CWE-79,1
+langs,Hybrid + signals + sink rules (final),l20,CWE-89,CWE-89 CWE-943 CWE-566 CWE-639 CWE-209,1
+langs,Hybrid + signals + sink rules (final),l21,CWE-78,CWE-78 CWE-209 CWE-200 CWE-1426 CWE-787,1
+langs,Hybrid + signals + sink rules (final),l22,CWE-22,CWE-22 CWE-23 CWE-73 CWE-80 CWE-598,1
+langs,Hybrid + signals + sink rules (final),l23,CWE-79,CWE-79 CWE-80 CWE-113 CWE-93 CWE-601,1
+langs,Hybrid + signals + sink rules (final),l24,CWE-295,CWE-295 CWE-523 CWE-319 CWE-304 CWE-1385,1
+langs,Hybrid + signals + sink rules (final),l25,CWE-918,CWE-918 CWE-601 CWE-598 CWE-113 CWE-200,1
+langs,Hybrid + signals + sink rules (final),l26,CWE-601,CWE-601 CWE-113 CWE-81 CWE-319 CWE-598,1
+langs,Hybrid + signals + sink rules (final),l27,CWE-338,CWE-330 CWE-338 CWE-335 CWE-193 CWE-640,2
+langs,Hybrid + signals + sink rules (final),l28,CWE-89,CWE-89 CWE-566 CWE-564 CWE-377 CWE-639,1
+langs,Hybrid + signals + sink rules (final),l29,CWE-78,CWE-78 CWE-400 CWE-125 CWE-787 CWE-434,1
+langs,Hybrid + signals + sink rules (final),l30,CWE-79,CWE-79 CWE-80 CWE-91 CWE-564 CWE-116,1
+langs,Hybrid + signals + sink rules (final),l31,CWE-502,CWE-502 CWE-114 CWE-841 CWE-770 CWE-400,1
+langs,Hybrid + signals + sink rules (final),l32,CWE-22,CWE-22 CWE-36 CWE-434 CWE-538 CWE-552,1
+langs,Hybrid + signals + sink rules (final),l33,CWE-611,CWE-611 CWE-91 CWE-776 CWE-116 CWE-79,1
+langs,Hybrid + signals + sink rules (final),l34,CWE-916,CWE-327 CWE-328 CWE-916 CWE-836 CWE-598,3
+langs,Hybrid + signals + sink rules (final),l35,CWE-798,CWE-798 CWE-522 CWE-287 CWE-538 CWE-319,1
+langs,Hybrid + signals + sink rules (final),l36,CWE-89,CWE-89 CWE-125 CWE-359 CWE-787 CWE-427,1
+langs,Hybrid + signals + sink rules (final),l37,CWE-78,CWE-78 CWE-1327 CWE-290 CWE-1336 CWE-1426,1
+langs,Hybrid + signals + sink rules (final),l38,CWE-79,CWE-79 CWE-639 CWE-943 CWE-566 CWE-80,1
+langs,Hybrid + signals + sink rules (final),l39,CWE-502,CWE-502 CWE-16 CWE-787 CWE-302 CWE-114,1
+langs,Hybrid + signals + sink rules (final),l40,CWE-22,CWE-22 CWE-23 CWE-36 CWE-73 CWE-434,1
+langs,Hybrid + signals + sink rules (final),l41,CWE-601,CWE-601 CWE-304 CWE-204 CWE-640 CWE-799,1
+langs,Hybrid + signals + sink rules (final),l42,CWE-915,CWE-915 CWE-566 CWE-639 CWE-426 CWE-601,1
+langs,Hybrid + signals + sink rules (final),l43,CWE-352,CWE-352 CWE-943 CWE-345 CWE-212 CWE-841,1
+langs,Hybrid + signals + sink rules (final),l44,CWE-120,CWE-121 CWE-787 CWE-120 CWE-125 CWE-122,3
+langs,Hybrid + signals + sink rules (final),l45,CWE-134,CWE-134 CWE-117 CWE-93 CWE-532 CWE-79,1
+langs,Hybrid + signals + sink rules (final),l46,CWE-78,CWE-78 CWE-121 CWE-22 CWE-426 CWE-252,1
+langs,Hybrid + signals + sink rules (final),l47,CWE-416,CWE-416 CWE-352 CWE-772 CWE-613 CWE-384,1
+langs,Hybrid + signals + sink rules (final),l48,CWE-190,CWE-190 CWE-789 CWE-122 CWE-99 CWE-131,1
+langs,Hybrid + signals + sink rules (final),l49,CWE-367,CWE-367 CWE-23 CWE-532 CWE-22 CWE-36,1
+langs,Hybrid + signals + sink rules (final),l50,CWE-125,CWE-787 CWE-120 CWE-125 CWE-789 CWE-130,3
+langs,Hybrid + signals + sink rules (final),l51,CWE-377,CWE-377 CWE-367 CWE-73 CWE-36 CWE-22,1
+langs,Hybrid + signals + sink rules (final),l52,CWE-78,CWE-78 CWE-74 CWE-248 CWE-89 CWE-134,1
+langs,Hybrid + signals + sink rules (final),l53,CWE-89,CWE-89 CWE-943 CWE-566 CWE-564 CWE-209,1
+langs,Hybrid + signals + sink rules (final),l54,CWE-22,CWE-22 CWE-23 CWE-36 CWE-73 CWE-252,1
+langs,Hybrid + signals + sink rules (final),l55,CWE-295,CWE-295 CWE-296 CWE-636 CWE-81 CWE-602,1
+langs,Hybrid + signals + sink rules (final),l56,CWE-125,CWE-787 CWE-125 CWE-121 CWE-191 CWE-252,2
+langs,Hybrid + signals + sink rules (final),l57,CWE-79,CWE-79 CWE-80 CWE-89 CWE-564 CWE-134,1
+langs,Hybrid + signals + sink rules (final),l58,CWE-338,CWE-338 CWE-330 CWE-331 CWE-335 CWE-134,1
+langs,Hybrid + signals + sink rules (final),l59,CWE-327,CWE-328 CWE-327 CWE-134 CWE-759 CWE-354,2
+langs,Hybrid + signals + sink rules (final),l60,CWE-89,CWE-89 CWE-566 CWE-639 CWE-1339 CWE-841,1
+langs,Hybrid + signals + sink rules (final),l61,CWE-78,CWE-78 CWE-502 CWE-352 CWE-134 CWE-564,1
+langs,Hybrid + signals + sink rules (final),l62,CWE-79,CWE-79 CWE-80 CWE-434 CWE-549 CWE-564,1
+langs,Hybrid + signals + sink rules (final),l63,CWE-22,CWE-22 CWE-502 CWE-770 CWE-23 CWE-598,1
+langs,Hybrid + signals + sink rules (final),l64,CWE-502,CWE-502 CWE-79 CWE-114 CWE-22 CWE-36,1
+langs,Hybrid + signals + sink rules (final),l65,CWE-601,CWE-601 CWE-918 CWE-113 CWE-523 CWE-862,1
+langs,Hybrid + signals + sink rules (final),l66,CWE-327,CWE-328 CWE-327 CWE-916 CWE-759 CWE-134,2
+langs,Hybrid + signals + sink rules (final),l67,CWE-798,CWE-798 CWE-1394 CWE-321 CWE-312 CWE-602,1

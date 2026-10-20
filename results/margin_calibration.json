@@ -1,0 +1,29 @@
+{
+  "threshold": 0.15,
+  "sets": {
+    "dev": {
+      "n": 22,
+      "top1_correct": 20,
+      "top1_wrong": 2,
+      "mean_margin_correct": 0.7117,
+      "mean_margin_wrong": 0.4211,
+      "confident_correct": 18,
+      "confident_wrong": 2,
+      "precision_when_confident": 0.9,
+      "wrong_flagged_low_confidence": 0,
+      "correct_flagged_low_confidence": 2
+    },
+    "heldout": {
+      "n": 38,
+      "top1_correct": 22,
+      "top1_wrong": 16,
+      "mean_margin_correct": 0.5176,
+      "mean_margin_wrong": 0.3013,
+      "confident_correct": 19,
+      "confident_wrong": 12,
+      "precision_when_confident": 0.6129,
+      "wrong_flagged_low_confidence": 4,
+      "correct_flagged_low_confidence": 3
+    }
+  }
+}

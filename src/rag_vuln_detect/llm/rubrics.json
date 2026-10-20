@@ -1,0 +1,339 @@
+{
+ "_note": "Project-authored CWE micro-rubrics (checklist style, following the CWE-specific rubric pattern of ZeroFalse, L9). Each tells the LLM what makes code vulnerable versus safe for that weakness class.",
+ "CWE-79": {
+  "vulnerable_when": "request/user-controlled data is written into HTML, DOM sinks (innerHTML, document.write) or unescaped template output",
+  "safe_when": "output is HTML-escaped/encoded, textContent is used, or an auto-escaping template engine renders the value"
+ },
+ "CWE-89": {
+  "vulnerable_when": "SQL text is built by string concatenation/formatting with external input",
+  "safe_when": "parameterised/prepared statements or an ORM binding is used and input never becomes SQL text"
+ },
+ "CWE-352": {
+  "vulnerable_when": "a state-changing request (POST/PUT/DELETE) relies only on ambient cookie/session credentials with no CSRF token, same-site protection or origin check",
+  "safe_when": "an anti-CSRF token is verified, or SameSite=Strict/Lax plus origin checks protect the request"
+ },
+ "CWE-862": {
+  "vulnerable_when": "an action on a resource or privileged operation runs for an authenticated user without checking that user's permission/ownership/role",
+  "safe_when": "an explicit authorization check (role, ownership, policy) gates the action before it executes"
+ },
+ "CWE-787": {
+  "vulnerable_when": "data is written past the end/start of a buffer because bounds are unchecked",
+  "safe_when": "lengths are validated or bounds-checked APIs are used"
+ },
+ "CWE-22": {
+  "vulnerable_when": "external input is used to build a filesystem path without confining the resolved path to an allowed base directory",
+  "safe_when": "the resolved path is verified to stay inside the base directory, or a safe API (send_from_directory) is used"
+ },
+ "CWE-416": {
+  "vulnerable_when": "memory is used after it has been freed",
+  "safe_when": "pointers are cleared/ownership is clear after free"
+ },
+ "CWE-125": {
+  "vulnerable_when": "data is read past the bounds of a buffer",
+  "safe_when": "indices/lengths are validated before reads"
+ },
+ "CWE-78": {
+  "vulnerable_when": "an OS command string is built from external input and run through a shell (os.system, shell=True, exec, execSync)",
+  "safe_when": "arguments are passed as an argv list without a shell and input is validated"
+ },
+ "CWE-94": {
+  "vulnerable_when": "external input reaches eval/exec/new Function/template compilation or dynamic code loading",
+  "safe_when": "only literal parsing (ast.literal_eval, JSON.parse) or an allow-list of fixed handlers is used"
+ },
+ "CWE-120": {
+  "vulnerable_when": "data is copied into a buffer without checking the destination size",
+  "safe_when": "size-bounded copy functions with validated lengths are used"
+ },
+ "CWE-434": {
+  "vulnerable_when": "uploaded files are saved with attacker-controlled name/extension/type, especially under a web-served directory, without allow-listing",
+  "safe_when": "extension/content type are allow-listed, names are regenerated and files are stored outside the web root"
+ },
+ "CWE-476": {
+  "vulnerable_when": "a value that can be None/null/undefined is dereferenced without a check",
+  "safe_when": "the value is checked (or optional chaining/defaults used) before use"
+ },
+ "CWE-121": {
+  "vulnerable_when": "a stack buffer is overflowed by unchecked input length",
+  "safe_when": "stack buffer writes are bounded"
+ },
+ "CWE-502": {
+  "vulnerable_when": "untrusted data is deserialised with an unsafe deserialiser (pickle, yaml.load with full loader, node-serialize, marshal)",
+  "safe_when": "a data-only format such as JSON or a safe loader (yaml.safe_load) is used"
+ },
+ "CWE-122": {
+  "vulnerable_when": "a heap buffer is overflowed by unchecked sizes",
+  "safe_when": "allocation and copy sizes are validated"
+ },
+ "CWE-863": {
+  "vulnerable_when": "an authorization check exists but its logic is wrong (inverted condition, over-broad OR, trusting a client-supplied flag)",
+  "safe_when": "the check correctly requires the intended role/ownership with no unintended bypass"
+ },
+ "CWE-20": {
+  "vulnerable_when": "external input is used without validating type, range, length or format, or is blindly mass-assigned",
+  "safe_when": "input is validated against an allow-list/range or schema before use"
+ },
+ "CWE-284": {
+  "vulnerable_when": "access to a resource is controlled by something the client can spoof or by a missing/ineffective restriction",
+  "safe_when": "access decisions rely on server-verified identity and permissions"
+ },
+ "CWE-200": {
+  "vulnerable_when": "sensitive data (secrets, stack traces, environment, credentials, PII) is returned to a user or exposed to the wrong party",
+  "safe_when": "only generic messages/non-sensitive fields are exposed and details are logged server-side"
+ },
+ "CWE-306": {
+  "vulnerable_when": "a critical or administrative function is reachable without any authentication",
+  "safe_when": "authentication (and role checks) middleware/decorators protect the function"
+ },
+ "CWE-918": {
+  "vulnerable_when": "the server fetches a URL supplied by the user without restricting scheme/host (internal addresses reachable)",
+  "safe_when": "the target is validated against an allow-list of hosts/schemes and internal ranges are blocked"
+ },
+ "CWE-77": {
+  "vulnerable_when": "a command line is assembled from external input so that special characters alter the command",
+  "safe_when": "fixed command with separate validated arguments and no shell interpretation"
+ },
+ "CWE-639": {
+  "vulnerable_when": "an object is fetched by an identifier taken from the request without verifying the requester may access that specific object",
+  "safe_when": "the query is scoped to the current user/tenant or ownership is verified"
+ },
+ "CWE-770": {
+  "vulnerable_when": "resources (memory, rows, request size, connections) are allocated or returned without any limit or throttling",
+  "safe_when": "explicit size, count, pagination or rate limits are enforced"
+ },
+ "CWE-798": {
+  "vulnerable_when": "a password, API key, token or private key is written as a literal in source and used for authentication or signing (not a placeholder that is read from the environment/secret store)",
+  "safe_when": "the secret is read from environment variables/a secret manager, or the literal is clearly a test fixture or an example value that is not used"
+ },
+ "CWE-327": {
+  "vulnerable_when": "MD5, SHA-1, DES, RC4 or ECB mode is used for a security purpose (passwords, signatures, encryption, tokens)",
+  "safe_when": "a modern algorithm (AES-GCM, SHA-256+, Argon2/bcrypt for passwords) is used, or the weak hash is used only for a non-security purpose such as a cache key or ETag"
+ },
+ "CWE-328": {
+  "vulnerable_when": "a fast or collision-prone hash (MD5, SHA-1, unsalted SHA-256) protects a password or must resist collisions",
+  "safe_when": "a slow salted password hash is used, or the hash is non-security use only"
+ },
+ "CWE-916": {
+  "vulnerable_when": "passwords are hashed with a fast general hash or very few iterations",
+  "safe_when": "bcrypt/scrypt/Argon2/PBKDF2 with a high work factor and per-user salt is used"
+ },
+ "CWE-330": {
+  "vulnerable_when": "tokens, session ids, reset codes, keys or passwords are generated with random/Math.random or another predictable source",
+  "safe_when": "secrets.token_*, os.urandom, crypto.randomBytes/randomUUID or another CSPRNG is used, or randomness is not security relevant"
+ },
+ "CWE-338": {
+  "vulnerable_when": "Math.random/random module/rand() supplies a security value",
+  "safe_when": "a cryptographically secure generator is used or the value has no security role (shuffling UI items, jitter)"
+ },
+ "CWE-295": {
+  "vulnerable_when": "TLS certificate or hostname verification is disabled (verify=False, rejectUnauthorized:false, CERT_NONE, check_hostname False)",
+  "safe_when": "default certificate verification is left on or a pinned CA bundle is supplied"
+ },
+ "CWE-347": {
+  "vulnerable_when": "a signature/JWT is decoded without verification, verification is disabled, or the algorithm is taken from the token",
+  "safe_when": "the signature is verified with a fixed expected algorithm and key"
+ },
+ "CWE-319": {
+  "vulnerable_when": "credentials or sensitive data are sent over http://, FTP, Telnet or an unencrypted socket",
+  "safe_when": "https/TLS is used for the transmission, or traffic stays on a loopback test address"
+ },
+ "CWE-312": {
+  "vulnerable_when": "sensitive data (tokens, passwords, personal data) is stored unencrypted in files, localStorage, cookies or databases",
+  "safe_when": "data is encrypted at rest or not stored"
+ },
+ "CWE-532": {
+  "vulnerable_when": "passwords, tokens, secrets or personal data are written to logs or console output",
+  "safe_when": "sensitive values are redacted or never logged"
+ },
+ "CWE-209": {
+  "vulnerable_when": "exception text, stack traces, SQL or internal paths are returned in the response/UI",
+  "safe_when": "a generic message is returned and the detail is only logged server-side"
+ },
+ "CWE-489": {
+  "vulnerable_when": "debug mode/debugger or a test backdoor is enabled for the deployed app (app.run(debug=True), DEBUG=True)",
+  "safe_when": "debug is controlled by an environment setting that is off in production"
+ },
+ "CWE-307": {
+  "vulnerable_when": "a login, OTP or password-reset endpoint accepts unlimited attempts with no rate limit, lockout or delay",
+  "safe_when": "attempt counting, lockout, throttling or CAPTCHA protects the endpoint"
+ },
+ "CWE-287": {
+  "vulnerable_when": "the code treats a client-supplied identity (header, parameter, cookie) as proof of who the user is, or skips credential verification",
+  "safe_when": "identity comes from a verified session/token and credentials are checked"
+ },
+ "CWE-384": {
+  "vulnerable_when": "the session id is kept after login without regeneration, or accepted from the URL",
+  "safe_when": "the session is regenerated/cleared at login"
+ },
+ "CWE-613": {
+  "vulnerable_when": "sessions/tokens have no expiry, a huge lifetime, or stay valid after logout",
+  "safe_when": "tokens carry a reasonable expiry and are invalidated on logout/password change"
+ },
+ "CWE-601": {
+  "vulnerable_when": "the application redirects to a URL taken from the request without restricting it to local paths or allow-listed hosts",
+  "safe_when": "the target is validated against an allow-list or only relative internal paths are accepted"
+ },
+ "CWE-611": {
+  "vulnerable_when": "an XML parser resolves external entities or DTDs on untrusted XML",
+  "safe_when": "entity resolution/DTD loading is disabled or a defused parser is used"
+ },
+ "CWE-1333": {
+  "vulnerable_when": "a regular expression with nested quantifiers/overlapping alternation is applied to untrusted input without a length limit",
+  "safe_when": "the pattern is linear-time, inputs are length-limited or a safe regex engine is used"
+ },
+ "CWE-1321": {
+  "vulnerable_when": "untrusted keys such as __proto__/constructor/prototype are merged or assigned into objects recursively",
+  "safe_when": "keys are filtered, Object.create(null)/Map is used, or the merge library is patched"
+ },
+ "CWE-915": {
+  "vulnerable_when": "a whole request body is bound to a model/object (**request.json, Object.assign(model, req.body)) allowing fields like role/isAdmin to be set",
+  "safe_when": "only an allow-list of fields is copied"
+ },
+ "CWE-732": {
+  "vulnerable_when": "files, directories or resources are created with overly permissive modes (0o777, world-writable)",
+  "safe_when": "least-privilege modes (0o600/0o700) are used"
+ },
+ "CWE-377": {
+  "vulnerable_when": "a predictable or shared temporary file name is created in a world-writable directory (tempfile.mktemp, /tmp/fixed)",
+  "safe_when": "tempfile.NamedTemporaryFile/mkstemp with exclusive creation is used"
+ },
+ "CWE-346": {
+  "vulnerable_when": "an Origin/Host/Referer header is trusted for an authorisation decision or reflected into CORS headers",
+  "safe_when": "the origin is checked against an exact allow-list"
+ },
+ "CWE-942": {
+  "vulnerable_when": "CORS allows any origin (*) or reflects the Origin header together with credentials",
+  "safe_when": "a specific allow-list of origins is configured"
+ },
+ "CWE-1021": {
+  "vulnerable_when": "pages can be framed by any site because no X-Frame-Options/frame-ancestors is set on sensitive pages",
+  "safe_when": "frame-ancestors/X-Frame-Options restricts framing"
+ },
+ "CWE-614": {
+  "vulnerable_when": "a session/auth cookie is set without the Secure flag",
+  "safe_when": "Secure (and HttpOnly, SameSite) are set"
+ },
+ "CWE-1004": {
+  "vulnerable_when": "a session/auth cookie is set without HttpOnly",
+  "safe_when": "HttpOnly is set"
+ },
+ "CWE-362": {
+  "vulnerable_when": "a shared resource is checked and then modified non-atomically (read-modify-write, check then act) in concurrent code",
+  "safe_when": "a lock, transaction, atomic update or unique constraint protects the sequence"
+ },
+ "CWE-367": {
+  "vulnerable_when": "a file or record state is checked (exists, access, balance) and used later in separate steps that an attacker can race",
+  "safe_when": "the operation is atomic (open with O_EXCL, single transaction/update) or the check and use are combined"
+ },
+ "CWE-400": {
+  "vulnerable_when": "input-controlled sizes, loop counts, uploads or unbounded caches can consume unlimited CPU/memory/disk",
+  "safe_when": "limits, timeouts, pagination and eviction bound the resource use"
+ },
+ "CWE-409": {
+  "vulnerable_when": "compressed or archive data is expanded without a limit on the resulting size or file count",
+  "safe_when": "the expanded size and entry count are capped before/while extracting"
+ },
+ "CWE-799": {
+  "vulnerable_when": "an abusable function (email/SMS send, signup, reset, expensive search) is callable unlimited times",
+  "safe_when": "a rate limit, CAPTCHA or quota is applied"
+ },
+ "CWE-829": {
+  "vulnerable_when": "code, modules or plugins are loaded from a path or URL controlled by the user or an untrusted third party",
+  "safe_when": "only fixed, vetted modules are loaded and remote code is pinned/verified"
+ },
+ "CWE-494": {
+  "vulnerable_when": "code or updates are downloaded and executed without a checksum or signature check",
+  "safe_when": "the artifact is verified with a pinned hash or signature before use"
+ },
+ "CWE-426": {
+  "vulnerable_when": "programs or libraries are resolved through a search path an attacker can write to (cwd, user-controlled PATH/sys.path)",
+  "safe_when": "absolute paths are used or the search path is fixed and trusted"
+ },
+ "CWE-1395": {
+  "vulnerable_when": "the manifest pins a dependency version known to contain public vulnerabilities",
+  "safe_when": "the dependency is on a patched version or is not used in the vulnerable way"
+ },
+ "CWE-636": {
+  "vulnerable_when": "an error, exception or timeout in a security check results in access being granted (fail open)",
+  "safe_when": "errors in checks deny access"
+ },
+ "CWE-755": {
+  "vulnerable_when": "exceptions are swallowed (except: pass, empty catch) around security-relevant operations so execution continues unsafely",
+  "safe_when": "errors are handled explicitly, logged and fail closed"
+ },
+ "CWE-208": {
+  "vulnerable_when": "secrets, tokens or MACs are compared with ==/=== (early-exit comparison)",
+  "safe_when": "a constant-time comparison (hmac.compare_digest, crypto.timingSafeEqual) is used"
+ },
+ "CWE-204": {
+  "vulnerable_when": "responses differ for existing versus unknown accounts (message, status code), enabling user enumeration",
+  "safe_when": "the same generic response is returned either way"
+ },
+ "CWE-117": {
+  "vulnerable_when": "untrusted input is written into log lines without neutralising CR/LF, enabling forged entries",
+  "safe_when": "newlines are stripped/escaped or structured logging is used"
+ },
+ "CWE-113": {
+  "vulnerable_when": "untrusted input is placed in an HTTP header without stripping CR/LF",
+  "safe_when": "header values are validated/encoded, or the framework rejects newlines"
+ },
+ "CWE-95": {
+  "vulnerable_when": "untrusted input reaches eval/Function/exec as code text",
+  "safe_when": "only fixed code is run and input is treated as data"
+ },
+ "CWE-1336": {
+  "vulnerable_when": "user input is concatenated into a template string that is then compiled/rendered (render_template_string, ejs.render of user text)",
+  "safe_when": "user input is passed only as template context variables"
+ },
+ "CWE-643": {
+  "vulnerable_when": "user input is concatenated into an XPath/XQuery expression",
+  "safe_when": "parameterised XPath or escaping is used"
+ },
+ "CWE-943": {
+  "vulnerable_when": "a NoSQL/query object is built directly from request data (operators like $ne, $gt can be injected)",
+  "safe_when": "inputs are cast to primitive types and operator keys are rejected"
+ },
+ "CWE-90": {
+  "vulnerable_when": "user input is concatenated into an LDAP filter or DN without escaping",
+  "safe_when": "filter/DN escaping or parameterised LDAP queries are used"
+ },
+ "CWE-88": {
+  "vulnerable_when": "user input can become an option/flag of an external program (leading dash, extra arguments)",
+  "safe_when": "arguments are validated, '--' terminates options, or a fixed argument list is used"
+ },
+ "CWE-269": {
+  "vulnerable_when": "privilege is raised or a role assigned based on user-controlled input or without checks",
+  "safe_when": "privilege changes require verified authority and least privilege"
+ },
+ "CWE-250": {
+  "vulnerable_when": "the process or container runs as root/admin where it is not needed",
+  "safe_when": "a non-privileged user is used"
+ },
+ "CWE-276": {
+  "vulnerable_when": "sensitive files or objects are created with default or broad permissions",
+  "safe_when": "restrictive permissions are set explicitly at creation"
+ },
+ "CWE-807": {
+  "vulnerable_when": "a security decision (admin, role, internal) depends on a header, cookie or parameter the client controls",
+  "safe_when": "decisions use server-verified identity and state"
+ },
+ "CWE-602": {
+  "vulnerable_when": "validation/authorisation exists only in client-side code (browser JS, hidden buttons) with no server check",
+  "safe_when": "the same checks are enforced on the server"
+ },
+ "CWE-565": {
+  "vulnerable_when": "a role, price or user id is read from a cookie that is unsigned and unverified",
+  "safe_when": "cookies are signed/encrypted or state is kept server side"
+ },
+ "CWE-345": {
+  "vulnerable_when": "webhook or callback payloads are accepted without verifying a signature/origin",
+  "safe_when": "a signature or shared-secret HMAC is verified before processing"
+ },
+ "CWE-940": {
+  "vulnerable_when": "a message/postMessage/socket handler acts on data without checking event.origin or the sender",
+  "safe_when": "the origin or sender is validated against an allow-list"
+ },
+ "CWE-1385": {
+  "vulnerable_when": "a WebSocket server accepts any Origin and relies on cookies",
+  "safe_when": "the Origin header is checked or token authentication is required"
+ }
+}

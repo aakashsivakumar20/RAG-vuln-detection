@@ -1,12 +1,12 @@
 {
   "plain": {
     "n_snippets": 22,
-    "top1_accuracy": 0.545,
-    "top3_accuracy": 0.727
+    "top1_accuracy": 0.318,
+    "top3_accuracy": 0.455
   },
   "idf": {
     "n_snippets": 22,
-    "top1_accuracy": 0.636,
-    "top3_accuracy": 0.727
+    "top1_accuracy": 0.273,
+    "top3_accuracy": 0.455
   }
 }

@@ -1,0 +1,233 @@
+{
+  "_note": "Held-out evaluation snippets, hand-written BEFORE any retrieval tuning and never used to pick weights or thresholds (those were fitted on the original 22 'dev' snippets only). Ground truth is the CWE each snippet was written to demonstrate. Closely related categories (e.g. CWE-77 vs CWE-78, CWE-862 vs CWE-639 vs CWE-284) are genuinely ambiguous, so exact-match accuracy is a conservative measure.",
+  "snippets": [
+    {
+      "id": "h01",
+      "language": "python",
+      "expected_cwe": "CWE-89",
+      "code": "def search_products(request):\n    term = request.GET.get(\"q\", \"\")\n    with connection.cursor() as cur:\n        cur.execute(f\"SELECT id, name, price FROM products WHERE name LIKE '%{term}%'\")\n        return JsonResponse({\"items\": cur.fetchall()})"
+    },
+    {
+      "id": "h02",
+      "language": "javascript",
+      "expected_cwe": "CWE-89",
+      "code": "router.get('/orders', async (req, res) => {\n  const rows = await sequelize.query(`SELECT * FROM orders WHERE customer = '${req.query.customer}' ORDER BY created_at DESC`);\n  res.json(rows[0]);\n});"
+    },
+    {
+      "id": "h03",
+      "language": "javascript",
+      "expected_cwe": "CWE-79",
+      "code": "app.get('/search', (req, res) => {\n  res.send('<h1>Results for ' + req.query.q + '</h1>' + renderResults(req.query.q));\n});"
+    },
+    {
+      "id": "h04",
+      "language": "python",
+      "expected_cwe": "CWE-79",
+      "code": "@app.route('/greet')\ndef greet():\n    name = request.args.get('name', 'guest')\n    return Markup('<p>Hello, ' + name + '!</p>')"
+    },
+    {
+      "id": "h05",
+      "language": "python",
+      "expected_cwe": "CWE-78",
+      "code": "def thumbnail(path, size):\n    cmd = \"convert %s -resize %s /tmp/thumb.png\" % (path, size)\n    return subprocess.check_output(cmd, shell=True)"
+    },
+    {
+      "id": "h06",
+      "language": "javascript",
+      "expected_cwe": "CWE-78",
+      "code": "function lookupDomain(domain) {\n  return execSync(`nslookup ${domain}`).toString();\n}"
+    },
+    {
+      "id": "h07",
+      "language": "python",
+      "expected_cwe": "CWE-22",
+      "code": "@app.route('/files/<path:name>')\ndef get_file(name):\n    return send_file('/srv/uploads/' + name)"
+    },
+    {
+      "id": "h08",
+      "language": "javascript",
+      "expected_cwe": "CWE-22",
+      "code": "function readTemplate(name) {\n  return fs.readFileSync(path.join(__dirname, 'templates', name), 'utf8');\n}"
+    },
+    {
+      "id": "h09",
+      "language": "python",
+      "expected_cwe": "CWE-502",
+      "code": "def parse_settings(text):\n    return yaml.load(text, Loader=yaml.Loader)"
+    },
+    {
+      "id": "h10",
+      "language": "javascript",
+      "expected_cwe": "CWE-502",
+      "code": "const serialize = require('node-serialize');\napp.post('/restore', (req, res) => {\n  const obj = serialize.unserialize(req.body.state);\n  res.json(obj);\n});"
+    },
+    {
+      "id": "h11",
+      "language": "python",
+      "expected_cwe": "CWE-306",
+      "code": "@app.route('/internal/export-all-customers')\ndef export_all_customers():\n    rows = Customer.query.all()\n    return jsonify([r.to_dict() for r in rows])"
+    },
+    {
+      "id": "h12",
+      "language": "javascript",
+      "expected_cwe": "CWE-306",
+      "code": "app.post('/api/system/shutdown', (req, res) => {\n  res.send('shutting down');\n  process.exit(0);\n});"
+    },
+    {
+      "id": "h13",
+      "language": "python",
+      "expected_cwe": "CWE-862",
+      "code": "@app.route('/projects/<int:pid>/members', methods=['POST'])\n@login_required\ndef add_member(pid):\n    project = Project.query.get_or_404(pid)\n    project.members.append(User.query.get(request.json['user_id']))\n    db.session.commit()\n    return jsonify(ok=True)"
+    },
+    {
+      "id": "h14",
+      "language": "javascript",
+      "expected_cwe": "CWE-862",
+      "code": "app.post('/api/users/:id/promote', authenticate, async (req, res) => {\n  await User.update({ role: 'admin' }, { where: { id: req.params.id } });\n  res.sendStatus(204);\n});"
+    },
+    {
+      "id": "h15",
+      "language": "python",
+      "expected_cwe": "CWE-352",
+      "code": "@app.route('/account/email', methods=['POST'])\ndef change_email():\n    current_user.email = request.form['email']\n    db.session.commit()\n    return redirect('/account')"
+    },
+    {
+      "id": "h16",
+      "language": "javascript",
+      "expected_cwe": "CWE-352",
+      "code": "app.use(session({ secret: SECRET, cookie: { sameSite: 'none' } }));\napp.post('/settings/password', (req, res) => {\n  users.setPassword(req.session.userId, req.body.password);\n  res.redirect('/settings');\n});"
+    },
+    {
+      "id": "h17",
+      "language": "python",
+      "expected_cwe": "CWE-434",
+      "code": "@app.route('/avatar', methods=['POST'])\ndef upload_avatar():\n    f = request.files['avatar']\n    f.save(os.path.join(app.static_folder, 'avatars', f.filename))\n    return 'ok'"
+    },
+    {
+      "id": "h18",
+      "language": "javascript",
+      "expected_cwe": "CWE-434",
+      "code": "const upload = multer({ dest: 'public/uploads/' });\napp.post('/documents', upload.single('doc'), (req, res) => {\n  res.json({ url: '/uploads/' + req.file.filename });\n});"
+    },
+    {
+      "id": "h19",
+      "language": "javascript",
+      "expected_cwe": "CWE-918",
+      "code": "app.get('/proxy', async (req, res) => {\n  const upstream = await fetch(req.query.target);\n  res.send(await upstream.text());\n});"
+    },
+    {
+      "id": "h20",
+      "language": "python",
+      "expected_cwe": "CWE-918",
+      "code": "def import_avatar_from_url(url):\n    resp = urllib.request.urlopen(url, timeout=5)\n    return resp.read()"
+    },
+    {
+      "id": "h21",
+      "language": "python",
+      "expected_cwe": "CWE-94",
+      "code": "def run_plugin(source):\n    namespace = {}\n    exec(source, namespace)\n    return namespace['main']()"
+    },
+    {
+      "id": "h22",
+      "language": "javascript",
+      "expected_cwe": "CWE-94",
+      "code": "app.get('/calc', (req, res) => {\n  res.json({ result: eval(req.query.expression) });\n});"
+    },
+    {
+      "id": "h23",
+      "language": "python",
+      "expected_cwe": "CWE-77",
+      "code": "def grep_logs(keyword):\n    return subprocess.Popen(\"grep -r %s /var/log/app\" % keyword, shell=True, stdout=subprocess.PIPE).communicate()[0]"
+    },
+    {
+      "id": "h24",
+      "language": "javascript",
+      "expected_cwe": "CWE-77",
+      "code": "function gitLog(author, cb) {\n  exec('git log --author=' + author + ' --oneline', cb);\n}"
+    },
+    {
+      "id": "h25",
+      "language": "python",
+      "expected_cwe": "CWE-200",
+      "code": "@app.errorhandler(Exception)\ndef handle_error(e):\n    return jsonify(error=str(e), trace=traceback.format_exc(), env=dict(os.environ)), 500"
+    },
+    {
+      "id": "h26",
+      "language": "javascript",
+      "expected_cwe": "CWE-200",
+      "code": "app.get('/health', (req, res) => {\n  res.json({ status: 'ok', dbUrl: process.env.DATABASE_URL, jwtSecret: process.env.JWT_SECRET });\n});"
+    },
+    {
+      "id": "h27",
+      "language": "javascript",
+      "expected_cwe": "CWE-639",
+      "code": "app.get('/api/documents/:docId', authenticate, async (req, res) => {\n  const doc = await Document.findById(req.params.docId);\n  res.json(doc);\n});"
+    },
+    {
+      "id": "h28",
+      "language": "python",
+      "expected_cwe": "CWE-639",
+      "code": "@app.route('/api/messages/<int:message_id>')\n@login_required\ndef read_message(message_id):\n    return jsonify(Message.query.get_or_404(message_id).to_dict())"
+    },
+    {
+      "id": "h29",
+      "language": "javascript",
+      "expected_cwe": "CWE-863",
+      "code": "function canViewReport(user, report) {\n  return user.department === report.department || user.role === 'viewer';\n}"
+    },
+    {
+      "id": "h30",
+      "language": "python",
+      "expected_cwe": "CWE-863",
+      "code": "def can_delete(user, post):\n    return user.is_staff or post.author_id == user.id or post.author_id is None"
+    },
+    {
+      "id": "h31",
+      "language": "python",
+      "expected_cwe": "CWE-20",
+      "code": "def set_page_size(request):\n    size = int(request.args.get('size', 20))\n    return Item.query.limit(size).all()"
+    },
+    {
+      "id": "h32",
+      "language": "javascript",
+      "expected_cwe": "CWE-20",
+      "code": "app.post('/api/register', (req, res) => {\n  const user = { email: req.body.email, age: req.body.age, role: req.body.role };\n  users.create(user);\n  res.sendStatus(201);\n});"
+    },
+    {
+      "id": "h33",
+      "language": "python",
+      "expected_cwe": "CWE-770",
+      "code": "@app.route('/api/upload-json', methods=['POST'])\ndef upload_json():\n    data = request.get_data()\n    items = json.loads(data)\n    results = [process(i) for i in items]\n    return jsonify(results)"
+    },
+    {
+      "id": "h34",
+      "language": "javascript",
+      "expected_cwe": "CWE-770",
+      "code": "app.post('/api/export', async (req, res) => {\n  const rows = await db.collection('events').find({}).toArray();\n  res.json(rows);\n});"
+    },
+    {
+      "id": "h35",
+      "language": "python",
+      "expected_cwe": "CWE-284",
+      "code": "def is_internal(request):\n    return request.headers.get('X-Forwarded-For', '').startswith('10.')"
+    },
+    {
+      "id": "h36",
+      "language": "javascript",
+      "expected_cwe": "CWE-284",
+      "code": "app.get('/reports/:name', (req, res) => {\n  if (req.query.admin === 'true') {\n    return res.sendFile(adminReport(req.params.name));\n  }\n  res.sendFile(publicReport(req.params.name));\n});"
+    },
+    {
+      "id": "h37",
+      "language": "python",
+      "expected_cwe": "CWE-476",
+      "code": "def get_email_domain(user_id):\n    user = User.query.filter_by(id=user_id).first()\n    return user.email.split('@')[1]"
+    },
+    {
+      "id": "h38",
+      "language": "javascript",
+      "expected_cwe": "CWE-476",
+      "code": "function firstTag(post) {\n  const match = post.body.match(/#(\\w+)/);\n  return match[1].toLowerCase();\n}"
+    }
+  ]
+}

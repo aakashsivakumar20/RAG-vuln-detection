@@ -1,0 +1,371 @@
+{
+ "_note": "Second held-out set (b01-b60), written AFTER the sink rules were frozen and never used to tune anything. Realistic framework-style Python/JS (Flask, Django, FastAPI, Express, React). Written by the project team (same authors as the rules), so still an optimistic estimate; project-authored, not from a public benchmark.",
+ "snippets": [
+  {
+   "id": "b01",
+   "language": "python",
+   "expected_cwe": "CWE-89",
+   "code": "def search_products(request):\n    term = request.GET.get(\"q\", \"\")\n    cursor = connection.cursor()\n    cursor.execute(\"SELECT id, name, price FROM products WHERE name LIKE '%\" + term + \"%'\")\n    return JsonResponse({\"items\": cursor.fetchall()})"
+  },
+  {
+   "id": "b02",
+   "language": "javascript",
+   "expected_cwe": "CWE-89",
+   "code": "router.get('/orders', async (req, res) => {\n  const rows = await pool.query(`SELECT * FROM orders WHERE customer_id = ${req.query.cid} ORDER BY created_at DESC`);\n  res.json(rows.rows);\n});"
+  },
+  {
+   "id": "b03",
+   "language": "python",
+   "expected_cwe": "CWE-89",
+   "code": "def delete_comment(conn, comment_id, author):\n    query = f\"DELETE FROM comments WHERE id = {comment_id} AND author = '{author}'\"\n    conn.execute(query)\n    conn.commit()"
+  },
+  {
+   "id": "b04",
+   "language": "javascript",
+   "expected_cwe": "CWE-79",
+   "code": "function showSearchTerm() {\n  const params = new URLSearchParams(window.location.search);\n  document.querySelector('#results-title').innerHTML = 'Results for ' + params.get('term');\n}"
+  },
+  {
+   "id": "b05",
+   "language": "python",
+   "expected_cwe": "CWE-79",
+   "code": "@app.route(\"/hello\")\ndef hello():\n    name = request.args.get(\"name\", \"guest\")\n    return f\"<html><body><h1>Welcome back, {name}!</h1></body></html>\""
+  },
+  {
+   "id": "b06",
+   "language": "javascript",
+   "expected_cwe": "CWE-79",
+   "code": "function MessageBubble({ message }) {\n  return <div className=\"bubble\" dangerouslySetInnerHTML={{ __html: message.body }} />;\n}"
+  },
+  {
+   "id": "b07",
+   "language": "python",
+   "expected_cwe": "CWE-78",
+   "code": "def resize(request):\n    src = request.POST[\"file\"]\n    width = request.POST[\"width\"]\n    os.system(f\"convert {src} -resize {width} /var/www/thumbs/out.png\")\n    return HttpResponse(\"ok\")"
+  },
+  {
+   "id": "b08",
+   "language": "javascript",
+   "expected_cwe": "CWE-78",
+   "code": "app.get('/dns', (req, res) => {\n  exec(`nslookup ${req.query.host}`, (err, stdout) => res.send(stdout));\n});"
+  },
+  {
+   "id": "b09",
+   "language": "python",
+   "expected_cwe": "CWE-78",
+   "code": "def archive_logs(day):\n    cmd = \"tar czf /backups/%s.tgz /var/log/app/%s\" % (day, day)\n    return subprocess.call(cmd, shell=True)"
+  },
+  {
+   "id": "b10",
+   "language": "python",
+   "expected_cwe": "CWE-22",
+   "code": "@app.route(\"/avatar/<name>\")\ndef avatar(name):\n    return send_file(os.path.join(AVATAR_DIR, name))"
+  },
+  {
+   "id": "b11",
+   "language": "javascript",
+   "expected_cwe": "CWE-22",
+   "code": "app.get('/files', (req, res) => {\n  const target = path.join(__dirname, 'public', req.query.name);\n  fs.readFile(target, (err, data) => res.send(data));\n});"
+  },
+  {
+   "id": "b12",
+   "language": "python",
+   "expected_cwe": "CWE-22",
+   "code": "def read_template(template_name):\n    with open(\"templates/\" + template_name) as f:\n        return f.read()"
+  },
+  {
+   "id": "b13",
+   "language": "python",
+   "expected_cwe": "CWE-502",
+   "code": "@app.route(\"/restore\", methods=[\"POST\"])\ndef restore():\n    state = pickle.loads(base64.b64decode(request.form[\"state\"]))\n    return jsonify(state)"
+  },
+  {
+   "id": "b14",
+   "language": "python",
+   "expected_cwe": "CWE-502",
+   "code": "def load_settings(path):\n    with open(path) as f:\n        return yaml.load(f.read())"
+  },
+  {
+   "id": "b15",
+   "language": "python",
+   "expected_cwe": "CWE-94",
+   "code": "def calculate(request):\n    formula = request.args[\"formula\"]\n    result = eval(formula)\n    return jsonify(result=result)"
+  },
+  {
+   "id": "b16",
+   "language": "javascript",
+   "expected_cwe": "CWE-94",
+   "code": "app.post('/transform', (req, res) => {\n  const fn = new Function('row', req.body.expression);\n  res.json(rows.map(fn));\n});"
+  },
+  {
+   "id": "b17",
+   "language": "python",
+   "expected_cwe": "CWE-918",
+   "code": "@app.route(\"/screenshot\")\ndef screenshot():\n    target = request.args[\"url\"]\n    page = requests.get(target, timeout=5)\n    return render_preview(page.content)"
+  },
+  {
+   "id": "b18",
+   "language": "javascript",
+   "expected_cwe": "CWE-918",
+   "code": "app.get('/proxy', async (req, res) => {\n  const upstream = await axios.get(req.query.endpoint);\n  res.json(upstream.data);\n});"
+  },
+  {
+   "id": "b19",
+   "language": "python",
+   "expected_cwe": "CWE-352",
+   "code": "@app.route(\"/account/email\", methods=[\"POST\"])\n@login_required\ndef change_email():\n    current_user.email = request.form[\"email\"]\n    db.session.commit()\n    return redirect(\"/account\")"
+  },
+  {
+   "id": "b20",
+   "language": "javascript",
+   "expected_cwe": "CWE-352",
+   "code": "app.post('/account/delete', requireLogin, async (req, res) => {\n  await Users.deleteOne({ _id: req.session.userId });\n  req.session.destroy();\n  res.redirect('/');\n});"
+  },
+  {
+   "id": "b21",
+   "language": "python",
+   "expected_cwe": "CWE-434",
+   "code": "@app.route(\"/documents\", methods=[\"POST\"])\ndef upload_document():\n    f = request.files[\"doc\"]\n    f.save(os.path.join(\"/srv/www/uploads\", f.filename))\n    return \"uploaded\""
+  },
+  {
+   "id": "b22",
+   "language": "javascript",
+   "expected_cwe": "CWE-434",
+   "code": "app.post('/avatar', upload.single('avatar'), (req, res) => {\n  fs.renameSync(req.file.path, path.join('public/avatars', req.file.originalname));\n  res.sendStatus(204);\n});"
+  },
+  {
+   "id": "b23",
+   "language": "python",
+   "expected_cwe": "CWE-862",
+   "code": "@router.delete(\"/projects/{project_id}\")\ndef delete_project(project_id: int, user=Depends(get_current_user)):\n    db.query(Project).filter(Project.id == project_id).delete()\n    db.commit()\n    return {\"deleted\": project_id}"
+  },
+  {
+   "id": "b24",
+   "language": "javascript",
+   "expected_cwe": "CWE-862",
+   "code": "router.put('/posts/:id/publish', requireLogin, async (req, res) => {\n  await Post.updateOne({ _id: req.params.id }, { published: true });\n  res.sendStatus(200);\n});"
+  },
+  {
+   "id": "b25",
+   "language": "python",
+   "expected_cwe": "CWE-639",
+   "code": "@app.route(\"/documents/<int:doc_id>\")\n@login_required\ndef get_document(doc_id):\n    doc = Document.query.get_or_404(doc_id)\n    return send_file(doc.path)"
+  },
+  {
+   "id": "b26",
+   "language": "javascript",
+   "expected_cwe": "CWE-639",
+   "code": "app.get('/api/tickets/:id', requireLogin, async (req, res) => {\n  const ticket = await Ticket.findById(req.params.id);\n  res.json(ticket);\n});"
+  },
+  {
+   "id": "b27",
+   "language": "python",
+   "expected_cwe": "CWE-306",
+   "code": "@app.route(\"/admin/users/<int:uid>/promote\", methods=[\"POST\"])\ndef promote(uid):\n    user = User.query.get(uid)\n    user.is_admin = True\n    db.session.commit()\n    return \"done\""
+  },
+  {
+   "id": "b28",
+   "language": "javascript",
+   "expected_cwe": "CWE-306",
+   "code": "app.delete('/admin/cache', (req, res) => {\n  cache.flushAll();\n  res.json({ flushed: true });\n});"
+  },
+  {
+   "id": "b29",
+   "language": "python",
+   "expected_cwe": "CWE-863",
+   "code": "def can_view_invoice(user, invoice):\n    return user.id == invoice.customer_id or user.role != \"support\""
+  },
+  {
+   "id": "b30",
+   "language": "python",
+   "expected_cwe": "CWE-798",
+   "code": "DB_HOST = \"db.internal\"\nDB_USER = \"app\"\nDB_PASSWORD = \"Sup3rS3cret!2024\"\n\ndef connect():\n    return psycopg2.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD)"
+  },
+  {
+   "id": "b31",
+   "language": "javascript",
+   "expected_cwe": "CWE-798",
+   "code": "const s3 = new AWS.S3({\n  accessKeyId: 'AKIAIOSFODNN7EXAMPLE',\n  secretAccessKey: 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY',\n});"
+  },
+  {
+   "id": "b32",
+   "language": "python",
+   "expected_cwe": "CWE-200",
+   "code": "@app.route(\"/debug/info\")\ndef debug_info():\n    return jsonify({\"env\": dict(os.environ), \"config\": dict(app.config)})"
+  },
+  {
+   "id": "b33",
+   "language": "javascript",
+   "expected_cwe": "CWE-209",
+   "code": "app.use((err, req, res, next) => {\n  res.status(500).send('<pre>' + err.stack + '</pre>');\n});"
+  },
+  {
+   "id": "b34",
+   "language": "python",
+   "expected_cwe": "CWE-476",
+   "code": "def extract_version(banner):\n    match = re.search(r\"Server/(\\d+\\.\\d+)\", banner)\n    return match.group(1)"
+  },
+  {
+   "id": "b35",
+   "language": "javascript",
+   "expected_cwe": "CWE-476",
+   "code": "function firstTag(post) {\n  return post.tags.find(t => t.primary).name.toLowerCase();\n}"
+  },
+  {
+   "id": "b36",
+   "language": "python",
+   "expected_cwe": "CWE-770",
+   "code": "@app.route(\"/export\")\ndef export_all():\n    page_size = int(request.args.get(\"page_size\", 50))\n    return jsonify([r.to_dict() for r in Record.query.limit(page_size).all()])"
+  },
+  {
+   "id": "b37",
+   "language": "python",
+   "expected_cwe": "CWE-20",
+   "code": "def apply_coupon(cart, request):\n    percent = int(request.form[\"percent\"])\n    cart.total = cart.total * (100 - percent) / 100\n    return cart.total"
+  },
+  {
+   "id": "b38",
+   "language": "python",
+   "expected_cwe": "CWE-327",
+   "code": "def make_token(user_id):\n    return hashlib.sha1(f\"{user_id}:{SECRET}\".encode()).hexdigest()"
+  },
+  {
+   "id": "b39",
+   "language": "javascript",
+   "expected_cwe": "CWE-330",
+   "code": "function generateOtp() {\n  return String(Math.floor(100000 + Math.random() * 900000));\n}"
+  },
+  {
+   "id": "b40",
+   "language": "python",
+   "expected_cwe": "CWE-295",
+   "code": "session = requests.Session()\nsession.verify = False\nresp = session.post(\"https://payments.example.com/charge\", json=payload)"
+  },
+  {
+   "id": "b41",
+   "language": "javascript",
+   "expected_cwe": "CWE-601",
+   "code": "app.get('/login/callback', (req, res) => {\n  res.redirect(req.query.returnTo || '/');\n});"
+  },
+  {
+   "id": "b42",
+   "language": "python",
+   "expected_cwe": "CWE-611",
+   "code": "def import_feed(xml_text):\n    parser = etree.XMLParser(resolve_entities=True)\n    return etree.fromstring(xml_text.encode(), parser)"
+  },
+  {
+   "id": "b43",
+   "language": "python",
+   "expected_cwe": "CWE-915",
+   "code": "@app.route(\"/signup\", methods=[\"POST\"])\ndef signup():\n    user = User(**request.json)\n    db.session.add(user)\n    db.session.commit()\n    return \"created\""
+  },
+  {
+   "id": "b44",
+   "language": "javascript",
+   "expected_cwe": "CWE-1321",
+   "code": "function applyOptions(config, options) {\n  for (const key in options) {\n    if (typeof options[key] === 'object') {\n      config[key] = applyOptions(config[key] || {}, options[key]);\n    } else {\n      config[key] = options[key];\n    }\n  }\n  return config;\n}"
+  },
+  {
+   "id": "b45",
+   "language": "javascript",
+   "expected_cwe": "CWE-1333",
+   "code": "function isSlug(value) {\n  return /^(\\w+-?)+$/.test(value);\n}"
+  },
+  {
+   "id": "b46",
+   "language": "python",
+   "expected_cwe": "CWE-532",
+   "code": "def charge(card_number, amount):\n    logger.info(\"charging card %s for %s\", card_number, amount)\n    return gateway.charge(card_number, amount)"
+  },
+  {
+   "id": "b47",
+   "language": "javascript",
+   "expected_cwe": "CWE-307",
+   "code": "app.post('/verify-otp', async (req, res) => {\n  const ok = await otp.check(req.session.userId, req.body.code);\n  res.json({ ok });\n});"
+  },
+  {
+   "id": "b48",
+   "language": "python",
+   "expected_cwe": "CWE-362",
+   "code": "def redeem_voucher(code):\n    voucher = Voucher.query.filter_by(code=code).first()\n    if voucher.uses_left > 0:\n        voucher.uses_left -= 1\n        db.session.commit()\n        return True\n    return False"
+  },
+  {
+   "id": "b49",
+   "language": "python",
+   "expected_cwe": "CWE-367",
+   "code": "def write_report(path, data):\n    if not os.path.exists(path):\n        with open(path, \"w\") as f:\n            f.write(data)"
+  },
+  {
+   "id": "b50",
+   "language": "javascript",
+   "expected_cwe": "CWE-943",
+   "code": "app.post('/users/find', async (req, res) => {\n  const user = await db.collection('users').findOne({ username: req.body.username, token: req.body.token });\n  res.json(user);\n});"
+  },
+  {
+   "id": "b51",
+   "language": "python",
+   "expected_cwe": "CWE-1336",
+   "code": "@app.route(\"/preview\")\ndef preview():\n    body = request.args.get(\"body\", \"\")\n    return render_template_string(\"<div>\" + body + \"</div>\")"
+  },
+  {
+   "id": "b52",
+   "language": "python",
+   "expected_cwe": "CWE-117",
+   "code": "@app.route(\"/signin\", methods=[\"POST\"])\ndef signin():\n    app.logger.warning(\"failed login for \" + request.form[\"username\"])\n    return \"denied\", 401"
+  },
+  {
+   "id": "b53",
+   "language": "python",
+   "expected_cwe": "CWE-208",
+   "code": "def check_api_key(request):\n    supplied = request.headers.get(\"X-Api-Key\", \"\")\n    return supplied == settings.API_KEY"
+  },
+  {
+   "id": "b54",
+   "language": "python",
+   "expected_cwe": "CWE-347",
+   "code": "def current_claims(token):\n    return jwt.decode(token, options={\"verify_signature\": False})"
+  },
+  {
+   "id": "b55",
+   "language": "python",
+   "expected_cwe": "CWE-614",
+   "code": "def login_response(user):\n    resp = jsonify(ok=True)\n    resp.set_cookie(\"sid\", create_session(user))\n    return resp"
+  },
+  {
+   "id": "b56",
+   "language": "javascript",
+   "expected_cwe": "CWE-384",
+   "code": "app.post('/signin', async (req, res) => {\n  const user = await authenticate(req.body.email, req.body.password);\n  if (!user) return res.sendStatus(401);\n  req.session.uid = user.id;\n  res.sendStatus(204);\n});"
+  },
+  {
+   "id": "b57",
+   "language": "python",
+   "expected_cwe": "CWE-400",
+   "code": "@app.route(\"/bulk\", methods=[\"POST\"])\ndef bulk():\n    body = request.get_data()\n    return jsonify(count=len(json.loads(body)))"
+  },
+  {
+   "id": "b58",
+   "language": "python",
+   "expected_cwe": "CWE-319",
+   "code": "def fetch_credentials(user):\n    return requests.post(\"http://vault.corp.example.com/api/credentials\", json={\"user\": user}).json()"
+  },
+  {
+   "id": "b59",
+   "language": "javascript",
+   "expected_cwe": "CWE-312",
+   "code": "function saveSession(token) {\n  localStorage.setItem('authToken', token);\n}"
+  },
+  {
+   "id": "b60",
+   "language": "python",
+   "expected_cwe": "CWE-113",
+   "code": "@app.route(\"/set-lang\")\ndef set_lang():\n    resp = make_response(\"ok\")\n    resp.headers[\"X-Language\"] = request.args[\"lang\"]\n    return resp"
+  },
+  {
+   "id": "b61",
+   "language": "python",
+   "expected_cwe": "CWE-90",
+   "code": "def lookup(conn, name):\n    conn.search(\"dc=corp,dc=example\", \"(&(objectClass=person)(cn=\" + name + \"))\")\n    return conn.entries"
+  }
+ ]
+}

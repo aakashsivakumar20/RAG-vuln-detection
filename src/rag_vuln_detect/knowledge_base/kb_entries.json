@@ -1,42 +1,1897 @@
 {
-  "source_note": "OWASP Top 10:2025 fetched from https://top10.owasp.org/2025/ ; CWE Top 25 (2025) fetched from https://cwe.mitre.org/top25/archive/2025/2025_cwe_top25.html on 2026-09-14. CWE-to-OWASP-category mapping below is this project's own best-fit judgment, not an official MITRE/OWASP crosswalk; entries with no clean web-application mapping are labeled 'General Software Weakness'.",
+  "source_note": "OWASP Top 10:2025 fetched from https://top10.owasp.org/2025/ ; CWE Top 25 (2025) fetched from https://cwe.mitre.org/top25/archive/2025/2025_cwe_top25.html on 2026-09-14. CWE-to-OWASP-category mapping below is this project's own best-fit judgment, not an official MITRE/OWASP crosswalk; entries with no clean web-application mapping are labeled 'General Software Weakness'. Extended: 234 further CWE entries relevant to Python/JavaScript/TypeScript code (cwe_extended). CWE ids/names follow the MITRE catalogue; descriptions, example patterns and the OWASP category mapping are project-authored.",
   "owasp_top10_2025": [
-    {"code": "A01:2025", "name": "Broken Access Control", "description": "Vulnerabilities that let unauthorized users reach resources or perform actions they should not be permitted to, e.g. viewing or modifying another user's data by changing an ID in a request."},
-    {"code": "A02:2025", "name": "Security Misconfiguration", "description": "Insecure default settings, incomplete hardening, verbose error messages, or unnecessary features left enabled that expose the application to attack."},
-    {"code": "A03:2025", "name": "Software Supply Chain Failures", "description": "Risks introduced through compromised, outdated, or unvetted third-party dependencies, libraries, or build/deployment pipeline components."},
-    {"code": "A04:2025", "name": "Cryptographic Failures", "description": "Weak, missing, or misconfigured encryption, hashing, or key management that exposes sensitive data in transit or at rest."},
-    {"code": "A05:2025", "name": "Injection", "description": "Untrusted input is passed to an interpreter (SQL, OS shell, template engine, HTML renderer, etc.) without proper neutralisation, letting an attacker alter the intended command or query."},
-    {"code": "A06:2025", "name": "Insecure Design", "description": "Missing or inadequate security controls baked into the architecture itself (no threat modeling, unsafe defaults, missing rate limits) rather than a single implementation bug."},
-    {"code": "A07:2025", "name": "Authentication Failures", "description": "Weaknesses in verifying user identity: weak/guessable credentials, broken session management, or ways to bypass login entirely."},
-    {"code": "A08:2025", "name": "Software or Data Integrity Failures", "description": "Code or data that is trusted without verifying its integrity, including unsafe deserialization of untrusted data and unsigned/unverified updates."},
-    {"code": "A09:2025", "name": "Security Logging and Alerting Failures", "description": "Insufficient logging, monitoring, or alerting means attacks go undetected and incident response is delayed or impossible."},
-    {"code": "A10:2025", "name": "Mishandling of Exceptional Conditions", "description": "Errors, exceptions, or edge cases that are not handled safely, leaking sensitive information or leaving the system in an exploitable state."}
+    {
+      "code": "A01:2025",
+      "name": "Broken Access Control",
+      "description": "Vulnerabilities that let unauthorized users reach resources or perform actions they should not be permitted to, e.g. viewing or modifying another user's data by changing an ID in a request."
+    },
+    {
+      "code": "A02:2025",
+      "name": "Security Misconfiguration",
+      "description": "Insecure default settings, incomplete hardening, verbose error messages, or unnecessary features left enabled that expose the application to attack."
+    },
+    {
+      "code": "A03:2025",
+      "name": "Software Supply Chain Failures",
+      "description": "Risks introduced through compromised, outdated, or unvetted third-party dependencies, libraries, or build/deployment pipeline components."
+    },
+    {
+      "code": "A04:2025",
+      "name": "Cryptographic Failures",
+      "description": "Weak, missing, or misconfigured encryption, hashing, or key management that exposes sensitive data in transit or at rest."
+    },
+    {
+      "code": "A05:2025",
+      "name": "Injection",
+      "description": "Untrusted input is passed to an interpreter (SQL, OS shell, template engine, HTML renderer, etc.) without proper neutralisation, letting an attacker alter the intended command or query."
+    },
+    {
+      "code": "A06:2025",
+      "name": "Insecure Design",
+      "description": "Missing or inadequate security controls baked into the architecture itself (no threat modeling, unsafe defaults, missing rate limits) rather than a single implementation bug."
+    },
+    {
+      "code": "A07:2025",
+      "name": "Authentication Failures",
+      "description": "Weaknesses in verifying user identity: weak/guessable credentials, broken session management, or ways to bypass login entirely."
+    },
+    {
+      "code": "A08:2025",
+      "name": "Software or Data Integrity Failures",
+      "description": "Code or data that is trusted without verifying its integrity, including unsafe deserialization of untrusted data and unsigned/unverified updates."
+    },
+    {
+      "code": "A09:2025",
+      "name": "Security Logging and Alerting Failures",
+      "description": "Insufficient logging, monitoring, or alerting means attacks go undetected and incident response is delayed or impossible."
+    },
+    {
+      "code": "A10:2025",
+      "name": "Mishandling of Exceptional Conditions",
+      "description": "Errors, exceptions, or edge cases that are not handled safely, leaking sensitive information or leaving the system in an exploitable state."
+    }
   ],
   "cwe_top25_2025": [
-    {"rank": 1, "cwe_id": "CWE-79", "name": "Improper Neutralization of Input During Web Page Generation (Cross-Site Scripting)", "owasp_category": "A05:2025", "description": "User-supplied input is written into an HTML page without proper escaping, letting an attacker run arbitrary script in another user's browser.", "example_pattern": "innerHTML = userInput; document.write(userInput); render(\"<div>\" + userInput + \"</div>\")"},
-    {"rank": 2, "cwe_id": "CWE-89", "name": "SQL Injection", "owasp_category": "A05:2025", "description": "User input is concatenated directly into a SQL query string instead of using parameterised queries, letting an attacker alter the query's logic.", "example_pattern": "\"SELECT * FROM users WHERE id = '\" + userId + \"'\"; query(\"... WHERE name='\" + name + \"'\")"},
-    {"rank": 3, "cwe_id": "CWE-352", "name": "Cross-Site Request Forgery (CSRF)", "owasp_category": "A01:2025", "description": "A state-changing request lacks a per-session token, letting an attacker trick a logged-in user's browser into submitting it unintentionally.", "example_pattern": "app.post('/transfer', ...) with no CSRF token check; form without anti-forgery token"},
-    {"rank": 4, "cwe_id": "CWE-862", "name": "Missing Authorization", "owasp_category": "A01:2025", "description": "An endpoint or action performs a sensitive operation without checking whether the caller is actually permitted to perform it.", "example_pattern": "router.delete('/user/:id', (req,res)=>{ deleteUser(req.params.id) }) with no role/ownership check"},
-    {"rank": 5, "cwe_id": "CWE-787", "name": "Out-of-bounds Write", "owasp_category": "General Software Weakness (memory safety)", "description": "Data is written past the end (or before the start) of an allocated buffer, corrupting adjacent memory.", "example_pattern": "buf[i] = value where i can exceed buf's allocated length; strcpy into a fixed buffer"},
-    {"rank": 6, "cwe_id": "CWE-22", "name": "Path Traversal", "owasp_category": "A01:2025", "description": "User-controlled input is used to build a filesystem path without sanitising '../' sequences, letting an attacker read or write files outside the intended directory.", "example_pattern": "open(base_dir + userFilename); fs.readFile(path.join(uploadsDir, req.query.file))"},
-    {"rank": 7, "cwe_id": "CWE-416", "name": "Use After Free", "owasp_category": "General Software Weakness (memory safety)", "description": "Memory is used after it has already been freed, which can corrupt data or be exploited to hijack control flow.", "example_pattern": "free(ptr); ...; ptr->field = x;"},
-    {"rank": 8, "cwe_id": "CWE-125", "name": "Out-of-bounds Read", "owasp_category": "General Software Weakness (memory safety)", "description": "Data is read from past the end (or before the start) of an allocated buffer, potentially leaking adjacent memory contents.", "example_pattern": "value = buf[i] where i is not bounds-checked against buf's length"},
-    {"rank": 9, "cwe_id": "CWE-78", "name": "OS Command Injection", "owasp_category": "A05:2025", "description": "User input is concatenated into a string passed to a shell/OS command execution function, letting an attacker inject arbitrary commands.", "example_pattern": "os.system(\"ping \" + host); exec(\"convert \" + filename + \" out.png\"); child_process.exec(`ls ${dir}`)"},
-    {"rank": 10, "cwe_id": "CWE-94", "name": "Code Injection", "owasp_category": "A05:2025", "description": "User-controlled data is passed to a function that evaluates or executes it as code (eval, template rendering, deserialisation-to-code), letting an attacker run arbitrary code.", "example_pattern": "eval(userInput); Function(userInput)(); exec(compile(userCode))"},
-    {"rank": 11, "cwe_id": "CWE-120", "name": "Classic Buffer Overflow", "owasp_category": "General Software Weakness (memory safety)", "description": "Data is copied into a fixed-size buffer without checking that the source data fits, overwriting adjacent memory.", "example_pattern": "strcpy(dest, src) with attacker-controlled src and a fixed-size dest"},
-    {"rank": 12, "cwe_id": "CWE-434", "name": "Unrestricted Upload of File with Dangerous Type", "owasp_category": "A06:2025", "description": "A file upload feature does not validate the uploaded file's type/extension, letting an attacker upload and later execute a malicious script.", "example_pattern": "app.post('/upload', ...) saving req.file to a web-served directory with no extension/type allowlist"},
-    {"rank": 13, "cwe_id": "CWE-476", "name": "NULL Pointer Dereference", "owasp_category": "A10:2025", "description": "A pointer/reference that can be null is dereferenced without a null check, crashing the program or, in some contexts, exposing an exploitable state.", "example_pattern": "user.getProfile().getName() where getProfile() can return null/None with no check"},
-    {"rank": 14, "cwe_id": "CWE-121", "name": "Stack-based Buffer Overflow", "owasp_category": "General Software Weakness (memory safety)", "description": "A buffer overflow specifically on the call stack, which can overwrite the return address and hijack control flow.", "example_pattern": "char buf[16]; gets(buf); // or scanf(\"%s\", buf) with unbounded input"},
-    {"rank": 15, "cwe_id": "CWE-502", "name": "Deserialization of Untrusted Data", "owasp_category": "A08:2025", "description": "Untrusted, attacker-controlled data is deserialised (e.g. pickle, Java serialization, YAML.load) without validation, which can lead to arbitrary code execution.", "example_pattern": "pickle.loads(request.data); yaml.load(user_input); ObjectInputStream.readObject() on untrusted bytes"},
-    {"rank": 16, "cwe_id": "CWE-122", "name": "Heap-based Buffer Overflow", "owasp_category": "General Software Weakness (memory safety)", "description": "A buffer overflow on heap-allocated memory, which can corrupt heap metadata or adjacent objects.", "example_pattern": "malloc(n); memcpy(heapBuf, src, largerThanN)"},
-    {"rank": 17, "cwe_id": "CWE-863", "name": "Incorrect Authorization", "owasp_category": "A01:2025", "description": "An authorization check exists but is implemented incorrectly (wrong role compared, missing edge case), letting some unauthorized requests through.", "example_pattern": "if (user.role != 'admin') { /* allow */ } — inverted or incomplete condition"},
-    {"rank": 18, "cwe_id": "CWE-20", "name": "Improper Input Validation", "owasp_category": "A05:2025", "description": "Input is not validated (type, length, format, range) before being used, which is the root cause underlying many injection and logic-error vulnerabilities.", "example_pattern": "age = int(request.form['age']) used directly with no range/type check before a privileged operation"},
-    {"rank": 19, "cwe_id": "CWE-284", "name": "Improper Access Control", "owasp_category": "A01:2025", "description": "The general weakness of not properly restricting access to a resource, of which missing/incorrect authorization are specific sub-cases.", "example_pattern": "an internal admin route reachable without any auth middleware attached"},
-    {"rank": 20, "cwe_id": "CWE-200", "name": "Exposure of Sensitive Information to an Unauthorized Actor", "owasp_category": "A04:2025", "description": "Sensitive data (secrets, stack traces, internal paths, PII) is exposed to a party that should not have access to it, e.g. in an error message or API response.", "example_pattern": "return { error: err.stack } in an API response; logging full request bodies containing passwords"},
-    {"rank": 21, "cwe_id": "CWE-306", "name": "Missing Authentication for Critical Function", "owasp_category": "A07:2025", "description": "A sensitive operation (e.g. changing a password, admin action) can be invoked without the caller being authenticated at all.", "example_pattern": "router.post('/admin/reset-password', ...) with no auth middleware in front of it"},
-    {"rank": 22, "cwe_id": "CWE-918", "name": "Server-Side Request Forgery (SSRF)", "owasp_category": "A05:2025", "description": "The server fetches a URL supplied (directly or indirectly) by the user without restriction, letting an attacker make the server reach internal-only endpoints.", "example_pattern": "requests.get(user_supplied_url); fetch(req.body.callbackUrl)"},
-    {"rank": 23, "cwe_id": "CWE-77", "name": "Command Injection", "owasp_category": "A05:2025", "description": "General case of untrusted input reaching a command interpreter, letting an attacker inject additional commands or arguments.", "example_pattern": "subprocess.run(user_input, shell=True)"},
-    {"rank": 24, "cwe_id": "CWE-639", "name": "Authorization Bypass Through User-Controlled Key", "owasp_category": "A01:2025", "description": "An object/record is looked up using a key or ID taken directly from user input, with no check that the requester actually owns that object (a.k.a. IDOR).", "example_pattern": "GET /api/orders/:id -> db.orders.findById(req.params.id) with no ownership check against req.user"},
-    {"rank": 25, "cwe_id": "CWE-770", "name": "Allocation of Resources Without Limits or Throttling", "owasp_category": "A06:2025", "description": "An operation allocates resources (memory, threads, file handles, DB connections) in response to user input with no cap, enabling denial-of-service.", "example_pattern": "for each request, spawn an unbounded worker; accept an unbounded file upload size"}
+    {
+      "rank": 1,
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation (Cross-Site Scripting)",
+      "owasp_category": "A05:2025",
+      "description": "User-supplied input is written into an HTML page without proper escaping, letting an attacker run arbitrary script in another user's browser.",
+      "example_pattern": "innerHTML = userInput; document.write(userInput); render(\"<div>\" + userInput + \"</div>\")"
+    },
+    {
+      "rank": 2,
+      "cwe_id": "CWE-89",
+      "name": "SQL Injection",
+      "owasp_category": "A05:2025",
+      "description": "User input is concatenated directly into a SQL query string instead of using parameterised queries, letting an attacker alter the query's logic.",
+      "example_pattern": "\"SELECT * FROM users WHERE id = '\" + userId + \"'\"; query(\"... WHERE name='\" + name + \"'\")"
+    },
+    {
+      "rank": 3,
+      "cwe_id": "CWE-352",
+      "name": "Cross-Site Request Forgery (CSRF)",
+      "owasp_category": "A01:2025",
+      "description": "A state-changing request lacks a per-session token, letting an attacker trick a logged-in user's browser into submitting it unintentionally.",
+      "example_pattern": "app.post('/transfer', ...) with no CSRF token check; form without anti-forgery token"
+    },
+    {
+      "rank": 4,
+      "cwe_id": "CWE-862",
+      "name": "Missing Authorization",
+      "owasp_category": "A01:2025",
+      "description": "An endpoint or action performs a sensitive operation without checking whether the caller is actually permitted to perform it.",
+      "example_pattern": "router.delete('/user/:id', (req,res)=>{ deleteUser(req.params.id) }) with no role/ownership check"
+    },
+    {
+      "rank": 5,
+      "cwe_id": "CWE-787",
+      "name": "Out-of-bounds Write",
+      "owasp_category": "General Software Weakness (memory safety)",
+      "description": "Data is written past the end (or before the start) of an allocated buffer, corrupting adjacent memory.",
+      "example_pattern": "buf[i] = value where i can exceed buf's allocated length; strcpy into a fixed buffer"
+    },
+    {
+      "rank": 6,
+      "cwe_id": "CWE-22",
+      "name": "Path Traversal",
+      "owasp_category": "A01:2025",
+      "description": "User-controlled input is used to build a filesystem path without sanitising '../' sequences, letting an attacker read or write files outside the intended directory.",
+      "example_pattern": "open(base_dir + userFilename); fs.readFile(path.join(uploadsDir, req.query.file))"
+    },
+    {
+      "rank": 7,
+      "cwe_id": "CWE-416",
+      "name": "Use After Free",
+      "owasp_category": "General Software Weakness (memory safety)",
+      "description": "Memory is used after it has already been freed, which can corrupt data or be exploited to hijack control flow.",
+      "example_pattern": "free(ptr); ...; ptr->field = x;"
+    },
+    {
+      "rank": 8,
+      "cwe_id": "CWE-125",
+      "name": "Out-of-bounds Read",
+      "owasp_category": "General Software Weakness (memory safety)",
+      "description": "Data is read from past the end (or before the start) of an allocated buffer, potentially leaking adjacent memory contents.",
+      "example_pattern": "value = buf[i] where i is not bounds-checked against buf's length"
+    },
+    {
+      "rank": 9,
+      "cwe_id": "CWE-78",
+      "name": "OS Command Injection",
+      "owasp_category": "A05:2025",
+      "description": "User input is concatenated into a string passed to a shell/OS command execution function, letting an attacker inject arbitrary commands.",
+      "example_pattern": "os.system(\"ping \" + host); exec(\"convert \" + filename + \" out.png\"); child_process.exec(`ls ${dir}`)"
+    },
+    {
+      "rank": 10,
+      "cwe_id": "CWE-94",
+      "name": "Code Injection",
+      "owasp_category": "A05:2025",
+      "description": "User-controlled data is passed to a function that evaluates or executes it as code (eval, template rendering, deserialisation-to-code), letting an attacker run arbitrary code.",
+      "example_pattern": "eval(userInput); Function(userInput)(); exec(compile(userCode))"
+    },
+    {
+      "rank": 11,
+      "cwe_id": "CWE-120",
+      "name": "Classic Buffer Overflow",
+      "owasp_category": "General Software Weakness (memory safety)",
+      "description": "Data is copied into a fixed-size buffer without checking that the source data fits, overwriting adjacent memory.",
+      "example_pattern": "strcpy(dest, src) with attacker-controlled src and a fixed-size dest"
+    },
+    {
+      "rank": 12,
+      "cwe_id": "CWE-434",
+      "name": "Unrestricted Upload of File with Dangerous Type",
+      "owasp_category": "A06:2025",
+      "description": "A file upload feature does not validate the uploaded file's type/extension, letting an attacker upload and later execute a malicious script.",
+      "example_pattern": "app.post('/upload', ...) saving req.file to a web-served directory with no extension/type allowlist"
+    },
+    {
+      "rank": 13,
+      "cwe_id": "CWE-476",
+      "name": "NULL Pointer Dereference",
+      "owasp_category": "A10:2025",
+      "description": "A pointer/reference that can be null is dereferenced without a null check, crashing the program or, in some contexts, exposing an exploitable state.",
+      "example_pattern": "user.getProfile().getName() where getProfile() can return null/None with no check"
+    },
+    {
+      "rank": 14,
+      "cwe_id": "CWE-121",
+      "name": "Stack-based Buffer Overflow",
+      "owasp_category": "General Software Weakness (memory safety)",
+      "description": "A buffer overflow specifically on the call stack, which can overwrite the return address and hijack control flow.",
+      "example_pattern": "char buf[16]; gets(buf); // or scanf(\"%s\", buf) with unbounded input"
+    },
+    {
+      "rank": 15,
+      "cwe_id": "CWE-502",
+      "name": "Deserialization of Untrusted Data",
+      "owasp_category": "A08:2025",
+      "description": "Untrusted, attacker-controlled data is deserialised (e.g. pickle, Java serialization, YAML.load) without validation, which can lead to arbitrary code execution.",
+      "example_pattern": "pickle.loads(request.data); yaml.load(user_input); ObjectInputStream.readObject() on untrusted bytes"
+    },
+    {
+      "rank": 16,
+      "cwe_id": "CWE-122",
+      "name": "Heap-based Buffer Overflow",
+      "owasp_category": "General Software Weakness (memory safety)",
+      "description": "A buffer overflow on heap-allocated memory, which can corrupt heap metadata or adjacent objects.",
+      "example_pattern": "malloc(n); memcpy(heapBuf, src, largerThanN)"
+    },
+    {
+      "rank": 17,
+      "cwe_id": "CWE-863",
+      "name": "Incorrect Authorization",
+      "owasp_category": "A01:2025",
+      "description": "An authorization check exists but is implemented incorrectly (wrong role compared, missing edge case), letting some unauthorized requests through.",
+      "example_pattern": "if (user.role != 'admin') { /* allow */ } — inverted or incomplete condition"
+    },
+    {
+      "rank": 18,
+      "cwe_id": "CWE-20",
+      "name": "Improper Input Validation",
+      "owasp_category": "A05:2025",
+      "description": "Input is not validated (type, length, format, range) before being used, which is the root cause underlying many injection and logic-error vulnerabilities.",
+      "example_pattern": "age = int(request.form['age']) used directly with no range/type check before a privileged operation"
+    },
+    {
+      "rank": 19,
+      "cwe_id": "CWE-284",
+      "name": "Improper Access Control",
+      "owasp_category": "A01:2025",
+      "description": "The general weakness of not properly restricting access to a resource, of which missing/incorrect authorization are specific sub-cases.",
+      "example_pattern": "an internal admin route reachable without any auth middleware attached"
+    },
+    {
+      "rank": 20,
+      "cwe_id": "CWE-200",
+      "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive data (secrets, stack traces, internal paths, PII) is exposed to a party that should not have access to it, e.g. in an error message or API response.",
+      "example_pattern": "return { error: err.stack } in an API response; logging full request bodies containing passwords"
+    },
+    {
+      "rank": 21,
+      "cwe_id": "CWE-306",
+      "name": "Missing Authentication for Critical Function",
+      "owasp_category": "A07:2025",
+      "description": "A sensitive operation (e.g. changing a password, admin action) can be invoked without the caller being authenticated at all.",
+      "example_pattern": "router.post('/admin/reset-password', ...) with no auth middleware in front of it"
+    },
+    {
+      "rank": 22,
+      "cwe_id": "CWE-918",
+      "name": "Server-Side Request Forgery (SSRF)",
+      "owasp_category": "A05:2025",
+      "description": "The server fetches a URL supplied (directly or indirectly) by the user without restriction, letting an attacker make the server reach internal-only endpoints.",
+      "example_pattern": "requests.get(user_supplied_url); fetch(req.body.callbackUrl)"
+    },
+    {
+      "rank": 23,
+      "cwe_id": "CWE-77",
+      "name": "Command Injection",
+      "owasp_category": "A05:2025",
+      "description": "General case of untrusted input reaching a command interpreter, letting an attacker inject additional commands or arguments.",
+      "example_pattern": "subprocess.run(user_input, shell=True)"
+    },
+    {
+      "rank": 24,
+      "cwe_id": "CWE-639",
+      "name": "Authorization Bypass Through User-Controlled Key",
+      "owasp_category": "A01:2025",
+      "description": "An object/record is looked up using a key or ID taken directly from user input, with no check that the requester actually owns that object (a.k.a. IDOR).",
+      "example_pattern": "GET /api/orders/:id -> db.orders.findById(req.params.id) with no ownership check against req.user"
+    },
+    {
+      "rank": 25,
+      "cwe_id": "CWE-770",
+      "name": "Allocation of Resources Without Limits or Throttling",
+      "owasp_category": "A06:2025",
+      "description": "An operation allocates resources (memory, threads, file handles, DB connections) in response to user input with no cap, enabling denial-of-service.",
+      "example_pattern": "for each request, spawn an unbounded worker; accept an unbounded file upload size"
+    }
+  ],
+  "cwe_extended": [
+    {
+      "cwe_id": "CWE-74",
+      "name": "Improper Neutralization of Special Elements in Output Used by a Downstream Component (Injection)",
+      "owasp_category": "A05:2025",
+      "description": "Untrusted data is placed into a command, query, message or document handed to another component without neutralising characters that component treats as syntax, letting the attacker change its meaning.",
+      "example_pattern": "build a string from request data and pass it to an interpreter, database, shell, template or protocol handler"
+    },
+    {
+      "cwe_id": "CWE-88",
+      "name": "Argument Injection or Modification",
+      "owasp_category": "A05:2025",
+      "description": "User input is passed as an argument to an external program without preventing it from being parsed as an extra option or flag, so the attacker changes what the program does (for example --output, -exec, --upload-pack).",
+      "example_pattern": "subprocess.run(['git','clone',url]) where url starts with a dash; spawn('curl', [userUrl]); options from request"
+    },
+    {
+      "cwe_id": "CWE-90",
+      "name": "Improper Neutralization of Special Elements used in an LDAP Query (LDAP Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input is concatenated into an LDAP search filter or distinguished name without escaping, allowing filter manipulation, authentication bypass or directory data disclosure.",
+      "example_pattern": "ldap.search('(&(uid=' + user + ')(userPassword=' + pw + '))')"
+    },
+    {
+      "cwe_id": "CWE-91",
+      "name": "XML Injection (Blind XPath Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input is inserted into an XML document or XPath-style query without neutralising markup characters, allowing the attacker to alter the structure or content of the XML.",
+      "example_pattern": "xml = '<user><name>' + name + '</name></user>'; building xml elements by string concatenation"
+    },
+    {
+      "cwe_id": "CWE-93",
+      "name": "Improper Neutralization of CRLF Sequences (CRLF Injection)",
+      "owasp_category": "A05:2025",
+      "description": "Carriage-return and line-feed characters from user input are written into a protocol message, log or header block, letting the attacker inject extra lines or headers.",
+      "example_pattern": "response.setHeader('X-Name', req.query.name); header value containing \\r\\n"
+    },
+    {
+      "cwe_id": "CWE-95",
+      "name": "Improper Neutralization of Directives in Dynamically Evaluated Code (Eval Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input reaches an evaluation function that interprets strings as code, so the attacker can run arbitrary code in the application.",
+      "example_pattern": "eval(user_input); exec(code); new Function(body); vm.runInNewContext(userCode); setTimeout(string)"
+    },
+    {
+      "cwe_id": "CWE-96",
+      "name": "Improper Neutralization of Directives in Statically Saved Code (Static Code Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input is written into a source file, template or configuration that is later executed or included, so attacker-controlled text becomes code.",
+      "example_pattern": "open('settings.py','a').write('LEVEL = ' + value); writing user text into a .js or .py file that is later loaded"
+    },
+    {
+      "cwe_id": "CWE-99",
+      "name": "Improper Control of Resource Identifiers (Resource Injection)",
+      "owasp_category": "A01:2025",
+      "description": "User input is used as an identifier of a resource such as a file name, port, socket, queue, bucket or table, letting the attacker reach resources the application did not intend to expose.",
+      "example_pattern": "open(request.args['name']); s3.get_object(Bucket=user_bucket); connect(host, int(port_from_user))"
+    },
+    {
+      "cwe_id": "CWE-113",
+      "name": "Improper Neutralization of CRLF Sequences in HTTP Headers (HTTP Response Splitting)",
+      "owasp_category": "A05:2025",
+      "description": "User input containing line breaks is copied into an HTTP response header, so the attacker can inject headers or split the response into two, enabling cache poisoning or XSS.",
+      "example_pattern": "res.setHeader('Location', req.query.url); response['Set-Cookie'] = 'lang=' + lang; redirect with unvalidated value"
+    },
+    {
+      "cwe_id": "CWE-116",
+      "name": "Improper Encoding or Escaping of Output",
+      "owasp_category": "A05:2025",
+      "description": "Data is written to an output context (HTML, URL, JavaScript, SQL, shell, JSON) without the encoding that context requires, so special characters are interpreted as syntax.",
+      "example_pattern": "string concatenation into HTML attribute, URL or script block without context-specific encoding"
+    },
+    {
+      "cwe_id": "CWE-117",
+      "name": "Improper Output Neutralization for Logs (Log Injection)",
+      "owasp_category": "A09:2025",
+      "description": "User-controlled text is written to a log without removing line breaks or control characters, letting an attacker forge log entries or hide activity.",
+      "example_pattern": "logger.info('login failed for ' + username); console.log(req.body.comment)"
+    },
+    {
+      "cwe_id": "CWE-134",
+      "name": "Use of Externally-Controlled Format String",
+      "owasp_category": "A05:2025",
+      "description": "A format string passed to a formatting function comes from user input, so format directives can read internal data or cause errors (for example str.format on attacker text exposes object attributes).",
+      "example_pattern": "user_template.format(**ctx); '{0.__class__}'.format(obj); printf-style call with user format"
+    },
+    {
+      "cwe_id": "CWE-138",
+      "name": "Improper Neutralization of Special Elements",
+      "owasp_category": "A05:2025",
+      "description": "Special characters or delimiters in input are not neutralised before the data is used by a component that gives them structural meaning.",
+      "example_pattern": "split input on a delimiter then trust the pieces; building CSV, key=value or protocol lines from raw input"
+    },
+    {
+      "cwe_id": "CWE-470",
+      "name": "Use of Externally-Controlled Input to Select Classes or Code (Unsafe Reflection)",
+      "owasp_category": "A05:2025",
+      "description": "User input chooses which class, function, module or method is loaded or called, so the attacker can run unintended code paths or instantiate dangerous classes.",
+      "example_pattern": "importlib.import_module(request.args['mod']); getattr(obj, user_attr)(); require(userPath); window[userFunction]()"
+    },
+    {
+      "cwe_id": "CWE-643",
+      "name": "Improper Neutralization of Data within XPath Expressions (XPath Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input is concatenated into an XPath expression, letting the attacker alter the query to read other nodes or bypass authentication.",
+      "example_pattern": "tree.xpath(\"//user[name='\" + name + \"' and pass='\" + pw + \"']\")"
+    },
+    {
+      "cwe_id": "CWE-917",
+      "name": "Improper Neutralization of Special Elements used in an Expression Language Statement (Expression Language Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input is evaluated by an expression language engine (SpEL, OGNL, EL, JEXL, template expression engines), allowing arbitrary expression and often code execution.",
+      "example_pattern": "evaluate(userExpression); expression engine parse(user_text).getValue()"
+    },
+    {
+      "cwe_id": "CWE-943",
+      "name": "Improper Neutralization of Special Elements in Data Query Logic (NoSQL Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User-supplied objects or strings are passed straight into a NoSQL query (MongoDB, CouchDB, Elasticsearch), so operators such as $ne, $gt or $where change the query logic.",
+      "example_pattern": "db.users.find({username: req.body.username, password: req.body.password}); collection.find(request.json); $where with user string"
+    },
+    {
+      "cwe_id": "CWE-1236",
+      "name": "Improper Neutralization of Formula Elements in a CSV File (CSV Injection)",
+      "owasp_category": "A05:2025",
+      "description": "Cell values that begin with =, +, - or @ are exported to CSV/spreadsheet files without neutralisation, so opening the file in a spreadsheet runs attacker formulas.",
+      "example_pattern": "csv.writer.writerow([user_name, comment]); export rows containing raw user text starting with ="
+    },
+    {
+      "cwe_id": "CWE-1321",
+      "name": "Improperly Controlled Modification of Object Prototype Attributes (Prototype Pollution)",
+      "owasp_category": "A08:2025",
+      "description": "A merge, clone or property-assignment routine copies attacker-controlled keys such as __proto__, constructor or prototype into objects, changing behaviour of every object in the process.",
+      "example_pattern": "merge(target, JSON.parse(body)); obj[key][subkey] = value with keys from input; lodash.merge defaultsDeep unsafe"
+    },
+    {
+      "cwe_id": "CWE-1336",
+      "name": "Improper Neutralization of Special Elements Used in a Template Engine (Server-Side Template Injection)",
+      "owasp_category": "A05:2025",
+      "description": "User input is placed into the template source (not into its data), so the template engine evaluates attacker expressions and can reach code execution.",
+      "example_pattern": "render_template_string(user_text); Template(user_input).render(); ejs.render(req.query.t); nunjucks.renderString(input)"
+    },
+    {
+      "cwe_id": "CWE-611",
+      "name": "Improper Restriction of XML External Entity Reference (XXE)",
+      "owasp_category": "A02:2025",
+      "description": "An XML parser is run with external entity or DTD processing enabled on untrusted XML, letting the attacker read local files, make server-side requests or exhaust resources.",
+      "example_pattern": "etree.parse(user_xml); xml2js / libxmljs with noent true; DocumentBuilder without disabling doctype; lxml resolve_entities True"
+    },
+    {
+      "cwe_id": "CWE-776",
+      "name": "Improper Restriction of Recursive Entity References in DTDs (XML Entity Expansion)",
+      "owasp_category": "A02:2025",
+      "description": "An XML parser expands nested entity definitions in untrusted input without limits, so a small document expands to gigabytes (billion laughs) and exhausts memory or CPU.",
+      "example_pattern": "xml.etree.ElementTree.fromstring(untrusted); parsers without entity expansion limits"
+    },
+    {
+      "cwe_id": "CWE-601",
+      "name": "URL Redirection to Untrusted Site (Open Redirect)",
+      "owasp_category": "A01:2025",
+      "description": "The application redirects the user to a URL taken from a request parameter without checking that it points to an allowed destination, which attackers use for phishing.",
+      "example_pattern": "return redirect(request.args['next']); res.redirect(req.query.url); Location header from user input"
+    },
+    {
+      "cwe_id": "CWE-1333",
+      "name": "Inefficient Regular Expression Complexity (ReDoS)",
+      "owasp_category": "A06:2025",
+      "description": "A regular expression with nested or overlapping quantifiers is matched against attacker-controlled input, so backtracking takes exponential time and blocks the process.",
+      "example_pattern": "re.match('(a+)+$', user); new RegExp(userPattern); /^(\\w+\\s?)*$/.test(input)"
+    },
+    {
+      "cwe_id": "CWE-625",
+      "name": "Permissive Regular Expression",
+      "owasp_category": "A06:2025",
+      "description": "A regular expression used for validation is unanchored or too broad, so inputs that should be rejected still match (for example missing ^ and $, or an unescaped dot in a domain check).",
+      "example_pattern": "re.search('example.com', url); /admin/.test(path); allow-list pattern without anchors"
+    },
+    {
+      "cwe_id": "CWE-1427",
+      "name": "Improper Neutralization of Input Used for LLM Prompting (Prompt Injection)",
+      "owasp_category": "A05:2025",
+      "description": "Untrusted text is concatenated into a prompt for a language model, so instructions hidden in that text can override the developer's instructions or trigger unintended tool calls and data disclosure.",
+      "example_pattern": "prompt = f\"Summarise this document: {user_document}\"; llm tools executed from model output without checks"
+    },
+    {
+      "cwe_id": "CWE-1426",
+      "name": "Improper Validation of Generative AI Output",
+      "owasp_category": "A05:2025",
+      "description": "Output of a language model is trusted and used directly as code, a command, SQL, HTML or a security decision without validation or sandboxing.",
+      "example_pattern": "exec(llm_response); subprocess.run(model_output, shell=True); innerHTML = completion; cursor.execute(generated_sql)"
+    },
+    {
+      "cwe_id": "CWE-23",
+      "name": "Relative Path Traversal",
+      "owasp_category": "A01:2025",
+      "description": "A path built from user input contains sequences such as ../ that move outside the intended directory, exposing or overwriting other files.",
+      "example_pattern": "open(os.path.join(BASE, filename)); fs.readFile(path.join(dir, req.query.f)); send_file(user_path)"
+    },
+    {
+      "cwe_id": "CWE-36",
+      "name": "Absolute Path Traversal",
+      "owasp_category": "A01:2025",
+      "description": "User input supplies a full absolute path (such as /etc/passwd or C:\\\\Windows\\\\win.ini) that the application opens without restricting it to an allowed directory.",
+      "example_pattern": "open(request.args['file']); fs.createReadStream(req.params.path); absolute path accepted from request"
+    },
+    {
+      "cwe_id": "CWE-59",
+      "name": "Improper Link Resolution Before File Access (Link Following)",
+      "owasp_category": "A01:2025",
+      "description": "The application accesses a file path without checking whether it is a symbolic link or junction, so an attacker can point it at a sensitive target.",
+      "example_pattern": "open(path) on files in a shared or user-writable directory; extracting archives that contain symlinks"
+    },
+    {
+      "cwe_id": "CWE-73",
+      "name": "External Control of File Name or Path",
+      "owasp_category": "A01:2025",
+      "description": "A file name or path used for reading, writing, deleting or including comes from user input, letting the attacker choose which file is affected.",
+      "example_pattern": "os.remove(request.form['file']); open(user_path, 'w'); fs.unlink(req.body.name); import by user path"
+    },
+    {
+      "cwe_id": "CWE-377",
+      "name": "Insecure Temporary File",
+      "owasp_category": "A01:2025",
+      "description": "A temporary file is created with a predictable name or in a shared directory without exclusive creation, allowing other users to pre-create, read or replace it.",
+      "example_pattern": "open('/tmp/report.txt','w'); tempfile.mktemp(); fs.writeFile('/tmp/' + name)"
+    },
+    {
+      "cwe_id": "CWE-379",
+      "name": "Creation of Temporary File in Directory with Insecure Permissions",
+      "owasp_category": "A01:2025",
+      "description": "A temporary file or directory is created in a location or with permissions that let other local users read or modify it.",
+      "example_pattern": "os.makedirs('/tmp/app', mode=0o777); chmod 777 tmp file; world-writable temp directory"
+    },
+    {
+      "cwe_id": "CWE-425",
+      "name": "Direct Request (Forced Browsing)",
+      "owasp_category": "A01:2025",
+      "description": "Sensitive pages, endpoints or files are reachable by requesting their URL directly because access control is applied only to links in the interface, not on the server.",
+      "example_pattern": "admin routes registered without auth decorator; static export or backup files served; hidden URLs assumed secret"
+    },
+    {
+      "cwe_id": "CWE-441",
+      "name": "Unintended Proxy or Intermediary (Confused Deputy)",
+      "owasp_category": "A01:2025",
+      "description": "The application forwards a request on behalf of a user to another service using its own privileges or credentials, allowing the user to reach things they could not reach directly.",
+      "example_pattern": "proxy endpoint forwards arbitrary URL with server credentials; internal API called with service token using user-chosen path"
+    },
+    {
+      "cwe_id": "CWE-497",
+      "name": "Exposure of Sensitive System Information to an Unauthorized Control Sphere",
+      "owasp_category": "A02:2025",
+      "description": "System details such as paths, versions, environment variables, configuration or stack data are returned to users who should not see them.",
+      "example_pattern": "return jsonify(dict(os.environ)); debug endpoint printing config; phpinfo style status page"
+    },
+    {
+      "cwe_id": "CWE-538",
+      "name": "Insertion of Sensitive Information into Externally-Accessible File or Directory",
+      "owasp_category": "A01:2025",
+      "description": "Secrets or personal data are written to files in a web-served, shared or public location where unauthorised people can fetch them.",
+      "example_pattern": "write credentials to public/ or static/ folder; save backups or exports under the web root"
+    },
+    {
+      "cwe_id": "CWE-548",
+      "name": "Exposure of Information Through Directory Listing",
+      "owasp_category": "A02:2025",
+      "description": "The server shows the contents of a directory when no index file exists, revealing file names and structure.",
+      "example_pattern": "express.static with serve-index; autoindex on; python -m http.server style listing of data directories"
+    },
+    {
+      "cwe_id": "CWE-552",
+      "name": "Files or Directories Accessible to External Parties",
+      "owasp_category": "A01:2025",
+      "description": "Files that should be private (source, configuration, dumps, keys, version-control folders) are located where a web server or file share can deliver them.",
+      "example_pattern": "app.use(express.static('.')); serving project root; .git or .env reachable over HTTP"
+    },
+    {
+      "cwe_id": "CWE-566",
+      "name": "Authorization Bypass Through User-Controlled SQL Primary Key",
+      "owasp_category": "A01:2025",
+      "description": "A record is fetched or changed using an id from the request without checking that the record belongs to the current user.",
+      "example_pattern": "SELECT * FROM orders WHERE id = ? with id from URL and no owner check; Model.objects.get(pk=request.GET['id'])"
+    },
+    {
+      "cwe_id": "CWE-598",
+      "name": "Use of GET Request Method With Sensitive Query Strings",
+      "owasp_category": "A04:2025",
+      "description": "Passwords, tokens or personal data are sent in the URL query string of GET requests, where they are stored in logs, history and referrer headers.",
+      "example_pattern": "requests.get(url, params={'password': pw}); fetch('/login?token=' + token); <form method=get> with password field"
+    },
+    {
+      "cwe_id": "CWE-668",
+      "name": "Exposure of Resource to Wrong Sphere",
+      "owasp_category": "A01:2025",
+      "description": "A resource is made reachable to a wider audience than intended, such as binding a debug service to all interfaces or making an object store public.",
+      "example_pattern": "app.run(host='0.0.0.0', debug=True); bucket ACL public-read; internal service listening on public interface"
+    },
+    {
+      "cwe_id": "CWE-732",
+      "name": "Incorrect Permission Assignment for Critical Resource",
+      "owasp_category": "A01:2025",
+      "description": "Files, directories, sockets or keys are created with permissions that let other users read or modify them.",
+      "example_pattern": "os.chmod(path, 0o777); open key file with mode 0o666; umask(0); fs.chmodSync(file, 0o777)"
+    },
+    {
+      "cwe_id": "CWE-749",
+      "name": "Exposed Dangerous Method or Function",
+      "owasp_category": "A01:2025",
+      "description": "A powerful method (file access, command execution, reload, admin) is exposed through an API, RPC, WebView bridge or message handler without restriction.",
+      "example_pattern": "jsonrpc dispatch of arbitrary method names; electron contextBridge exposing fs and child_process; exposed eval endpoint"
+    },
+    {
+      "cwe_id": "CWE-922",
+      "name": "Insecure Storage of Sensitive Information",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive data is stored without access protection or encryption, for example in browser localStorage, world-readable files or plain preferences.",
+      "example_pattern": "localStorage.setItem('token', jwt); sessionStorage password; sensitive data in a plain file"
+    },
+    {
+      "cwe_id": "CWE-1275",
+      "name": "Sensitive Cookie with Improper SameSite Attribute",
+      "owasp_category": "A01:2025",
+      "description": "A session or authentication cookie is set with SameSite=None or without the attribute, so browsers send it on cross-site requests and CSRF becomes easier.",
+      "example_pattern": "res.cookie('session', id, {sameSite: 'none'}); Set-Cookie without SameSite; SESSION_COOKIE_SAMESITE=None"
+    },
+    {
+      "cwe_id": "CWE-1004",
+      "name": "Sensitive Cookie Without HttpOnly Flag",
+      "owasp_category": "A02:2025",
+      "description": "A session or authentication cookie is created without the HttpOnly attribute, so scripts running in the page (for example through XSS) can read it.",
+      "example_pattern": "res.cookie('sid', id); response.set_cookie('session', value); SESSION_COOKIE_HTTPONLY = False"
+    },
+    {
+      "cwe_id": "CWE-614",
+      "name": "Sensitive Cookie in HTTPS Session Without Secure Attribute",
+      "owasp_category": "A02:2025",
+      "description": "A cookie holding session or credential data is not marked Secure, so browsers may send it over plain HTTP where it can be intercepted.",
+      "example_pattern": "res.cookie('sid', id, {secure: false}); SESSION_COOKIE_SECURE = False; set_cookie without secure=True"
+    },
+    {
+      "cwe_id": "CWE-346",
+      "name": "Origin Validation Error",
+      "owasp_category": "A07:2025",
+      "description": "The application trusts the origin, host or referrer of a request or message without validating it properly, for example reflecting any Origin header or accepting postMessage from any sender.",
+      "example_pattern": "response['Access-Control-Allow-Origin'] = request.headers['Origin']; window.addEventListener('message', handler) with no event.origin check"
+    },
+    {
+      "cwe_id": "CWE-942",
+      "name": "Permissive Cross-domain Policy with Untrusted Domains (CORS Misconfiguration)",
+      "owasp_category": "A02:2025",
+      "description": "A CORS or cross-domain policy allows untrusted origins, commonly a wildcard or reflected Origin combined with credentials, letting other sites read authenticated responses.",
+      "example_pattern": "cors({origin: true, credentials: true}); Access-Control-Allow-Origin: * with cookies; CORS_ALLOW_ALL_ORIGINS = True"
+    },
+    {
+      "cwe_id": "CWE-915",
+      "name": "Improperly Controlled Modification of Dynamically-Determined Object Attributes (Mass Assignment)",
+      "owasp_category": "A08:2025",
+      "description": "Request data is bound directly onto a model or object, so users can set fields they should not control, such as role, isAdmin or price.",
+      "example_pattern": "User(**request.json); Object.assign(user, req.body); Model.create(req.body); serializer with fields = '__all__'"
+    },
+    {
+      "cwe_id": "CWE-1021",
+      "name": "Improper Restriction of Rendered UI Layers or Frames (Clickjacking)",
+      "owasp_category": "A06:2025",
+      "description": "A page can be embedded in a frame by any other site because no frame-ancestors policy or X-Frame-Options header is sent, enabling clickjacking.",
+      "example_pattern": "app without helmet frameguard; response missing X-Frame-Options and CSP frame-ancestors; X_FRAME_OPTIONS disabled"
+    },
+    {
+      "cwe_id": "CWE-1022",
+      "name": "Use of Web Link to Untrusted Target with window.opener Access",
+      "owasp_category": "A06:2025",
+      "description": "Links opened with target=_blank without rel=noopener let the opened page control the original tab through window.opener (reverse tabnabbing).",
+      "example_pattern": "<a href=userUrl target=\"_blank\">; window.open(url) without noopener"
+    },
+    {
+      "cwe_id": "CWE-269",
+      "name": "Improper Privilege Management",
+      "owasp_category": "A01:2025",
+      "description": "Privileges are assigned, retained or elevated incorrectly, so a user or process can act with more rights than intended.",
+      "example_pattern": "user.role = request.json['role']; setuid left active; privilege added without checking caller; admin flag from client"
+    },
+    {
+      "cwe_id": "CWE-250",
+      "name": "Execution with Unnecessary Privileges",
+      "owasp_category": "A06:2025",
+      "description": "Code runs with higher privileges than it needs, such as as root or administrator, so any flaw in it has a larger impact.",
+      "example_pattern": "container user root; sudo in application code; service running with admin token for read-only work"
+    },
+    {
+      "cwe_id": "CWE-276",
+      "name": "Incorrect Default Permissions",
+      "owasp_category": "A02:2025",
+      "description": "Files, directories or resources are installed or created with default permissions that are too open.",
+      "example_pattern": "default umask 000; shared config created world-readable; default ACL allows everyone"
+    },
+    {
+      "cwe_id": "CWE-285",
+      "name": "Improper Authorization",
+      "owasp_category": "A01:2025",
+      "description": "The application does not correctly check that the actor is allowed to perform an action on a resource, or the check can be bypassed.",
+      "example_pattern": "permission check only in UI; role compared incorrectly; authorisation skipped on some code path"
+    },
+    {
+      "cwe_id": "CWE-798",
+      "name": "Use of Hard-coded Credentials",
+      "owasp_category": "A07:2025",
+      "description": "A password, API key, token or cryptographic key is written into source code or a committed config file, so anyone with the code (or the binary) can authenticate and the secret cannot be rotated without a redeploy.",
+      "example_pattern": "API_KEY = 'sk_live_...'; password = 'admin123'; const secret = 'changeme'; Authorization header with literal token"
+    },
+    {
+      "cwe_id": "CWE-259",
+      "name": "Use of Hard-coded Password",
+      "owasp_category": "A07:2025",
+      "description": "A fixed password is compiled into the program or stored in a config checked into version control and used for authentication or to decrypt data.",
+      "example_pattern": "DB_PASSWORD = 'root'; if password == 'letmein': grant access"
+    },
+    {
+      "cwe_id": "CWE-321",
+      "name": "Use of Hard-coded Cryptographic Key",
+      "owasp_category": "A04:2025",
+      "description": "A symmetric key, HMAC secret or signing key is embedded in source code, so anyone who sees the code can decrypt data or forge signed tokens.",
+      "example_pattern": "KEY = b'0123456789abcdef'; jwt.encode(payload, 'secret', algorithm='HS256'); crypto.createCipheriv('aes-256-cbc', 'fixedkey', iv)"
+    },
+    {
+      "cwe_id": "CWE-256",
+      "name": "Plaintext Storage of a Password",
+      "owasp_category": "A04:2025",
+      "description": "Passwords are stored or written unprotected (plain text, reversible encoding) instead of salted one-way hashes, so a database or file leak exposes every user's password.",
+      "example_pattern": "user.password = request.form['password']; db.insert({password: req.body.password}); base64 of a password"
+    },
+    {
+      "cwe_id": "CWE-257",
+      "name": "Storing Passwords in a Recoverable Format",
+      "owasp_category": "A04:2025",
+      "description": "Passwords are stored encrypted or encoded so they can be recovered, rather than hashed, so one stolen key reveals all passwords.",
+      "example_pattern": "encrypt(password, key); base64.b64encode(password); store reversible cipher"
+    },
+    {
+      "cwe_id": "CWE-522",
+      "name": "Insufficiently Protected Credentials",
+      "owasp_category": "A07:2025",
+      "description": "Credentials are transmitted or stored in a way that lets attackers obtain them, for example in URLs, logs, cookies without protection, or unencrypted configuration.",
+      "example_pattern": "requests.get(url + '?password=' + pw); localStorage.setItem('password', pw); credentials in query string"
+    },
+    {
+      "cwe_id": "CWE-326",
+      "name": "Inadequate Encryption Strength",
+      "owasp_category": "A04:2025",
+      "description": "A key length or algorithm parameter is too small for the protection required, such as RSA below 2048 bits, AES keys under 128 bits, or short HMAC keys, which makes brute force or factoring feasible.",
+      "example_pattern": "rsa.generate_private_key(public_exponent=65537, key_size=512); RSA.generate(1024); DES key"
+    },
+    {
+      "cwe_id": "CWE-327",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
+      "owasp_category": "A04:2025",
+      "description": "The code uses a cryptographic primitive known to be weak or obsolete (MD5, SHA-1, DES, RC4, ECB mode) for security purposes such as password hashing, signatures or encryption.",
+      "example_pattern": "hashlib.md5(password.encode()); crypto.createHash('sha1'); AES.new(key, AES.MODE_ECB); DES.new"
+    },
+    {
+      "cwe_id": "CWE-328",
+      "name": "Use of Weak Hash",
+      "owasp_category": "A04:2025",
+      "description": "A hash function that is too fast or collision-prone (MD5, SHA-1, unsalted SHA-256) is used where collision or pre-image resistance, or slow password hashing, is required.",
+      "example_pattern": "hashlib.sha1(data).hexdigest(); crypto.createHash('md5').update(pw).digest('hex'); sha256(password) without salt or work factor"
+    },
+    {
+      "cwe_id": "CWE-916",
+      "name": "Use of Password Hash With Insufficient Computational Effort",
+      "owasp_category": "A04:2025",
+      "description": "Passwords are hashed with a fast general-purpose hash or with too few iterations, so stolen hashes can be cracked quickly with GPUs, instead of using bcrypt, scrypt, Argon2 or PBKDF2 with a high work factor.",
+      "example_pattern": "hashlib.sha256(password.encode()).hexdigest(); pbkdf2_hmac('sha1', pw, salt, 1000); bcrypt cost 4"
+    },
+    {
+      "cwe_id": "CWE-759",
+      "name": "Use of a One-Way Hash without a Salt",
+      "owasp_category": "A04:2025",
+      "description": "Passwords are hashed without a unique per-user salt so identical passwords give identical hashes and precomputed rainbow tables work.",
+      "example_pattern": "hashlib.sha256(password.encode()).hexdigest() with no salt; md5(pw)"
+    },
+    {
+      "cwe_id": "CWE-760",
+      "name": "Use of a One-Way Hash with a Predictable Salt",
+      "owasp_category": "A04:2025",
+      "description": "The salt for password hashing is constant, derived from the username or otherwise predictable, which allows precomputation attacks across users.",
+      "example_pattern": "salt = 'static_salt'; salt = username; hash(pw + username)"
+    },
+    {
+      "cwe_id": "CWE-330",
+      "name": "Use of Insufficiently Random Values",
+      "owasp_category": "A04:2025",
+      "description": "Security-relevant values such as tokens, session ids, reset codes or keys are generated with a predictable random source instead of a cryptographically secure generator.",
+      "example_pattern": "random.randint(100000, 999999); Math.random().toString(36); random.choice(string.ascii_letters); uuid1 token"
+    },
+    {
+      "cwe_id": "CWE-338",
+      "name": "Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)",
+      "owasp_category": "A04:2025",
+      "description": "A non-cryptographic PRNG (Python random module, JavaScript Math.random, rand()) is used to produce secrets, so outputs can be predicted from a few observed values.",
+      "example_pattern": "token = ''.join(random.choice(chars) for _ in range(32)); const id = Math.random().toString(16); random.seed(time.time())"
+    },
+    {
+      "cwe_id": "CWE-331",
+      "name": "Insufficient Entropy",
+      "owasp_category": "A04:2025",
+      "description": "Random values drawn from a small space (a few digits, a timestamp, a counter) can be brute-forced or guessed, even when a strong generator is used.",
+      "example_pattern": "otp = random 4 digits; token = str(int(time.time())); session id = counter"
+    },
+    {
+      "cwe_id": "CWE-335",
+      "name": "Incorrect Usage of Seeds in Pseudo-Random Number Generator (PRNG)",
+      "owasp_category": "A04:2025",
+      "description": "A PRNG is seeded with a fixed or predictable value (constant, system time, process id) so the whole output sequence can be reproduced.",
+      "example_pattern": "random.seed(1234); random.seed(int(time.time())); srand(time(NULL))"
+    },
+    {
+      "cwe_id": "CWE-329",
+      "name": "Generation of Predictable IV with CBC Mode",
+      "owasp_category": "A04:2025",
+      "description": "A CBC initialization vector is constant or predictable, allowing chosen-plaintext attacks and leaking equality of messages.",
+      "example_pattern": "iv = b'0000000000000000'; AES.new(key, AES.MODE_CBC, iv=key[:16]); createCipheriv with fixed iv"
+    },
+    {
+      "cwe_id": "CWE-323",
+      "name": "Reusing a Nonce, Key Pair in Encryption",
+      "owasp_category": "A04:2025",
+      "description": "The same nonce or IV is used more than once with the same key in a stream cipher or AEAD mode such as AES-GCM or ChaCha20, which can reveal plaintext and allow forgery.",
+      "example_pattern": "nonce = b'000000000000'; AESGCM.encrypt(nonce, data, aad) with a fixed nonce for each message"
+    },
+    {
+      "cwe_id": "CWE-325",
+      "name": "Missing Cryptographic Step",
+      "owasp_category": "A04:2025",
+      "description": "A required cryptographic step is skipped, such as verifying a MAC before decrypting, using an unauthenticated cipher mode, or not signing a message, so integrity or authenticity is not protected.",
+      "example_pattern": "AES CBC without HMAC; decrypt then check; encrypt only with no authentication tag"
+    },
+    {
+      "cwe_id": "CWE-347",
+      "name": "Improper Verification of Cryptographic Signature",
+      "owasp_category": "A04:2025",
+      "description": "A signature, JWT or certificate chain is not verified, or is verified in a way an attacker can bypass, for example accepting alg none, skipping verification, or decoding without checking.",
+      "example_pattern": "jwt.decode(token, options={'verify_signature': False}); jwt.verify with algorithms from the token header; jwt.decode(token, verify=False)"
+    },
+    {
+      "cwe_id": "CWE-295",
+      "name": "Improper Certificate Validation",
+      "owasp_category": "A04:2025",
+      "description": "TLS certificates are not validated, accepting any certificate and exposing the connection to man-in-the-middle attacks.",
+      "example_pattern": "requests.get(url, verify=False); ssl._create_unverified_context(); rejectUnauthorized: false; NODE_TLS_REJECT_UNAUTHORIZED=0; check_hostname = False"
+    },
+    {
+      "cwe_id": "CWE-297",
+      "name": "Improper Validation of Certificate with Host Mismatch",
+      "owasp_category": "A04:2025",
+      "description": "A certificate is accepted without checking that its hostname matches the server being contacted, so any valid certificate for another site can impersonate the server.",
+      "example_pattern": "ssl.CERT_REQUIRED but check_hostname = False; checkServerIdentity: () => undefined"
+    },
+    {
+      "cwe_id": "CWE-296",
+      "name": "Improper Following of a Certificate's Chain of Trust",
+      "owasp_category": "A04:2025",
+      "description": "The code does not verify the full certificate chain up to a trusted root, accepting self-signed or untrusted certificate authorities.",
+      "example_pattern": "accept self-signed; custom trust manager that trusts all; ca=None; ssl context load_default_certs skipped"
+    },
+    {
+      "cwe_id": "CWE-319",
+      "name": "Cleartext Transmission of Sensitive Information",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive data (credentials, tokens, personal data) is sent over plain HTTP, FTP, Telnet or unencrypted sockets where network attackers can read or alter it.",
+      "example_pattern": "requests.post('http://api.example.com/login', data=creds); ftplib.FTP; smtplib without starttls; http.createServer for login"
+    },
+    {
+      "cwe_id": "CWE-311",
+      "name": "Missing Encryption of Sensitive Data",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive data is stored or sent without any encryption although it should be protected, such as personal data in plain database fields or files.",
+      "example_pattern": "open('users.txt','w').write(ssn); store credit card number plain; write token to a world-readable file"
+    },
+    {
+      "cwe_id": "CWE-312",
+      "name": "Cleartext Storage of Sensitive Information",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive information such as secrets, tokens or personal data is stored in clear text in files, databases, cookies, or browser storage.",
+      "example_pattern": "localStorage.setItem('token', t); config file with api key; json.dump(creds, open('creds.json','w'))"
+    },
+    {
+      "cwe_id": "CWE-313",
+      "name": "Cleartext Storage in a File or on Disk",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive data is written to a file or disk location without encryption, readable by any local user or by anyone who obtains the disk.",
+      "example_pattern": "open('secrets.txt','w').write(key); pickle.dump(session, f); fs.writeFileSync('token.txt', token)"
+    },
+    {
+      "cwe_id": "CWE-315",
+      "name": "Cleartext Storage of Sensitive Information in a Cookie",
+      "owasp_category": "A04:2025",
+      "description": "Sensitive values such as passwords, tokens or personal data are placed in a cookie without encryption, exposing them to the browser, proxies and scripts.",
+      "example_pattern": "resp.set_cookie('password', pw); res.cookie('user', JSON.stringify(user)); document.cookie = 'ssn=' + ssn"
+    },
+    {
+      "cwe_id": "CWE-532",
+      "name": "Insertion of Sensitive Information into Log File",
+      "owasp_category": "A09:2025",
+      "description": "Passwords, tokens, personal data or secrets are written to log files, from where operators, log aggregators and attackers with log access can read them.",
+      "example_pattern": "logger.info('login %s %s', user, password); console.log(req.headers.authorization); log.debug(request.body)"
+    },
+    {
+      "cwe_id": "CWE-209",
+      "name": "Generation of Error Message Containing Sensitive Information",
+      "owasp_category": "A10:2025",
+      "description": "Error messages shown to users include stack traces, SQL statements, file paths, or configuration details that help an attacker learn about the system.",
+      "example_pattern": "return str(e); res.status(500).send(err.stack); traceback.format_exc() in response; app.run(debug=True)"
+    },
+    {
+      "cwe_id": "CWE-215",
+      "name": "Insertion of Sensitive Information Into Debugging Code",
+      "owasp_category": "A02:2025",
+      "description": "Debug features, verbose error pages or diagnostic endpoints left enabled in production disclose internals and sometimes allow code execution.",
+      "example_pattern": "app.run(debug=True); DEBUG = True; app.use(errorhandler()) in production; /debug route"
+    },
+    {
+      "cwe_id": "CWE-489",
+      "name": "Active Debug Code",
+      "owasp_category": "A02:2025",
+      "description": "Debug interfaces, test backdoors or developer shortcuts remain active in deployed code and can be used to bypass controls or execute commands.",
+      "example_pattern": "app.run(debug=True) with Werkzeug debugger; if request.args.get('debug') == '1'; backdoor route"
+    },
+    {
+      "cwe_id": "CWE-287",
+      "name": "Improper Authentication",
+      "owasp_category": "A07:2025",
+      "description": "The code claims to authenticate an actor but does not prove the claimed identity, for example by trusting a client-supplied identity, comparing the wrong values, or skipping credential verification.",
+      "example_pattern": "if request.headers.get('X-User'): login; user = req.query.user; password check skipped for some paths"
+    },
+    {
+      "cwe_id": "CWE-288",
+      "name": "Authentication Bypass Using an Alternate Path or Channel",
+      "owasp_category": "A07:2025",
+      "description": "A protected function can be reached through another route, port, method or URL that does not enforce the authentication applied to the main path.",
+      "example_pattern": "only /admin protected but /api/admin open; auth on GET but not POST; legacy endpoint without middleware"
+    },
+    {
+      "cwe_id": "CWE-290",
+      "name": "Authentication Bypass by Spoofing",
+      "owasp_category": "A07:2025",
+      "description": "Identity is derived from data an attacker can forge, such as an IP address, a Host or Referer header, or a header set by a proxy.",
+      "example_pattern": "if request.remote_addr == '127.0.0.1'; if 'X-Forwarded-For' in headers: trusted; trust Origin header for auth"
+    },
+    {
+      "cwe_id": "CWE-294",
+      "name": "Authentication Bypass by Capture-replay",
+      "owasp_category": "A07:2025",
+      "description": "Captured authentication messages or tokens can be replayed because they have no nonce, timestamp or one-time property.",
+      "example_pattern": "signed request without timestamp or nonce; token valid forever; HMAC over body only"
+    },
+    {
+      "cwe_id": "CWE-300",
+      "name": "Channel Accessible by Non-Endpoint (Adversary-in-the-Middle)",
+      "owasp_category": "A04:2025",
+      "description": "Communication lacks verification that both endpoints are authentic, enabling an intermediary to read or alter traffic.",
+      "example_pattern": "no certificate pinning; unauthenticated key exchange; trust any peer"
+    },
+    {
+      "cwe_id": "CWE-302",
+      "name": "Authentication Bypass by Assumed-Immutable Data",
+      "owasp_category": "A07:2025",
+      "description": "Authentication or authorization decisions rely on data the client controls (hidden form fields, cookies, JWT claims read without verification) that is wrongly assumed to be unchangeable.",
+      "example_pattern": "isAdmin from cookie; role from hidden input; trusted JWT payload decode without verify"
+    },
+    {
+      "cwe_id": "CWE-303",
+      "name": "Incorrect Implementation of Authentication Algorithm",
+      "owasp_category": "A07:2025",
+      "description": "A standard authentication protocol or algorithm is implemented incorrectly, for example flawed challenge-response or token validation logic.",
+      "example_pattern": "custom HMAC comparison; home-made token scheme; skipped step in OAuth flow"
+    },
+    {
+      "cwe_id": "CWE-304",
+      "name": "Missing Critical Step in Authentication",
+      "owasp_category": "A07:2025",
+      "description": "A necessary check is omitted from the authentication flow, such as the second factor, an email verification or a password check.",
+      "example_pattern": "login succeeds on username alone; MFA step skipped when a parameter is present; verified flag ignored"
+    },
+    {
+      "cwe_id": "CWE-307",
+      "name": "Improper Restriction of Excessive Authentication Attempts",
+      "owasp_category": "A07:2025",
+      "description": "Login, password-reset or OTP endpoints allow unlimited guesses with no lockout, delay or rate limit, enabling brute force and credential stuffing.",
+      "example_pattern": "@app.route('/login', methods=['POST']) with no rate limit; otp verify endpoint without attempt counter"
+    },
+    {
+      "cwe_id": "CWE-308",
+      "name": "Use of Single-factor Authentication",
+      "owasp_category": "A07:2025",
+      "description": "A sensitive operation or privileged account relies only on a password with no second factor, so credential theft is enough to take over the account.",
+      "example_pattern": "admin login password only; privileged action without step-up"
+    },
+    {
+      "cwe_id": "CWE-309",
+      "name": "Use of Password System for Primary Authentication",
+      "owasp_category": "A07:2025",
+      "description": "The application depends only on passwords as the primary authentication where stronger mechanisms should be used.",
+      "example_pattern": "password-only authentication for high-value accounts"
+    },
+    {
+      "cwe_id": "CWE-521",
+      "name": "Weak Password Requirements",
+      "owasp_category": "A07:2025",
+      "description": "The application accepts weak, short or common passwords because it enforces no length, complexity or breached-password checks.",
+      "example_pattern": "if len(password) >= 1; no validation on registration or password change; password '123456' allowed"
+    },
+    {
+      "cwe_id": "CWE-620",
+      "name": "Unverified Password Change",
+      "owasp_category": "A07:2025",
+      "description": "A password can be changed without confirming the current password or other proof, so a hijacked session leads to permanent takeover.",
+      "example_pattern": "update password with only new_password parameter; no old password check"
+    },
+    {
+      "cwe_id": "CWE-640",
+      "name": "Weak Password Recovery Mechanism for Forgotten Password",
+      "owasp_category": "A07:2025",
+      "description": "The password recovery flow can be abused through guessable security questions, predictable reset tokens, tokens that do not expire, or reset links returned to the requester.",
+      "example_pattern": "reset_token = str(user.id) + str(int(time.time())); return the token in the API response; security question"
+    },
+    {
+      "cwe_id": "CWE-613",
+      "name": "Insufficient Session Expiration",
+      "owasp_category": "A07:2025",
+      "description": "Sessions, tokens or reset links remain valid for too long or after logout and password change, giving attackers who steal them a long window of use.",
+      "example_pattern": "jwt.encode without exp; session lifetime 10 years; logout does not invalidate server session; PERMANENT_SESSION_LIFETIME huge"
+    },
+    {
+      "cwe_id": "CWE-384",
+      "name": "Session Fixation",
+      "owasp_category": "A07:2025",
+      "description": "The session identifier is not regenerated after login, so an attacker who planted a known session id before authentication shares the victim's authenticated session.",
+      "example_pattern": "session['user'] = user without session.clear or regenerate; accepting session id from the URL"
+    },
+    {
+      "cwe_id": "CWE-488",
+      "name": "Exposure of Data Element to Wrong Session",
+      "owasp_category": "A01:2025",
+      "description": "Data from one user's session is stored in shared (global, class-level or static) state and returned to another user's request.",
+      "example_pattern": "module-level variable holding current user; cache keyed without user id; global request data in a singleton"
+    },
+    {
+      "cwe_id": "CWE-565",
+      "name": "Reliance on Cookies without Validation and Integrity Checking",
+      "owasp_category": "A01:2025",
+      "description": "The application trusts cookie values (roles, prices, user ids) without signing or verifying them, so users can edit them freely.",
+      "example_pattern": "role = request.cookies.get('role'); if req.cookies.isAdmin == 'true'; price from cookie"
+    },
+    {
+      "cwe_id": "CWE-472",
+      "name": "External Control of Assumed-Immutable Web Parameter",
+      "owasp_category": "A01:2025",
+      "description": "Parameters the application believes the user cannot change (hidden fields, prices, ids, flags) are accepted from the request and used to make security or business decisions.",
+      "example_pattern": "total = request.form['price']; hidden input is_admin; trusting amount from client"
+    },
+    {
+      "cwe_id": "CWE-266",
+      "name": "Incorrect Privilege Assignment",
+      "owasp_category": "A01:2025",
+      "description": "New users or roles are granted more privileges than intended, for example admin as default role or inherited broad permissions.",
+      "example_pattern": "user.role = 'admin' on signup; default permissions all; is_staff=True"
+    },
+    {
+      "cwe_id": "CWE-267",
+      "name": "Privilege Defined With Unsafe Actions",
+      "owasp_category": "A01:2025",
+      "description": "A privilege or role is defined so broadly that holders can perform dangerous actions beyond their purpose.",
+      "example_pattern": "role 'support' can delete users; token scope '*'"
+    },
+    {
+      "cwe_id": "CWE-268",
+      "name": "Privilege Chaining",
+      "owasp_category": "A01:2025",
+      "description": "Two privileges that are safe separately combine to allow privilege escalation, for example the ability to write a script and the ability to schedule it.",
+      "example_pattern": "user can edit template and trigger render as admin"
+    },
+    {
+      "cwe_id": "CWE-270",
+      "name": "Privilege Context Switching Error",
+      "owasp_category": "A01:2025",
+      "description": "Privileges are not properly dropped or restored when switching context, so code continues running with elevated rights.",
+      "example_pattern": "setuid(0) then user code; sudo for whole script; seteuid not restored"
+    },
+    {
+      "cwe_id": "CWE-271",
+      "name": "Privilege Dropping / Lowering Errors",
+      "owasp_category": "A01:2025",
+      "description": "A process fails to reduce its privileges after startup, or the drop does not actually take effect.",
+      "example_pattern": "os.setuid(1000) unchecked; run as root in container; USER root in Dockerfile"
+    },
+    {
+      "cwe_id": "CWE-272",
+      "name": "Least Privilege Violation",
+      "owasp_category": "A01:2025",
+      "description": "Code keeps elevated privileges longer than needed, giving more power to anything that goes wrong while elevated.",
+      "example_pattern": "run whole server as root; DB account with all privileges; admin API key for read-only task"
+    },
+    {
+      "cwe_id": "CWE-274",
+      "name": "Improper Handling of Insufficient Privileges",
+      "owasp_category": "A10:2025",
+      "description": "When an operation lacks the required privilege, the code ignores the failure or continues in an unsafe state instead of stopping.",
+      "example_pattern": "try: do_privileged() except PermissionError: pass; continue with partial rights"
+    },
+    {
+      "cwe_id": "CWE-280",
+      "name": "Improper Handling of Insufficient Permissions or Privileges",
+      "owasp_category": "A10:2025",
+      "description": "Permission failures are not handled, leaving the program in an insecure fallback mode such as running with default allow.",
+      "example_pattern": "except PermissionError: allow; default allow on lookup failure; fail open"
+    },
+    {
+      "cwe_id": "CWE-348",
+      "name": "Use of Less Trusted Source",
+      "owasp_category": "A01:2025",
+      "description": "The code takes security-relevant data from a source an attacker can influence, such as the first or last X-Forwarded-For entry or a client-controlled header, when a more trusted one exists.",
+      "example_pattern": "ip = request.headers['X-Forwarded-For']; ip = req.headers['x-real-ip']; trust proxy true"
+    },
+    {
+      "cwe_id": "CWE-350",
+      "name": "Reliance on Reverse DNS Resolution for a Security-Critical Action",
+      "owasp_category": "A01:2025",
+      "description": "Access decisions rely on reverse DNS lookups, which an attacker who controls the PTR record can forge.",
+      "example_pattern": "socket.gethostbyaddr(ip) to allow host; if hostname.endswith('.corp.com')"
+    },
+    {
+      "cwe_id": "CWE-358",
+      "name": "Improperly Implemented Security Check for Standard",
+      "owasp_category": "A06:2025",
+      "description": "A security check required by a standard or protocol is implemented incorrectly or only partly, leaving gaps.",
+      "example_pattern": "partial signature check; JWT audience or issuer not verified; OAuth state parameter ignored"
+    },
+    {
+      "cwe_id": "CWE-359",
+      "name": "Exposure of Private Personal Information to an Unauthorized Actor",
+      "owasp_category": "A01:2025",
+      "description": "Personal data such as emails, phone numbers, addresses or health information is returned or shared with parties that are not authorised to see it.",
+      "example_pattern": "return user.to_dict() including email and phone; GET /users returns all profile fields"
+    },
+    {
+      "cwe_id": "CWE-213",
+      "name": "Exposure of Sensitive Information Due to Incompatible Policies",
+      "owasp_category": "A01:2025",
+      "description": "Data intended to be private under one policy is exposed through another feature, such as an export, API or search endpoint, with a different policy.",
+      "example_pattern": "export endpoint ignores field-level privacy; search reveals private records"
+    },
+    {
+      "cwe_id": "CWE-201",
+      "name": "Insertion of Sensitive Information Into Sent Data",
+      "owasp_category": "A01:2025",
+      "description": "Responses or messages include sensitive fields that the recipient should not receive, such as password hashes or internal ids.",
+      "example_pattern": "return jsonify(user.__dict__); res.json(user) including password hash; serializer fields = '__all__'"
+    },
+    {
+      "cwe_id": "CWE-204",
+      "name": "Observable Response Discrepancy",
+      "owasp_category": "A07:2025",
+      "description": "Different responses for existing and non-existing accounts (messages, status codes, timing) let attackers enumerate valid usernames or emails.",
+      "example_pattern": "return 'user not found' vs 'wrong password'; password reset says email not registered"
+    },
+    {
+      "cwe_id": "CWE-208",
+      "name": "Observable Timing Discrepancy",
+      "owasp_category": "A07:2025",
+      "description": "A comparison of secrets that exits early on the first mismatch leaks timing differences, letting attackers recover tokens or MACs byte by byte.",
+      "example_pattern": "if token == expected; signature == computed; hmac digest compared with =="
+    },
+    {
+      "cwe_id": "CWE-203",
+      "name": "Observable Discrepancy",
+      "owasp_category": "A07:2025",
+      "description": "Observable differences in behaviour, such as error text, response size or timing, reveal internal state that an attacker can use.",
+      "example_pattern": "distinct error for each failure step; long response only when record exists"
+    },
+    {
+      "cwe_id": "CWE-523",
+      "name": "Unprotected Transport of Credentials",
+      "owasp_category": "A04:2025",
+      "description": "Login forms or credential-bearing requests are served or submitted over unencrypted HTTP, exposing credentials on the network.",
+      "example_pattern": "<form action='http://...' method=post>; fetch('http://api/login'); Basic auth over http"
+    },
+    {
+      "cwe_id": "CWE-549",
+      "name": "Missing Password Field Masking",
+      "owasp_category": "A04:2025",
+      "description": "Password inputs are displayed in clear text on screen or echoed in the terminal, enabling shoulder surfing.",
+      "example_pattern": "<input type='text' name='password'>; input('Password: ') instead of getpass"
+    },
+    {
+      "cwe_id": "CWE-836",
+      "name": "Use of Password Hash Instead of Password for Authentication",
+      "owasp_category": "A07:2025",
+      "description": "The server accepts the stored password hash as the credential itself, so anyone who steals the hash can log in without cracking it (pass-the-hash).",
+      "example_pattern": "compare client-sent hash with stored hash; login with hash param"
+    },
+    {
+      "cwe_id": "CWE-1390",
+      "name": "Weak Authentication",
+      "owasp_category": "A07:2025",
+      "description": "The authentication mechanism is weak enough to be bypassed or guessed, such as simple tokens, shared secrets or trusting easily guessed identifiers.",
+      "example_pattern": "static API token compared with ==; Basic auth with default credentials; token = user_id"
+    },
+    {
+      "cwe_id": "CWE-1391",
+      "name": "Use of Weak Credentials",
+      "owasp_category": "A07:2025",
+      "description": "Default, empty, common or otherwise easily guessed credentials are used for accounts or services.",
+      "example_pattern": "admin/admin; password=''; default postgres credentials; changeme"
+    },
+    {
+      "cwe_id": "CWE-80",
+      "name": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)",
+      "owasp_category": "A05:2025",
+      "description": "User-controlled data containing script tags or event handlers is written into HTML without neutralising angle brackets and quotes.",
+      "example_pattern": "res.send('<h1>' + req.query.name + '</h1>'); return '<p>' + name + '</p>'; f-string HTML response"
+    },
+    {
+      "cwe_id": "CWE-83",
+      "name": "Improper Neutralization of Script in Attributes in a Web Page",
+      "owasp_category": "A05:2025",
+      "description": "User data is inserted into an HTML attribute value or event handler (onclick, href, src, style) without attribute encoding, allowing script injection through quotes or javascript: URLs.",
+      "example_pattern": "`<a href='${url}'>`; <img src=x onerror=...>; element.setAttribute('onclick', userInput); href = user url"
+    },
+    {
+      "cwe_id": "CWE-84",
+      "name": "Improper Neutralization of Encoded URI Schemes in a Web Page",
+      "owasp_category": "A05:2025",
+      "description": "URL filters that block javascript: or data: schemes can be bypassed with encoded or whitespace-obfuscated variants that browsers still execute.",
+      "example_pattern": "if 'javascript:' in url; startswith('http') after decoding; blacklist of schemes"
+    },
+    {
+      "cwe_id": "CWE-85",
+      "name": "Doubled Character XSS Manipulations",
+      "owasp_category": "A05:2025",
+      "description": "Sanitisers that remove dangerous strings once can be defeated by doubled or nested payloads, for example <scr<script>ipt>.",
+      "example_pattern": "replace('<script>', ''); re.sub('<script>', '', s) single pass; strip tags with a regex"
+    },
+    {
+      "cwe_id": "CWE-87",
+      "name": "Improper Neutralization of Alternate XSS Syntax",
+      "owasp_category": "A05:2025",
+      "description": "Filters that only block obvious script tags miss alternate syntaxes such as SVG, MathML, event attributes or style expressions.",
+      "example_pattern": "blacklist of <script>; allow <svg>; bad regex sanitiser"
+    },
+    {
+      "cwe_id": "CWE-81",
+      "name": "Improper Neutralization of Script in an Error Message Web Page",
+      "owasp_category": "A05:2025",
+      "description": "Error pages that echo user input (the bad value, the URL, the parameter name) without escaping allow reflected script injection.",
+      "example_pattern": "return f'Invalid value: {value}'; 404 page with the requested path; res.status(400).send('Bad ' + req.query.x)"
+    },
+    {
+      "cwe_id": "CWE-82",
+      "name": "Improper Neutralization of Script in Attributes of IMG Tags in a Web Page",
+      "owasp_category": "A05:2025",
+      "description": "User data is used for an image src or alt attribute without validation, enabling script or tracking injection.",
+      "example_pattern": "`<img src='${userUrl}'>`; img.src = location.hash"
+    },
+    {
+      "cwe_id": "CWE-86",
+      "name": "Improper Neutralization of Invalid Characters in Identifiers in Web Pages",
+      "owasp_category": "A05:2025",
+      "description": "Invalid or unusual characters in tag names or attribute names are not handled and can be used to smuggle script.",
+      "example_pattern": "createElement(userTag); setAttribute(userName, value); dynamic attribute names"
+    },
+    {
+      "cwe_id": "CWE-564",
+      "name": "SQL Injection: Hibernate",
+      "owasp_category": "A05:2025",
+      "description": "ORM raw-query or HQL/JPQL string building with untrusted data bypasses the ORM's parameter binding and leads to SQL injection.",
+      "example_pattern": "session.createQuery('from User where name=' + name); Model.objects.raw(f'SELECT ... {x}'); sequelize.query(`... ${x}`); knex.raw(userInput); text(f'...')"
+    },
+    {
+      "cwe_id": "CWE-190",
+      "name": "Integer Overflow or Wraparound",
+      "owasp_category": "A06:2025",
+      "description": "Arithmetic on integers produces a value outside the representable range, wrapping around and producing a small or negative result that is used for a size, index or price. Relevant in JavaScript for numbers above 2^53 and in typed arrays.",
+      "example_pattern": "total = a * b with no bounds check; Number(userId) above MAX_SAFE_INTEGER; Buffer.alloc(a * b); int32 wrap"
+    },
+    {
+      "cwe_id": "CWE-191",
+      "name": "Integer Underflow (Wrap or Wraparound)",
+      "owasp_category": "A06:2025",
+      "description": "Subtracting a larger value from a smaller unsigned or bounded value yields a huge number that is then used as a length or index.",
+      "example_pattern": "remaining = len - offset with no check; quantity - requested becomes negative and passes validation"
+    },
+    {
+      "cwe_id": "CWE-129",
+      "name": "Improper Validation of Array Index",
+      "owasp_category": "A06:2025",
+      "description": "An array or list index derived from user input is used without checking that it lies within bounds, causing exceptions, out-of-range reads or logic bypass.",
+      "example_pattern": "items[int(request.args['i'])]; arr[req.query.index]; list[idx] without range check"
+    },
+    {
+      "cwe_id": "CWE-130",
+      "name": "Improper Handling of Length Parameter Inconsistency",
+      "owasp_category": "A06:2025",
+      "description": "A length field supplied with data is trusted instead of the real data size, causing over-reads, truncation or buffer errors.",
+      "example_pattern": "data[:header.length]; buf.slice(0, msg.len); trust content-length"
+    },
+    {
+      "cwe_id": "CWE-131",
+      "name": "Incorrect Calculation of Buffer Size",
+      "owasp_category": "A06:2025",
+      "description": "The size of a buffer, allocation or loop bound is computed incorrectly, often off by one or ignoring encoding overhead, leading to overflow or truncation.",
+      "example_pattern": "Buffer.alloc(str.length) for multibyte data; allocate len without terminator; off by one"
+    },
+    {
+      "cwe_id": "CWE-193",
+      "name": "Off-by-one Error",
+      "owasp_category": "A06:2025",
+      "description": "A loop bound or comparison is wrong by one (<= instead of <, length instead of length-1), reading or writing one item beyond the end.",
+      "example_pattern": "for i in range(len(a)+1); for (i = 0; i <= arr.length; i++); a[len(a)]"
+    },
+    {
+      "cwe_id": "CWE-197",
+      "name": "Numeric Truncation Error",
+      "owasp_category": "A06:2025",
+      "description": "A numeric value is converted to a smaller type or lower precision and silently loses information, such as float to int or 64-bit to 32-bit.",
+      "example_pattern": "int(float_value); value bitwise-or zero in JavaScript; Number to Int32; parseInt on large id"
+    },
+    {
+      "cwe_id": "CWE-681",
+      "name": "Incorrect Conversion between Numeric Types",
+      "owasp_category": "A06:2025",
+      "description": "Conversion between numeric types changes the value in a way that affects a security decision, such as signed to unsigned or string to number with trailing characters.",
+      "example_pattern": "parseInt('12abc'); int(user) in a limit check; Number(value) permits hex or exponent"
+    },
+    {
+      "cwe_id": "CWE-1339",
+      "name": "Insufficient Precision or Accuracy of a Real Number",
+      "owasp_category": "A06:2025",
+      "description": "Floating-point arithmetic is used where exact results are needed, such as money, giving rounding errors that can be exploited.",
+      "example_pattern": "price * 1.1 as float; total += 0.1; balance float calculations"
+    },
+    {
+      "cwe_id": "CWE-369",
+      "name": "Divide By Zero",
+      "owasp_category": "A10:2025",
+      "description": "A divisor derived from input can be zero and the case is not handled, raising an unhandled exception or producing Infinity/NaN that corrupts later logic.",
+      "example_pattern": "avg = total / count; rate = a / int(request.args['b']); x % user_value"
+    },
+    {
+      "cwe_id": "CWE-754",
+      "name": "Improper Check for Unusual or Exceptional Conditions",
+      "owasp_category": "A10:2025",
+      "description": "Return values, empty results, timeouts, or error codes are not checked, so the program continues with invalid data or an unexpected state.",
+      "example_pattern": "ignored return value; first = rows[0] without empty check; response.json() without checking status"
+    },
+    {
+      "cwe_id": "CWE-755",
+      "name": "Improper Handling of Exceptional Conditions",
+      "owasp_category": "A10:2025",
+      "description": "Exceptions or failures are handled incorrectly, such as catching everything and continuing, or exposing the exception, leaving the system in an inconsistent or insecure state.",
+      "example_pattern": "except Exception: pass; catch (e) {} ; try/except around security check that allows on failure"
+    },
+    {
+      "cwe_id": "CWE-703",
+      "name": "Improper Check or Handling of Exceptional Conditions",
+      "owasp_category": "A10:2025",
+      "description": "The software does not anticipate or properly handle unusual conditions during normal operation.",
+      "example_pattern": "no try/except around parsing of untrusted data; unhandled promise rejection"
+    },
+    {
+      "cwe_id": "CWE-248",
+      "name": "Uncaught Exception",
+      "owasp_category": "A10:2025",
+      "description": "An exception is not caught and terminates the thread or process, allowing an attacker who can trigger it to cause denial of service.",
+      "example_pattern": "JSON.parse(req.body) without try/catch in a handler; process.on('uncaughtException') missing; async handler without catch"
+    },
+    {
+      "cwe_id": "CWE-252",
+      "name": "Unchecked Return Value",
+      "owasp_category": "A10:2025",
+      "description": "The return value of a function that signals failure is ignored, so the program proceeds as if the operation succeeded.",
+      "example_pattern": "subprocess.run(cmd) with no check; os.chmod result ignored; fs.write callback err ignored; verify() result not used"
+    },
+    {
+      "cwe_id": "CWE-253",
+      "name": "Incorrect Check of Function Return Value",
+      "owasp_category": "A10:2025",
+      "description": "The return value is checked with the wrong condition, treating a failure code as success or the opposite.",
+      "example_pattern": "if not verify_signature(): continue as valid; if (strcmp(...)) allow; inverted check"
+    },
+    {
+      "cwe_id": "CWE-391",
+      "name": "Unchecked Error Condition",
+      "owasp_category": "A10:2025",
+      "description": "Error conditions are neither detected nor handled, for example empty exception handlers that hide failed security-relevant operations.",
+      "example_pattern": "try: verify() except: pass; catch(e){} around authentication"
+    },
+    {
+      "cwe_id": "CWE-392",
+      "name": "Missing Report of Error Condition",
+      "owasp_category": "A10:2025",
+      "description": "The program fails silently, giving neither the caller nor an operator any signal that an operation failed.",
+      "example_pattern": "return None on error without logging; fire-and-forget promise without catch"
+    },
+    {
+      "cwe_id": "CWE-393",
+      "name": "Return of Wrong Status Code",
+      "owasp_category": "A10:2025",
+      "description": "A function returns a status that does not match its outcome, such as success on failure or a generic code, causing callers to make wrong decisions.",
+      "example_pattern": "return True in finally; always return 200; return 0 on error"
+    },
+    {
+      "cwe_id": "CWE-396",
+      "name": "Declaration of Catch for Generic Exception",
+      "owasp_category": "A10:2025",
+      "description": "Catching the broadest exception type hides specific failures and may mask security-relevant errors.",
+      "example_pattern": "except Exception as e: log; catch (Exception e); except:"
+    },
+    {
+      "cwe_id": "CWE-397",
+      "name": "Declaration of Throws for Generic Exception",
+      "owasp_category": "A10:2025",
+      "description": "A function declares or raises only a generic exception type, forcing callers to catch too broadly.",
+      "example_pattern": "raise Exception('failed'); throw new Error(); declared throws Exception"
+    },
+    {
+      "cwe_id": "CWE-460",
+      "name": "Improper Cleanup on Thrown Exception",
+      "owasp_category": "A10:2025",
+      "description": "When an exception occurs, locks, files, transactions or temporary state are not released or rolled back, leaving the system inconsistent or deadlocked.",
+      "example_pattern": "lock.acquire() without finally; open() without with; transaction not rolled back on error"
+    },
+    {
+      "cwe_id": "CWE-544",
+      "name": "Missing Standardized Error Handling Mechanism",
+      "owasp_category": "A10:2025",
+      "description": "There is no consistent error handling strategy, so different paths leak different details or skip handling.",
+      "example_pattern": "handlers each catch differently; no global error middleware"
+    },
+    {
+      "cwe_id": "CWE-636",
+      "name": "Not Failing Securely (Failing Open)",
+      "owasp_category": "A10:2025",
+      "description": "When an error or exception occurs the system defaults to a permissive state, for example granting access if the authorization service throws.",
+      "example_pattern": "try: allowed = check(user) except: allowed = True; default allow on timeout"
+    },
+    {
+      "cwe_id": "CWE-756",
+      "name": "Missing Custom Error Page",
+      "owasp_category": "A10:2025",
+      "description": "Default framework error pages are shown to users, leaking technology and internals.",
+      "example_pattern": "no custom 404 or 500 handler; default server error page"
+    },
+    {
+      "cwe_id": "CWE-362",
+      "name": "Concurrent Execution using Shared Resource with Improper Synchronization (Race Condition)",
+      "owasp_category": "A06:2025",
+      "description": "Multiple threads, processes or requests access a shared resource without proper locking, so timing decides the outcome and checks can be invalidated before use.",
+      "example_pattern": "balance = get(); if balance >= amt: set(balance - amt); check coupon used then mark used; non-atomic read-modify-write"
+    },
+    {
+      "cwe_id": "CWE-367",
+      "name": "Time-of-check Time-of-use (TOCTOU) Race Condition",
+      "owasp_category": "A06:2025",
+      "description": "A resource is checked and then used later, and the state can change in between, letting an attacker swap a file, link or record after the check.",
+      "example_pattern": "if os.path.exists(p): open(p); if os.access(p): open(p); check balance then deduct in separate statements"
+    },
+    {
+      "cwe_id": "CWE-364",
+      "name": "Signal Handler Race Condition",
+      "owasp_category": "A06:2025",
+      "description": "A signal handler shares state with normal code without safe synchronisation and can corrupt it.",
+      "example_pattern": "signal.signal(SIGINT, handler) modifying global structures"
+    },
+    {
+      "cwe_id": "CWE-366",
+      "name": "Race Condition within a Thread",
+      "owasp_category": "A06:2025",
+      "description": "Shared data within a process is accessed by multiple threads without synchronisation, leading to corrupted or inconsistent state.",
+      "example_pattern": "global counter incremented in threads; dict mutated by multiple threads without lock"
+    },
+    {
+      "cwe_id": "CWE-368",
+      "name": "Context Switching Race Condition",
+      "owasp_category": "A06:2025",
+      "description": "A sequence of privileged operations can be interrupted by a context switch that lets an attacker act between steps.",
+      "example_pattern": "multi-step privileged flow without atomicity"
+    },
+    {
+      "cwe_id": "CWE-413",
+      "name": "Improper Resource Locking",
+      "owasp_category": "A06:2025",
+      "description": "A resource is not locked, or locked inconsistently, so concurrent users can modify it simultaneously.",
+      "example_pattern": "no SELECT FOR UPDATE; file written without flock; optimistic update missing version check"
+    },
+    {
+      "cwe_id": "CWE-414",
+      "name": "Missing Lock Check",
+      "owasp_category": "A06:2025",
+      "description": "The code uses a resource without checking that the lock protecting it is held.",
+      "example_pattern": "use shared state without acquiring lock"
+    },
+    {
+      "cwe_id": "CWE-567",
+      "name": "Unsynchronized Access to Shared Data in a Multithreaded Context",
+      "owasp_category": "A06:2025",
+      "description": "Shared mutable data in a multithreaded server (module globals, class attributes, singletons) is modified per request without synchronisation.",
+      "example_pattern": "module-level dict updated per request; class attribute mutated in view; singleton with state"
+    },
+    {
+      "cwe_id": "CWE-662",
+      "name": "Improper Synchronization",
+      "owasp_category": "A06:2025",
+      "description": "Synchronization primitives are missing or misused, producing races, lost updates, or deadlocks.",
+      "example_pattern": "lock acquired in different orders; no lock around update; await missing"
+    },
+    {
+      "cwe_id": "CWE-667",
+      "name": "Improper Locking",
+      "owasp_category": "A06:2025",
+      "description": "Locking is applied wrongly, for example never released, taken twice, or protecting the wrong data.",
+      "example_pattern": "lock.acquire() without release; lock released twice"
+    },
+    {
+      "cwe_id": "CWE-833",
+      "name": "Deadlock",
+      "owasp_category": "A06:2025",
+      "description": "Two or more tasks wait for each other forever, so the service stops responding.",
+      "example_pattern": "acquire A then B in one thread and B then A in another; nested locks"
+    },
+    {
+      "cwe_id": "CWE-820",
+      "name": "Missing Synchronization",
+      "owasp_category": "A06:2025",
+      "description": "A resource shared between threads is used without any synchronisation at all.",
+      "example_pattern": "shared list append across threads; global cache dict update without lock"
+    },
+    {
+      "cwe_id": "CWE-821",
+      "name": "Incorrect Synchronization",
+      "owasp_category": "A06:2025",
+      "description": "A synchronization mechanism is present but incorrect, such as locking different objects or checking outside the lock.",
+      "example_pattern": "double-checked locking; lock created per call; check outside lock"
+    },
+    {
+      "cwe_id": "CWE-400",
+      "name": "Uncontrolled Resource Consumption",
+      "owasp_category": "A06:2025",
+      "description": "Resources such as CPU, memory, disk, sockets or processes are consumed without limits, allowing an attacker to exhaust them and deny service.",
+      "example_pattern": "while True with request-controlled loop count; read entire upload into memory; unbounded cache; no timeout on requests"
+    },
+    {
+      "cwe_id": "CWE-405",
+      "name": "Asymmetric Resource Consumption (Amplification)",
+      "owasp_category": "A06:2025",
+      "description": "A small request triggers disproportionately large work or output, such as expanding compressed data, recursive queries or XML entity expansion.",
+      "example_pattern": "zlib.decompress(data) without a max size; unbounded zip extraction; GraphQL deeply nested queries"
+    },
+    {
+      "cwe_id": "CWE-409",
+      "name": "Improper Handling of Highly Compressed Data (Data Amplification)",
+      "owasp_category": "A06:2025",
+      "description": "Compressed input is expanded without checking the resulting size, so a small file expands to gigabytes (zip bomb).",
+      "example_pattern": "zipfile.extractall(user_zip); gzip.decompress(body); tarfile.extractall without size limit"
+    },
+    {
+      "cwe_id": "CWE-407",
+      "name": "Inefficient Algorithmic Complexity",
+      "owasp_category": "A06:2025",
+      "description": "An algorithm with poor worst-case complexity (quadratic, exponential) processes attacker-controlled input, so crafted inputs cause heavy CPU usage.",
+      "example_pattern": "nested loops over request data; sort with custom comparator on user data; regex with catastrophic backtracking"
+    },
+    {
+      "cwe_id": "CWE-674",
+      "name": "Uncontrolled Recursion",
+      "owasp_category": "A06:2025",
+      "description": "Recursive processing of nested input is not depth-limited, exhausting the stack or memory and crashing the service.",
+      "example_pattern": "def parse(node): parse(child) on user JSON/XML; deep JSON.parse; recursion without depth"
+    },
+    {
+      "cwe_id": "CWE-835",
+      "name": "Loop with Unreachable Exit Condition (Infinite Loop)",
+      "owasp_category": "A06:2025",
+      "description": "A loop can run forever for some input, blocking a worker thread or process.",
+      "example_pattern": "while True: read until delimiter that may never come; loop until condition user controls"
+    },
+    {
+      "cwe_id": "CWE-606",
+      "name": "Unchecked Input for Loop Condition",
+      "owasp_category": "A06:2025",
+      "description": "A loop count or bound comes straight from untrusted input, letting an attacker choose very large iteration counts.",
+      "example_pattern": "for _ in range(int(request.args['n'])); for (let i = 0; i < req.query.count; i++)"
+    },
+    {
+      "cwe_id": "CWE-789",
+      "name": "Memory Allocation with Excessive Size Value",
+      "owasp_category": "A06:2025",
+      "description": "A memory allocation size is taken from untrusted input without an upper bound, causing out-of-memory.",
+      "example_pattern": "bytearray(int(request.args['size'])); Buffer.alloc(req.body.length); [0]*n"
+    },
+    {
+      "cwe_id": "CWE-774",
+      "name": "Allocation of File Descriptors or Handles Without Limits or Throttling",
+      "owasp_category": "A06:2025",
+      "description": "File handles, sockets or connections are opened without bounds or are never released, exhausting descriptors.",
+      "example_pattern": "open file per request without close; connection pool unlimited; socket per client without limit"
+    },
+    {
+      "cwe_id": "CWE-772",
+      "name": "Missing Release of Resource after Effective Lifetime",
+      "owasp_category": "A06:2025",
+      "description": "A resource such as a file, connection or lock is never closed, leaking resources until the service fails.",
+      "example_pattern": "f = open(path) without close or with; connection not closed; setInterval never cleared"
+    },
+    {
+      "cwe_id": "CWE-401",
+      "name": "Missing Release of Memory after Effective Lifetime",
+      "owasp_category": "A06:2025",
+      "description": "Memory held by an object remains referenced or is never freed, growing without bound over time, for example in caches, listeners and global lists.",
+      "example_pattern": "global list appended per request; event listener added repeatedly; cache dict without eviction"
+    },
+    {
+      "cwe_id": "CWE-404",
+      "name": "Improper Resource Shutdown or Release",
+      "owasp_category": "A06:2025",
+      "description": "Resources are not properly closed or released on all paths, particularly error paths.",
+      "example_pattern": "return before close; exception skips close; no context manager"
+    },
+    {
+      "cwe_id": "CWE-410",
+      "name": "Insufficient Resource Pool",
+      "owasp_category": "A06:2025",
+      "description": "A pool of connections or workers is too small or unmanaged, so a small number of requests can exhaust it.",
+      "example_pattern": "single worker handling long requests; pool size 1; no queue"
+    },
+    {
+      "cwe_id": "CWE-799",
+      "name": "Improper Control of Interaction Frequency",
+      "owasp_category": "A06:2025",
+      "description": "A function that can be abused by repeated calls (sending email or SMS, creating accounts, password reset, expensive search) has no rate limiting, throttling or CAPTCHA.",
+      "example_pattern": "send_sms(phone) per request without limit; @app.route('/signup') unlimited; password reset email endpoint"
+    },
+    {
+      "cwe_id": "CWE-837",
+      "name": "Improper Enforcement of a Single, Unique Action",
+      "owasp_category": "A06:2025",
+      "description": "An action that should happen once (voting, redeeming a coupon, claiming a bonus) can be repeated because uniqueness is not enforced atomically.",
+      "example_pattern": "coupon redeem without used flag check; one vote per user not enforced; like endpoint adds on every call"
+    },
+    {
+      "cwe_id": "CWE-841",
+      "name": "Improper Enforcement of Behavioral Workflow",
+      "owasp_category": "A06:2025",
+      "description": "Steps that must happen in order (payment before shipment, verification before activation) can be skipped by calling later steps directly.",
+      "example_pattern": "ship_order(order_id) without checking paid; /confirm callable before /pay; state machine not enforced"
+    },
+    {
+      "cwe_id": "CWE-840",
+      "name": "Business Logic Errors",
+      "owasp_category": "A06:2025",
+      "description": "Flaws in the intended business rules allow abuse, such as negative quantities, price manipulation, or discount stacking.",
+      "example_pattern": "quantity from request not validated positive; price field in request; discount applied multiple times"
+    },
+    {
+      "cwe_id": "CWE-1173",
+      "name": "Improper Use of Validation Framework",
+      "owasp_category": "A06:2025",
+      "description": "A validation framework is available but misused or bypassed, so some inputs reach sensitive code unvalidated.",
+      "example_pattern": "schema defined but skipped for some routes; validate() result ignored; validation only client side"
+    },
+    {
+      "cwe_id": "CWE-602",
+      "name": "Client-Side Enforcement of Server-Side Security",
+      "owasp_category": "A06:2025",
+      "description": "Security checks (validation, authorization, limits) are performed only in the browser or client code, which the attacker controls and can bypass.",
+      "example_pattern": "JavaScript form validation without server check; hiding admin buttons as only access control; client computes price"
+    },
+    {
+      "cwe_id": "CWE-807",
+      "name": "Reliance on Untrusted Inputs in a Security Decision",
+      "owasp_category": "A01:2025",
+      "description": "A security-relevant decision, such as who the user is or what they may do, depends on input an attacker can control.",
+      "example_pattern": "if request.args.get('admin'): grant; if req.headers['x-role'] == 'admin'; if 'internal' in referer"
+    },
+    {
+      "cwe_id": "CWE-642",
+      "name": "External Control of Critical State Data",
+      "owasp_category": "A01:2025",
+      "description": "Critical state such as user id, role, price or workflow stage is stored in a place the user can modify (cookie, hidden field, URL) without integrity protection.",
+      "example_pattern": "state kept in hidden fields; role in unsigned cookie; step number in URL"
+    },
+    {
+      "cwe_id": "CWE-829",
+      "name": "Inclusion of Functionality from Untrusted Control Sphere",
+      "owasp_category": "A03:2025",
+      "description": "The application loads and runs code, scripts or libraries from a location or party it does not control, such as remote script URLs, user-writable directories or plugins fetched at runtime.",
+      "example_pattern": "importlib.import_module(user_name); require(userPath); <script src='http://cdn...'> without integrity; exec(urlopen(url).read())"
+    },
+    {
+      "cwe_id": "CWE-830",
+      "name": "Inclusion of Web Functionality from an Untrusted Source",
+      "owasp_category": "A03:2025",
+      "description": "Third-party web content, scripts or iframes are embedded without integrity checks, so a compromise of that third party affects the page.",
+      "example_pattern": "<script src='https://thirdparty/x.js'> no integrity; iframe from untrusted origin"
+    },
+    {
+      "cwe_id": "CWE-494",
+      "name": "Download of Code Without Integrity Check",
+      "owasp_category": "A08:2025",
+      "description": "Code, updates or plugins are downloaded and executed without verifying a hash or signature, so a tampered download runs with full trust.",
+      "example_pattern": "urlretrieve(url, 'x.sh'); os.system('curl url then sh'); exec(requests.get(url).text); auto-update without signature"
+    },
+    {
+      "cwe_id": "CWE-353",
+      "name": "Missing Support for Integrity Check",
+      "owasp_category": "A08:2025",
+      "description": "Data is transmitted or stored without an integrity check such as a MAC, hash or signature, so tampering goes undetected.",
+      "example_pattern": "serialize state to cookie without HMAC; unsigned configuration file; message without checksum"
+    },
+    {
+      "cwe_id": "CWE-354",
+      "name": "Improper Validation of Integrity Check Value",
+      "owasp_category": "A08:2025",
+      "description": "An integrity value is present but not verified, or is verified incorrectly, so tampered data is accepted.",
+      "example_pattern": "hash computed but never compared; compare with truncated digest; checksum ignored on mismatch"
+    },
+    {
+      "cwe_id": "CWE-345",
+      "name": "Insufficient Verification of Data Authenticity",
+      "owasp_category": "A08:2025",
+      "description": "Data or its source is accepted without proving it is authentic, enabling forged or modified inputs, webhooks and callbacks.",
+      "example_pattern": "webhook handler without signature check; trust JSON from client; unsigned callback"
+    },
+    {
+      "cwe_id": "CWE-349",
+      "name": "Acceptance of Extraneous Untrusted Data With Trusted Data",
+      "owasp_category": "A08:2025",
+      "description": "Untrusted data is processed together with trusted data so the untrusted part is treated with the same trust, for example unsigned fields next to signed ones.",
+      "example_pattern": "signed JWT with extra unsigned claims used; merging user dict into config"
+    },
+    {
+      "cwe_id": "CWE-426",
+      "name": "Untrusted Search Path",
+      "owasp_category": "A08:2025",
+      "description": "The program searches for executables or libraries in a directory that an attacker can control, such as the current directory or a user-writable PATH entry.",
+      "example_pattern": "subprocess.run('tool') relying on PATH; sys.path.insert(0, cwd); os.system('git') with writable PATH; require relative module"
+    },
+    {
+      "cwe_id": "CWE-427",
+      "name": "Uncontrolled Search Path Element",
+      "owasp_category": "A08:2025",
+      "description": "The search path for programs or modules includes an element controlled by users, so a malicious file can be loaded instead of the intended one.",
+      "example_pattern": "env PATH includes . or tmp; PYTHONPATH from user; LD_LIBRARY_PATH set from input"
+    },
+    {
+      "cwe_id": "CWE-428",
+      "name": "Unquoted Search Path or Element",
+      "owasp_category": "A08:2025",
+      "description": "A path containing spaces is not quoted, so the system may execute an attacker-planted program at a shorter path prefix.",
+      "example_pattern": "subprocess with shell and unquoted path 'C:\\\\Program Files\\\\app'; service path unquoted"
+    },
+    {
+      "cwe_id": "CWE-114",
+      "name": "Process Control",
+      "owasp_category": "A08:2025",
+      "description": "The application loads libraries or runs commands whose identity is controlled by an attacker, giving control over which code executes.",
+      "example_pattern": "ctypes.CDLL(user_lib); child_process.fork(userFile); LoadLibrary from input"
+    },
+    {
+      "cwe_id": "CWE-1104",
+      "name": "Use of Unmaintained Third Party Components",
+      "owasp_category": "A03:2025",
+      "description": "The project depends on libraries that are abandoned or end-of-life, so known vulnerabilities will not be fixed.",
+      "example_pattern": "requirements pinned to ancient versions; dependency last released years ago; deprecated package"
+    },
+    {
+      "cwe_id": "CWE-1395",
+      "name": "Dependency on Vulnerable Third-Party Component",
+      "owasp_category": "A03:2025",
+      "description": "The application uses a third-party package version with known vulnerabilities (CVEs), inheriting their flaws.",
+      "example_pattern": "requests==2.5.0; lodash 4.17.4; django 1.11 in requirements; log4j 2.14"
+    },
+    {
+      "cwe_id": "CWE-937",
+      "name": "Using Components with Known Vulnerabilities",
+      "owasp_category": "A03:2025",
+      "description": "Libraries, frameworks and tools with publicly known vulnerabilities are included in the build and shipped.",
+      "example_pattern": "old pinned library versions; no dependency scanning; vulnerable transitive dependency"
+    },
+    {
+      "cwe_id": "CWE-1357",
+      "name": "Reliance on Insufficiently Trustworthy Component",
+      "owasp_category": "A03:2025",
+      "description": "The software relies on a component whose provenance, maintenance or security cannot be trusted, such as unknown or typo-squatted packages.",
+      "example_pattern": "pip install from random git URL; npm package with install scripts from unknown author; typosquatted name"
+    },
+    {
+      "cwe_id": "CWE-1329",
+      "name": "Reliance on Component That is Not Updateable",
+      "owasp_category": "A03:2025",
+      "description": "A component is embedded or vendored in a way that prevents it from being updated when vulnerabilities are found.",
+      "example_pattern": "vendored copy of library edited in place; bundled minified old library; firmware fixed"
+    },
+    {
+      "cwe_id": "CWE-1188",
+      "name": "Initialization of a Resource with an Insecure Default",
+      "owasp_category": "A02:2025",
+      "description": "A setting, option or resource is initialised with an insecure default (open permissions, debug on, verification off) that users must remember to change.",
+      "example_pattern": "DEBUG=True default; CORS origins '*' by default; verify=False default; admin password default"
+    },
+    {
+      "cwe_id": "CWE-16",
+      "name": "Configuration",
+      "owasp_category": "A02:2025",
+      "description": "Security-relevant settings are missing, wrong or inconsistent, leaving the application or its server in an insecure configuration.",
+      "example_pattern": "settings.py with ALLOWED_HOSTS=['*']; SECRET_KEY in repo; helmet not used; directory listing on"
+    },
+    {
+      "cwe_id": "CWE-15",
+      "name": "External Control of System or Configuration Setting",
+      "owasp_category": "A02:2025",
+      "description": "An attacker can change a system or application setting through input, such as environment variables, config keys or runtime options.",
+      "example_pattern": "os.environ[user_key] = value; config[request.args['key']] = v; process.env[req.body.name]"
+    },
+    {
+      "cwe_id": "CWE-260",
+      "name": "Password in Configuration File",
+      "owasp_category": "A02:2025",
+      "description": "Passwords are stored in plain text in configuration files that are committed or readable by many users.",
+      "example_pattern": "config.ini password=secret; .env committed; application.properties password"
+    },
+    {
+      "cwe_id": "CWE-526",
+      "name": "Cleartext Storage of Sensitive Information in an Environment Variable",
+      "owasp_category": "A02:2025",
+      "description": "Secrets placed in environment variables can leak through process listings, crash dumps, child processes and debug endpoints.",
+      "example_pattern": "os.environ['PASSWORD'] set for child; env passed to subprocess; printing env"
+    },
+    {
+      "cwe_id": "CWE-547",
+      "name": "Use of Hard-coded, Security-relevant Constants",
+      "owasp_category": "A02:2025",
+      "description": "Security-sensitive values such as timeouts, limits, roles or algorithm names are hard-coded and cannot be adjusted when requirements change.",
+      "example_pattern": "ADMIN_ROLE_ID = 1; TOKEN_EXPIRY = 10**9; magic numbers in checks"
+    },
+    {
+      "cwe_id": "CWE-1393",
+      "name": "Use of Default Password",
+      "owasp_category": "A07:2025",
+      "description": "Accounts or services ship or run with a known vendor or default password that is not forced to change.",
+      "example_pattern": "admin:admin; default superuser created with fixed password; redis without password"
+    },
+    {
+      "cwe_id": "CWE-453",
+      "name": "Insecure Default Variable Initialization",
+      "owasp_category": "A02:2025",
+      "description": "Variables that control security are initialised to permissive values until set otherwise.",
+      "example_pattern": "is_authenticated = True by default; allow = True initial; role = 'admin' default"
+    },
+    {
+      "cwe_id": "CWE-1327",
+      "name": "Binding to an Unrestricted IP Address",
+      "owasp_category": "A02:2025",
+      "description": "A service listens on all network interfaces (0.0.0.0) although it should only be reachable locally or from a trusted network.",
+      "example_pattern": "app.run(host='0.0.0.0'); server.listen(3000, '0.0.0.0'); bind(('', port))"
+    },
+    {
+      "cwe_id": "CWE-1385",
+      "name": "Missing Origin Validation in WebSockets",
+      "owasp_category": "A01:2025",
+      "description": "A WebSocket server accepts connections from any origin, enabling cross-site WebSocket hijacking with the victim's cookies.",
+      "example_pattern": "new WebSocket.Server({port}) with no verifyClient or origin check; socketio cors_allowed_origins='*'"
+    },
+    {
+      "cwe_id": "CWE-1392",
+      "name": "Use of Default Credentials",
+      "owasp_category": "A07:2025",
+      "description": "Default credentials supplied by a product or framework remain in use.",
+      "example_pattern": "username: admin password: admin; guest account; sa with blank password"
+    },
+    {
+      "cwe_id": "CWE-1394",
+      "name": "Use of Default Cryptographic Key",
+      "owasp_category": "A04:2025",
+      "description": "A default or example cryptographic key supplied with software or documentation is used in production.",
+      "example_pattern": "SECRET_KEY = 'your-secret-key'; example key from tutorial; demo private key committed"
+    },
+    {
+      "cwe_id": "CWE-1230",
+      "name": "Exposure of Sensitive Information Through Metadata",
+      "owasp_category": "A01:2025",
+      "description": "Metadata attached to files or responses (EXIF, document properties, server banners, directory listings) reveals sensitive details.",
+      "example_pattern": "serve uploaded images with EXIF; X-Powered-By header; autoindex on"
+    },
+    {
+      "cwe_id": "CWE-693",
+      "name": "Protection Mechanism Failure",
+      "owasp_category": "A06:2025",
+      "description": "A security protection mechanism is missing, disabled or ineffective, such as disabled CSRF middleware or turned-off input escaping.",
+      "example_pattern": "csrf_exempt on a state-changing view; autoescape=False; app.config['WTF_CSRF_ENABLED'] = False; helmet disabled"
+    },
+    {
+      "cwe_id": "CWE-657",
+      "name": "Violation of Secure Design Principles",
+      "owasp_category": "A06:2025",
+      "description": "The design violates basic secure design principles such as least privilege, defence in depth, fail-safe defaults or separation of duties.",
+      "example_pattern": "single admin token for all; no defence in depth; complete mediation missing"
+    },
+    {
+      "cwe_id": "CWE-653",
+      "name": "Improper Isolation or Compartmentalization",
+      "owasp_category": "A06:2025",
+      "description": "Sensitive functions and data share the same trust domain as untrusted code, so a flaw in one part exposes everything.",
+      "example_pattern": "plugins running in main process; multi-tenant data in one namespace; untrusted code in same interpreter"
+    },
+    {
+      "cwe_id": "CWE-501",
+      "name": "Trust Boundary Violation",
+      "owasp_category": "A06:2025",
+      "description": "Untrusted data is placed into the same structure, session or variable as trusted data, making the application treat it as validated.",
+      "example_pattern": "session['user'] = request.args['user']; req.session.isAdmin = req.body.isAdmin; cache.set from user"
+    },
+    {
+      "cwe_id": "CWE-940",
+      "name": "Improper Verification of Source of a Communication Channel",
+      "owasp_category": "A01:2025",
+      "description": "Messages arriving over a channel such as postMessage, a socket or an IPC endpoint are accepted without checking who sent them.",
+      "example_pattern": "window.addEventListener('message', e => run(e.data)) without origin check; postMessage('*'); socket accepted from any peer"
+    },
+    {
+      "cwe_id": "CWE-212",
+      "name": "Improper Removal of Sensitive Information Before Storage or Transfer",
+      "owasp_category": "A01:2025",
+      "description": "Sensitive fields are not stripped from objects, files or responses before they are saved, logged or sent to another party.",
+      "example_pattern": "export without redaction; share logs with secrets; serializing entire user object"
+    },
+    {
+      "cwe_id": "CWE-214",
+      "name": "Invocation of Process Using Visible Sensitive Information",
+      "owasp_category": "A02:2025",
+      "description": "Secrets are passed on a command line or in environment visible to other processes (ps), exposing them.",
+      "example_pattern": "subprocess.run(['mysql', '-p' + password]); exec('curl -u user:pass'); --password=secret argument"
+    }
   ]
 }

@@ -1,0 +1,407 @@
+{
+ "_note": "Set for the languages added in v2 (Java, PHP, Go, C#, Ruby, C, Rust, Kotlin; 8-9 pairs each). Written once, after the per-language sink rules were written, and run against them ONCE before any rule was edited; see README for the first-run figures. Project-authored (same authors as the rules), framework-style units; not from a public benchmark.",
+ "snippets": [
+  {
+   "id": "l01",
+   "language": "java",
+   "expected_cwe": "CWE-89",
+   "code": "public List<Customer> findByCity(Connection conn, String city) throws SQLException {\n    Statement st = conn.createStatement();\n    ResultSet rs = st.executeQuery(\"SELECT id, name, email FROM customers WHERE city = '\" + city + \"'\");\n    List<Customer> out = new ArrayList<>();\n    while (rs.next()) {\n        out.add(new Customer(rs.getLong(\"id\"), rs.getString(\"name\"), rs.getString(\"email\")));\n    }\n    return out;\n}"
+  },
+  {
+   "id": "l02",
+   "language": "java",
+   "expected_cwe": "CWE-78",
+   "code": "@PostMapping(\"/diagnostics/ping\")\npublic String ping(@RequestParam String host) throws IOException {\n    Process p = Runtime.getRuntime().exec(\"ping -c 2 \" + host);\n    return new String(p.getInputStream().readAllBytes());\n}"
+  },
+  {
+   "id": "l03",
+   "language": "java",
+   "expected_cwe": "CWE-79",
+   "code": "protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {\n    String name = req.getParameter(\"name\");\n    resp.setContentType(\"text/html\");\n    resp.getWriter().println(\"<html><body><h2>Hello, \" + name + \"</h2></body></html>\");\n}"
+  },
+  {
+   "id": "l04",
+   "language": "java",
+   "expected_cwe": "CWE-22",
+   "code": "@GetMapping(\"/files/download\")\npublic ResponseEntity<byte[]> download(@RequestParam(\"name\") String name) throws IOException {\n    File f = new File(uploadDir + \"/\" + name);\n    return ResponseEntity.ok(Files.readAllBytes(f.toPath()));\n}"
+  },
+  {
+   "id": "l05",
+   "language": "java",
+   "expected_cwe": "CWE-502",
+   "code": "public Session restoreSession(HttpServletRequest req) throws Exception {\n    byte[] raw = Base64.getDecoder().decode(req.getParameter(\"state\"));\n    ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(raw));\n    return (Session) in.readObject();\n}"
+  },
+  {
+   "id": "l06",
+   "language": "java",
+   "expected_cwe": "CWE-611",
+   "code": "public Document parseConfig(InputStream xml) throws Exception {\n    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();\n    DocumentBuilder builder = dbf.newDocumentBuilder();\n    return builder.parse(xml);\n}"
+  },
+  {
+   "id": "l07",
+   "language": "java",
+   "expected_cwe": "CWE-916",
+   "code": "public String hashPassword(String password) throws NoSuchAlgorithmException {\n    MessageDigest md = MessageDigest.getInstance(\"MD5\");\n    byte[] digest = md.digest(password.getBytes(StandardCharsets.UTF_8));\n    return HexFormat.of().formatHex(digest);\n}"
+  },
+  {
+   "id": "l08",
+   "language": "java",
+   "expected_cwe": "CWE-601",
+   "code": "@GetMapping(\"/login/done\")\npublic void afterLogin(@RequestParam(\"next\") String next, HttpServletResponse resp) throws IOException {\n    resp.sendRedirect(next);\n}"
+  },
+  {
+   "id": "l09",
+   "language": "java",
+   "expected_cwe": "CWE-327",
+   "code": "public byte[] encrypt(byte[] data, byte[] key) throws GeneralSecurityException {\n    Cipher c = Cipher.getInstance(\"DES/ECB/PKCS5Padding\");\n    c.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key, \"DES\"));\n    return c.doFinal(data);\n}"
+  },
+  {
+   "id": "l10",
+   "language": "java",
+   "expected_cwe": "CWE-798",
+   "code": "public class PaymentClient {\n    private static final String API_KEY = \"sk_live_9f3a1c7d2b8e4f6a0c5d\";\n    public HttpResponse<String> charge(String body) throws Exception {\n        HttpRequest req = HttpRequest.newBuilder(URI.create(\"https://api.pay.example/v1/charge\"))\n            .header(\"Authorization\", \"Bearer \" + API_KEY).POST(HttpRequest.BodyPublishers.ofString(body)).build();\n        return HttpClient.newHttpClient().send(req, HttpResponse.BodyHandlers.ofString());\n    }\n}"
+  },
+  {
+   "id": "l11",
+   "language": "php",
+   "expected_cwe": "CWE-89",
+   "code": "function getUser($conn) {\n    $id = $_GET['id'];\n    $result = mysqli_query($conn, \"SELECT * FROM users WHERE id = '\" . $id . \"'\");\n    return mysqli_fetch_assoc($result);\n}"
+  },
+  {
+   "id": "l12",
+   "language": "php",
+   "expected_cwe": "CWE-78",
+   "code": "function pingHost() {\n    $host = $_POST['host'];\n    $output = shell_exec(\"ping -c 2 \" . $host);\n    echo \"<pre>$output</pre>\";\n}"
+  },
+  {
+   "id": "l13",
+   "language": "php",
+   "expected_cwe": "CWE-79",
+   "code": "<?php\n$q = $_GET['q'];\necho \"<h1>Search results for \" . $q . \"</h1>\";\nrender_results($q);\n?>"
+  },
+  {
+   "id": "l14",
+   "language": "php",
+   "expected_cwe": "CWE-22",
+   "code": "function downloadReport() {\n    $file = $_GET['file'];\n    header('Content-Type: application/pdf');\n    readfile('/var/www/reports/' . $file);\n}"
+  },
+  {
+   "id": "l15",
+   "language": "php",
+   "expected_cwe": "CWE-434",
+   "code": "function saveAvatar() {\n    $target = 'uploads/' . $_FILES['avatar']['name'];\n    move_uploaded_file($_FILES['avatar']['tmp_name'], $target);\n    return $target;\n}"
+  },
+  {
+   "id": "l16",
+   "language": "php",
+   "expected_cwe": "CWE-502",
+   "code": "function loadPreferences() {\n    $prefs = unserialize(base64_decode($_COOKIE['prefs']));\n    return $prefs;\n}"
+  },
+  {
+   "id": "l17",
+   "language": "php",
+   "expected_cwe": "CWE-601",
+   "code": "function afterLogin() {\n    $next = $_GET['next'];\n    header(\"Location: \" . $next);\n    exit;\n}"
+  },
+  {
+   "id": "l18",
+   "language": "php",
+   "expected_cwe": "CWE-916",
+   "code": "function register($db, $email, $password) {\n    $hash = md5($password);\n    $stmt = $db->prepare(\"INSERT INTO users (email, password) VALUES (?, ?)\");\n    $stmt->execute([$email, $hash]);\n}"
+  },
+  {
+   "id": "l19",
+   "language": "php",
+   "expected_cwe": "CWE-829",
+   "code": "<?php\n$page = $_GET['page'];\ninclude($page . '.php');\n?>"
+  },
+  {
+   "id": "l20",
+   "language": "go",
+   "expected_cwe": "CWE-89",
+   "code": "func (s *Store) FindUser(w http.ResponseWriter, r *http.Request) {\n\tname := r.URL.Query().Get(\"name\")\n\tquery := fmt.Sprintf(\"SELECT id, email FROM users WHERE name = '%s'\", name)\n\trows, err := s.db.Query(query)\n\tif err != nil {\n\t\thttp.Error(w, \"query failed\", 500)\n\t\treturn\n\t}\n\tdefer rows.Close()\n\twriteRows(w, rows)\n}"
+  },
+  {
+   "id": "l21",
+   "language": "go",
+   "expected_cwe": "CWE-78",
+   "code": "func handlePing(w http.ResponseWriter, r *http.Request) {\n\thost := r.FormValue(\"host\")\n\tout, err := exec.Command(\"sh\", \"-c\", \"ping -c 2 \"+host).CombinedOutput()\n\tif err != nil {\n\t\thttp.Error(w, err.Error(), 500)\n\t\treturn\n\t}\n\tw.Write(out)\n}"
+  },
+  {
+   "id": "l22",
+   "language": "go",
+   "expected_cwe": "CWE-22",
+   "code": "func serveDoc(w http.ResponseWriter, r *http.Request) {\n\tname := r.URL.Query().Get(\"file\")\n\tdata, err := os.ReadFile(filepath.Join(\"/srv/docs\", name))\n\tif err != nil {\n\t\thttp.NotFound(w, r)\n\t\treturn\n\t}\n\tw.Write(data)\n}"
+  },
+  {
+   "id": "l23",
+   "language": "go",
+   "expected_cwe": "CWE-79",
+   "code": "func greet(w http.ResponseWriter, r *http.Request) {\n\tname := r.URL.Query().Get(\"name\")\n\tw.Header().Set(\"Content-Type\", \"text/html\")\n\tfmt.Fprintf(w, \"<html><body><h1>Hello, %s</h1></body></html>\", name)\n}"
+  },
+  {
+   "id": "l24",
+   "language": "go",
+   "expected_cwe": "CWE-295",
+   "code": "func newClient() *http.Client {\n\treturn &http.Client{\n\t\tTransport: &http.Transport{\n\t\t\tTLSClientConfig: &tls.Config{InsecureSkipVerify: true},\n\t\t},\n\t\tTimeout: 10 * time.Second,\n\t}\n}"
+  },
+  {
+   "id": "l25",
+   "language": "go",
+   "expected_cwe": "CWE-918",
+   "code": "func fetchPreview(w http.ResponseWriter, r *http.Request) {\n\ttarget := r.URL.Query().Get(\"url\")\n\tresp, err := http.Get(target)\n\tif err != nil {\n\t\thttp.Error(w, \"fetch failed\", 502)\n\t\treturn\n\t}\n\tdefer resp.Body.Close()\n\tio.Copy(w, resp.Body)\n}"
+  },
+  {
+   "id": "l26",
+   "language": "go",
+   "expected_cwe": "CWE-601",
+   "code": "func loginDone(w http.ResponseWriter, r *http.Request) {\n\tnext := r.URL.Query().Get(\"next\")\n\thttp.Redirect(w, r, next, http.StatusFound)\n}"
+  },
+  {
+   "id": "l27",
+   "language": "go",
+   "expected_cwe": "CWE-338",
+   "code": "func newResetToken() string {\n\trand.Seed(time.Now().UnixNano())\n\tb := make([]byte, 16)\n\tfor i := range b {\n\t\tb[i] = letters[rand.Intn(len(letters))]\n\t}\n\treturn string(b)\n}"
+  },
+  {
+   "id": "l28",
+   "language": "csharp",
+   "expected_cwe": "CWE-89",
+   "code": "public IActionResult Search(string name)\n{\n    using var conn = new SqlConnection(_connString);\n    conn.Open();\n    var cmd = new SqlCommand(\"SELECT Id, Name FROM Products WHERE Name = '\" + name + \"'\", conn);\n    using var reader = cmd.ExecuteReader();\n    return Ok(ReadAll(reader));\n}"
+  },
+  {
+   "id": "l29",
+   "language": "csharp",
+   "expected_cwe": "CWE-78",
+   "code": "[HttpPost(\"convert\")]\npublic IActionResult Convert([FromForm] string file)\n{\n    var psi = new ProcessStartInfo(\"cmd.exe\", \"/c convert \" + file + \" out.png\") { RedirectStandardOutput = true };\n    using var p = Process.Start(psi);\n    return Content(p.StandardOutput.ReadToEnd());\n}"
+  },
+  {
+   "id": "l30",
+   "language": "csharp",
+   "expected_cwe": "CWE-79",
+   "code": "public IActionResult Welcome(string name)\n{\n    return Content(\"<html><body><h1>Welcome, \" + name + \"</h1></body></html>\", \"text/html\");\n}"
+  },
+  {
+   "id": "l31",
+   "language": "csharp",
+   "expected_cwe": "CWE-502",
+   "code": "public Order LoadOrder(byte[] payload)\n{\n    var formatter = new BinaryFormatter();\n    using var ms = new MemoryStream(payload);\n    return (Order)formatter.Deserialize(ms);\n}"
+  },
+  {
+   "id": "l32",
+   "language": "csharp",
+   "expected_cwe": "CWE-22",
+   "code": "[HttpGet(\"download\")]\npublic IActionResult Download(string name)\n{\n    var path = Path.Combine(_env.ContentRootPath, \"uploads\", name);\n    return PhysicalFile(path, \"application/octet-stream\");\n}"
+  },
+  {
+   "id": "l33",
+   "language": "csharp",
+   "expected_cwe": "CWE-611",
+   "code": "public XmlDocument LoadManifest(string xml)\n{\n    var doc = new XmlDocument();\n    doc.XmlResolver = new XmlUrlResolver();\n    doc.LoadXml(xml);\n    return doc;\n}"
+  },
+  {
+   "id": "l34",
+   "language": "csharp",
+   "expected_cwe": "CWE-916",
+   "code": "public string HashPassword(string password)\n{\n    using var md5 = MD5.Create();\n    var bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(password));\n    return Convert.ToHexString(bytes);\n}"
+  },
+  {
+   "id": "l35",
+   "language": "csharp",
+   "expected_cwe": "CWE-798",
+   "code": "public class MailSender\n{\n    private const string SmtpPassword = \"Sup3rS3cret!2024\";\n    public void Send(string to, string body)\n    {\n        using var client = new SmtpClient(\"smtp.corp.example\", 587) { Credentials = new NetworkCredential(\"noreply\", SmtpPassword), EnableSsl = true };\n        client.Send(\"noreply@corp.example\", to, \"Notice\", body);\n    }\n}"
+  },
+  {
+   "id": "l36",
+   "language": "ruby",
+   "expected_cwe": "CWE-89",
+   "code": "def search\n  term = params[:q]\n  @users = User.where(\"name LIKE '%#{term}%' OR email LIKE '%#{term}%'\")\n  render :index\nend"
+  },
+  {
+   "id": "l37",
+   "language": "ruby",
+   "expected_cwe": "CWE-78",
+   "code": "def ping\n  host = params[:host]\n  @output = `ping -c 2 #{host}`\n  render plain: @output\nend"
+  },
+  {
+   "id": "l38",
+   "language": "ruby",
+   "expected_cwe": "CWE-79",
+   "code": "def show\n  @comment = Comment.find(params[:id])\n  render html: \"<div class='comment'>#{@comment.body}</div>\".html_safe\nend"
+  },
+  {
+   "id": "l39",
+   "language": "ruby",
+   "expected_cwe": "CWE-502",
+   "code": "def import\n  data = YAML.load(params[:payload])\n  Settings.apply(data)\n  head :ok\nend"
+  },
+  {
+   "id": "l40",
+   "language": "ruby",
+   "expected_cwe": "CWE-22",
+   "code": "def download\n  path = File.join(Rails.root, \"uploads\", params[:name])\n  send_file path\nend"
+  },
+  {
+   "id": "l41",
+   "language": "ruby",
+   "expected_cwe": "CWE-601",
+   "code": "def create\n  if login(params[:email], params[:password])\n    redirect_to params[:return_to]\n  else\n    render :new\n  end\nend"
+  },
+  {
+   "id": "l42",
+   "language": "ruby",
+   "expected_cwe": "CWE-915",
+   "code": "def update\n  @user = User.find(current_user.id)\n  @user.update(params[:user].permit!)\n  redirect_to profile_path\nend"
+  },
+  {
+   "id": "l43",
+   "language": "ruby",
+   "expected_cwe": "CWE-352",
+   "code": "class WebhooksController < ApplicationController\n  skip_before_action :verify_authenticity_token\n\n  def transfer\n    Account.find(params[:from]).transfer_to(params[:to], params[:amount])\n    head :ok\n  end\nend"
+  },
+  {
+   "id": "l44",
+   "language": "c",
+   "expected_cwe": "CWE-120",
+   "code": "void greet(const char *name) {\n    char buf[32];\n    strcpy(buf, name);\n    printf(\"Hello, %s\\n\", buf);\n}"
+  },
+  {
+   "id": "l45",
+   "language": "c",
+   "expected_cwe": "CWE-134",
+   "code": "void log_message(const char *user_input) {\n    char line[256];\n    snprintf(line, sizeof(line), \"%s\", user_input);\n    syslog(LOG_INFO, line);\n}"
+  },
+  {
+   "id": "l46",
+   "language": "c",
+   "expected_cwe": "CWE-78",
+   "code": "int run_backup(const char *dir) {\n    char cmd[512];\n    snprintf(cmd, sizeof(cmd), \"tar czf /backup/out.tgz %s\", dir);\n    return system(cmd);\n}"
+  },
+  {
+   "id": "l47",
+   "language": "c",
+   "expected_cwe": "CWE-416",
+   "code": "void drop_session(struct session *s) {\n    free(s->token);\n    log_event(\"session closed for %s\", s->token);\n    free(s);\n}"
+  },
+  {
+   "id": "l48",
+   "language": "c",
+   "expected_cwe": "CWE-190",
+   "code": "uint32_t *alloc_table(uint32_t rows, uint32_t cols) {\n    uint32_t *t = malloc(rows * cols * sizeof(uint32_t));\n    if (!t) return NULL;\n    memset(t, 0, rows * cols * sizeof(uint32_t));\n    return t;\n}"
+  },
+  {
+   "id": "l49",
+   "language": "c",
+   "expected_cwe": "CWE-367",
+   "code": "int append_log(const char *path, const char *msg) {\n    if (access(path, W_OK) != 0) return -1;\n    FILE *f = fopen(path, \"a\");\n    if (!f) return -1;\n    fputs(msg, f);\n    fclose(f);\n    return 0;\n}"
+  },
+  {
+   "id": "l50",
+   "language": "c",
+   "expected_cwe": "CWE-125",
+   "code": "int read_field(const uint8_t *pkt, size_t pkt_len) {\n    uint8_t n = pkt[0];\n    uint8_t out[64];\n    memcpy(out, pkt + 1, n);\n    return out[0];\n}"
+  },
+  {
+   "id": "l51",
+   "language": "c",
+   "expected_cwe": "CWE-377",
+   "code": "FILE *open_scratch(void) {\n    char *name = tmpnam(NULL);\n    return fopen(name, \"w+\");\n}"
+  },
+  {
+   "id": "l52",
+   "language": "rust",
+   "expected_cwe": "CWE-78",
+   "code": "async fn ping(Query(q): Query<PingQuery>) -> String {\n    let out = Command::new(\"sh\")\n        .arg(\"-c\")\n        .arg(format!(\"ping -c 2 {}\", q.host))\n        .output()\n        .expect(\"ping failed\");\n    String::from_utf8_lossy(&out.stdout).into_owned()\n}"
+  },
+  {
+   "id": "l53",
+   "language": "rust",
+   "expected_cwe": "CWE-89",
+   "code": "async fn find_user(pool: &PgPool, name: &str) -> Result<Vec<User>, sqlx::Error> {\n    let sql = format!(\"SELECT id, name, email FROM users WHERE name = '{}'\", name);\n    sqlx::query_as::<_, User>(&sql).fetch_all(pool).await\n}"
+  },
+  {
+   "id": "l54",
+   "language": "rust",
+   "expected_cwe": "CWE-22",
+   "code": "async fn download(Path(name): Path<String>) -> Result<Vec<u8>, StatusCode> {\n    let path = std::path::Path::new(\"/srv/files\").join(&name);\n    std::fs::read(path).map_err(|_| StatusCode::NOT_FOUND)\n}"
+  },
+  {
+   "id": "l55",
+   "language": "rust",
+   "expected_cwe": "CWE-295",
+   "code": "fn build_client() -> reqwest::Client {\n    reqwest::Client::builder()\n        .danger_accept_invalid_certs(true)\n        .timeout(Duration::from_secs(10))\n        .build()\n        .unwrap()\n}"
+  },
+  {
+   "id": "l56",
+   "language": "rust",
+   "expected_cwe": "CWE-125",
+   "code": "pub fn read_u16(buf: &[u8], offset: usize) -> u16 {\n    unsafe {\n        let lo = *buf.get_unchecked(offset) as u16;\n        let hi = *buf.get_unchecked(offset + 1) as u16;\n        lo | (hi << 8)\n    }\n}"
+  },
+  {
+   "id": "l57",
+   "language": "rust",
+   "expected_cwe": "CWE-79",
+   "code": "async fn profile(Query(q): Query<ProfileQuery>) -> Html<String> {\n    Html(format!(\"<html><body><h1>Profile of {}</h1></body></html>\", q.name))\n}"
+  },
+  {
+   "id": "l58",
+   "language": "rust",
+   "expected_cwe": "CWE-338",
+   "code": "fn new_session_token() -> String {\n    let mut rng = SmallRng::seed_from_u64(SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_secs());\n    (0..32).map(|_| format!(\"{:02x}\", rng.gen::<u8>())).collect()\n}"
+  },
+  {
+   "id": "l59",
+   "language": "rust",
+   "expected_cwe": "CWE-327",
+   "code": "fn checksum_password(pw: &str) -> String {\n    let digest = md5::compute(pw.as_bytes());\n    format!(\"{:x}\", digest)\n}"
+  },
+  {
+   "id": "l60",
+   "language": "kotlin",
+   "expected_cwe": "CWE-89",
+   "code": "fun findOrders(conn: Connection, customer: String): List<Order> {\n    val rs = conn.createStatement().executeQuery(\"SELECT id, total FROM orders WHERE customer = '$customer'\")\n    val out = mutableListOf<Order>()\n    while (rs.next()) out.add(Order(rs.getLong(\"id\"), rs.getBigDecimal(\"total\")))\n    return out\n}"
+  },
+  {
+   "id": "l61",
+   "language": "kotlin",
+   "expected_cwe": "CWE-78",
+   "code": "@PostMapping(\"/tools/lookup\")\nfun lookup(@RequestParam domain: String): String {\n    val p = Runtime.getRuntime().exec(\"nslookup \" + domain)\n    return p.inputStream.bufferedReader().readText()\n}"
+  },
+  {
+   "id": "l62",
+   "language": "kotlin",
+   "expected_cwe": "CWE-79",
+   "code": "fun Route.greeting() {\n    get(\"/hello\") {\n        val name = call.request.queryParameters[\"name\"] ?: \"guest\"\n        call.respondText(\"<html><body><h1>Hello, $name</h1></body></html>\", ContentType.Text.Html)\n    }\n}"
+  },
+  {
+   "id": "l63",
+   "language": "kotlin",
+   "expected_cwe": "CWE-22",
+   "code": "@GetMapping(\"/export\")\nfun export(@RequestParam file: String): ByteArray {\n    val f = File(exportDir + \"/\" + file)\n    return f.readBytes()\n}"
+  },
+  {
+   "id": "l64",
+   "language": "kotlin",
+   "expected_cwe": "CWE-502",
+   "code": "fun loadState(input: InputStream): AppState {\n    val ois = ObjectInputStream(input)\n    return ois.readObject() as AppState\n}"
+  },
+  {
+   "id": "l65",
+   "language": "kotlin",
+   "expected_cwe": "CWE-601",
+   "code": "@GetMapping(\"/auth/callback\")\nfun callback(@RequestParam redirect: String, response: HttpServletResponse) {\n    response.sendRedirect(redirect)\n}"
+  },
+  {
+   "id": "l66",
+   "language": "kotlin",
+   "expected_cwe": "CWE-327",
+   "code": "fun fingerprint(password: String): String {\n    val md = MessageDigest.getInstance(\"SHA-1\")\n    return md.digest(password.toByteArray()).joinToString(\"\") { \"%02x\".format(it) }\n}"
+  },
+  {
+   "id": "l67",
+   "language": "kotlin",
+   "expected_cwe": "CWE-798",
+   "code": "class S3Uploader {\n    private val accessKey = \"AKIAIOSFODNN7EXAMPLE\"\n    private val secretKey = \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n    fun client() = AmazonS3ClientBuilder.standard()\n        .withCredentials(AWSStaticCredentialsProvider(BasicAWSCredentials(accessKey, secretKey))).build()\n}"
+  }
+ ]
+}

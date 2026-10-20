@@ -15,8 +15,8 @@ which is where such pretrained transformer weights are normally fetched from
 -- confirmed via direct connection tests, not assumed. GitHub-hosted model
 distribution (github.com / raw.githubusercontent.com / objects.githubusercontent.com)
 IS reachable, so this module uses averaged GloVe word embeddings
-(`glove-wiki-gigaword-100`, via gensim, distributed through the gensim-data
-GitHub releases) as the Review 3 embedding backbone: a genuine, pretrained,
+(`glove-wiki-gigaword-100`, read directly with numpy by embeddings/glove.py -- the
+gensim package is no longer needed; a trimmed copy of the vectors ships in data/) as the Review 3 embedding backbone: a genuine, pretrained,
 dense semantic embedding -- not a hand-rolled placeholder -- just not a
 code-specific transformer.
 
@@ -31,7 +31,9 @@ classic SQL-injection snippet below Path Traversal:
      "user", "select") don't drown out the tokens that actually distinguish
      one weakness from another.
 
-This is an explicit, documented scope substitution for Review 3, not a
+Dense similarity is only half of retrieval: retrieval/hybrid.py fuses it with BM25 over the
+knowledge-base text, which is what lifts held-out accuracy (see results/retrieval_report.json).
+This embedding choice is an explicit, documented scope substitution, not a
 silent shortcut: the module's public function signature (`embed_texts`)
 is deliberately identical to what a transformer-backed implementation would
 expose, so swapping in a code-specialised transformer later (once API/model
@@ -44,23 +46,22 @@ from __future__ import annotations
 
 import re
 import time
-from functools import lru_cache
 
 import numpy as np
 
 from rag_vuln_detect.embeddings.idf import weight_for
 
-MODEL_NAME = "glove-wiki-gigaword-100 (gensim-data)"
+MODEL_NAME = "glove-wiki-gigaword-100 (pretrained GloVe, numpy loader)"
 EMBEDDING_DIM = 100
 
 _IDENTIFIER_SPLIT_RE = re.compile(r"[^A-Za-z0-9]+")
 _CAMEL_SPLIT_RE = re.compile(r"(?<=[a-z0-9])(?=[A-Z])")
 
 
-@lru_cache(maxsize=1)
 def _get_model():
-    import gensim.downloader as api
-    return api.load("glove-wiki-gigaword-100")
+    """Word-vector table (numpy-only loader, see embeddings/glove.py)."""
+    from rag_vuln_detect.embeddings.glove import load_glove
+    return load_glove()
 
 
 def tokenize(text: str) -> list[str]:

@@ -1,0 +1,240 @@
+{
+ "note": "FIRST run of the 'langs' set (67 pairs, 8 languages) against the per-language sink rules exactly as first written, before any rule was edited. Later rule fixes are reported separately in retrieval_report.json.",
+ "generated_at": "2026-10-14",
+ "n": 67,
+ "configs": {
+  "Dense, IDF-weighted": {
+   "n": 67,
+   "top1": 0.1791044776119403,
+   "top3": 0.29850746268656714,
+   "top5": 0.417910447761194,
+   "top6": 0.47761194029850745,
+   "top10": 0.5223880597014925,
+   "mrr": 0.27292703150912107
+  },
+  "Hybrid, KB text only": {
+   "n": 67,
+   "top1": 0.417910447761194,
+   "top3": 0.7014925373134329,
+   "top5": 0.7313432835820896,
+   "top6": 0.746268656716418,
+   "top10": 0.8208955223880597,
+   "mrr": 0.5632669983416252
+  },
+  "Hybrid + signals (v1 retriever)": {
+   "n": 67,
+   "top1": 0.5373134328358209,
+   "top3": 0.746268656716418,
+   "top5": 0.8059701492537313,
+   "top6": 0.8059701492537313,
+   "top10": 0.8955223880597015,
+   "mrr": 0.6599265576877517
+  },
+  "Hybrid + signals + sink rules (final)": {
+   "n": 67,
+   "top1": 0.835820895522388,
+   "top3": 0.9701492537313433,
+   "top5": 0.9701492537313433,
+   "top6": 0.9850746268656716,
+   "top10": 0.9850746268656716,
+   "mrr": 0.8930348258706468
+  }
+ },
+ "by_language": {
+  "java": {
+   "n": 10,
+   "top1": 0.9,
+   "top3": 1.0,
+   "top5": 1.0,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.9333333333333333
+  },
+  "php": {
+   "n": 9,
+   "top1": 0.7777777777777778,
+   "top3": 0.8888888888888888,
+   "top5": 0.8888888888888888,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.8333333333333334
+  },
+  "go": {
+   "n": 8,
+   "top1": 0.875,
+   "top3": 1.0,
+   "top5": 1.0,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.9375
+  },
+  "csharp": {
+   "n": 8,
+   "top1": 0.875,
+   "top3": 1.0,
+   "top5": 1.0,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.9166666666666666
+  },
+  "ruby": {
+   "n": 8,
+   "top1": 0.875,
+   "top3": 0.875,
+   "top5": 0.875,
+   "top6": 0.875,
+   "top10": 0.875,
+   "mrr": 0.875
+  },
+  "c": {
+   "n": 8,
+   "top1": 0.75,
+   "top3": 1.0,
+   "top5": 1.0,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.8333333333333334
+  },
+  "rust": {
+   "n": 8,
+   "top1": 0.75,
+   "top3": 1.0,
+   "top5": 1.0,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.875
+  },
+  "kotlin": {
+   "n": 8,
+   "top1": 0.875,
+   "top3": 1.0,
+   "top5": 1.0,
+   "top6": 1.0,
+   "top10": 1.0,
+   "mrr": 0.9375
+  }
+ },
+ "misses": [
+  {
+   "id": "l07",
+   "language": "java",
+   "expected": "CWE-916",
+   "got": [
+    "CWE-327",
+    "CWE-328",
+    "CWE-916"
+   ],
+   "rank": 3
+  },
+  {
+   "id": "l13",
+   "language": "php",
+   "expected": "CWE-79",
+   "got": [
+    "CWE-80",
+    "CWE-20",
+    "CWE-1336"
+   ],
+   "rank": 6
+  },
+  {
+   "id": "l18",
+   "language": "php",
+   "expected": "CWE-916",
+   "got": [
+    "CWE-327",
+    "CWE-328",
+    "CWE-916"
+   ],
+   "rank": 3
+  },
+  {
+   "id": "l27",
+   "language": "go",
+   "expected": "CWE-338",
+   "got": [
+    "CWE-330",
+    "CWE-338",
+    "CWE-335"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "l34",
+   "language": "csharp",
+   "expected": "CWE-916",
+   "got": [
+    "CWE-327",
+    "CWE-328",
+    "CWE-916"
+   ],
+   "rank": 3
+  },
+  {
+   "id": "l42",
+   "language": "ruby",
+   "expected": "CWE-915",
+   "got": [
+    "CWE-566",
+    "CWE-639",
+    "CWE-426"
+   ],
+   "rank": null
+  },
+  {
+   "id": "l44",
+   "language": "c",
+   "expected": "CWE-120",
+   "got": [
+    "CWE-121",
+    "CWE-787",
+    "CWE-120"
+   ],
+   "rank": 3
+  },
+  {
+   "id": "l50",
+   "language": "c",
+   "expected": "CWE-125",
+   "got": [
+    "CWE-787",
+    "CWE-120",
+    "CWE-125"
+   ],
+   "rank": 3
+  },
+  {
+   "id": "l56",
+   "language": "rust",
+   "expected": "CWE-125",
+   "got": [
+    "CWE-787",
+    "CWE-125",
+    "CWE-121"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "l59",
+   "language": "rust",
+   "expected": "CWE-327",
+   "got": [
+    "CWE-328",
+    "CWE-327",
+    "CWE-134"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "l66",
+   "language": "kotlin",
+   "expected": "CWE-327",
+   "got": [
+    "CWE-328",
+    "CWE-327",
+    "CWE-916"
+   ],
+   "rank": 2
+  }
+ ]
+}

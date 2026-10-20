@@ -1,0 +1,245 @@
+{
+ "_note": "Extended-CWE evaluation snippets (e01-e40), hand-written for weaknesses that exist ONLY in the extended knowledge base (none is in the CWE Top 25 list), BEFORE the retriever or LLM was run on them. They are not used to tune any weight or threshold. Each has a patched counterpart in extended_patched.json. Project-authored, not taken from a public benchmark.",
+ "snippets": [
+  {
+   "id": "e01",
+   "language": "python",
+   "expected_cwe": "CWE-798",
+   "code": "def send_report(payload):\n    api_key = \"sk_live_51Hx9aQ2eZvK\"\n    return requests.post(\"https://api.mailer.example/v1/send\", json=payload,\n                         headers={\"Authorization\": \"Bearer \" + api_key})"
+  },
+  {
+   "id": "e02",
+   "language": "python",
+   "expected_cwe": "CWE-327",
+   "code": "def store_password(user, password):\n    digest = hashlib.md5(password.encode()).hexdigest()\n    db.execute(\"UPDATE users SET pw = ? WHERE id = ?\", (digest, user.id))"
+  },
+  {
+   "id": "e03",
+   "language": "javascript",
+   "expected_cwe": "CWE-330",
+   "code": "function newResetToken() {\n  return Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);\n}"
+  },
+  {
+   "id": "e04",
+   "language": "python",
+   "expected_cwe": "CWE-295",
+   "code": "def fetch_invoice(url):\n    resp = requests.get(url, verify=False, timeout=10)\n    return resp.json()"
+  },
+  {
+   "id": "e05",
+   "language": "python",
+   "expected_cwe": "CWE-347",
+   "code": "def current_user(token):\n    claims = jwt.decode(token, options={\"verify_signature\": False})\n    return User.query.get(claims[\"sub\"])"
+  },
+  {
+   "id": "e06",
+   "language": "python",
+   "expected_cwe": "CWE-319",
+   "code": "def login_remote(username, password):\n    return requests.post(\"http://auth.internal-portal.example.com/login\",\n                         data={\"user\": username, \"password\": password})"
+  },
+  {
+   "id": "e07",
+   "language": "python",
+   "expected_cwe": "CWE-532",
+   "code": "def login(request):\n    logger.info(\"login attempt user=%s password=%s\", request.form[\"user\"], request.form[\"password\"])\n    return authenticate(request.form[\"user\"], request.form[\"password\"])"
+  },
+  {
+   "id": "e08",
+   "language": "python",
+   "expected_cwe": "CWE-209",
+   "code": "@app.errorhandler(Exception)\ndef handle_error(e):\n    return jsonify({\"error\": str(e), \"trace\": traceback.format_exc()}), 500"
+  },
+  {
+   "id": "e09",
+   "language": "python",
+   "expected_cwe": "CWE-489",
+   "code": "if __name__ == \"__main__\":\n    app.run(host=\"0.0.0.0\", port=8080, debug=True)"
+  },
+  {
+   "id": "e10",
+   "language": "python",
+   "expected_cwe": "CWE-307",
+   "code": "@app.route(\"/login\", methods=[\"POST\"])\ndef login():\n    user = User.query.filter_by(email=request.form[\"email\"]).first()\n    if user and user.check_password(request.form[\"password\"]):\n        session[\"uid\"] = user.id\n        return redirect(\"/\")\n    return \"invalid\", 401"
+  },
+  {
+   "id": "e11",
+   "language": "javascript",
+   "expected_cwe": "CWE-384",
+   "code": "app.post('/login', async (req, res) => {\n  const user = await verify(req.body.email, req.body.password);\n  if (!user) return res.status(401).end();\n  req.session.userId = user.id;\n  res.redirect('/dashboard');\n});"
+  },
+  {
+   "id": "e12",
+   "language": "python",
+   "expected_cwe": "CWE-601",
+   "code": "@app.route(\"/logout\")\ndef logout():\n    session.clear()\n    return redirect(request.args.get(\"next\", \"/\"))"
+  },
+  {
+   "id": "e13",
+   "language": "python",
+   "expected_cwe": "CWE-611",
+   "code": "def parse_upload(xml_bytes):\n    parser = etree.XMLParser(resolve_entities=True, load_dtd=True, no_network=False)\n    return etree.fromstring(xml_bytes, parser)"
+  },
+  {
+   "id": "e14",
+   "language": "javascript",
+   "expected_cwe": "CWE-1333",
+   "code": "function isValidEmail(input) {\n  return /^([a-zA-Z0-9]+)*@([a-zA-Z0-9]+\\.)+[a-zA-Z]{2,}$/.test(input);\n}"
+  },
+  {
+   "id": "e15",
+   "language": "javascript",
+   "expected_cwe": "CWE-1321",
+   "code": "function merge(target, source) {\n  for (const key in source) {\n    if (typeof source[key] === 'object' && source[key] !== null) {\n      target[key] = merge(target[key] || {}, source[key]);\n    } else {\n      target[key] = source[key];\n    }\n  }\n  return target;\n}\napp.post('/settings', (req, res) => res.json(merge(defaults, req.body)));"
+  },
+  {
+   "id": "e16",
+   "language": "python",
+   "expected_cwe": "CWE-915",
+   "code": "@app.route(\"/profile\", methods=[\"POST\"])\ndef update_profile():\n    user = User.query.get(session[\"uid\"])\n    for field, value in request.json.items():\n        setattr(user, field, value)\n    db.session.commit()\n    return \"ok\""
+  },
+  {
+   "id": "e17",
+   "language": "python",
+   "expected_cwe": "CWE-732",
+   "code": "def save_export(path, data):\n    with open(path, \"w\") as f:\n        f.write(data)\n    os.chmod(path, 0o777)"
+  },
+  {
+   "id": "e18",
+   "language": "python",
+   "expected_cwe": "CWE-377",
+   "code": "def scratch_file(data):\n    name = tempfile.mktemp(suffix=\".tmp\")\n    with open(name, \"w\") as f:\n        f.write(data)\n    return name"
+  },
+  {
+   "id": "e19",
+   "language": "javascript",
+   "expected_cwe": "CWE-942",
+   "code": "app.use((req, res, next) => {\n  res.setHeader('Access-Control-Allow-Origin', req.headers.origin);\n  res.setHeader('Access-Control-Allow-Credentials', 'true');\n  next();\n});"
+  },
+  {
+   "id": "e20",
+   "language": "python",
+   "expected_cwe": "CWE-614",
+   "code": "@app.route(\"/signin\", methods=[\"POST\"])\ndef signin():\n    resp = make_response(redirect(\"/home\"))\n    resp.set_cookie(\"session_token\", issue_token(request.form[\"user\"]))\n    return resp"
+  },
+  {
+   "id": "e21",
+   "language": "python",
+   "expected_cwe": "CWE-362",
+   "code": "def withdraw(account_id, amount):\n    acct = Account.query.get(account_id)\n    if acct.balance >= amount:\n        acct.balance = acct.balance - amount\n        db.session.commit()\n        return True\n    return False"
+  },
+  {
+   "id": "e22",
+   "language": "python",
+   "expected_cwe": "CWE-367",
+   "code": "def read_user_file(path):\n    if os.path.exists(path) and os.access(path, os.R_OK):\n        with open(path) as f:\n            return f.read()\n    return None"
+  },
+  {
+   "id": "e23",
+   "language": "python",
+   "expected_cwe": "CWE-400",
+   "code": "@app.route(\"/import\", methods=[\"POST\"])\ndef import_rows():\n    data = request.stream.read()\n    rows = json.loads(data)\n    return {\"count\": len(rows)}"
+  },
+  {
+   "id": "e24",
+   "language": "python",
+   "expected_cwe": "CWE-409",
+   "code": "def unpack_upload(zip_path, dest):\n    with zipfile.ZipFile(zip_path) as z:\n        z.extractall(dest)"
+  },
+  {
+   "id": "e25",
+   "language": "python",
+   "expected_cwe": "CWE-799",
+   "code": "@app.route(\"/send-code\", methods=[\"POST\"])\ndef send_code():\n    phone = request.form[\"phone\"]\n    sms.send(phone, \"Your code is \" + new_code(phone))\n    return \"sent\""
+  },
+  {
+   "id": "e26",
+   "language": "javascript",
+   "expected_cwe": "CWE-829",
+   "code": "app.get('/plugin/:name', (req, res) => {\n  const plugin = require('./plugins/' + req.params.name);\n  res.json(plugin.describe());\n});"
+  },
+  {
+   "id": "e27",
+   "language": "python",
+   "expected_cwe": "CWE-494",
+   "code": "def self_update(url):\n    code = requests.get(url, timeout=10).text\n    with open(\"updater.py\", \"w\") as f:\n        f.write(code)\n    subprocess.run([sys.executable, \"updater.py\"])"
+  },
+  {
+   "id": "e28",
+   "language": "python",
+   "expected_cwe": "CWE-636",
+   "code": "def is_allowed(user, resource):\n    try:\n        return policy_service.check(user.id, resource)\n    except Exception:\n        return True"
+  },
+  {
+   "id": "e29",
+   "language": "python",
+   "expected_cwe": "CWE-208",
+   "code": "def verify_webhook(request):\n    expected = hmac.new(SECRET, request.data, hashlib.sha256).hexdigest()\n    return request.headers.get(\"X-Signature\") == expected"
+  },
+  {
+   "id": "e30",
+   "language": "python",
+   "expected_cwe": "CWE-204",
+   "code": "@app.route(\"/login\", methods=[\"POST\"])\ndef login():\n    user = User.query.filter_by(email=request.form[\"email\"]).first()\n    if user is None:\n        return \"No account with that email\", 404\n    if not user.check_password(request.form[\"password\"]):\n        return \"Wrong password\", 401\n    return issue_session(user)"
+  },
+  {
+   "id": "e31",
+   "language": "python",
+   "expected_cwe": "CWE-117",
+   "code": "@app.route(\"/search\")\ndef search():\n    q = request.args.get(\"q\", \"\")\n    app.logger.info(\"search query: \" + q)\n    return render_results(q)"
+  },
+  {
+   "id": "e32",
+   "language": "javascript",
+   "expected_cwe": "CWE-113",
+   "code": "app.get('/download', (req, res) => {\n  res.setHeader('Content-Disposition', 'attachment; filename=' + req.query.name);\n  res.sendFile('/srv/files/report.pdf');\n});"
+  },
+  {
+   "id": "e33",
+   "language": "python",
+   "expected_cwe": "CWE-1336",
+   "code": "@app.route(\"/greet\")\ndef greet():\n    name = request.args.get(\"name\", \"friend\")\n    return render_template_string(\"<h1>Hello \" + name + \"</h1>\")"
+  },
+  {
+   "id": "e34",
+   "language": "javascript",
+   "expected_cwe": "CWE-943",
+   "code": "app.post('/login', async (req, res) => {\n  const user = await db.collection('users').findOne({ email: req.body.email, password: req.body.password });\n  if (!user) return res.sendStatus(401);\n  res.json({ ok: true });\n});"
+  },
+  {
+   "id": "e35",
+   "language": "python",
+   "expected_cwe": "CWE-90",
+   "code": "def find_user(conn, username):\n    conn.search(\"ou=people,dc=corp,dc=example\", \"(uid=\" + username + \")\")\n    return conn.entries"
+  },
+  {
+   "id": "e36",
+   "language": "python",
+   "expected_cwe": "CWE-88",
+   "code": "def clone_repo(url):\n    subprocess.run([\"git\", \"clone\", url, \"/srv/repos/work\"], check=True)"
+  },
+  {
+   "id": "e37",
+   "language": "python",
+   "expected_cwe": "CWE-916",
+   "code": "def hash_password(password):\n    return hashlib.sha256(password.encode()).hexdigest()"
+  },
+  {
+   "id": "e38",
+   "language": "javascript",
+   "expected_cwe": "CWE-1004",
+   "code": "app.post('/signin', (req, res) => {\n  const token = issueToken(req.body.user);\n  res.cookie('auth', token, { httpOnly: false, secure: true });\n  res.redirect('/home');\n});"
+  },
+  {
+   "id": "e39",
+   "language": "python",
+   "expected_cwe": "CWE-807",
+   "code": "@app.route(\"/admin/users\")\ndef admin_users():\n    if request.cookies.get(\"role\") == \"admin\":\n        return jsonify([u.to_dict() for u in User.query.all()])\n    return \"forbidden\", 403"
+  },
+  {
+   "id": "e40",
+   "language": "python",
+   "expected_cwe": "CWE-345",
+   "code": "@app.route(\"/webhooks/payment\", methods=[\"POST\"])\ndef payment_webhook():\n    event = request.get_json()\n    mark_paid(event[\"order_id\"])\n    return \"\", 204"
+  }
+ ]
+}

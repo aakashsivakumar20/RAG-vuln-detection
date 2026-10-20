@@ -1,0 +1,379 @@
+{
+  "alpha": 0.5,
+  "sets": {
+    "dev": {
+      "n": 22,
+      "configs": {
+        "Dense, plain average": {
+          "n": 22,
+          "top1": 0.3182,
+          "top3": 0.4545,
+          "top5": 0.5909,
+          "top6": 0.6364,
+          "top10": 0.6818,
+          "mrr": 0.4323,
+          "family_top1": 0.5,
+          "family_top3": 0.6818
+        },
+        "Dense, IDF-weighted (Review 3)": {
+          "n": 22,
+          "top1": 0.2727,
+          "top3": 0.4545,
+          "top5": 0.6364,
+          "top6": 0.6818,
+          "top10": 0.6818,
+          "mrr": 0.397,
+          "family_top1": 0.4545,
+          "family_top3": 0.6818
+        },
+        "Hybrid, KB text only": {
+          "n": 22,
+          "top1": 0.5909,
+          "top3": 0.8182,
+          "top5": 0.8636,
+          "top6": 0.9091,
+          "top10": 0.9545,
+          "mrr": 0.7205,
+          "family_top1": 0.7273,
+          "family_top3": 0.9091
+        },
+        "Hybrid + signals (v1 retriever)": {
+          "n": 22,
+          "top1": 0.7273,
+          "top3": 0.9091,
+          "top5": 0.9091,
+          "top6": 0.9091,
+          "top10": 0.9545,
+          "mrr": 0.8239,
+          "family_top1": 0.8636,
+          "family_top3": 0.9545
+        },
+        "Hybrid + signals + sink rules (final)": {
+          "n": 22,
+          "top1": 0.9091,
+          "top3": 1.0,
+          "top5": 1.0,
+          "top6": 1.0,
+          "top10": 1.0,
+          "mrr": 0.9545,
+          "family_top1": 1.0,
+          "family_top3": 1.0
+        }
+      }
+    },
+    "heldout": {
+      "n": 38,
+      "configs": {
+        "Dense, plain average": {
+          "n": 38,
+          "top1": 0.1053,
+          "top3": 0.1579,
+          "top5": 0.1842,
+          "top6": 0.1842,
+          "top10": 0.2368,
+          "mrr": 0.139,
+          "family_top1": 0.2105,
+          "family_top3": 0.3947
+        },
+        "Dense, IDF-weighted (Review 3)": {
+          "n": 38,
+          "top1": 0.0789,
+          "top3": 0.1053,
+          "top5": 0.1316,
+          "top6": 0.2105,
+          "top10": 0.2368,
+          "mrr": 0.1135,
+          "family_top1": 0.1316,
+          "family_top3": 0.2632
+        },
+        "Hybrid, KB text only": {
+          "n": 38,
+          "top1": 0.2105,
+          "top3": 0.3421,
+          "top5": 0.3947,
+          "top6": 0.4211,
+          "top10": 0.4737,
+          "mrr": 0.2945,
+          "family_top1": 0.3684,
+          "family_top3": 0.5
+        },
+        "Hybrid + signals (v1 retriever)": {
+          "n": 38,
+          "top1": 0.3947,
+          "top3": 0.5526,
+          "top5": 0.6053,
+          "top6": 0.6053,
+          "top10": 0.7105,
+          "mrr": 0.4957,
+          "family_top1": 0.5263,
+          "family_top3": 0.7368
+        },
+        "Hybrid + signals + sink rules (final)": {
+          "n": 38,
+          "top1": 0.5789,
+          "top3": 0.7368,
+          "top5": 0.8158,
+          "top6": 0.8421,
+          "top10": 0.8421,
+          "mrr": 0.6706,
+          "family_top1": 0.7105,
+          "family_top3": 0.8684
+        }
+      }
+    },
+    "extended": {
+      "n": 40,
+      "configs": {
+        "Dense, plain average": {
+          "n": 40,
+          "top1": 0.125,
+          "top3": 0.225,
+          "top5": 0.325,
+          "top6": 0.325,
+          "top10": 0.475,
+          "mrr": 0.2111,
+          "family_top1": 0.15,
+          "family_top3": 0.25
+        },
+        "Dense, IDF-weighted (Review 3)": {
+          "n": 40,
+          "top1": 0.125,
+          "top3": 0.275,
+          "top5": 0.35,
+          "top6": 0.375,
+          "top10": 0.525,
+          "mrr": 0.227,
+          "family_top1": 0.15,
+          "family_top3": 0.3
+        },
+        "Hybrid, KB text only": {
+          "n": 40,
+          "top1": 0.5,
+          "top3": 0.8,
+          "top5": 0.925,
+          "top6": 0.925,
+          "top10": 0.975,
+          "mrr": 0.6667,
+          "family_top1": 0.55,
+          "family_top3": 0.825
+        },
+        "Hybrid + signals (v1 retriever)": {
+          "n": 40,
+          "top1": 0.575,
+          "top3": 0.775,
+          "top5": 0.95,
+          "top6": 0.95,
+          "top10": 0.95,
+          "mrr": 0.6912,
+          "family_top1": 0.625,
+          "family_top3": 0.8
+        },
+        "Hybrid + signals + sink rules (final)": {
+          "n": 40,
+          "top1": 0.8,
+          "top3": 0.975,
+          "top5": 0.975,
+          "top6": 0.975,
+          "top10": 0.975,
+          "mrr": 0.8792,
+          "family_top1": 0.825,
+          "family_top3": 0.975
+        }
+      }
+    },
+    "heldout2": {
+      "n": 61,
+      "configs": {
+        "Dense, plain average": {
+          "n": 61,
+          "top1": 0.1639,
+          "top3": 0.2623,
+          "top5": 0.2951,
+          "top6": 0.2951,
+          "top10": 0.3279,
+          "mrr": 0.2163,
+          "family_top1": 0.2295,
+          "family_top3": 0.3607
+        },
+        "Dense, IDF-weighted (Review 3)": {
+          "n": 61,
+          "top1": 0.1639,
+          "top3": 0.2951,
+          "top5": 0.3115,
+          "top6": 0.3115,
+          "top10": 0.3115,
+          "mrr": 0.2246,
+          "family_top1": 0.2295,
+          "family_top3": 0.377
+        },
+        "Hybrid, KB text only": {
+          "n": 61,
+          "top1": 0.3279,
+          "top3": 0.5574,
+          "top5": 0.623,
+          "top6": 0.6557,
+          "top10": 0.7377,
+          "mrr": 0.4594,
+          "family_top1": 0.459,
+          "family_top3": 0.6885
+        },
+        "Hybrid + signals (v1 retriever)": {
+          "n": 61,
+          "top1": 0.4262,
+          "top3": 0.6557,
+          "top5": 0.7541,
+          "top6": 0.8033,
+          "top10": 0.8525,
+          "mrr": 0.5633,
+          "family_top1": 0.541,
+          "family_top3": 0.7705
+        },
+        "Hybrid + signals + sink rules (final)": {
+          "n": 61,
+          "top1": 0.7213,
+          "top3": 0.8852,
+          "top5": 0.9344,
+          "top6": 0.9344,
+          "top10": 0.9344,
+          "mrr": 0.8057,
+          "family_top1": 0.7541,
+          "family_top3": 0.9344
+        }
+      }
+    },
+    "langs": {
+      "n": 67,
+      "configs": {
+        "Dense, plain average": {
+          "n": 67,
+          "top1": 0.1493,
+          "top3": 0.3433,
+          "top5": 0.403,
+          "top6": 0.403,
+          "top10": 0.5522,
+          "mrr": 0.2648,
+          "family_top1": 0.2985,
+          "family_top3": 0.4328
+        },
+        "Dense, IDF-weighted (Review 3)": {
+          "n": 67,
+          "top1": 0.1791,
+          "top3": 0.2985,
+          "top5": 0.4179,
+          "top6": 0.4776,
+          "top10": 0.5224,
+          "mrr": 0.2729,
+          "family_top1": 0.2985,
+          "family_top3": 0.403
+        },
+        "Hybrid, KB text only": {
+          "n": 67,
+          "top1": 0.4179,
+          "top3": 0.7015,
+          "top5": 0.7313,
+          "top6": 0.7463,
+          "top10": 0.8209,
+          "mrr": 0.5633,
+          "family_top1": 0.6418,
+          "family_top3": 0.8657
+        },
+        "Hybrid + signals (v1 retriever)": {
+          "n": 67,
+          "top1": 0.5373,
+          "top3": 0.7463,
+          "top5": 0.806,
+          "top6": 0.806,
+          "top10": 0.8955,
+          "mrr": 0.6599,
+          "family_top1": 0.7612,
+          "family_top3": 0.9104
+        },
+        "Hybrid + signals + sink rules (final)": {
+          "n": 67,
+          "top1": 0.8657,
+          "top3": 1.0,
+          "top5": 1.0,
+          "top6": 1.0,
+          "top10": 1.0,
+          "mrr": 0.9204,
+          "family_top1": 1.0,
+          "family_top3": 1.0
+        }
+      }
+    }
+  },
+  "langs_by_language": {
+    "java": {
+      "n": 10,
+      "top1": 0.9,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.9333
+    },
+    "php": {
+      "n": 9,
+      "top1": 0.8889,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.9259
+    },
+    "go": {
+      "n": 8,
+      "top1": 0.875,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.9375
+    },
+    "csharp": {
+      "n": 8,
+      "top1": 0.875,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.9167
+    },
+    "ruby": {
+      "n": 8,
+      "top1": 1.0,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 1.0
+    },
+    "c": {
+      "n": 8,
+      "top1": 0.75,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.8333
+    },
+    "rust": {
+      "n": 8,
+      "top1": 0.75,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.875
+    },
+    "kotlin": {
+      "n": 8,
+      "top1": 0.875,
+      "top3": 1.0,
+      "top5": 1.0,
+      "top6": 1.0,
+      "top10": 1.0,
+      "mrr": 0.9375
+    }
+  }
+}

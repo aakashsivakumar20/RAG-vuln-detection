@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG Vulnerability Detection</title>
+<meta name="description" content="A code scanner that retrieves OWASP and CWE evidence, has an LLM check each finding, and shows every score behind the result.">
+<style>
+:root{
+  --bg:#f7f9fb; --card:#ffffff; --ink:#1f2933; --mute:#52606d; --line:#d9e0e7;
+  --navy:#0b2545; --blue:#2e6da4; --pale:#e6eef7; --accent:#2e6da4;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0e1621; --card:#152231; --ink:#e6edf3; --mute:#9fb0c0; --line:#26384b; --navy:#8fb3d9; --blue:#6aa5dc; --pale:#1a2d44; --accent:#6aa5dc; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:.2px}
+nav a{margin-left:18px;font-size:14px;color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--ink)}
+.hero{padding:72px 0 48px}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin:0 0 16px;color:var(--navy);letter-spacing:-.5px}
+.hero p.lead{font-size:19px;color:var(--mute);max-width:720px;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;border:1px solid var(--line);text-decoration:none;font-weight:600;font-size:15px;color:var(--ink);background:var(--card)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn:hover{filter:brightness(.97)}
+section{padding:44px 0}
+section h2{font-size:26px;margin:0 0 8px;color:var(--navy);letter-spacing:-.2px}
+section p.sub{color:var(--mute);margin:0 0 24px;max-width:760px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.stat b{display:block;font-size:32px;line-height:1.1;color:var(--navy)}
+.stat span{font-size:14px;color:var(--mute)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px 14px 52px;position:relative;font-size:14.5px}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;background:var(--pale);color:var(--navy);font-weight:700;font-size:13px;display:grid;place-items:center}
+.step b{display:block;font-size:15px}
+.step span{color:var(--mute)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr} nav a:not(.keep){display:none}}
+figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+figure img{width:100%;height:auto;display:block;border-radius:4px;background:#fff}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:10px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:15px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--pale);color:var(--navy);font-size:13.5px;text-transform:uppercase;letter-spacing:.4px}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.hl td{font-weight:700;color:var(--navy)}
+.note{background:var(--card);border-left:4px solid var(--blue);border-radius:6px;padding:14px 18px;margin-top:18px;color:var(--mute);font-size:15px}
+ul.plain{padding-left:20px;margin:0}
+ul.plain li{margin:8px 0}
+pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;overflow:auto;font-size:14px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:14px}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">RAG Vulnerability Detection</a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#results">Results</a>
+      <a href="#screens">Screens</a>
+      <a href="#limits">Limits</a>
+      <a class="keep" href="https://github.com/aakashsivakumar20/RAG-vuln-detection">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <h1>Find the weakness. Check it. See why.</h1>
+  <p class="lead">A scanner that retrieves OWASP and CWE evidence for every function in a repository, has a language model check each match, and shows every score behind the result. It reads Python, JavaScript/TypeScript, Java, Kotlin, PHP, Go, C#, Ruby, C/C++ and Rust, and it runs on plain Python.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/aakashsivakumar20/RAG-vuln-detection#run-it-yourself">Run it yourself</a>
+    <a class="btn" href="https://github.com/aakashsivakumar20/RAG-vuln-detection">View the code</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>79.7%</b><span>top-1 CWE retrieval on 128 snippets written after the rules were frozen</span></div>
+    <div class="stat"><b>96.9%</b><span>correct CWE within the six entries shown to the model</span></div>
+    <div class="stat"><b>435</b><span>sink rules over 116 CWEs, with 269 knowledge-base entries</span></div>
+    <div class="stat"><b>1.4 ms</b><span>median retrieval time per code unit on one CPU thread</span></div>
+  </div>
+</div>
+
+<section id="how"><div class="wrap">
+  <h2>How a scan works</h2>
+  <p class="sub">Retrieval and rules propose candidates and reasons. A model judges only after that, and severity comes from a fixed table, not from the model.</p>
+  <div class="steps">
+    <div class="step"><b>Ingest</b><span>GitHub URL, folder or zip; vendored and binary files skipped</span></div>
+    <div class="step"><b>Parse</b><span>tree-sitter splits code into function-level units</span></div>
+    <div class="step"><b>Embed</b><span>GloVe-100 vectors weighted by IDF</span></div>
+    <div class="step"><b>Index</b><span>FAISS for the knowledge base and for the repo</span></div>
+    <div class="step"><b>Retrieve</b><span>dense + BM25 + sink rules + prior, fused into one score</span></div>
+    <div class="step"><b>Judge</b><span>LLM returns a JSON verdict with evidence and confidence</span></div>
+    <div class="step"><b>Score</b><span>confirmed, needs review or rejected, with a CVSS band</span></div>
+    <div class="step"><b>Fix</b><span>63 fix patterns plus the model's own before and after</span></div>
+    <div class="step"><b>Store</b><span>SQLite, with JSON, CSV and SARIF export</span></div>
+    <div class="step"><b>Show</b><span>React dashboard with an Inspector for every score</span></div>
+  </div>
+</div></section>
+
+<section id="results"><div class="wrap">
+  <h2>Results</h2>
+  <p class="sub">Does the correct CWE come back from the 269-entry knowledge base? Measured on 128 snippets (61 Python and JavaScript, 67 in eight other languages) written after the sink rules were frozen.</p>
+  <table>
+    <thead><tr><th>Retriever</th><th class="n">Top-1</th><th class="n">Top-6</th></tr></thead>
+    <tbody>
+      <tr><td>Dense (averaged GloVe) only</td><td class="n">17.2%</td><td class="n">39.8%</td></tr>
+      <tr><td>BM25 only</td><td class="n">46.9%</td><td class="n">82.8%</td></tr>
+      <tr><td>Sink rules only</td><td class="n">85.9%</td><td class="n">95.3%</td></tr>
+      <tr class="hl"><td>Full system</td><td class="n">79.7%</td><td class="n">96.9%</td></tr>
+    </tbody>
+  </table>
+  <div class="note">The rules carry most of the accuracy. Dense and BM25 add recall: with BM25 removed, top-6 falls from 96.9% to 89.8%. The 95% Wilson interval on the full system's top-1 is 71.9 to 85.7.</div>
+  <div class="grid2" style="margin-top:24px">
+    <figure><img src="assets/fig_methods.png" alt="Bar chart of top-1, top-3 and top-6 accuracy for five retrievers on the blind set"><figcaption>Each added component on the 61-snippet blind set. Top-1 rises from 16% to 72%.</figcaption></figure>
+    <figure><img src="assets/fig_ablation.png" alt="Dot and interval plot of the ablation on 128 snippets"><figcaption>Ablation on 128 snippets. Dots are top-1 with 95% intervals; squares are top-6.</figcaption></figure>
+  </div>
+  <div class="note">Four real scans on the Groq free tier took 13 to 23 minutes each and produced 100 confirmed findings in total. The targets have no ground-truth labels, so that figure is a count and not an accuracy.</div>
+</div></section>
+
+<section id="screens"><div class="wrap">
+  <h2>What you see</h2>
+  <p class="sub">The Inspector breaks a match into its parts, so a reviewer can see why an entry ranked where it did.</p>
+  <div class="grid2">
+    <figure><img src="assets/inspector.png" alt="Inspector page showing the fused score table for a SQL injection snippet"><figcaption>Inspector: dense, BM25, rule and prior contributions for each ranked entry.</figcaption></figure>
+    <figure><img src="assets/results.png" alt="Results page of a scan with counts of confirmed, rejected and unverified findings"><figcaption>Results: confirmed, needs review, rejected and unverified units from a real scan.</figcaption></figure>
+  </div>
+  <figure style="margin-top:20px"><img src="assets/fig_worked.png" alt="Stacked bars showing how the rule term lifts CWE-89 for a vulnerable snippet but not for its patched version"><figcaption>One example. For the vulnerable snippet a rule lifts CWE-89 from 0.912 to 1.842. For the patched version no rule fires and the same entry scores 0.962.</figcaption></figure>
+</div></section>
+
+<section id="start"><div class="wrap">
+  <h2>Run it</h2>
+  <p class="sub">Python 3.10 to 3.14. No compiler, no GPU, no model download. A free Groq or Gemini key is optional; without one, findings stay marked Unverified.</p>
+<pre><code>git clone https://github.com/aakashsivakumar20/RAG-vuln-detection.git
+cd RAG-vuln-detection
+./setup.sh      # Windows: setup.bat
+./run.sh        # Windows: run.bat</code></pre>
+</div></section>
+
+<section id="limits"><div class="wrap">
+  <h2>Limits</h2>
+  <ul class="plain">
+    <li>The team wrote every benchmark snippet and every rule, so accuracy on unfamiliar code will be lower.</li>
+    <li>Retrieval does not see a patch. For 42% of patched snippets the top-1 is still the CWE of the vulnerable version, which is why a verdict step follows retrieval.</li>
+    <li>The comparison of an LLM with and without retrieval has not been run, so no such numbers are claimed here.</li>
+    <li>Analysis is per function; weaknesses that span files are caught only when visible in the unit.</li>
+  </ul>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  Aakash Sivakumar and Udhay Anand Pandiyan, with guide Jenila Livingston L M. School of Computer Science and Engineering, Vellore Institute of Technology, Chennai. Scan only code you own or have permission to test.
+</div></footer>
+</body>
+</html>

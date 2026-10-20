@@ -13,9 +13,13 @@ from __future__ import annotations
 
 import dataclasses
 import os
+import re
 import shutil
 import subprocess
+import tempfile
 import time
+import urllib.request
+import zipfile
 from pathlib import Path
 
 # Directories that are essentially never source we want to analyse.
@@ -24,12 +28,20 @@ VENDORED_DIR_NAMES = {
     "dist", "build", "out", "target", ".git", ".hg", ".svn",
     "__pycache__", ".mypy_cache", ".pytest_cache", ".tox",
     "site-packages", "bower_components", ".next", ".nuxt",
+    "obj", "third_party", "thirdparty", "3rdparty",
 }
 
-# Extensions we currently know how to chunk meaningfully (Sec. 1.4 scope:
-# Python + JS/TS first). Anything else is still listed but flagged
-# "unsupported_language" rather than silently dropped.
-SUPPORTED_SOURCE_EXTENSIONS = {".py", ".js", ".jsx", ".ts", ".tsx"}
+# Extensions we know how to chunk meaningfully, mapped to the language name used everywhere else
+# (chunker, sink rules, prompts). Python / JavaScript / TypeScript were the original scope; the rest
+# were added in release v2. Anything else is counted as "unsupported_language" rather than silently dropped.
+LANGUAGE_BY_EXTENSION = {
+    ".py": "python", ".js": "javascript", ".jsx": "javascript", ".mjs": "javascript", ".cjs": "javascript",
+    ".ts": "typescript", ".tsx": "typescript",
+    ".java": "java", ".php": "php", ".phtml": "php", ".go": "go", ".cs": "csharp", ".rb": "ruby",
+    ".c": "c", ".h": "c", ".cc": "cpp", ".cpp": "cpp", ".cxx": "cpp", ".hpp": "cpp", ".hh": "cpp", ".hxx": "cpp",
+    ".rs": "rust", ".kt": "kotlin", ".kts": "kotlin",
+}
+SUPPORTED_SOURCE_EXTENSIONS = set(LANGUAGE_BY_EXTENSION)
 
 # Extensions that are unambiguously not source code worth chunking.
 BINARY_OR_NONSOURCE_EXTENSIONS = {
@@ -63,7 +75,7 @@ class IngestionReport:
 
     def summary(self) -> str:
         return (
-            f"Cloned {self.repo_url} in {self.clone_seconds:.1f}s. "
+            f"Fetched {self.repo_url} in {self.clone_seconds:.1f}s. "
             f"Saw {self.total_files_seen} files total; kept {len(self.files_kept)} "
             f"source files for chunking. Skipped: {self.files_skipped_vendored} vendored, "
             f"{self.files_skipped_binary_or_nonsource} binary/non-source, "
@@ -72,15 +84,26 @@ class IngestionReport:
         )
 
 
+_MINIFIED_NAME_RE = re.compile(r"[.\-_]min\.(js|css)$|\.bundle\.js$|\.chunk\.js$", re.I)
+
+
+def _looks_minified(path: Path, fname: str) -> bool:
+    """Minified / bundled third-party code (underscore-min.js, app.bundle.js, one-line megafiles) is not worth analysing."""
+    if _MINIFIED_NAME_RE.search(fname):
+        return True
+    if path.suffix.lower() not in (".js", ".jsx", ".ts", ".tsx", ".mjs", ".cjs"):
+        return False
+    try:
+        with open(path, "rb") as f:
+            head = f.read(65536)
+    except OSError:
+        return False
+    lines = head.count(b"\n") + 1
+    return len(head) > 4000 and len(head) / lines > 300
+
+
 def _language_for(path: Path) -> str:
-    ext = path.suffix.lower()
-    if ext == ".py":
-        return "python"
-    if ext in (".js", ".jsx"):
-        return "javascript"
-    if ext in (".ts", ".tsx"):
-        return "typescript"
-    return "other"
+    return LANGUAGE_BY_EXTENSION.get(path.suffix.lower(), "other")
 
 
 def clone_repository(repo_url: str, dest_dir: str, shallow: bool = True) -> float:
@@ -99,13 +122,76 @@ def clone_repository(repo_url: str, dest_dir: str, shallow: bool = True) -> floa
     return elapsed
 
 
+_GITHUB_RE = re.compile(r"^https?://github\.com/([^/\s]+)/([^/\s#?]+?)(?:\.git)?/?$", re.I)
+
+
+def _safe_extract(zip_path: str, dest_dir: str) -> str:
+    """Extract a zip refusing path traversal; returns the directory holding the project
+    (GitHub archives wrap everything in a single top-level folder)."""
+    os.makedirs(dest_dir, exist_ok=True)
+    root = os.path.realpath(dest_dir)
+    with zipfile.ZipFile(zip_path) as zf:
+        for member in zf.infolist():
+            target = os.path.realpath(os.path.join(dest_dir, member.filename))
+            if target != root and not target.startswith(root + os.sep):
+                raise RuntimeError(f"unsafe path in archive: {member.filename}")
+        zf.extractall(dest_dir)
+    entries = [e for e in os.listdir(dest_dir) if not e.startswith("__MACOSX")]
+    if len(entries) == 1 and os.path.isdir(os.path.join(dest_dir, entries[0])):
+        return os.path.join(dest_dir, entries[0])
+    return dest_dir
+
+
+def _download_github_zip(owner: str, repo: str, dest_dir: str) -> str:
+    """Git-free fallback: GitHub serves the default branch as a zip archive."""
+    url = f"https://github.com/{owner}/{repo}/archive/HEAD.zip"
+    tmp = tempfile.mkdtemp(prefix="ghzip_")
+    zpath = os.path.join(tmp, "repo.zip")
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "rag-vuln-detect/1.0"})
+        with urllib.request.urlopen(req, timeout=120) as resp, open(zpath, "wb") as out:
+            shutil.copyfileobj(resp, out)
+        return _safe_extract(zpath, dest_dir)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def acquire_source(source: str, workdir: str) -> tuple[str, float, str]:
+    """Make `source` available as a local directory.
+
+    source may be: an existing local directory (used in place, never modified), a .zip
+    file, a GitHub URL (shallow `git clone` when git exists, otherwise a zip download),
+    or any other git URL. Returns (local_path, seconds, kind).
+    """
+    t0 = time.time()
+    if os.path.isdir(source):
+        return os.path.abspath(source), 0.0, "local-directory"
+    dest = os.path.join(workdir, "_cloned_repo")
+    if os.path.exists(dest):
+        shutil.rmtree(dest)
+    if os.path.isfile(source) and source.lower().endswith(".zip"):
+        return _safe_extract(source, dest), time.time() - t0, "zip-file"
+    m = _GITHUB_RE.match(source.strip())
+    if shutil.which("git"):
+        try:
+            clone_repository(source, dest)
+            return dest, time.time() - t0, "git-clone"
+        except (RuntimeError, subprocess.TimeoutExpired, OSError) as e:
+            if not m:
+                raise RuntimeError(str(e)) from e
+    if m:
+        return _download_github_zip(m.group(1), m.group(2), dest), time.time() - t0, "github-zip"
+    raise RuntimeError(f"cannot read source '{source}': not a directory, .zip file, or git URL (and git is not installed)")
+
+
 def ingest_repository(repo_url: str, workdir: str) -> IngestionReport:
     """
-    Clones repo_url under workdir and applies the pre-filter.
-    Returns an IngestionReport describing exactly what was kept/skipped.
+    Makes `repo_url` (git/GitHub URL, local directory or .zip) available under workdir
+    and applies the pre-filter. Returns an IngestionReport describing exactly what
+    was kept/skipped.
     """
-    local_path = os.path.join(workdir, "_cloned_repo")
-    clone_seconds = clone_repository(repo_url, local_path)
+    os.makedirs(workdir, exist_ok=True)
+    local_path, clone_seconds, _kind = acquire_source(repo_url, workdir)
 
     total_seen = 0
     kept: list[IngestedFile] = []
@@ -123,7 +209,7 @@ def ingest_repository(repo_url: str, workdir: str) -> IngestionReport:
             fpath = Path(dirpath) / fname
             rel = str(fpath.relative_to(root))
 
-            if any(part in VENDORED_DIR_NAMES for part in fpath.parts):
+            if any(part in VENDORED_DIR_NAMES for part in Path(rel).parts):
                 skipped_vendored += 1
                 continue
 
@@ -144,6 +230,10 @@ def ingest_repository(repo_url: str, workdir: str) -> IngestionReport:
             lang = _language_for(fpath)
             if ext not in SUPPORTED_SOURCE_EXTENSIONS:
                 skipped_unsupported += 1
+                continue
+
+            if _looks_minified(fpath, fname):
+                skipped_binary += 1
                 continue
 
             kept.append(IngestedFile(
